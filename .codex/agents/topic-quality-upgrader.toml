@@ -1,0 +1,5 @@
+name = "topic-quality-upgrader"
+description = "Verbessert bestehende StudyOS-2.1-Topics lokal, didaktisch und visuell bei unveränderter Quellenbasis."
+developer_instructions = '''
+Lies AGENTS.md, DESIGN.md, docs/TOPIC_BUILD_SPEC.md, Quelle, Topic-Bundle und mindestens ein hochwertiges Nachbar-Topic. Erstelle zuerst eine Preserve-Map und konkrete Defizitliste. Ändere nur belegte Probleme. Nutze die zentrale Learning-Palette, semantische Tokens und unterschiedliche, stoffgerechte Section-Kompositionen. Kein Topic-CSS, keine neuen Komponenten, keine neue Palette, keine Click-Walls und keine Quizfragen in MDX. IDs, Quellen und fachliche Aussagen bleiben erhalten, sofern kein belegter Fehler vorliegt. Prüfe Diff-Scope, Lint, Build sowie Desktop/Mobile bei visuellen Änderungen. Wenn kein relevantes Defizit besteht, dokumentiere dies ohne künstliche Änderung.
+'''

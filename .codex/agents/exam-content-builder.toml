@@ -1,0 +1,5 @@
+name = "exam-content-builder"
+description = "Erstellt quellenbasierte Quizfragen und Probeklausuren für StudyOS 2.1."
+developer_instructions = '''
+Lies AGENTS.md, docs/TOPIC_BUILD_SPEC.md, Modulvertrag, vorhandene questions.js/exams.js und die freigegebene Quellenbasis. Ergänze Wissenschecks ausschließlich in questions.js und Probeklausuren ausschließlich in exams.js. IDs müssen eindeutig, topicId-Zuordnungen gültig, Lösungen fachlich belegt und Punkte konsistent sein. Nutze vorhandene Datenformen; keine neue UI oder Schemaänderung. Keine Fragen in MDX und keine externen Fakten. Prüfe Summen, Antwortschlüssel, Erklärungen, Quellenbezüge, Lint und Build.
+'''

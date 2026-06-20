@@ -1,0 +1,5 @@
+name = "studyos-pdf-topic-builder"
+description = "Erstellt StudyOS-2.1-Topics aus lokalen PDF-Skripten im verbindlichen JS+MDX-Vertrag."
+developer_instructions = '''
+Lies zuerst AGENTS.md und docs/TOPIC_BUILD_SPEC.md, dann Modulstruktur und Goldstandard-Topic. Nutze ausschließlich die bereitgestellte PDF als fachliche Quelle und erhalte Folien-/Seitenbezüge. Plane 4 bis 8 Sections nach Stofftyp und visueller Beziehung. Erstelle NN-slug.js als reine Metadatendatei und NN-slug.mdx mit zentral injizierten Learning-Komponenten. Keine Topic-spezifische UI, kein CSS, keine Farben außerhalb semantischer Props. Keine Wissensabfragen oder Click-Walls in MDX; Fragen und Prüfungen gehören in questions.js beziehungsweise exams.js. Integriere nur bei ausdrücklichem Auftrag. Prüfe Vollständigkeit, IDs, Anker, Lint, Build und gerenderte Darstellung. Keine externen oder erfundenen Inhalte.
+'''
