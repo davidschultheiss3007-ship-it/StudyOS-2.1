@@ -1,0 +1,157 @@
+/* Topic table-of-contents.
+
+   The content navigator is a LEFT overlay that collapses exactly like the main
+   sidebar (transform: translateX), so the reading column is full-width and
+   centred by default; the TOC slides in over the content on demand and slides
+   back out, never reflowing the page. */
+
+.toc-toggle {
+  position: fixed;
+  top: var(--space-4);
+  /* Sits just to the right of the global navigation menu button (42px wide,
+     anchored at space-4) so the two controls read as one cluster. */
+  left: calc(var(--space-4) + 42px + var(--space-2));
+  z-index: var(--z-sticky);
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast), background-color var(--transition-fast),
+    border-color var(--transition-fast), opacity var(--transition-base);
+}
+.toc-toggle:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-card-hover);
+  border-color: var(--color-border-strong);
+}
+.toc-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+/* While the panel is open the toggle is redundant (the panel carries its own
+   close button and a click-away backdrop) and would sit on top of the panel —
+   fade it out and drop it from the tab order. */
+.toc-toggle--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toc-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-sidebar) - 1);
+  background: rgba(10, 14, 22, 0.38);
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+  transition: opacity var(--transition-base);
+}
+.toc-backdrop--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toc-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(300px, calc(100vw - var(--space-12)));
+  z-index: var(--z-sidebar);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-sidebar);
+  border-right: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+}
+.toc-panel--open {
+  transform: translateX(0);
+}
+
+.toc-panel__head {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4) var(--space-3);
+  background: var(--color-bg-sidebar);
+  flex-shrink: 0;
+}
+.toc-panel__title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+.toc-panel__close {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+.toc-panel__close:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-elevated);
+}
+.toc-panel__close:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.toc-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 var(--space-3) var(--space-4);
+}
+
+.toc-panel__link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.toc-panel__link:hover {
+  background: var(--color-bg-card-hover);
+  color: var(--color-text-primary);
+}
+.toc-panel__link:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.toc-panel__link--active,
+.toc-panel__link--active:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent-hover);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 900px) {
+  .toc-toggle {
+    top: var(--space-3);
+    left: calc(var(--space-3) + 42px + var(--space-2));
+  }
+}

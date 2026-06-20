@@ -1,0 +1,408 @@
+{/* Kapitel 5 · Personalbeschaffung. Palette via MDXProvider. Modul-Akzent: teal. */}
+
+<section id="beschaffungswege-ueberblick">
+
+## Beschaffungswege im Überblick
+
+Personalbeschaffung läuft über zwei Grundrichtungen:
+
+- **Interne Wege** greifen auf bereits vorhandene Mitarbeiterpotenziale zurück.
+- **Externe Wege** erschließen den Arbeitsmarkt außerhalb des Unternehmens.
+
+### Taxonomie der Beschaffungswege
+
+<Diagram
+  title="Personalbeschaffung – Beschaffungswege (Folie 1)"
+  source="Human Resources · HR5 · Folie 1 (BWL-Lexikon)"
+  chart={`graph TD
+  PB["Personal­beschaffung"] --> INT["Interne Beschaffungswege"]
+  PB --> EXT["Externe Beschaffungswege"]
+  INT --> I1["Innerbetriebliche Ausschreibung"]
+  INT --> I2["Personalentwicklung"]
+  INT --> I3["Versetzung"]
+  INT --> I4["Mehrarbeit"]
+  EXT --> E1["Arbeitsverwaltung"]
+  EXT --> E2["Stellenanzeigen"]
+  EXT --> E3["Personalleasing"]
+  EXT --> E4["Personalberater"]
+  EXT --> E5["Sonstige Beschaffungswege"]`}
+  height={320}
+/>
+
+### Die zwei Grundrichtungen definiert
+
+<Columns count={2}>
+<DefinitionBox term="Interne Personalbeschaffung">
+Besetzung offener Stellen aus den **vorhandenen Mitarbeitern** im Unternehmen. Wissen und Unternehmenskultur bleiben erhalten, die Auswahl ist jedoch begrenzt.
+</DefinitionBox>
+<DefinitionBox term="Externe Personalbeschaffung">
+Besetzung offener Stellen durch **Kandidaten vom externen Arbeitsmarkt**. Erschließt neue Bewerberpotenziale über Medien, Institutionen und Beratungen.
+</DefinitionBox>
+</Columns>
+
+<SourceNote>Human Resources · HR5 · Folie 1</SourceNote>
+</section>
+
+<section id="reziproker-prozess">
+
+## Personalbeschaffung als reziproker Prozess
+
+Personalbeschaffung ist **kein einseitiger Suchprozess** des Unternehmens:
+
+- Sie ist ein **reziproker Aushandlungsprozess** — beide Seiten bringen eigene Angebote und Erwartungen ein.
+- Eine Vertragsbeziehung entsteht nur bei **weitgehend komplementären Interessen**.
+
+### Zwei Seiten, je mit Angebot und Nachfrage
+
+<CompareCard items={[
+  { tag: 'Organisation', title: 'Was die Organisation einbringt', subtitle: 'Angebot und Nachfrage des Unternehmens', accent: 'teal', points: [
+    '**Angebot:** Arbeitsplatz · Einkommen · Aus- und Weiterbildung',
+    '**Nachfrage:** Zeit · Kompetenzen · Leistung',
+  ] },
+  { tag: 'Individuum', title: 'Was das Individuum einbringt', subtitle: 'Angebot und Nachfrage des Bewerbers', accent: 'purple', points: [
+    '**Angebot:** Zeit · Kompetenzen · Leistungsbereitschaft',
+    '**Nachfrage:** Arbeitsmöglichkeit · Einkommenserzielung · Selbstverwirklichung',
+  ] },
+]} />
+
+### Der wechselseitige Austausch
+
+<Diagram
+  title="Reziproker Austausch zwischen Organisation und Individuum (Folie 3)"
+  source="Human Resources · HR5 · Folie 3"
+  chart={`graph LR
+  ORG["Organisation"] -->|"bietet: Arbeitsplatz, Einkommen, Weiterbildung"| IND["Individuum"]
+  IND -->|"bietet: Zeit, Kompetenzen, Leistungsbereitschaft"| ORG
+  IND -->|"fragt nach: Arbeitsmoeglichkeit, Einkommen, Selbstverwirklichung"| ORG
+  ORG -->|"fragt nach: Zeit, Kompetenzen, Leistung"| IND`}
+  height={260}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Recruiting ist heute stärker **beidseitig**: Auch das Individuum fragt aktiv nach — <Exam>Arbeitsmöglichkeit, Einkommenserzielung und Selbstverwirklichung</Exam> sind die besonders relevanten Erwartungen der Bewerberseite.
+</Callout>
+
+<SourceNote>Human Resources · HR5 · Folie 3</SourceNote>
+</section>
+
+<section id="interne-und-externe-wege">
+
+## Interne und externe Wege im Detail
+
+Beide Beschaffungsrichtungen verfügen über ein festes Set an Wegen und Instrumenten:
+
+- **Interne** Wege nutzen vorhandenes Personal (Versetzung, Entwicklung, Ausschreibung).
+- **Externe** Wege erschließen den Markt über Medien, Institutionen und Beratungen.
+- Hinzu kommen **aktive Quellen** wie Sourcing und Arbeitnehmerüberlassung.
+
+### Interne Personalbeschaffungswege
+
+<DataTable
+  caption="Interne Beschaffungswege und ihre Instrumente (Folie 4)"
+  columns={[
+    { key: 'weg', label: 'Interner Beschaffungsweg', align: 'left' },
+    { key: 'inst', label: 'Instrumente / Umsetzung', align: 'left' },
+  ]}
+  rows={[
+    { weg: 'Versetzung', inst: 'Stellenclearing (Tätigkeitsart, -ort, -umfang); Änderungsvertrag; Änderungskündigung' },
+    { weg: 'Personalentwicklung', inst: 'Personalbildung, Personalförderung, Arbeitsstrukturierung, Beförderung' },
+    { weg: 'Innerbetriebliche Ausschreibung', inst: 'Rundschreiben, Mitarbeiterzeitschrift, schwarzes Brett, Intranet, interne Initiativbewerbung' },
+  ]}
+/>
+
+### Externe Personalbeschaffungswege
+
+<DataTable
+  caption="Externe Beschaffungswege und ihre Medien/Kanäle (Folie 5)"
+  columns={[
+    { key: 'weg', label: 'Externer Beschaffungsweg', align: 'left' },
+    { key: 'inst', label: 'Instrumente / Beispiele', align: 'left' },
+  ]}
+  rows={[
+    { weg: 'Internet', inst: 'Website, Suchmaschinen, Jobbörsen, Portal, Banner, RSS Feed, Podcast, Mobile Tag, Newsgroup, Wiki, Second Life' },
+    { weg: 'Publikationen', inst: 'Tages-, Wochen-, Fachzeitschriften, Bücher' },
+    { weg: 'Werbung / Branding', inst: 'Plakat, Rundfunk-, TV- und Kinowerbung, Videotext, Fax, Employer Branding' },
+    { weg: 'Arbeitsvermittlung', inst: 'Agentur für Arbeit, ARGE, Jobcenter, Fach- und Auslandsvermittlung' },
+    { weg: 'Personalberatung', inst: 'Planung, Schaltung von Anzeigen, Auswahl, Entscheidung, Vertragsmodalitäten, Headhunting' },
+    { weg: 'Guerilla-Recruiting', inst: 'Ambient, Viral, Trojan und Conspiracy Recruiting' },
+  ]}
+/>
+
+### Aktive Quellen: Sourcing und Arbeitnehmerüberlassung
+
+<Columns count={2}>
+<Card title="Sourcing" tone="accent">
+Aktive Suche, Identifikation und **direkte Ansprache** potenzieller Kandidaten.
+- Empfehlungen, Talent Scouts, Competitive Intelligence
+- Auswertung von Stellengesuchen und Datenbanken
+- Hochschulmarketing, Messen, Partys, Recrutainment
+- Job Speed Dating, Internet-Sourcing
+</Card>
+<Card title="Arbeitnehmerüberlassung" tone="teal">
+Flexible **Bereitstellung von Arbeitskräften** über Überlassungsmodelle.
+- extern und intern
+- Inhouse-Service
+- Master-Service
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Nicht verwechseln">
+<Exam>Sourcing</Exam> ist die aktive Direktansprache eigener Wunschkandidaten — <Exam>Arbeitnehmerüberlassung</Exam> stellt Arbeitskräfte über (temporäre) Überlassungsmodelle bereit.
+</Callout>
+
+<SourceNote>Human Resources · HR5 · Folien 4–6</SourceNote>
+</section>
+
+<section id="recruiting-beispiele">
+
+## Recruiting-Kanäle und Beispiele
+
+Dieselbe Botschaft wirkt je nach Kontext völlig unterschiedlich:
+
+- Wirkung hängt von **Kanal, Tonalität und Zielgruppe** ab.
+- Die Folien zeigen reale Kampagnen, analysiert nach **Kanal, Zielgruppe, Stärke und Risiko**.
+
+### Reale Kampagnen im Vergleich
+
+<Columns count={2}>
+<Card title="Qunit · physische Sichtbarkeit" tone="neutral" compact>
+- **Kanal:** physischer Aushang / Standortwerbung
+- **Ziel:** Aufmerksamkeit und Kontaktaufnahme im Alltag
+- **Stärke:** lokale Sichtbarkeit, niedrige Hürde, Marke sichtbar
+- **Risiko:** begrenzte Reichweite, schwer messbare Conversion
+</Card>
+<Card title="Deutsche Bahn · Bahnhofsbanner" tone="neutral" compact>
+- **Kanal:** Out-of-Home / Hängeplakate am Bahnhof
+- **Zielgruppe:** Pendler, Reisende, Quereinsteiger
+- **Mechanik:** Kanal und Arbeitgeberkontext passen direkt zusammen
+- **Wiederholung** an mehreren Standorten stärkt Bekanntheit
+</Card>
+<Card title="Deutsche Bahn · Ambient-Bodenwerbung" tone="neutral" compact>
+- **Format:** Bodenaufkleber / Ambient Media im Bahnhof
+- **Claims:** „sicherer Boden" (Sicherheit) und „Schritt für Schritt" (Entwicklung)
+- **Zielgruppe:** Fachkräfte und Quereinsteiger
+- **Wirkprinzip:** Ort und Botschaft passen semantisch zusammen
+</Card>
+<Card title="BND · provokatives Plakat" tone="warning" compact>
+- **Kanal:** Plakat / Out-of-Home
+- **Claim:** „Wir suchen Terroristen — finde sie mit uns."
+- **Wirkprinzip:** Irritation, Aufmerksamkeitsbruch, schnelle Auflösung
+- **Risiko:** Missverständnisse, Kritik, Imagegefahr im falschen Kontext
+</Card>
+<Card title="Stadtmarketing · Billboard" tone="neutral" compact>
+- **Kanal:** Außenwerbung / regionales Billboard („RAN AN DEN JOB!")
+- **Zielgruppe:** lokale Fachkräfte, Handwerk/Technik
+- **Tonalität:** direkt, aktivierend, praxisnah, bildstark
+- **Lerneffekt:** regionale Sichtbarkeit aktiviert lokale Zielgruppen
+</Card>
+<Card title="Klassische Stellenanzeige" tone="neutral" compact>
+- **Kanal:** Print / Aushang (z. B. „Steinesammler m/w")
+- **Struktur:** Arbeitgeber, Suchabsicht, Jobtitel, Aufgaben, Voraussetzungen, Kontakt
+- **Stärke:** klare Information, seriöse Form
+- **Schwäche:** wenig emotional, geringe Reichweite, kaum Employer Branding
+</Card>
+</Columns>
+
+### Online-Banner: drei Gestaltungslogiken
+
+<DataTable
+  caption="Online-Banner nach Gestaltung und Ziel (Folie 15)"
+  columns={[
+    { key: 'typ', label: 'Banner-Typ', align: 'left' },
+    { key: 'gestaltung', label: 'Gestaltung', align: 'left' },
+    { key: 'ziel', label: 'Ziel', align: 'left' },
+  ]}
+  rows={[
+    { typ: 'Generischer Hiring-Banner', gestaltung: 'knallige Farben, große Headline, viele Jobtitel', ziel: 'schnelle Aufmerksamkeit und Klicks' },
+    { typ: 'Hashtag-/People-Banner', gestaltung: 'Porträts, Community-Gefühl, moderne Sprache (#durchstarter:in)', ziel: 'Identifikation und Employer Branding' },
+    { typ: 'Konkrete Stellenanzeige', gestaltung: 'Jobtitel, Standort, Arbeitgeberlogo', ziel: 'direkte Bewerbung auf konkrete Position' },
+  ]}
+/>
+
+<Callout type="pitfall" title="Guerilla-Recruiting kritisch prüfen">
+Provokative Kampagnen erzeugen hohe Aufmerksamkeit, sind aber riskant, wenn sie **nicht zu Branche, Marke oder Zielgruppe passen** — in konservativen Branchen droht Reputationsschaden.
+</Callout>
+
+<SourceNote>Human Resources · HR5 · Folien 7–15</SourceNote>
+</section>
+
+<section id="kampagne-und-bewertung">
+
+## Kampagnenentwicklung und Bewertung
+
+Als Fallstudie dient die **Photoluma GmbH**:
+
+- Eine gute Kampagne wird **zielgruppenspezifisch entwickelt** *und* nach klaren Kriterien bewertet.
+- *(Aus den Workshop-Folien hier als Lehrbeispiel aufbereitet.)*
+
+### Unternehmenssteckbrief
+
+<DataTable
+  caption="Unternehmenssteckbrief Photoluma GmbH – Lichttechnik (Folie 16)"
+  columns={[
+    { key: 'merkmal', label: 'Merkmal', align: 'left' },
+    { key: 'inhalt', label: 'Inhalt', align: 'left' },
+  ]}
+  rows={[
+    { merkmal: 'Branche', inhalt: 'Photonik / Umwelttechnologie' },
+    { merkmal: 'Standort', inhalt: 'Augsburg' },
+    { merkmal: 'Größe', inhalt: '85 Mitarbeitende' },
+    { merkmal: 'Produkte', inhalt: 'Entwicklung und Produktion nachhaltiger LED-Leuchtlösungen' },
+    { merkmal: 'Fokus', inhalt: 'Energieeffizienz, Langlebigkeit, regionale Produktion' },
+    { merkmal: 'Zielgruppen', inhalt: 'Industrieunternehmen, Kommunen, Smart-Home-Anbieter' },
+  ]}
+/>
+
+### Zielgruppenspezifische Kampagne
+
+Die Kampagne wird je Bewerbergruppe entwickelt — Kanäle, Tonalität, Maßnahmen und Erfolgsmessung müssen zur Gruppe passen.
+
+<Columns count={3}>
+<Card title="Azubis" tone="teal" compact>
+Kanäle wie Messen, Social Media und Empfehlungsprogramme; jugendnahe, nahbare Bildsprache.
+</Card>
+<Card title="Studierende" tone="accent" compact>
+Hochschulmarketing und digitale Kanäle; Entwicklungs- und Sinnversprechen.
+</Card>
+<Card title="Berufserfahrene" tone="purple" compact>
+Gezielte Ansprache und Empfehlungen; Fokus auf Verantwortung und Werteorientierung.
+</Card>
+</Columns>
+
+### Bewertungsbogen für Kampagnen-Pitches
+
+Als Recruiting-Team bewertet man Agenturvorschläge nach den Vorgaben der Geschäftsleitung — sieben Kriterien, je mit Leitfrage:
+
+<DecisionTree nodes={[
+  { label: 'Bewertungskriterien für Recruiting-Kampagnen (Folie 17)', children: [
+    { label: 'Zielgruppenfit', detail: 'Passt die Kampagne zu Azubis/Studierenden/Berufserfahrenen?' },
+    { label: 'Werteorientierung', detail: 'Spiegelt sie Nachhaltigkeit, Regionalität und Technologiebezug?' },
+    { label: 'Kreativität / Differenzierung', detail: 'Hebt sie sich von Standardanzeigen ab?' },
+    { label: 'Realisierbarkeit', detail: 'Ist sie mit Budget, Zeit und Ressourcen umsetzbar?' },
+    { label: 'Kanalwirkung', detail: 'Sind die Kanäle passend und erreichbar?' },
+    { label: 'Authentizität', detail: 'Wirkt die Ansprache glaubwürdig?' },
+    { label: 'Messbarkeit', detail: 'Sind KPIs und Erfolgskontrolle definiert?' },
+  ] },
+]} />
+
+<Callout type="merksatz" title="Kernaussage">
+Recruiting-Kampagnen müssen nicht nur kreativ sein, sondern **anhand klarer Kriterien** bewertet werden — Employer Branding trifft auf Entscheidungslogik und Erfolgskontrolle.
+</Callout>
+
+<SourceNote>Human Resources · HR5 · Folien 16–17</SourceNote>
+</section>
+
+<section id="intern-vs-extern-bewerten">
+
+## Interne vs. externe Beschaffung bewerten
+
+Vor- und Nachteile werden entlang **dreier Kategorien** verglichen:
+
+- **Allgemeines**, **Qualifikation** und **Motivation**.
+- Keine Seite ist pauschal „besser" — beide haben in jeder Kategorie **gemischte Effekte**.
+
+### Gegenüberstellung über alle Kategorien
+
+<CompareCard items={[
+  { tag: 'Intern', title: 'Interne Personalbeschaffung', subtitle: 'aus vorhandenem Personal', accent: 'teal', points: [
+    '**Allgemeines:** geringe Zeit-, Informations-, Einarbeitungs- und Fluktuationskosten; geringe Anfangs-Entgelterwartung; *aber* begrenzte Auswahl',
+    '**Qualifikation:** bekannt und betriebsspezifisch nutzbar, Erhalt betriebsspezifischer Qualifikationen; *aber* Gefahr der Veralterung',
+    '**Motivation:** Signal für Aufstiegschancen, offener Wettbewerb; *aber* Ablehnungsängste und Leistungsrückgang ohne externe Konkurrenz',
+  ] },
+  { tag: 'Extern', title: 'Externe Personalbeschaffung', subtitle: 'vom Arbeitsmarkt', accent: 'accent', points: [
+    '**Allgemeines:** größere Auswahl, höhere Leistungsbereitschaft, Personalentwicklung als externe Vorleistung; *aber* mehr Aufwand',
+    '**Qualifikation:** neue Potenziale, weniger Betriebsblindheit, Markteinblicke; *aber* mögliche Abwanderung aufgebauter Qualifikation',
+    '**Motivation:** kein Aufstiegsautomatismus, Dispositionsspielraum, Leistungsanreiz durch Alternativen; *aber* mögliche Demotivierung intern',
+  ] },
+]} />
+
+### Vier Felder der Kategorie Motivation
+
+<QuadrantMatrix
+  caption="Wirkungen am Beispiel der Kategorie Motivation (Folie 20)"
+  xLabel="Beschaffungsrichtung"
+  xLow="intern"
+  xHigh="extern"
+  yLabel="Wirkung"
+  yLow="Risiko"
+  yHigh="positiv"
+  quadrants={[
+    { pos: 'tl', title: 'Intern · positiv', accent: 'teal', points: ['Signal für Aufstiegschancen', 'wachsende Motivation interessierter MA', 'offener, zielorientierter Wettbewerb'] },
+    { pos: 'tr', title: 'Extern · positiv', accent: 'accent', points: ['verhindert Aufstiegsautomatismus', 'Dispositionsspielraum Altersstruktur', 'Leistungsanreiz durch Alternativen'] },
+    { pos: 'bl', title: 'Intern · Risiko', accent: 'warning', points: ['Ablehnungsängste der Bewerber', 'Leistungsrückgang ohne externe Konkurrenz'] },
+    { pos: 'br', title: 'Extern · Risiko', accent: 'orange', points: ['Demotivierung intern', 'blockierte Aufstiegsperspektiven'] },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Interne Beschaffung ist oft **schneller und günstiger**, aber begrenzt; externe Beschaffung bietet **mehr Auswahl und neue Potenziale**, kann aber intern demotivieren. <Exam>Beide Richtungen haben in jeder Kategorie Vor- und Nachteile</Exam>.
+</Callout>
+
+<SourceNote>Human Resources · HR5 · Folien 18–20</SourceNote>
+</section>
+
+<section id="arbeitgeberattraktivitaet">
+
+## Arbeitgeberattraktivität und Employer Branding
+
+Arbeitgeberattraktivität und Employer Branding wirken direkt auf den Beschaffungserfolg:
+
+- Sie steuern **Bewerberinteresse und Zielgruppenansprache** mit.
+- Das <Exam>Trendence-Ranking 2025</Exam> zeigt die Wunscharbeitgeber von Schüler:innen.
+
+### Top 10 der Wunscharbeitgeber 2025
+
+<DataChart
+  type="bar"
+  title="Top 10 der Wunscharbeitgeber 2025 (% der Nennungen)"
+  source="Trendence-Ranking 2025; 13.800 Schüler:innen der Klassen 8–13 · Folie 21"
+  xKey="employer"
+  yKey="pct"
+  xLabel="Arbeitgeber"
+  yLabel="Anteil 2025 (%)"
+  height={340}
+  data={[
+    { employer: 'Porsche', pct: 16.6 },
+    { employer: 'BMW Group', pct: 14.2 },
+    { employer: 'Mercedes Benz', pct: 12.1 },
+    { employer: 'Polizei', pct: 12.0 },
+    { employer: 'Douglas', pct: 9.7 },
+    { employer: 'Bundeswehr', pct: 7.9 },
+    { employer: 'AUDI AG', pct: 7.8 },
+    { employer: 'Amazon', pct: 7.5 },
+    { employer: 'Adidas', pct: 7.3 },
+    { employer: 'dm', pct: 6.8 },
+  ]}
+  series={[{ key: 'pct', name: 'Anteil 2025', color: 'var(--color-module-teal)' }]}
+/>
+
+### Ranking mit Vorjahresvergleich
+
+<DataTable
+  caption="Ranking mit Vorjahresvergleich (Rang 2024)"
+  columns={[
+    { key: 'r25', label: 'Rang 2025', align: 'right' },
+    { key: 'emp', label: 'Top-Arbeitgeber', align: 'left' },
+    { key: 'pct', label: '% 2025', align: 'right' },
+    { key: 'r24', label: 'Rang 2024', align: 'right' },
+  ]}
+  rows={[
+    { r25: 1, emp: 'Porsche', pct: '16,6', r24: 4 },
+    { r25: 2, emp: 'BMW Group', pct: '14,2', r24: 3 },
+    { r25: 3, emp: 'Mercedes Benz Group', pct: '12,1', r24: 6 },
+    { r25: 4, emp: 'Polizei', pct: '12,0', r24: 1 },
+    { r25: 5, emp: 'Douglas', pct: '9,7', r24: 8 },
+    { r25: 6, emp: 'Bundeswehr', pct: '7,9', r24: 5 },
+    { r25: 7, emp: 'AUDI AG', pct: '7,8', r24: 7 },
+    { r25: 8, emp: 'Amazon', pct: '7,5', r24: 'Neu' },
+    { r25: 9, emp: 'Adidas', pct: '7,3', r24: 2 },
+    { r25: 10, emp: 'dm', pct: '6,8', r24: 14 },
+  ]}
+/>
+
+<Callout type="examfocus" title="Muster im Ranking">
+<Exam>Automobilmarken dominieren</Exam> die Spitze; öffentliche Arbeitgeber (Polizei, Bundeswehr) und Retail-Marken (Douglas, dm) sind ebenfalls stark vertreten. Für die Personalbeschaffung heißt das: Arbeitgeberattraktivität steuert das Bewerberinteresse mit.
+</Callout>
+
+<SourceNote>Human Resources · HR5 · Folie 21 (Trendence 2025)</SourceNote>
+</section>

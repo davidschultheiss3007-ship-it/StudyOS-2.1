@@ -1,0 +1,176 @@
+{/* Kapitel 2 · Das Modell der zwei Systeme nach Kahneman. Palette via MDXProvider. */}
+
+<section id="zwei-systeme-im-ueberblick">
+
+## Zwei Systeme des Denkens
+
+Daniel Kahneman beschreibt menschliches Denken über **zwei Systeme**. Sie unterscheiden sich nicht im Ort, sondern im *Modus* der Verarbeitung.
+
+<QuadrantMatrix
+  caption="Die zwei Denksysteme entlang Geschwindigkeit und Anstrengung (Folien 3–6)"
+  xLabel="Anstrengung"
+  xLow="mühelos"
+  xHigh="anstrengend"
+  yLabel="Steuerung"
+  yLow="automatisch"
+  yHigh="bewusst"
+  quadrants={[
+    { pos: 'bl', title: 'System 1 · schnelles Denken', accent: 'purple', points: ['automatisch, schnell, unbewusst', 'Beispiel: zorniges Gesicht sofort als Bedrohung lesen'] },
+    { pos: 'tr', title: 'System 2 · langsames Denken', accent: 'accent', points: ['bewusst, konzentriert, anstrengend', 'Beispiel: 17 × 24 im Kopf rechnen'] },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Demo System 1: das Gesicht" tone="purple">
+Beim Blick auf ein zorniges Gesicht erkennt man **mühelos** Emotion und antizipiert Verhalten — ohne willentliche Steuerung. Das ist *schnelles Denken*.
+</Card>
+<Card title="Demo System 2: 17 × 24" tone="accent">
+Die Multiplikation verlangt **bewusste, anstrengende** mentale Arbeit, mit Beteiligung des Körpers. Das ist *langsames Denken* — und ermüdet schnell.
+</Card>
+</Columns>
+
+<SourceNote>Kahneman (2012), S. 31–32 · Folien 33–38</SourceNote>
+</section>
+
+<section id="system-1-vs-system-2">
+
+## System 1 vs. System 2 im Vergleich
+
+<CompareCard items={[
+  { tag: 'System 1', title: 'Schnelles Denken', subtitle: 'automatisch · unbewusst', accent: 'purple', points: [
+    'funktioniert **automatisch, schnell und unbewusst**',
+    'zuständig für rasche, eher unbewusste Handlungen und Entscheidungen',
+    'arbeitet u. a. mit **Heuristiken**',
+    'angeborene Fähigkeiten + durch Übung erworbene Routinen',
+  ] },
+  { tag: 'System 2', title: 'Langsames Denken', subtitle: 'bewusst · aber faul', accent: 'accent', points: [
+    'bewusstes, konzentriertes — **aber faules** — System',
+    'zuständig für aufwendige Entscheidungs- und Denkprozesse',
+    'konstruiert Gedanken in geordneter Folge',
+    'der **Homo Oeconomicus** arbeitet ausschließlich mit System 2',
+  ] },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+Der <Exam>Homo Oeconomicus wäre ein reiner System-2-Akteur</Exam>. Reale Menschen entscheiden überwiegend mit System 1 — daher weichen sie systematisch vom rationalen Idealbild ab.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF2 · Folie 39</SourceNote>
+</section>
+
+<section id="typische-beispiele">
+
+## Typische Aktivitäten beider Systeme
+
+Dieselbe Handlung kann je nach Vertrautheit das eine oder andere System fordern. Die Zuordnung ist klausurrelevant.
+
+<Columns count={2}>
+<Card title="System 1 — mühelos, automatisch" tone="purple">
+- erkennen, dass ein Gegenstand weiter entfernt ist
+- sich der Quelle eines Geräusches zuwenden
+- **2 + 2 = ?** beantworten
+- Feindseligkeit aus einer Stimme heraushören
+- über eine leere Straße fahren
+- einfache Sätze verstehen
+</Card>
+<Card title="System 2 — kontrolliert, anstrengend" tone="accent">
+- sich bei einem Wettlauf auf den Startschuss konzentrieren
+- eine Stimme im lauten Raum heraushören
+- in einer schmalen Parklücke einparken
+- eine **Steuererklärung** anfertigen
+- die Angemessenheit von Verhalten beurteilen
+- die Gültigkeit einer Beweisführung prüfen
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Folien-Inkonsistenz">
+Der Folientitel zu den System-2-Beispielen spricht von „automatischen Aktivitäten" — das ist ein Fehler der Vorlage. Die genannten Tätigkeiten sind kontrolliert und aufmerksamkeitsfordernd, also typisch **System 2**.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF2 · Folien 40–41</SourceNote>
+</section>
+
+<section id="zusammenspiel-und-denkfehler">
+
+## Zusammenspiel und die Entstehung von Denkfehlern
+
+System 1 und System 2 arbeiten meist effizient zusammen — die Arbeitsteilung ist aber die Quelle vieler Verzerrungen.
+
+<Timeline events={[
+  { label: '1', title: 'System 1 läuft permanent', text: 'Es liefert automatisch Eindrücke, Intuitionen und Absichten.' },
+  { label: '2', title: 'System 2 übernimmt bei Bedarf', text: 'Sobald es schwieriger wird, schaltet sich das bewusste System ein.' },
+  { label: '3', title: 'Das Gehirn ist faul', text: 'Es nutzt gern System 1 — das aber anfällig für kognitive Verzerrungen ist.' },
+  { label: '4', title: 'Denkfehler sind schwer vermeidbar', text: 'System 1 lässt sich nicht abstellen und reagiert automatisch.' },
+]} />
+
+<Callout type="merksatz" title="Kernaussage">
+<Exam>Intuitive Denkfehler sind schwer zu verhindern</Exam>, weil System 1 nicht abgeschaltet werden kann. Wir setzen spontan das als ausreichend an, was wir kennen — System 1 springt an, bevor System 2 prüfen kann.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF2 · Folie 42</SourceNote>
+</section>
+
+<section id="kognitive-leichtigkeit">
+
+## Kognitive Leichtigkeit
+
+„Kognitive Leichtigkeit" (cognitive ease) beschreibt, wie mühelos sich ein Eindruck anfühlt. Sie hat klar benannte **Ursachen** und **Wirkungen**.
+
+<Diagram
+  title="Ursachen → Leichtigkeit → Wirkungen (Folie 13)"
+  chart={`graph LR
+  U1["Wiederholte Erfahrung"] --> Z["Leichtigkeit"]
+  U2["Klare Darstellung"] --> Z
+  U3["Geprimte Vorstellung"] --> Z
+  U4["Gute Laune"] --> Z
+  Z --> W1["Fühlt sich vertraut an"]
+  Z --> W2["Erscheint wahr"]
+  Z --> W3["Fühlt sich gut an"]
+  Z --> W4["Erscheint mühelos"]`}
+/>
+
+<Callout type="pitfall" title="Leichtigkeit ≠ Wahrheit">
+Dass etwas vertraut und mühelos wirkt, heißt nur, dass es sich **wahr anfühlt** — nicht, dass es wahr ist. Genau hier entstehen Fehlurteile.
+</Callout>
+
+<SourceNote>Kahneman (2012) · Folie 13</SourceNote>
+</section>
+
+<section id="mentale-traegheit-beispiele">
+
+## Mentale Trägheit: Selbsttests und Konflikte
+
+Drei klassische Beispiele zeigen, wie System 1 vorschnell antwortet. *(Hier als Lernbeispiele dargestellt — die Auflösung steht jeweils dabei.)*
+
+### Cognitive Reflection Test (Frederick 2005)
+
+<Card title="Beispielaufgabe: Schläger und Ball" tone="neutral">
+Ein Schläger und ein Ball kosten zusammen **1,10 €**. Der Schläger kostet 1 € mehr als der Ball.
+System 1 antwortet sofort „0,10 €" — richtig ist jedoch **0,05 €** (Schläger 1,05 € + Ball 0,05 € = 1,10 €).
+</Card>
+
+<Callout type="info" title="Befund: Disfluency aktiviert System 2">
+**90 %** der Studierenden machten bei normaler Schrift mindestens einen Fehler. War die Schrift kaum lesbar, sank der Anteil auf **35 %** — die kognitive Anstrengung mobilisiert System 2, das die intuitive Antwort verwirft.
+</Callout>
+
+### Moses-Illusion
+
+<Card title="Wie viele Tiere nahm Moses auf seine Arche?" tone="purple">
+Intuitiv nennt man eine Zahl — tatsächlich war es **Noah**, nicht Moses. Der vertraute biblische Kontext erzeugt Leichtigkeit, sodass System 1 die Anomalie im Namen nicht bemerkt.
+</Card>
+
+### Rosen-Syllogismus
+
+<Card title="Logisch gültig?" tone="warning">
+„Alle Rosen sind Blumen. Einige Blumen verwelken schnell. Also verwelken einige Rosen schnell."
+Der Schluss wirkt überzeugend, ist aber **logisch ungültig** — System 1 zieht den Schluss vor der Prüfung; nur System 2 erkennt den Fehler.
+</Card>
+
+### Stroop-Konflikt
+
+<Card title="Konflikt der Systeme" tone="accent" exam>
+Liest man Wörter wie „LINKS" / „groß" und soll dabei *Schreibweise* oder *Position* nennen, kollidiert das **automatische Lesen (System 1)** mit der **bewussten Aufgabe (System 2)**. Das Unterdrücken der automatischen Reaktion kostet Anstrengung und verlangsamt.
+</Card>
+
+<SourceNote>Frederick (2005); Kahneman (2012), S. 39, 61 · Folien 11–16</SourceNote>
+</section>

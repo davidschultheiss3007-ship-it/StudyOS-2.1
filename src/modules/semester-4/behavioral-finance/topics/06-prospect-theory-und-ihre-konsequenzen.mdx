@@ -1,0 +1,452 @@
+{/* Kapitel 6 · Prospect Theory und ihre Konsequenzen. Palette via MDXProvider. */}
+
+<section id="allais-paradoxon">
+
+## Das Allais-Paradoxon als Anomalie
+
+Die Prospect Theory entsteht aus einem **Widerspruch** zur klassischen Erwartungsnutzentheorie:
+
+- Menschen wählen systematisch anders, als es der **Erwartungswert** nahelegt.
+- Kahneman und Tversky zeigen das an **zwei** Entscheidungsproblemen mit identischer Struktur.
+- Die rationale Wahl (höherer Erwartungswert) und die tatsächliche Mehrheitswahl fallen auseinander.
+
+### Entscheidungsproblem I — Alternative A oder B
+
+<DataTable
+  caption="Auszahlungen je Zustand (Folie 3)"
+  columns={[
+    { key: 'alt', label: 'Alternative', align: 'left' },
+    { key: 'z1', label: 'Zustand 1 (33%)', align: 'right' },
+    { key: 'z2', label: 'Zustand 2 (66%)', align: 'right' },
+    { key: 'z3', label: 'Zustand 3 (1%)', align: 'right' },
+  ]}
+  rows={[
+    { alt: 'Alternative A', z1: '2.500 EUR', z2: '2.400 EUR', z3: '0 EUR' },
+    { alt: 'Alternative B', z1: '2.400 EUR', z2: '2.400 EUR', z3: '2.400 EUR' },
+  ]}
+/>
+
+<Callout type="info" title="Erwartungswerte Problem I">
+E(A) = 0,33 · 2.500 + 0,66 · 2.400 + 0,01 · 0 = **2.409 EUR**; E(B) = **2.400 EUR**. Rational wäre damit **Alternative A** — die meisten Menschen wählen aber **B**.
+</Callout>
+
+### Entscheidungsproblem II — Alternative C oder D
+
+<DataTable
+  caption="Auszahlungen je Zustand (Folie 4)"
+  columns={[
+    { key: 'alt', label: 'Alternative', align: 'left' },
+    { key: 'z1', label: 'Zustand 1 (33%)', align: 'right' },
+    { key: 'z2', label: 'Zustand 2 (66%)', align: 'right' },
+    { key: 'z3', label: 'Zustand 3 (1%)', align: 'right' },
+  ]}
+  rows={[
+    { alt: 'Alternative C', z1: '2.500 EUR', z2: '0 EUR', z3: '0 EUR' },
+    { alt: 'Alternative D', z1: '2.400 EUR', z2: '0 EUR', z3: '2.400 EUR' },
+  ]}
+/>
+
+<Callout type="info" title="Erwartungswerte Problem II">
+E(C) = 0,33 · 2.500 = **825 EUR**; E(D) = 0,34 · 2.400 = **816 EUR**. Rational wäre **Alternative C** — und C wird auch mehrheitlich gewählt.
+</Callout>
+
+### Der Widerspruch im Erwartungsnutzen
+
+<Formula
+  title="Darstellung in Erwartungsnutzen (Folie 5)"
+  expr="\begin{aligned} \text{Problem I } (B \succ A): &\quad 0{,}33\,u(2.500) + 0{,}66\,u(2.400) < u(2.400) \\ \text{Problem II } (C \succ D): &\quad 0{,}33\,u(2.500) > 0{,}34\,u(2.400) \\ \text{Folgerung aus I}: &\quad 0{,}33\,u(2.500) < 0{,}34\,u(2.400) \end{aligned}"
+/>
+
+### Rational vs. tatsächlich gewählt
+
+<CompareCard items={[
+  { tag: 'Problem I', title: 'A vs. B', subtitle: 'rational A — gewählt B', accent: 'warning', points: [
+    'Rational (höherer Erwartungswert): **A** mit E(A) = 2.409 EUR größer E(B) = 2.400 EUR.',
+    'Tatsächlich gewählt: **B** (das sichere Ergebnis).',
+  ] },
+  { tag: 'Problem II', title: 'C vs. D', subtitle: 'rational C — gewählt C', accent: 'positive', points: [
+    'Rational (höherer Erwartungswert): **C** mit E(C) = 825 EUR größer E(D) = 816 EUR.',
+    'Tatsächlich gewählt: **C** — hier deckt sich die Wahl mit dem Erwartungswert.',
+  ] },
+]} />
+
+<Callout type="pitfall" title="Anomalie">
+Die Folgerung aus Problem I (<Formula inline expr="0{,}33\,u(2.500) < 0{,}34\,u(2.400)" />) widerspricht direkt der Präferenz aus Problem II (<Formula inline expr="0{,}33\,u(2.500) > 0{,}34\,u(2.400)" />). Dieser Widerspruch ist eine <Exam>Anomalie</Exam>, welche die Erwartungsnutzentheorie verletzt und die Prospect Theory motiviert.
+</Callout>
+
+<SourceNote>Kahneman, D., Tversky, A. (1979), S. 265 · Folien 191–195</SourceNote>
+</section>
+
+<section id="prospect-theory-grundlagen">
+
+## Prospect Theory: Grundlagen und zwei Phasen
+
+<DefinitionBox term="Prospect Theory" source="Kahneman/Tversky (1979/1992), Econometrica">
+Ein **deskriptives** kognitionspsychologisches Entscheidungsmodell: Es beschreibt, wie Menschen *real* zwischen riskanten Alternativen mit bekannten Wahrscheinlichkeiten wählen — auf Grundlage des potenziellen Werts von **Gewinnen und Verlusten**, nicht des absoluten Endvermögens.
+</DefinitionBox>
+
+<Columns count={2}>
+<Card title="Begründer" tone="purple" compact>
+- **Daniel Kahneman** (geb. 1934)
+- **Amos Tversky** (1937–1996)
+- wegweisender Artikel „Prospect Theory: An Analysis of Decision under Risk" (1979), Econometrica; 1992 weiterentwickelt
+</Card>
+<Card title="Abgrenzung zur Erwartungsnutzentheorie" tone="accent" compact>
+- Entscheidungen werden durch **Wahrnehmungsverzerrungen (Biases)** beeinflusst
+- es werden **zwei Phasen** des Entscheidungsprozesses unterstellt
+- Ziel: Entscheidungen erklären, die der Erwartungsnutzentheorie widersprechen
+</Card>
+</Columns>
+
+### Notation eines Prospekts
+
+<DefinitionBox term="Prospekt (x;p / y;q)" source="Folie 9">
+Ein **Prospekt** ist das Ergebnis einer riskanten Entscheidung mit der zugehörigen Eintrittswahrscheinlichkeit. Zwei Ergebnisse x und y mit den Wahrscheinlichkeiten p und q werden als (x;p / y;q) geschrieben. Ist p+q kleiner als 1, bleibt mit Wahrscheinlichkeit 1−p−q der **Status quo** erhalten. Beispiel (100;0,5 / −50;0,25): mit 25% bleibt der Status quo erhalten.
+</DefinitionBox>
+
+### Die zwei Phasen der Entscheidungsfindung
+
+<Timeline events={[
+  { label: '1', title: 'Editing (Aufbereitung)', text: 'Konsequenzen und Wahrscheinlichkeiten der Alternativen werden durch Operationen transformiert: Kombination, Vereinfachung, Segregation, Streichung, Eliminierung dominierter Alternativen, Kodierung (Referenzpunkt setzen).' },
+  { label: '2', title: 'Evaluation (Bewertung)', text: 'Die aufbereiteten Prospects werden bewertet — über zwei Funktionen: die Wertfunktion v (Gewinne/Verluste relativ zum Referenzpunkt) und die Gewichtungsfunktion pi (subjektive Gewichtung der Wahrscheinlichkeiten).' },
+]} />
+
+<Formula
+  title="Bewertung eines Prospekts (Folien 10, 17)"
+  expr="V(x;p \, / \, y;q) = \pi(p)\cdot v(x) + \pi(q)\cdot v(y)"
+  legend={[
+    { sym: 'v(\\cdot)', desc: 'Wertfunktion: subjektiver Wert eines Ergebnisses (Abweichung vom Referenzpunkt)' },
+    { sym: '\\pi(\\cdot)', desc: 'Gewichtungsfunktion: subjektive Gewichtung der Wahrscheinlichkeit' },
+    { sym: 'p,\\ q', desc: 'objektive Eintrittswahrscheinlichkeiten der Ergebnisse x und y' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Der subjektive Wert ergibt sich als Produkt aus verzerrtem Wert und verzerrter Wahrscheinlichkeit: <Exam>V(x,p) = v(x) · pi(p)</Exam>. Dabei ist <Exam>pi keine Maßzahl für die Wahrscheinlichkeit</Exam>, sondern die subjektive Einschätzung des Entscheiders bezüglich dieser Wahrscheinlichkeit.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF6 · Folien 196–200, 207</SourceNote>
+</section>
+
+<section id="editing-phase">
+
+## Die Editing-Phase
+
+Die **Editierphase = Aufbereitungsphase** transformiert Folgen und Wahrscheinlichkeiten durch bestimmte Operationen und vereinfacht so die Entscheidung. Bereits hier können Entscheidungen entstehen, die der Erwartungsnutzentheorie widersprechen.
+
+<DataTable
+  caption="Die Editing-Operationen (Folie 11)"
+  columns={[
+    { key: 'op', label: 'Operation', align: 'left' },
+    { key: 'desc', label: 'Erklärung', align: 'left' },
+  ]}
+  rows={[
+    { op: 'Vereinfachung', desc: 'z. B. durch Auf- oder Abrunden' },
+    { op: 'Kombination', desc: 'Addition der Wahrscheinlichkeiten identischer Ergebnisse' },
+    { op: 'Segregation', desc: 'Trennung sicherer und unsicherer Konsequenzen' },
+    { op: 'Kodierung', desc: 'Festlegung eines Referenzpunkts (z. B. Einstiegskurs bei WP-Kauf)' },
+    { op: 'Cancellation', desc: 'sehr unwahrscheinliche Folgen werden ignoriert; identische Bestandteile beim Vergleich zweier Alternativen bleiben unberücksichtigt' },
+  ]}
+/>
+
+### Beispiel Vereinfachung: Runden und Ignorieren kleiner Unterschiede
+
+<CompareCard items={[
+  { tag: 'verworfen', title: 'Linke Lotterie', subtitle: '(101 EUR; 0,49 / 0 EUR; 0,51)', accent: 'negative', points: [
+    'Krumme Beträge und ungerade Wahrscheinlichkeiten.',
+    'Wird gedanklich auf die einfachere Variante reduziert.',
+  ] },
+  { tag: 'gewählt', title: 'Rechte Lotterie', subtitle: '(100 EUR; 0,50 / 0 EUR; 0,50)', accent: 'positive', points: [
+    'Gerundet und „glatt".',
+    'Subjektiv leichter zu bewerten — daher bevorzugt.',
+  ] },
+]} />
+
+<Callout type="merksatz" title="Vereinfachung">
+Menschen runden krumme Beträge (101 → 100) und vernachlässigen kleine Unterschiede (49% → 50%). Die komplexere linke Lotterie wird gedanklich auf die einfachere rechte reduziert.
+</Callout>
+
+### Beispiel Kombination: Wie eine Operation zur irrationalen Wahl führt
+
+Zwei objektiv identische Entscheidungssituationen. In Situation 2 wurden Farben mit gleichen Ergebnissen zusammengefasst (kombiniert) — die Dominanz wird dadurch „verschleiert".
+
+<Diagram
+  title="Transformation einer Alternative durch Editing-Operationen (Folie 13)"
+  source="Daxhammer/Facsar (2017)"
+  chart={`graph LR
+  subgraph AX["Alternative X"]
+    A1["0,4 -> 100"]
+    A2["0,2 -> 100"]
+    A3["0,3999 -> 200,1"]
+    A4["0,0001"]
+    A5["50"]
+  end
+  subgraph OP["Editierung"]
+    O1["Kombination"]
+    O2["Kodierung von r"]
+    O3["Vereinfachung"]
+    O4["Streichung"]
+    O5["ggf. Segregation"]
+  end
+  subgraph PX["Prospect X"]
+    P1["0,6 -> 100-r"]
+    P2["0,4 -> 200-r"]
+  end
+  AX --> OP --> PX`}
+/>
+
+<Callout type="examfocus" title="Befund Kombination (Folie 15)">
+In Situation 1 wählen <Exam>100% der Probanden Variante B</Exam>. In Situation 2 — nach Zusammenfassung der Farben — wählen <Exam>58% die dominierte Variante C</Exam>. Allein die Editing-Operation führt zur irrationalen Wahl.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF6 · Folien 201–206; Daxhammer/Facsar (2017)</SourceNote>
+</section>
+
+<section id="wertfunktion">
+
+## Die Wertfunktion (Value Function)
+
+Der Wert einer Alternative hängt von zwei Elementen ab: dem **Referenzpunkt** und der **Höhe der Abweichung** von diesem Punkt. Daraus entsteht die charakteristische S-Form.
+
+<DataChart
+  type="line"
+  title="S-förmige Wertfunktion v relativ zum Referenzpunkt (Folie 20)"
+  source="Folie 20 (eigene Darstellung der Kurvenlogik)"
+  xKey="x"
+  yKey="v"
+  xLabel="Verlust  <--  Referenzpunkt  -->  Gewinn"
+  yLabel="subjektiver Wert v"
+  height={340}
+  xDomain={[-100, 100]}
+  yDomain={[-120, 70]}
+  data={[
+    { x: -100, v: -118 }, { x: -80, v: -104 }, { x: -60, v: -88 }, { x: -40, v: -68 },
+    { x: -20, v: -42 }, { x: -10, v: -25 }, { x: 0, v: 0 }, { x: 10, v: 16 },
+    { x: 20, v: 28 }, { x: 40, v: 44 }, { x: 60, v: 54 }, { x: 80, v: 61 }, { x: 100, v: 66 },
+  ]}
+  series={[{ key: 'v', name: 'Wertfunktion v(x)', color: 'var(--color-module-purple)' }]}
+/>
+
+<Columns count={2}>
+<Card title="Gewinnbereich — konkav" tone="accent" compact>
+**Konkaver** Verlauf → **risikoscheu**. Die Freude über zusätzlichen Gewinn wird geringer (100 → 200 EUR wird stärker wahrgenommen als 1.100 → 1.200 EUR).
+</Card>
+<Card title="Verlustbereich — konvex und steiler" tone="negative" compact>
+**Konvexer** Verlauf → **risikofreudig**. Das Leid über zusätzlichen Verlust wird geringer; die Kurve ist **steiler** als im Gewinnbereich → **Verlustaversion**.
+</Card>
+</Columns>
+
+<Callout type="examfocus" title="Prinzip abnehmender Empfindlichkeit + Verlustaversion">
+<Exam>Konkav im Gewinn-, konvex im Verlustbereich</Exam>, dabei im Verlust **steiler** — Verluste werden etwa **doppelt so stark** bewertet wie gleich hohe Gewinne. Bewertet werden stets **relative Veränderungen** gegenüber dem Referenzpunkt, nicht absolute Werte.
+</Callout>
+
+<ProportionBar
+  caption="Verlustaversion: subjektives Gewicht eines gleich hohen Betrags"
+  source="Folie 20 (schematische Relation 2:1)"
+  segments={[
+    { label: 'Schmerz eines Verlusts', value: 2, color: 'var(--color-error)' },
+    { label: 'Freude über gleich hohen Gewinn', value: 1, color: 'var(--color-success)' },
+  ]}
+/>
+
+### Reflexionseffekt: Befunde bei positiven und negativen Prospekten
+
+<DataTable
+  caption="Antworthäufigkeiten in % bei gespiegelten Prospekten (Folie 19)"
+  columns={[
+    { key: 'fall', label: 'Fall', align: 'left' },
+    { key: 'a', label: 'A (positiv)', align: 'left' },
+    { key: 'b', label: 'B (positiv)', align: 'left' },
+    { key: 'c', label: 'C (negativ)', align: 'left' },
+    { key: 'd', label: 'D (negativ)', align: 'left' },
+  ]}
+  rows={[
+    { fall: 'Fall 1', a: '(4.000; 0,8) — 20%', b: '(3.000) — 80%', c: '(-4.000; 0,8) — 92%', d: '(-3.000) — 8%' },
+    { fall: 'Fall 2', a: '(3.000; 0,9) — 86%', b: '(6.000; 0,45) — 14%', c: '(-3.000; 0,9) — 8%', d: '(-6.000; 0,45) — 92%' },
+  ]}
+/>
+
+<Callout type="merksatz" title="Reflexionseffekt">
+Die Spiegelung von Gewinnen zu Verlusten **kehrt das Risikoverhalten um**: bei positiven Prospekten dominiert **Risikoaversion**, bei negativen **Risikofreude**. Das widerspricht der klassischen Theorie und zeigt sich auch bei rein anderer Darstellung (Framing) objektiv identischer Ergebnisse.
+</Callout>
+
+<Explorable label="3D-Ansicht der Wertfunktion (optionale Vertiefung)" note="Dieselbe S-Logik als Fläche: konkav im Gewinn-, konvex und steiler im Verlustbereich.">
+<Surface3D
+  kind="s-curve"
+  title="Wertfunktion als Fläche v(x, y)"
+  hint="Konkav in den Gewinnen, konvex und steiler in den Verlusten — Verlustaversion."
+  xLabel="Ergebnis"
+  yLabel="Kontext"
+  zLabel="subjektiver Wert v"
+  accent="purple"
+/>
+</Explorable>
+
+<SourceNote>Kahneman/Tversky (1979), S. 265 ff. · Folien 209–211</SourceNote>
+</section>
+
+<section id="konsequenzen-der-wertfunktion">
+
+## Konsequenzen: Mental Accounting, Sunk Cost & Co.
+
+Aus der S-Form der Wertfunktion folgen mehrere systematische Verhaltensmuster. Die meisten beruhen auf **Verlustaversion** und **abnehmender Empfindlichkeit**.
+
+<CompareCard items={[
+  { tag: 'Status-quo-Bias', title: 'Status-quo-Bias', subtitle: 'lieber alles beim Alten lassen', accent: 'purple', points: [
+    'Prospect-Theory-Erklärung: **Verlustaversion** — die Aufgabe des Status quo wird als Verlust empfunden und höher bewertet als der potenzielle Gewinn einer Alternative.',
+    'Alternative Erklärungen: **Bindung** an frühere Entscheidungen, **Regret Aversion** (aktives Handeln wird stärker bereut als Nichts-Tun).',
+  ] },
+  { tag: 'Besitztumseffekt', title: 'Besitztumseffekt (Endowment Effect)', subtitle: 'Verkaufspreis > Kaufpreis', accent: 'accent', points: [
+    'Der geforderte **Verkaufspreis liegt über dem Kaufpreis**.',
+    'Verkauf wird als **Verlust** kodiert, Kauf als **Gewinn** — die steilere Verlustkurve erzeugt die Bewertungsasymmetrie.',
+  ] },
+]} />
+
+### Mental Accounting
+
+<DefinitionBox term="Mental Accounting" source="Folie 26">
+**Isoliertes Bewerten** jedes einzelnen Engagements: Jede Position (z. B. „Aktie 1" bis „Aktie 7") wird auf einer **eigenen** Wertfunktion bewertet, mit dem **Einstandspreis als Referenzpunkt**. Das blendet Diversifikationsvorteile aus — Gegenmittel ist die **aggregierte Gesamtbetrachtung**.
+</DefinitionBox>
+
+<Card title="Hedonic Framing — Konstruktion mentaler Konten zur Maximierung der Gesamtzufriedenheit" tone="purple">
+Menschen verbuchen Ergebnisse mental so, dass der wahrgenommene Nutzen maximiert wird (durch **Integration** = Konten zusammenfassen oder **Segregation** = Konten trennen):
+
+- **Gewinne** werden eher **getrennt** (segregiert) — `v(G1) + v(G2) > v(G1+G2)`
+- **Verluste** werden **integriert** — `v(V1) + v(V2) < v(V1+V2)`
+- kleine Verluste werden mit großen Gewinnen **integriert**
+- kleine Gewinne werden von großen Verlusten **getrennt**
+</Card>
+
+### Anwendungsbeispiel Autokauf — gleicher Preis, andere Wahrnehmung
+
+<DataTable
+  caption="Vier Bündelungsvarianten — Gesamtpreis identisch (Folie 30)"
+  columns={[
+    { key: 'posten', label: 'Posten', align: 'left' },
+    { key: 'v1', label: 'Preis-entb., Rabatt-bündelung', align: 'right' },
+    { key: 'v2', label: 'Preis-bündelung, Rabatt-bündelung', align: 'right' },
+    { key: 'v3', label: 'Preis-entb., Rabatt-entb.', align: 'right' },
+    { key: 'v4', label: 'Preis-bündelung, Rabatt-entb.', align: 'right' },
+  ]}
+  rows={[
+    { posten: 'Grundmodell', v1: '30.000', v2: '', v3: '30.000', v4: '' },
+    { posten: 'Rabatt Grundmodell', v1: '', v2: '', v3: '-1.500', v4: '-1.500' },
+    { posten: 'Klimaanlage', v1: '3.000', v2: '', v3: '3.000', v4: '' },
+    { posten: 'Rabatt Klimaanlage', v1: '', v2: '', v3: '-150', v4: '-150' },
+    { posten: 'Radio', v1: '2.000', v2: '', v3: '2.000', v4: '' },
+    { posten: 'Rabatt Radio', v1: '', v2: '', v3: '-100', v4: '-100' },
+    { posten: 'Total', v1: '', v2: '35.000', v3: '', v4: '35.000' },
+    { posten: 'Rabatt Total', v1: '-1.750', v2: '-1.750', v3: '', v4: '' },
+    { posten: 'Gesamtpreis', v1: '33.250', v2: '33.250', v3: '33.250', v4: '33.250' },
+  ]}
+  highlight={(row) => row.posten === 'Gesamtpreis'}
+/>
+
+<Callout type="info" title="Pointe">
+Alle vier Varianten ergeben **denselben Gesamtpreis (33.250 €)** — durch Bündelung/Entbündelung von Preisen und Rabatten wirken sie jedoch unterschiedlich attraktiv (Hedonic Framing).
+</Callout>
+
+### Sunk-Cost-Falle und Dispositionseffekt
+
+<Columns count={2}>
+<Card title="Sunk-Cost-Falle" tone="warning" compact>
+Bereits getätigte, nicht rückholbare Einsätze (Zeit, Geld) bewegen zur **Fortführung** verlustträchtiger Engagements (Telefon-Warteschleife, gefallene Aktie). Im konvexen Verlustbereich (abnehmende Sensitivität) schmerzt ein weiterer Einsatz subjektiv kaum.
+</Card>
+<Card title="Dispositionseffekt" tone="warning" exam>
+Sunk-Cost-Falle an der Börse: **Gewinne werden zu früh realisiert** (Risikoaversion im Gewinnbereich), **Verluste werden ausgesessen** (Risikofreude im Verlustbereich) — relativ zum Einstandspreis als Bezugspunkt.
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Lage des Bezugspunkts">
+Der Referenzpunkt hat **neutralen Charakter („Norm")** und kann u. a. der Status quo, Pläne/Erwartungen (Branchendurchschnitt), ein naheliegender Vergleichsmaßstab oder ein latenter historischer Wert sein.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF6 · Folien 214–223</SourceNote>
+</section>
+
+<section id="gewichtungsfunktion">
+
+## Die Gewichtungsfunktion (Weighting Function)
+
+Neben der Risikoneigung aus der Wertfunktion stellten Kahneman und Tversky ein zweites Muster fest: Die **objektive Wahrscheinlichkeit** wird subjektiv **verzerrt** gewichtet.
+
+<DataChart
+  type="line"
+  title="Subjektive Gewichtung pi(p) über objektive Wahrscheinlichkeit p (Folie 40)"
+  source="Folie 40 (eigene Darstellung der Kurvenlogik)"
+  xKey="p"
+  yKey="pi"
+  xLabel="objektive Wahrscheinlichkeit p (%)"
+  yLabel="empfundene Wahrscheinlichkeit pi(p) (%)"
+  height={340}
+  xDomain={[0, 100]}
+  yDomain={[0, 100]}
+  data={[
+    { p: 0, pi: 0, ref: 0 },
+    { p: 5, pi: 16, ref: 5 },
+    { p: 10, pi: 23, ref: 10 },
+    { p: 20, pi: 31, ref: 20 },
+    { p: 35, pi: 38, ref: 35 },
+    { p: 50, pi: 46, ref: 50 },
+    { p: 65, pi: 56, ref: 65 },
+    { p: 80, pi: 67, ref: 80 },
+    { p: 90, pi: 76, ref: 90 },
+    { p: 99, pi: 90, ref: 99 },
+    { p: 100, pi: 100, ref: 100 },
+  ]}
+  series={[
+    { key: 'pi', name: 'Gewichtungsfunktion pi(p)', color: 'var(--color-module-purple)' },
+    { key: 'ref', name: 'risikoneutral (pi(p)=p)', color: 'var(--color-module-teal)' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Über- und Unterbewertung">
+Kleine, objektiv unwahrscheinliche Ereignisse werden **überbewertet**: <Exam>pi(p) größer p</Exam>. Mittlere und hohe Wahrscheinlichkeiten werden **unterbewertet**: <Exam>pi(p) kleiner p</Exam>. Werden objektive Wahrscheinlichkeiten beachtet, verhält sich der Akteur entsprechend der Wertfunktion.
+</Callout>
+
+### Befunde aus den Optionsvergleichen
+
+<CompareCard items={[
+  { tag: 'mittel/hoch · Folie 35', title: 'Mittlere/hohe Wahrscheinlichkeit', subtitle: 'A: 45% auf 6.000 € — B: 90% auf 3.000 €', accent: 'accent', points: [
+    'Mehrheit wählt **B**.',
+    '**Risikoscheu** im Gewinnbereich („lieber den Spatz in der Hand").',
+  ] },
+  { tag: 'sehr klein · Folie 36', title: 'Sehr kleine Wahrscheinlichkeit', subtitle: 'C: 1% auf 6.000 € — D: 2% auf 3.000 €', accent: 'purple', points: [
+    '**73%** wählen **C**.',
+    'Bei Kleinstchancen wird die riskante Wahl attraktiv (**Risikofreude**).',
+  ] },
+]} />
+
+### Eigenschaften der Gewichtungsfunktion
+
+<Card title="Steile Ränder, zwei Bezugspunkte" tone="neutral">
+- Es gibt zwei natürliche Bezugspunkte: **0%** und **100%**.
+- Die Funktion verläuft an den **Endpunkten sehr steil** → hohe Sensibilität für Wahrscheinlichkeitsänderungen dort (z. B. ein Risiko von 0,001% auf 0% reduzieren wird höher bewertet als von 0,20% auf 0,15%).
+- Gewinn- und Verlustwahrscheinlichkeiten werden unterschiedlich bewertet.
+- **Certainty-Effekt** nahe 100%: „Auch eine noch so hohe Wahrscheinlichkeit ist immer noch deutlich schlechter als absolute Sicherheit."
+</Card>
+
+### Anwendung: Der Abschluss kleiner Versicherungen
+
+<Card title="Beispiel Fahrradversicherung (Folie 42)" tone="purple">
+Jahresprämie 40 €, Wert des Fahrrads 600 €, Diebstahlwahrscheinlichkeit 5%.
+
+- **Objektiv:** E(„keine Versicherung") = 0,05 · (−600) + 0,95 · 0 = −30 € ist **besser** als E(„Versicherung") = −40 €.
+- **Subjektiv:** pi(0,05) · v(−600) + pi(0,95) · v(0) ist **schlechter** als v(−40), weil pi(0,05) viel größer als 0,05 und pi(0,95) viel kleiner als 0,95.
+</Card>
+
+<Callout type="merksatz" title="Fazit">
+Die Versicherung ist im Erwartungswert teurer (−40 € statt −30 €), wird aber wegen der **Überbewertung der kleinen Diebstahlwahrscheinlichkeit** subjektiv attraktiv.
+</Callout>
+
+### Synthese: Hürden für rationale Entscheidungen
+
+<KpiGrid columns={2} items={[
+  { value: 'Referenzpunkt', label: 'Ergebnisse werden relativ zu einem Bezugspunkt bewertet', accent: 'accent' },
+  { value: 'Verlustaversion', label: 'relative Verluste zum Referenzpunkt werden vermieden', accent: 'negative' },
+  { value: 'Risikowechsel', label: 'die Risikoeinstellung ändert sich bei Verlusten', accent: 'warning' },
+  { value: 'Überschätzung', label: 'sehr unwahrscheinliche Ereignisse werden überschätzt', accent: 'accent' },
+]} />
+
+<SourceNote>Vgl. Daxhammer/Facsar (2017) · Folien 225–235</SourceNote>
+</section>

@@ -1,0 +1,422 @@
+{/* Kapitel 6 · Personalauswahl und Arbeitszeugnisse. Palette via MDXProvider. */}
+
+<section id="bewerbungsprozess">
+
+## Der Bewerbungsprozess
+
+Der Bewerbungsprozess (Beispiel **Rheinmetall**) ist ein koordinierter, mehrstufiger Ablauf:
+
+- Die Schritte greifen wie Zahnräder ineinander — von der Online-Bewerbung bis zum Onboarding.
+- Getragen wird der Ablauf vom Zusammenspiel dreier Akteure.
+
+<Columns count={3}>
+<Card title="Recruiting" tone="teal" compact>
+Sichtet Unterlagen, koordiniert den Ablauf und hält den Kontakt zum Bewerber.
+</Card>
+<Card title="Fachbereich" tone="teal" compact>
+Prüft die fachliche Eignung und ist am Gespräch beteiligt.
+</Card>
+<Card title="HR" tone="teal" compact>
+Begleitet Gespräch, Entscheidung, Vertrag und Onboarding.
+</Card>
+</Columns>
+
+### Die sechs Stufen im Ablauf
+
+<Timeline events={[
+  { label: '1', title: 'Bewerbung', text: 'Der Bewerber findet eine passende Stelle und bewirbt sich online in wenigen Minuten.' },
+  { label: '2', title: 'Bewerbungscheck', text: 'Das Recruiting-Team sichtet die Unterlagen und meldet sich anschließend telefonisch oder per E-Mail.' },
+  { label: '3', title: 'Prüfung durch den Fachbereich', text: 'Der zuständige Fachbereich prüft die Bewerbung.' },
+  { label: '4', title: 'Persönliches Gespräch', text: 'Bei überzeugender Bewerbung findet ein Gespräch mit Fachbereich und HR statt.' },
+  { label: '5', title: 'Entscheidung', text: 'Vertragsdetails werden geklärt und der Arbeitsvertrag wird erstellt.' },
+  { label: '6', title: 'Willkommen', text: 'Onboarding: Der Bewerber wird Teil des Teams.' },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+Der Prozess beginnt bei der <Exam>Online-Bewerbung</Exam> und endet mit <Exam>Vertragsabschluss und Onboarding</Exam>. Entscheidend ist die Verbindung von Recruiting, Fachbereich und HR über alle Stufen hinweg.
+</Callout>
+
+<SourceNote>Human Resources · HR6 · Folie 1 (Bewerbungsprozess Rheinmetall)</SourceNote>
+</section>
+
+<section id="auswahlverfahren">
+
+## Personalauswahlverfahren im Überblick
+
+Personalauswahl besteht **nicht** aus einem einzelnen Gespräch, sondern aus mehreren möglichen Verfahren. Aus der Eingangsanalyse (Bewerbungs- bzw. Datenanalyse und Fragebogen) und dem Background-Check speisen sich verschiedene Auswahlverfahren.
+
+<Diagram
+  title="Personalauswahl als Flowchart (Folie 2)"
+  height={360}
+  chart={`graph TD
+  BA["Analyse der Bewerbung oder Daten"] <--> FB["Fragebogen"]
+  BA -.-> BC["Background-Check"]
+  FB -.-> BC
+  BC --> VG["Vorstellungs­gespräch"]
+  BC --> TV["Test­verfahren"]
+  BC --> SV["Situative Verfahren"]
+  BC --> GG["Grafologische Gutachten"]
+  subgraph AC["= Assessment Center"]
+    VG
+    TV
+    SV
+  end
+  VG --> AE["Ärztliche Eignungs­untersuchung"]
+  TV --> AE
+  SV --> AE`}
+/>
+
+<Callout type="merksatz" title="Assessment Center = Kombination">
+Das <Exam>Assessment Center</Exam> ist kein isoliertes Einzelinstrument, sondern entsteht aus der **Kombination** von Vorstellungsgespräch, Testverfahren und situativen Verfahren.
+</Callout>
+
+### Was die einzelnen Verfahren prüfen
+
+<Columns count={2}>
+<Card title="Eingang und Prüfung" tone="neutral" compact>
+- **Bewerbungs-/Datenanalyse:** Sichtung vorhandener Unterlagen
+- **Fragebogen:** standardisierte Zusatzinformationen
+- **Background-Check:** Prüfung von Hintergrundinformationen
+</Card>
+<Card title="Auswahl- und Zusatzverfahren" tone="teal" compact>
+- **Vorstellungsgespräch:** Person, Motivation, Fit, Verhalten
+- **Testverfahren:** Leistung, Persönlichkeit, Fähigkeiten
+- **Situative Verfahren:** Verhalten in praxisnahen Situationen
+- **Grafologische Gutachten:** Schrift-/Handschriftgutachten
+- **Ärztliche Eignungsuntersuchung:** medizinische Eignung
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR6 · Folie 2 (Personalauswahl Übersicht)</SourceNote>
+</section>
+
+<section id="beurteilungskriterien">
+
+## Beurteilung der Bewerbungsunterlagen
+
+Bewerbungsunterlagen werden bewertet:
+
+- **nicht nur inhaltlich, sondern auch formal**
+- jede Kategorie hat **eigene Prüfkriterien**
+- Beispiel der Folie: Bewerbung um die Stelle *Entwicklungsreferent/in* (Name: Susi Schweiz)
+
+<DataTable
+  caption="Beurteilungskriterien der Bewerbungsunterlagen (Folie 3)"
+  columns={[
+    { key: 'bereich', label: 'Bereich', align: 'left' },
+    { key: 'krit', label: 'Kriterien / Angaben', align: 'left' },
+  ]}
+  rows={[
+    { bereich: 'Form', krit: 'Sauber' },
+    { bereich: 'Anschreiben', krit: 'Gliederung, Länge, Gestaltung, Schlüsselbegriffe, gekündigt/ungekündigt, derzeitige Tätigkeit, Stil' },
+    { bereich: 'Lebenslauf', krit: 'Angaben zur Person, Form, Besonderheiten, Zertifikatsanalyse, Positionsanalyse, Branchenanalyse' },
+    { bereich: 'Zeugnisse', krit: 'Ausbildungszeugnisse, Arbeitgeberzeugnisse' },
+    { bereich: 'Referenzen', krit: 'Aussagekraft, Auskünfte' },
+    { bereich: 'Arbeitsprobe', krit: 'Aussagekraft' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Sechs Bewertungsbereiche: <Exam>Form, Anschreiben, Lebenslauf, Zeugnisse, Referenzen, Arbeitsprobe</Exam> — jeweils mit eigenen Kriterien.
+</Callout>
+
+<SourceNote>Human Resources · HR6 · Folie 3 (Beurteilungskriterien)</SourceNote>
+</section>
+
+<section id="aufbau-arbeitszeugnis">
+
+## Aufbau eines Arbeitszeugnisses
+
+Ein Arbeitszeugnis folgt einer **festen Gliederung**:
+
+- vom formalen Einstieg bis zur Unterschrift
+- die einzelnen Bestandteile bauen logisch aufeinander auf
+
+<Timeline events={[
+  { label: '1', title: 'Überschrift', text: 'Zeugnisart, z. B. Arbeitszeugnis oder Zwischenzeugnis.' },
+  { label: '2', title: 'Einleitung', text: 'Person, Eintritts- und Austrittsdatum, Tätigkeit.' },
+  { label: '3', title: 'Tätigkeits-, Positions- und Laufbahnbeschreibung', text: 'Unternehmen, Branche, Position, Aufgaben und Verantwortung.' },
+  { label: '4', title: 'Leistungsbeurteilung', text: 'Mehrdimensionale Bewertung von Leistung und Erfolg.' },
+  { label: '5', title: 'Sozialverhalten', text: 'Verhalten gegenüber Vorgesetzten, Kollegen, Mitarbeitern und Externen.' },
+  { label: '6', title: 'Beendigungsgrund', text: 'Beendigungsformel und -initiative, ggf. mit Begründung.' },
+  { label: '7', title: 'Schlusssatz', text: 'Dank, Bedauern, Zukunftswünsche, Empfehlung.' },
+  { label: '8', title: 'Datum und Unterschrift', text: 'Durch Arbeitgeber, Personalleitung oder Führungskraft.' },
+]} />
+
+### Formaler Einstieg
+
+<Columns count={3}>
+<Card title="Überschrift" tone="neutral" compact>
+Zeugnis, Arbeitszeugnis, Dienstzeugnis, Ausbildungszeugnis, Praktikantenzeugnis, Zwischenzeugnis.
+</Card>
+<Card title="Einleitung" tone="neutral" compact>
+Titel, Vorname, Adresse, Eintritts- und Austrittsdatum, Tätigkeit.
+</Card>
+<Card title="Tätigkeitsbeschreibung" tone="neutral" compact>
+Unternehmen, Branche, Laufbahn, hierarchische Position, Aufgaben, Projekte, Vollmachten, Verantwortung für Umsatz/Budget.
+</Card>
+</Columns>
+
+### Beurteilung der Leistung und des Erfolgs
+
+Die Leistungsbeurteilung ist **mehrdimensional** und gliedert sich in <Exam>fünf Kategorien</Exam>:
+
+<Columns count={3}>
+<Card title="Leistungsbereitschaft" tone="teal" compact>
+Einsatzwille, Identifikation, Engagement, Initiative, Zielstrebigkeit, Fleiß, Bereitschaft zur Mehrarbeit.
+</Card>
+<Card title="Arbeitsbefähigung" tone="teal" compact>
+Belastbarkeit, Flexibilität, Auffassungsgabe, analytisches Denken, Fachwissen, Berufserfahrung, Weiterbildung.
+</Card>
+<Card title="Arbeitsweise" tone="teal" compact>
+Sorgfalt, Zuverlässigkeit, Gewissenhaftigkeit, Loyalität, Selbständigkeit, Genauigkeit, Arbeitssicherheit.
+</Card>
+<Card title="Arbeitserfolg" tone="teal" compact>
+Zielerreichung, Arbeitsqualität, Arbeitsquantität, Arbeitstempo, Effizienz, Termintreue.
+</Card>
+<Card title="Führungsfähigkeit" tone="teal" compact>
+Führungsumstände: Zahl und Art der Mitarbeiter, deren Leistung, Arbeitszufriedenheit und Motivation.
+</Card>
+</Columns>
+
+### Sozialverhalten: drei Beziehungsebenen
+
+Das Sozialverhalten wird entlang der **Personengruppen** bewertet — ergänzt um übergreifende soziale Kompetenzen.
+
+<CompareCard items={[
+  { tag: 'intern', title: 'Vorgesetzte und Kollegen', subtitle: 'horizontal und nach oben', accent: 'accent',
+    points: ['Teamfähigkeit, Kooperation, Hilfsbereitschaft', 'Freundlichkeit, Wertschätzung, Beliebtheit'] },
+  { tag: 'nach unten', title: 'Mitarbeiter', subtitle: 'Führungsebene', accent: 'positive',
+    points: ['Vorbildlich oder einwandfrei', 'Anerkennung, Informationsbereitschaft'] },
+  { tag: 'extern', title: 'Externe', subtitle: 'Kunden und Partner', accent: 'purple',
+    points: ['Auftreten, Kontakt- und Gesprächsverhalten', 'Verhandlungs- und Akquisitionsstärke, Kundenzufriedenheit'] },
+]} />
+
+<Card title="Soziale Kompetenzen (übergreifend)" tone="neutral" compact>
+Integrität, Loyalität, Ehrlichkeit, Diskretion, Kompromissbereitschaft, Durchsetzungs- und Überzeugungsvermögen.
+</Card>
+
+### Abschluss des Zeugnisses
+
+<Columns count={3}>
+<Card title="Beendigungsgrund" tone="neutral" compact>
+Beendigungsformel und -initiative, ggf. mit Begründung.
+</Card>
+<Card title="Schlusssatz" tone="neutral" compact>
+Dank, Bedauern, Zukunftswünsche, Empfehlung, Wiedereinstellungsaussage.
+</Card>
+<Card title="Datum und Unterschrift" tone="neutral" compact>
+Durch Arbeitgeber, Personalleitung oder Führungskraft.
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR6 · Folien 4–7 (Bestandteile des Arbeitszeugnisses)</SourceNote>
+</section>
+
+<section id="zeugniscode-formulierungen">
+
+## Der Zeugniscode: Formulierung und Bedeutung
+
+Der Zeugniscode entsteht aus dem Spannungsfeld zweier Achsen:
+
+- **Klang** der Formulierung — wie sie auf den ersten Blick wirkt
+- **tatsächliche Bedeutung** — was tatsächlich gemeint ist
+
+Die <Exam>Zuordnung von Text zu Bedeutung</Exam> ist prüfungsrelevant — gefährlich ist vor allem das Feld „klingt positiv, ist negativ".
+
+<QuadrantMatrix
+  caption="Klang versus Bedeutung — wo der Zeugniscode gefährlich wird"
+  xLabel="Klang der Formulierung"
+  xLow="klingt negativ"
+  xHigh="klingt positiv"
+  yLabel="Tatsächliche Bedeutung"
+  yLow="negativ"
+  yHigh="positiv"
+  quadrants={[
+    { pos: 'tl', title: 'Selten / unverdächtig', accent: 'neutral', points: ['Negativer Klang mit positiver Bedeutung ist im Code untypisch.'] },
+    { pos: 'tr', title: 'Echtes Lob', accent: 'positive', points: ['„War für die Position die ideale Besetzung"', '„Erzielte selbständig optimale Lösungen"'] },
+    { pos: 'bl', title: 'Offen kritisch', accent: 'warning', points: ['Negative Bewertung, auch im Klang erkennbar.'] },
+    { pos: 'br', title: 'Codierte Falle', accent: 'negative', points: ['Klingt positiv, ist negativ — das gefährliche Feld.', '„gesundes Selbstvertrauen", „bemüht", „Verständnis für seine Arbeit"'] },
+  ]}
+/>
+
+<Callout type="info" title="Lernkontext, keine Rechtsberatung">
+Die folgenden Beispiele sind **Vorlesungs- und Lernmaterial** zum codierten Zeugnissprech — keine arbeitsrechtliche Beratung.
+</Callout>
+
+### Leistung und Erfolg
+
+<DataTable
+  caption="Zeugnistext zur Leistung und zum Erfolg → Bedeutung (Folien 8–11)"
+  columns={[
+    { key: 'text', label: 'Zeugnistext', align: 'left' },
+    { key: 'bed', label: 'Bedeutung', align: 'left' },
+  ]}
+  highlight={(row) => row.neg}
+  rows={[
+    { text: 'War für die Position die ideale Besetzung', bed: 'Sehr gute Eignung' },
+    { text: 'Hatte Verständnis für seine Arbeit', bed: 'Ungenügende Leistungsbereitschaft', neg: true },
+    { text: 'Hatte Gelegenheit, sich Wissen anzueignen', bed: 'Hat die Gelegenheit nicht genutzt', neg: true },
+    { text: 'Verfügte über Fachwissen und ein gesundes Selbstvertrauen', bed: 'Überspielte geringes Fachwissen mit Geschwätzigkeit', neg: true },
+    { text: 'Hielt jedem Termindruck stand', bed: 'Gute Ausdauer und Belastbarkeit' },
+    { text: 'Bevorzugte eine gleichbleibende Tätigkeit', bed: 'Schlechte Ausdauer und Belastbarkeit', neg: true },
+    { text: 'Hat alle Aufgaben in seinem Interesse und im Interesse der Firma gelöst', bed: 'Beging schwere Unkorrektheiten', neg: true },
+    { text: 'Nutzt jede Chance, Fachwissen fortzuentwickeln', bed: 'Sehr gute Entwicklung' },
+    { text: 'Erzielte selbständig optimale Lösungen', bed: 'Sehr gute Arbeitsweise mit sehr gutem Erfolg' },
+    { text: 'War bei unseren Kunden schnell beliebt', bed: 'Machte schnell Zugeständnisse', neg: true },
+    { text: 'Bemüht, den Anforderungen gerecht zu werden', bed: 'Die Bemühungen führten nicht zum Erfolg', neg: true },
+    { text: 'War bei allen Problemen kompromissbereit', bed: 'War besonders nachgiebig', neg: true },
+  ]}
+/>
+
+<Callout type="pitfall" title="Warnsignale">
+Scheinbar harmlose Wendungen sind kritisch codiert: <Exam>„gesundes Selbstvertrauen"</Exam>, <Exam>„hatte Verständnis für seine Arbeit"</Exam> und <Exam>„bemüht"</Exam> stehen für negative Beurteilungen.
+</Callout>
+
+### Sozialverhalten
+
+<DataTable
+  caption="Zeugnistext zum Sozialverhalten → Bedeutung (Folien 13–14)"
+  columns={[
+    { key: 'text', label: 'Zeugnistext', align: 'left' },
+    { key: 'bed', label: 'Bedeutung', align: 'left' },
+  ]}
+  highlight={(row) => row.neg}
+  rows={[
+    { text: 'Führung der Mitarbeiter war stets vorbildlich', bed: 'Hervorragende Führungskraft' },
+    { text: 'War seinen Mitarbeitern jederzeit ein verständnisvoller Vorgesetzter', bed: 'War nicht durchsetzungsfähig und besaß keine Autorität', neg: true },
+    { text: 'Vorbild für Vorgesetzte, Kollegen und Mitarbeiter', bed: 'Sehr gutes Sozialverhalten' },
+    { text: 'Zeigte durchweg eine erfrischende Offenheit', bed: 'War immer sehr vorlaut', neg: true },
+    { text: 'Für die Belange der Belegschaft großes Einfühlungsvermögen', bed: 'Liebschaften', neg: true },
+    { text: 'Gesellige Art zur Verbesserung des Betriebsklimas', bed: 'Übermäßiger Alkoholgenuss', neg: true },
+    { text: 'Aufgaben mit vollem Erfolg delegiert', bed: 'War faul und ließ andere darunter leiden', neg: true },
+    { text: 'Durch seine Bildung ein gesuchter Gesprächspartner', bed: 'War geschwätzig, führte lange Privatgespräche', neg: true },
+    { text: 'Wusste sich gut zu verkaufen', bed: 'Tat selbst nicht viel, schmeichelte sich ein', neg: true },
+  ]}
+/>
+
+### Beendigungsgrund und Schlusssatz
+
+<Columns count={2}>
+<Card title="Beendigungsgrund (Folie 15)" tone="neutral" compact>
+- *Auf eigenen Wunsch* → Kündigung durch den Arbeitnehmer
+- *In beiderseitigem Einvernehmen* → Aufhebungsvertrag wegen Unstimmigkeiten
+- *Aus organisatorischen Gründen* → ein vorgeschobener Grund
+- *Endet umgehend mit dem heutigen Tage* → außerordentliche, fristlose Entlassung
+</Card>
+<Card title="Schlusssatz (Folie 16)" tone="neutral" compact>
+- *Weiterhin viel Erfolg!* → war sehr wertvoll
+- *Alles Gute!* → neutrale Formulierung
+- *Vor allem Gesundheit!* → war dauernd krank
+- *Viel Glück!* → es gab Probleme in der Zusammenarbeit
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR6 · Folien 8–16 (Texte und Bedeutung)</SourceNote>
+</section>
+
+<section id="zufriedenheitsformel">
+
+## Die Zufriedenheitsformel als Notenskala
+
+Die **Zufriedenheitsformel** ist die zentrale, verdeckte Notenskala im Arbeitszeugnis:
+
+- kleine Signalwörter steuern die Note: <Exam>stets</Exam>, <Exam>voll</Exam> und <Exam>vollsten</Exam>
+- je mehr dieser Wörter fehlen, desto schlechter die Note
+
+<SpectrumAxis
+  caption="Von sehr gut bis ungenügend — die Zufriedenheitsformel (Folie 12)"
+  min="sehr gut"
+  max="ungenügend"
+  markers={[
+    { at: 4, label: '1 · sehr gut', sub: 'stets + vollsten' },
+    { at: 23, label: '2 · gut', sub: 'stets + vollen' },
+    { at: 42, label: '3 · befriedigend', sub: 'vollen' },
+    { at: 60, label: '4 · ausreichend', sub: 'Zufriedenheit' },
+    { at: 79, label: '5 · mangelhaft', sub: 'im Großen und Ganzen' },
+    { at: 96, label: '6 · ungenügend', sub: 'bemüht / versucht' },
+  ]}
+/>
+
+<DataTable
+  caption="Zufriedenheitsformel → Note (Folie 12)"
+  columns={[
+    { key: 'formel', label: 'Zeugnisformulierung', align: 'left' },
+    { key: 'note', label: 'Bedeutung / Note', align: 'left' },
+  ]}
+  rows={[
+    { formel: 'Stets zu unserer vollsten Zufriedenheit', note: '1 · Sehr gut' },
+    { formel: 'Stets zu unserer vollen Zufriedenheit', note: '2 · Gut' },
+    { formel: 'Zu unserer vollen Zufriedenheit', note: '3 · Befriedigend' },
+    { formel: 'Zu unserer Zufriedenheit', note: '4 · Ausreichend' },
+    { formel: 'Im Großen und Ganzen zu unserer Zufriedenheit', note: '5 · Mangelhaft' },
+    { formel: 'Hat sich bemüht / zu unserer Zufriedenheit zu erledigen versucht', note: '6 · Ungenügend' },
+  ]}
+/>
+
+<Callout type="pitfall" title="Verwechslungsgefahr">
+<Exam>„Stets zu unserer vollsten Zufriedenheit" = sehr gut</Exam>, aber <Exam>„zu unserer vollen Zufriedenheit" = nur befriedigend</Exam>. Fehlt *stets*, sinkt die Note; fehlt *voll* zusätzlich, sinkt sie weiter.
+</Callout>
+
+<SourceNote>Human Resources · HR6 · Folie 12 (Allgemeine Formulierungen / Notenskala)</SourceNote>
+</section>
+
+<section id="bewertungsbogen">
+
+## Der Bewertungsbogen für Arbeitszeugnisse
+
+Der **Bewertungsbogen** operationalisiert das Zeugnis:
+
+- aus Stammdaten, Tätigkeitsbeschreibung, Leistungs- und Verhaltensbewertung sowie Schlussformulierung
+- daraus entsteht die **Grundlage für das Arbeitszeugnis**
+- bewertet wird auf einer Notenstufe, je Kriterium zusätzlich „keine Angabe"
+
+<KpiGrid items={[
+  { value: '1', label: 'sehr gut', accent: 'positive' },
+  { value: '2', label: 'gut', accent: 'positive' },
+  { value: '3', label: 'befriedigend', accent: 'default' },
+  { value: '4', label: 'ausreichend', accent: 'warning' },
+  { value: '5', label: 'mangelhaft', accent: 'negative' },
+]} />
+
+### Zwei Spalten: Erfassung und Bewertung
+
+<CompareCard items={[
+  { tag: 'links', title: 'Stammdaten und Freitext', subtitle: 'Erfassung', accent: 'neutral',
+    points: [
+      'Persönliche Angaben: Anrede, Titel, Name, Vorname, Geburtsdatum/-ort, Eintritts-/Austrittsdatum, Abteilung, Position',
+      'Zeugnisausstellung: Aussteller Bewertungsbogen, Aussteller Arbeitszeugnis, voraussichtliches Ausstellungsdatum',
+      'Arbeitsverhältnis: Berufsgruppe (z. B. Angestellte), Beendigungsgrund bzw. Grund für ein Zwischenzeugnis',
+      'Freitext: Tätigkeitsbeschreibung, besondere Erfolge',
+    ] },
+  { tag: 'rechts', title: 'Bewertungsmatrix', subtitle: 'Skala 1–5', accent: 'accent',
+    points: [
+      'Leistung (1–5): Fachkenntnis, Weiterbildung, Auffassungs-/Denkvermögen, Belastbarkeit, Arbeitsweise, Leistungsbereitschaft, Arbeitserfolg, Gesamtbeurteilung, Prüfungsergebnis (Azubi)',
+      'Verhalten: Verhalten intern (1–5), Verhalten extern (1–5); Zusammenarbeit, Auftreten, Verhandlung als „positiv hervorheben"',
+      'Zusatzkompetenzen: freie Zeilen mit Option „positiv hervorheben"',
+    ] },
+]} />
+
+### Schlussformulierung und Unterschriften (Folie 18)
+
+<DataTable
+  caption="Abschließender Teil des Bewertungsbogens"
+  columns={[
+    { key: 'feld', label: 'Bereich', align: 'left' },
+    { key: 'opt', label: 'Optionen', align: 'left' },
+  ]}
+  rows={[
+    { feld: 'Dankes-Bedauern-Formel', opt: 'Skala 1–5 sowie keine Angabe' },
+    { feld: 'Wiedereinstellungsversprechen', opt: 'positiv hervorheben / keine Angabe' },
+    { feld: 'Empfehlung', opt: 'positiv hervorheben / keine Angabe' },
+    { feld: 'Unterschrift Vorgesetzter', opt: 'Datumsfeld + Unterschriftslinie' },
+    { feld: 'Unterschrift Personalabteilung', opt: 'Datumsfeld + Unterschriftslinie' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Der Bewertungsbogen verknüpft die vorherigen Inhalte: <Exam>Dankes-Bedauern-Formel, Wiedereinstellungsversprechen und Empfehlung</Exam> im Schlussteil korrespondieren direkt mit den Schlusssätzen und Beendigungsformeln aus dem Zeugniscode.
+</Callout>
+
+<SourceNote>Human Resources · HR6 · Folien 17–18 (Bewertungsbogen)</SourceNote>
+</section>

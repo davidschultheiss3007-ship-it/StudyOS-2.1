@@ -1,0 +1,316 @@
+{/* Kapitel 6 · Portfoliomanagement. Palette components resolve via MDXProvider. */}
+
+<section id="investmentprozess-zyklus">
+
+## Der Investmentprozess als Kreislauf
+
+Das Portfoliomanagement folgt einem **zyklischen Vier-Schritte-Prozess**. Die Schritte laufen im Uhrzeigersinn und beginnen nach dem Finanzcontrolling von vorn — neue Informationen fließen zurück in die Ziele.
+
+<Diagram
+  title="Investmentschritte als Kreislauf (Folie 4)"
+  chart={`graph LR
+  S1["1 · Investmentziele"] --> S2["2 · Strategische Asset Allocation"]
+  S2 --> S3["3 · Portfoliomanagement i.e.S."]
+  S3 --> S4["4 · Finanzcontrolling"]
+  S4 --> S1
+  subgraph AAP["Asset-Allocation-Prozess"]
+    S2
+    S3
+  end`}
+/>
+
+<Callout type="merksatz" title="Asset-Allocation-Prozess">
+Die Schritte **2 (Strategische Asset Allocation)** und **3 (Portfoliomanagement i.e.S.)** bilden zusammen den eigentlichen Asset-Allocation-Prozess. Schritt 1 setzt die Ziele, Schritt 4 kontrolliert das Ergebnis.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 6 · Folie 204</SourceNote>
+</section>
+
+<section id="investmentziele-und-restriktionen">
+
+## Investmentziele, Restriktionen und Renditeansätze
+
+Schritt 1 leitet aus der **Anlegeranalyse** konkrete Ziele und Beschränkungen ab. Ergebnis ist das *Investment Policy Statement* — die Grundlage der gesamten Asset Allocation.
+
+### Anlageziele und der Zielkonflikt
+
+<Columns count={2}>
+<Card title="Risikotoleranz" tone="neutral">
+- Alter, Einkommen, Erfahrung
+- Anlagehorizont
+- Gesamtvermögen
+- bestehende Verpflichtungen
+</Card>
+<Card title="Mindestrenditeziele" tone="neutral">
+- absolute Renditeziele
+- oder Performance **gegenüber einer Benchmark**
+</Card>
+</Columns>
+
+Die drei Grundziele jeder Geldanlage stehen im **magischen Dreieck** zueinander — keines lässt sich ohne Abstriche bei einem anderen maximieren.
+
+<Diagram
+  title="Magisches Dreieck der Geldanlage (Folie 5)"
+  chart={`graph TD
+  R["Rendite"] <--> S["Sicherheit"]
+  R <--> L["Liquidität"]
+  S <--> L`}
+/>
+
+### Anlagebeschränkungen
+
+<Columns count={2}>
+<Card title="Restriktionen des Anlegers" tone="neutral">
+- **Anlagehorizont:** meist langfristig
+- **Steuern:** relevant bei unterschiedlichen Sätzen für Erträge und Kursgewinne
+- **Liquiditätsbedarf:** Entnahmen, Reserve, geplante Ereignisse
+- persönliche Beschränkungen (Werte, Religion, Kultur)
+</Card>
+<Card title="Ergebnis" tone="accent" exam>
+Das **Investment Policy Statement** fasst Ziele und Beschränkungen zusammen und bildet die Grundlage für die Asset Allocation.
+</Card>
+</Columns>
+
+### Renditeansätze
+
+Das Renditeziel verzweigt in zwei grundsätzliche Ansätze:
+
+<CompareCard items={[
+  { tag: 'Relativ', title: 'Relative-Return-Ansatz', subtitle: 'benchmarkbezogen', accent: 'accent', points: ['Ziel: im Vergleich zur **Benchmark** bzw. Peer Group eine relativ hohe Rendite erzielen.', 'Erfolg wird relativ gemessen.'] },
+  { tag: 'Absolut', title: 'Absolute-Return-Ansatz', subtitle: 'marktunabhängig', accent: 'positive', points: ['Ziel: **unabhängig von der Marktsituation** eine positive Rendite bzw. Mindestrendite erzielen.', 'Erfolg wird absolut gemessen.'] },
+]} />
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 205–207</SourceNote>
+</section>
+
+<section id="saa-pm-finanzcontrolling">
+
+## SAA, Portfoliomanagement i.e.S. und Finanzcontrolling
+
+Die operativen Schritte 2 bis 4 des Prozesses im Detail.
+
+### 2 · Strategische Asset Allocation (SAA)
+
+<Card title="Die SAA legt den langfristigen Rahmen fest" tone="accent">
+- **Assetuniversum:** Auswahl der Finanzmärkte und Assetklassen
+- **Investmentguidelines:** Benchmarks je Assetklasse, Investmentlimits
+- **Investmentphilosophie/-stile:** aktiv vs. passiv; Buy-and-Hold vs. Wertsicherung (Risikomanagement → dynamische Asset Allocation)
+</Card>
+
+### 3 · Portfoliomanagement im engeren Sinne
+
+<Timeline events={[
+  { label: 'a', title: 'Research und Prognose', text: 'Informationssammlung (Buy-/Sellside-Analysten, Trading Desks) und Prognosetechniken zur Bewertung der Informationen.' },
+  { label: 'b', title: 'Portfoliobildung', text: 'Erstmalige Zusammenstellung des Portfolios mit Fokus auf Execution und Transaktionskosten.' },
+  { label: 'c', title: 'Taktische Asset Allocation', text: 'Branchen- und Einzeltitelauswahl; bei Anleihen Festlegung von Laufzeiten (Duration und Konvexität).' },
+  { label: 'd', title: 'Portfoliorevision', text: 'Anpassung nach neuen Informationen — siehe Rebalancing vs. Upgrading.' },
+]} />
+
+<Columns count={2}>
+<Card title="Portfolio Rebalancing" tone="neutral">
+Umschichtung zur **Wiederherstellung der ursprünglichen** Portfoliostruktur, z. B. nach Outperformance einzelner Assetklassen.
+</Card>
+<Card title="Portfolio Upgrading" tone="warning">
+**Bewusste Veränderung** der Portfoliostruktur aufgrund neuer Informationen.
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Verwechslungsgefahr">
+<Exam>Rebalancing stellt die alte Struktur wieder her</Exam>, Upgrading verändert sie absichtlich. Beides ist Teil der Portfoliorevision, aber mit gegensätzlicher Absicht.
+</Callout>
+
+### 4 · Finanzcontrolling
+
+<Card title="Überwachung des Anlageerfolgs" tone="neutral" compact>
+- **Performanceanalyse:** Performancemessung und -bewertung
+- **Risikoanalyse:** Asset-Liability-Management, Stress-Test-Szenarien
+- **Konkurrenzanalyse:** Vergleich mit Markt (Makro) und Peer Group (Mikro)
+- **Reporting**
+</Card>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 208–212</SourceNote>
+</section>
+
+<section id="diversifikation-und-risiken">
+
+## Diversifikation und Risiken der Kapitalanlage
+
+Asset Allocation beruht auf **Mischung und Streuung** — der Verteilung des Kapitals auf verschiedene Anlagearten und Schuldner (Risikodiversifikation nach Markowitz).
+
+### Die Risiken der Kapitalanlage
+
+<KpiGrid columns={4} items={[
+  { value: 'Bonität', label: 'Adressenausfallrisiko' },
+  { value: 'Markt', label: 'Marktpreisrisiko' },
+  { value: 'Zins', label: 'Zinsänderungsrisiko' },
+  { value: 'Wieder­anlage', label: 'Wiederanlagerisiko' },
+  { value: 'Politik', label: 'Politische Risiken' },
+  { value: 'Konjunktur', label: 'Gesamtwirtschaftliche Risiken' },
+  { value: 'Währung', label: 'Währungsrisiken' },
+]} />
+
+### Streuung: Was Diversifikation abbauen kann — und was nicht
+
+Mit steigender Anzahl von Wertpapieren sinkt das Portfoliorisiko, aber nur bis zu einer **Asymptote**: das systematische Marktrisiko bleibt bestehen.
+
+<DataChart
+  type="line"
+  title="Risiko über Anzahl der Wertpapiere (Folie 15)"
+  source="Folie 15 (eigene Darstellung der Kurvenlogik)"
+  xKey="n"
+  yKey="risiko"
+  xLabel="Anzahl Wertpapiere"
+  yLabel="Risiko"
+  height={300}
+  data={[
+    { n: 1, risiko: 100 }, { n: 2, risiko: 74 }, { n: 4, risiko: 56 }, { n: 6, risiko: 47 },
+    { n: 8, risiko: 42 }, { n: 12, risiko: 37 }, { n: 16, risiko: 34 }, { n: 20, risiko: 32.5 },
+    { n: 30, risiko: 31 }, { n: 40, risiko: 30.5 }, { n: 50, risiko: 30.2 },
+  ]}
+  series={[{ key: 'risiko', name: 'Gesamtrisiko', color: 'var(--color-module-blue)' }]}
+/>
+
+<Columns count={2}>
+<Card title="Unsystematisches Risiko" tone="positive">
+Unternehmensindividuell, **reduzierbar** durch Streuung (Anzahl der Assets) innerhalb einer Assetklasse.
+</Card>
+<Card title="Systematisches Risiko = Marktrisiko" tone="negative" exam>
+Bleibt innerhalb einer Assetklasse **bestehen**. Senkbar nur durch Mischung mehrerer Assetklassen (Portfoliotheorie nach Markowitz).
+</Card>
+</Columns>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 14–15</SourceNote>
+</section>
+
+<section id="asset-allocation-ebenen">
+
+## Asset Allocation: Definition und Ebenen
+
+<DefinitionBox term="Asset Allocation" source="Folie 17">
+Die **Aufteilung der Anlagegelder** in bestimmte Bereiche (Diversifikationsebenen). Grundlage ist zumeist die Risikodiversifikation durch geeignete Portfoliostrukturen nach Markowitz.
+</DefinitionBox>
+
+Assetklassen lassen sich grob oder fein granular definieren — die Granularität bestimmt die Komplexität der Allocation.
+
+<Columns count={2}>
+<Card title="Einfachste Form" tone="neutral">
+<ProportionBar
+  segments={[
+    { label: 'Renten', value: 60 },
+    { label: 'Aktien', value: 40 },
+  ]}
+/>
+</Card>
+<Card title="Aufwändige Variante (MBTA Retirement Fund)" tone="neutral">
+<ProportionBar
+  source="mbtarf.com/about-us/asset-allocation"
+  segments={[
+    { label: 'Equities', value: 41.5 },
+    { label: 'Fixed Income', value: 33 },
+    { label: 'Alternative Investments', value: 24.1 },
+    { label: 'Cash', value: 1.4 },
+  ]}
+/>
+</Card>
+</Columns>
+
+### Die Ebenen der Diversifikation
+
+<Diagram
+  title="Strategische vs. taktische Diversifikationsebenen (Folie 19)"
+  chart={`graph TD
+  AA["Asset Allocation"] --> SAA["Strategische Asset Allocation"]
+  AA --> TAA["Taktische Asset Allocation"]
+  SAA --> A1["Assetklassen"]
+  SAA --> A2["Länder"]
+  SAA --> A3["Währungen"]
+  TAA --> B1["Branchen"]
+  TAA --> B2["Titel / Emittenten"]`}
+/>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 17–19</SourceNote>
+</section>
+
+<section id="bedeutung-der-saa">
+
+## Die Bedeutung der strategischen Asset Allocation
+
+> Die Asset Allocation gilt weithin als die Königsdisziplin des Asset Managements, denn sie bestimmt etwa zu 80 % die Rendite und sogar zu 95 % das Risiko einer Anlagestrategie.
+> — Max Holzer, Leiter Portfolio Management Asset Allocation, Union Investment
+
+Empirisch belegt die klassische Brinson-Studie diesen Befund: Die Asset Allocation erklärt den weitaus größten Teil der **Varianz der Portfolioperformance**.
+
+<DataChart
+  type="bar"
+  title="Determinanten der Varianz der Portfolioperformance"
+  source="Brinson, Hood & Beebower, Financial Analysts Journal, 1986; zit. n. Ernst/Schurer (2015), S. 62"
+  xKey="label"
+  yKey="share"
+  yLabel="Anteil an der Varianz (%)"
+  height={300}
+  data={[
+    { label: 'Asset Allocation', share: 91.5 },
+    { label: 'Securities Selection', share: 4.6 },
+    { label: 'Other Factors', share: 2.1 },
+    { label: 'Timing', share: 1.8 },
+  ]}
+  series={[{ key: 'share', name: 'Anteil', color: 'var(--color-module-blue)' }]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Das Brinson-Ergebnis (ca. <Exam>91,5 % Asset Allocation</Exam>) bezieht sich auf die **Varianz** der Performance — nicht auf deren Höhe. Empirisch hat die SAA damit größeren Einfluss als die TAA.
+</Callout>
+
+### Praktische Grenzen des Markowitz-Modells
+
+<Card title="Nebenbedingungen institutioneller Investoren" tone="warning">
+- **Liquiditätserfordernisse:** Versicherungen → dauerhafte Erfüllbarkeit; Fonds → jederzeitiger Rückkauf
+- **wettbewerbsfähige Renditen**
+- **Finanzstärke** (Reservepolster bestimmt das Exposure in riskante Anlagen)
+- **gesetzlicher Rahmen:** § 54 I bzw. § 115 VAG — Sicherheit, Rentabilität, jederzeitige Liquidität, Mischung und Streuung
+</Card>
+
+<Callout type="pitfall" title="Fazit">
+Für die Generierung effizienter Portfolios reicht das reine Portfolio-Selection-Modell von Markowitz für einen institutionellen Investor **nicht** aus.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 21–25</SourceNote>
+</section>
+
+<section id="taktische-asset-allocation">
+
+## Taktische Asset Allocation
+
+<DefinitionBox term="Taktische Asset Allocation (TAA)" source="Folie 26">
+Kurz- und langfristige Anpassungen der **Gewichte** der einzelnen Assetklassen auf Basis der kurzfristig erwarteten **relativen Performance**. Basis ist die Bereitschaft, systematisches Risiko zu akzeptieren — nur dafür erhält der Investor eine Kompensation.
+</DefinitionBox>
+
+<Card title="Charakteristika der TAA" tone="neutral" compact>
+- breite Palette an Anpassungsoptionen: ad hoc (opportunistisch) vs. regelmäßig (z. B. quartalsweise)
+- „Feinschliff" des Depots zur Erzielung von risikoadjustiertem **Alpha**
+- in der Praxis: Umsetzung über **Derivate-Overlays**
+</Card>
+
+### Beispiel: TAA bei Anleihen
+
+Auf Assetklassenebene wird entlang von vier Kriterien ausgewählt, auf Einzeltitelebene über vier Merkmale konkretisiert.
+
+<Diagram
+  title="Auswahlkriterien für Anleihen (Folie 28)"
+  chart={`graph TD
+  T["Taktische Asset Allocation bei Anleihen"] --> K1["Rendite"]
+  T --> K2["Laufzeit: kurz / mittel / lang"]
+  T --> K3["Schuldner: Sovereigns / Supranationals / Corporates"]
+  T --> K4["Rating: Investment / Speculative / Junk"]
+  K1 --> E["Einzeltitel"]
+  K2 --> E
+  K3 --> E
+  K4 --> E
+  E --> M1["Coupon"]
+  E --> M2["Stückzins"]
+  E --> M3["Duration"]
+  E --> M4["Konvexität"]`}
+/>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 26–28</SourceNote>
+</section>

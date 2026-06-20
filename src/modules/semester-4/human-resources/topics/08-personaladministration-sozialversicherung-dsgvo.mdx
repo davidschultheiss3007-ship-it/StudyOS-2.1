@@ -1,0 +1,495 @@
+{/* Kapitel 8 · Personaladministration, Sozialversicherung und DSGVO. Palette via MDXProvider. */}
+
+<section id="personalbetreuung">
+
+## Personalbetreuung und freiwillige Sozialleistungen
+
+<DefinitionBox term="Personalbetreuung">
+Die Gesamtheit aller **freiwilligen** Einrichtungen, Maßnahmen bzw. Leistungen, die dem Mitarbeiter **über das vereinbarte Entgelt hinaus** zukommen. Sie ergänzt staatliche Sozialleistungen und zielt auf Gesundheit, Leistungsfähigkeit und Bindung der Mitarbeiter.
+</DefinitionBox>
+
+### Ziele und Beispielfelder
+
+<Columns count={2}>
+<Card title="Wozu Personalbetreuung?" tone="teal">
+Bessere Arbeitsbedingungen sollen
+
+- <Exam>Fehlzeiten und Fluktuation senken</Exam>
+- Motivation und Bindung steigern
+- die Außenwirkung als Arbeitgeber stärken
+</Card>
+<Card title="Beispielfelder" tone="neutral">
+- Mitarbeiterverpflegung
+- Gesundheitsfürsorge
+- Altersvorsorge
+- Familienbetreuung
+- Betriebsveranstaltungen
+- sonstige Vergünstigungen
+</Card>
+</Columns>
+
+### Die fünf Gruppen freiwilliger Sozialleistungen
+
+<Columns count={3}>
+<Card title="Vorsorgeleistungen" tone="teal">
+- Betriebliche Altersvorsorge
+- Invaliditätsversorgung
+- Hinterbliebenenversorgung
+- Unfallversicherung
+- Lebensversicherung
+- Vermögenswirksame Leistung
+</Card>
+<Card title="Geldleistungen" tone="accent">
+- Weihnachtsgeld
+- Urlaubsgeld
+- 13. Monatsgehalt
+- Beihilfen
+- Dienstaltersprämie
+- Jubiläumszuwendung
+- Fahrkostenzuschuss
+- Essenszuschuss
+- Umzugszuschuss
+- Firmendarlehen
+</Card>
+<Card title="Sachleistungen" tone="neutral">
+- Firmenwagen
+- Arbeitskleidung
+- Mitarbeiterrabatte
+- Preisnachlässe
+- Kostenlose Getränke und Früchte bzw. sonstige Verpflegung
+</Card>
+</Columns>
+
+<Columns count={2}>
+<Card title="Fürsorge- und Gesundheitspflege" tone="positive">
+- Kostenlose Vorsorgeuntersuchung
+- Grippenschutzimpfung *(so auf der Folie geschrieben)*
+- Gesundheitsdienst und Werksfürsorge
+- Wellnessprogramme
+- Krankenrückkehrgespräche
+</Card>
+<Card title="Sonstige Leistungen" tone="neutral">
+- Bildungs- und Freizeitangebote
+- Werkswohnungen
+- Kinderbetreuung
+- Beratungs- und Betreuungsangebote
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Nicht verwechseln">
+<Exam>Vorsorgeleistungen sichern gegen Alter, Invalidität, Tod und Unfall ab</Exam> (z. B. betriebliche Altersvorsorge). Geldleistungen sind zusätzliche monetäre Zuwendungen (z. B. 13. Monatsgehalt). Beides sind freiwillige Leistungen, aber unterschiedlicher Natur.
+</Callout>
+
+<SourceNote>Human Resources · HR8 · Folien 1–6</SourceNote>
+</section>
+
+<section id="sozialversicherung">
+
+## Das Sozialversicherungssystem in Deutschland
+
+Ein soziales Netz, das nach dem **Solidaritätsprinzip** als Pflichtversicherung organisiert ist. Drei Rollen tragen das System:
+
+- **Staat** — setzt die Regeln und definiert Rahmen und Leistungen
+- **Arbeitgeber und Arbeitnehmer** — zahlen die Beiträge
+- **Träger** — setzen die Leistungen und Maßnahmen um
+
+<Diagram
+  title="Die drei Rollen des Sozialversicherungssystems (Folie 9)"
+  source="www.einfach-rente.de (Creative Commons)"
+  chart={`graph LR
+  STAAT["Staat<br/>kontrolliert · schafft Regeln<br/>definiert Rahmen & Leistungen"] --> BEITRAG["Arbeitgeber + Arbeitnehmer<br/>zahlen die Beiträge"]
+  TRAEGER["Träger der Sozialversicherungen<br/>setzen Leistungen & Maßnahmen um"] --> BEITRAG
+  BEITRAG --> NETZ["Ein soziales Netz für alle Bürger in Deutschland"]`}
+/>
+
+### Die fünf Zweige der Sozialversicherung
+
+<DataTable
+  caption="Die fünf Versicherungszweige und ihre Aufgabe"
+  columns={[
+    { key: 'zweig', label: 'Zweig', align: 'left' },
+    { key: 'aufgabe', label: 'Aufgabe', align: 'left' },
+  ]}
+  rows={[
+    { zweig: 'Arbeitslosenversicherung', aufgabe: 'Grundsicherung durch Arbeitslosengeld und Unterstützung bei der Arbeitsplatzsuche' },
+    { zweig: 'Krankenversicherung', aufgabe: 'Wiederherstellung der Gesundheit und Maßnahmen zur gesundheitlichen Prävention' },
+    { zweig: 'Unfallversicherung', aufgabe: 'Leistungen bei Arbeitsunfällen und bei Berufskrankheit' },
+    { zweig: 'Pflegeversicherung', aufgabe: 'Unterstützung bei Pflegeleistungen für dauerhaft pflegebedürftige Personen' },
+    { zweig: 'Rentenversicherung', aufgabe: 'Sicherung des Lebensstandard im Alter durch eine Rentenzahlung' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Die <Exam>fünf Zweige</Exam> und das <Exam>Solidaritäts-/Pflichtversicherungsprinzip</Exam> sind prüfungsrelevant. Merkhilfe für die Rollen: Staat = Regeln, Arbeitgeber/Arbeitnehmer = Beiträge, Träger = Umsetzung.
+</Callout>
+
+<SourceNote>Human Resources · HR8 · Folie 9 · Quelle: www.einfach-rente.de</SourceNote>
+</section>
+
+<section id="personaladministration">
+
+## Personaladministration: Aufgaben und Daten
+
+Die Notwendigkeit der Personaladministration ergibt sich aus zwei Treibern:
+
+- **Externe Gründe** — gesetzlich, tariflich, behördlich
+- **Interne Gründe** — Management, Personalleitung, Mitarbeiterwünsche
+
+### Die vier Aufgabenfelder
+
+<CompareCard items={[
+  { tag: 'Information', title: 'Information', subtitle: 'Bereitstellung aktueller Daten für interne und externe Belange', accent: 'purple', points: [
+    'Gewinnung, Speicherung, Auswahl',
+    'Aufbereitung, Ausgabe von Personaldaten',
+    'Erstellung von Betriebsstatistiken',
+  ] },
+  { tag: 'Abwicklung', title: 'Abwicklung', subtitle: 'Administrative Abwicklung personalwirtschaftlicher Vorgänge', accent: 'accent', points: [
+    'Einstellungen, Versetzungen',
+    'Beförderungen, Austritte',
+    'sonstige personelle Veränderungen',
+  ] },
+  { tag: 'Abrechnung', title: 'Abrechnung', subtitle: 'Administrative und buchhalterische Bearbeitung der Personalzahlungsströme', accent: 'positive', points: [
+    'Entgeltabrechnungen, Lohn-/Gehaltszulagen',
+    'Steuern und Sozialversicherungsabgaben',
+    'Reisekosten, Darlehen, Essenszuschüsse, Werksverkäufe',
+  ] },
+  { tag: 'Überwachung', title: 'Überwachung', subtitle: 'Kontinuierliche Überwachung relevanter Personalkennzahlen', accent: 'warning', points: [
+    'Arbeitszeiterfassung, Fluktuation',
+    'Krankenstand, Überstundenanfall',
+    'Urlaubsinanspruchnahme',
+  ] },
+]} />
+
+### Meldepflichten
+
+<Columns count={2}>
+<Card title="Extern (gesetzlich vorgeschrieben)" tone="accent" exam>
+- Arbeitsbescheinigungen ans Arbeitsamt (`§ 312 SGB III`)
+- Lohnnachweise für Berufsgenossenschaften
+- Lohnsteueranmeldungen beim Finanzamt
+- Meldung zur Sozialversicherung (`§§ 28a–28c SGB IV`)
+</Card>
+<Card title="Intern" tone="neutral">
+- Ablauf der Probezeit
+- Versetzungsmeldungen
+- Meldungen über Sonderzahlungen
+- Jubiläums-, Geburtstagsmeldungen
+- Schwerbeschädigtenverzeichnis
+</Card>
+</Columns>
+
+### Verwaltete Daten
+
+<Diagram
+  title="Datenarten der Personaladministration (Folien 10, 14–16)"
+  chart={`graph TD
+  P["Personaldaten"] --> SD["Stammdaten<br/>Datenelemente · Zeitreihen · Führungsdatei"]
+  P --> ST["Strukturdaten<br/>quantitativ · qualitativ"]
+  P --> EL["Ereignis- & Leistungsdaten<br/>Fehlzeiten · Fluktuation · Output je MA"]
+  P --> WD["Weitere Daten<br/>personen- · stellen- · produktionsbezogen"]`}
+/>
+
+<Callout type="info" title="Ziele der Personaladministration">
+Transparenz personalwirtschaftlicher Vorgänge sowie <Exam>Aktualität, Fehlerfreiheit, Aussagekraft, Wirtschaftlichkeit und Datenschutz</Exam> der Daten.
+</Callout>
+
+<SourceNote>Human Resources · HR8 · Folien 8, 10–17</SourceNote>
+</section>
+
+<section id="personalkosten">
+
+## Personalkosten und Entgeltabrechnung
+
+Personalkosten gliedern sich in **vier Hauptäste:**
+
+- Löhne
+- Gehälter
+- Personalzusatzkosten
+- sonstige Personalkosten
+
+Im Fokus stehen die **Personalzusatzkosten**, die sich aus gesetzlichen, tariflichen und freiwilligen Bestandteilen zusammensetzen.
+
+<Diagram
+  title="Gliederung der Personalkosten (Folie 18)"
+  source="BWL-Lexikon.de"
+  chart={`graph TD
+  PK["Personalkosten"] --> L["Löhne"]
+  PK --> G["Gehälter"]
+  PK --> PZ["Personalzusatzkosten"]
+  PK --> SO["sonstige Personalkosten"]
+  L --> L1["Fertigungslöhne"]
+  L --> L2["Hilfslöhne"]
+  PZ --> Z1["Gesetzlich"]
+  PZ --> Z2["Tariflich"]
+  PZ --> Z3["Freiwillig"]`}
+/>
+
+### Personalzusatzkosten: ca. 40 % des Bruttolohns
+
+Die Personalzusatzkosten setzen sich aus gesetzlich/tariflich bedingten und freiwilligen Bestandteilen zusammen und machen <Exam>ca. 40 % des Bruttolohns</Exam> aus.
+
+<ProportionBar
+  caption="Personalzusatzkosten im Verhältnis zum Bruttolohn (Folie 19)"
+  segments={[
+    { label: 'Bruttolohn (Kern)', value: 60, sub: 'Löhne / Gehälter' },
+    { label: 'Personalzusatzkosten', value: 40, sub: 'gesetzlich · tariflich · freiwillig' },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Gesetz und Tarif" tone="accent">
+- Bezahlte Ausfallzeiten
+- Arbeitgeberbeiträge zur gesetzlichen Sozial- und Unfallversicherung
+- Urlaub, Urlaubsgeld
+- Schwerbehinderte
+- Betriebsärztliche Betreuung, Arbeitssicherheit
+- Kosten für Betriebsverfassung und Mitbestimmung
+- Vermögenswirksame Leistungen
+- Aus- und Fortbildung, sonstige Kosten
+</Card>
+<Card title="Freiwillig" tone="teal">
+- Betriebliche Altersversorgung
+- Küchen und Kantinen / Essenzuschüsse
+- Wohnungsbeihilfen / Umzugskosten, Fahrtkosten
+- Urlaub / Urlaubsgeld, soziale Fürsorge
+- Betriebskrankenkasse, Versicherungen und Zuschüsse
+- Bezahlung von Ausfallszeiten
+- Aus- und Fortbildung, sonstige Leistungen
+</Card>
+</Columns>
+
+### Von der Brutto- zur Nettorechnung
+
+<Diagram
+  title="Brutto-/Nettorechnung mit Verzweigung (Folie 20)"
+  chart={`graph TD
+  B["Bruttorechnung<br/>Ermittlung des Bruttoentgelts<br/>(Löhne, Provisionen, Gehälter, Azubivergütungen)"] --> N["Nettorechnung<br/>Ermittlung des Nettoverdienstes<br/>durch Verrechnung der Abzüge"]
+  N --> ZR["Zahlungsrechnung"]
+  N --> AR["Auswertungsrechnung"]
+  ZR --> ZR1["Steuer-, Mitarbeiter- & Sozialversicherungsabrechnung"]
+  ZR --> ZR2["Verm.wirks. Leistungen · Lohnpfändungen · Vorschüsse"]
+  AR --> AR1["Buchhaltung · Kostenrechnung"]
+  AR --> AR2["Controlling · Kostenstellenkontrolle"]`}
+/>
+
+<SourceNote>Human Resources · HR8 · Folien 18–20</SourceNote>
+</section>
+
+<section id="datenschutz-dsgvo">
+
+## Datenschutz und die DSGVO
+
+<DefinitionBox term="Datenschutz">
+Maßnahmen zum Schutz vor dem **Missbrauch personenbezogener Daten**. Ziele: Sicherung der Privatsphäre der Mitarbeiter, Bewahrung der Vertraulichkeit der Daten und Verhütung des Missbrauchs.
+</DefinitionBox>
+
+### Geltung und Neuerungen der DSGVO
+
+<Columns count={2}>
+<Card title="Geltung (seit 25.05.2018)" tone="accent" exam>
+- Europäisches Recht, **unmittelbar anwendbar**
+- gilt in ganz Europa (auch für Firmen mit Sitz anderswo, die sich an Personen in der EU richten)
+- das BDSG (neue Fassung) füllt nur noch Lücken über Öffnungsklauseln
+- andere Gesetze mussten ggf. an die DSGVO angepasst werden
+</Card>
+<Card title="Zentrale Neuerungen" tone="warning">
+- drastisch erhöhte Bußgelder
+- erweiterte zivilrechtliche Haftung
+- stark erweiterte Dokumentations- und Nachweispflichten
+- risikobasierter Datenschutz, erweiterte Meldepflichten bei Datenpannen
+- verschärfte Löschvorschriften, Recht auf Vergessenwerden
+</Card>
+</Columns>
+
+<Callout type="info" title="Zentrale Legaldefinitionen (Art. 4)">
+**Personenbezogene Daten** (Nr. 1) sind alle Informationen über eine identifizierte oder identifizierbare natürliche Person (direkt/indirekt, z. B. über Name, Kennnummer, Standort- oder Online-Daten). **Verarbeitung** (Nr. 2) meint praktisch jeden Umgang mit diesen Daten — vom Erheben über das Speichern bis zum Löschen, ob automatisiert oder nicht.
+</Callout>
+
+### Die sieben Grundsätze (Art. 5)
+
+<KpiGrid columns={4} items={[
+  { value: '1', label: 'Rechtmäßigkeit, Treu und Glauben, Transparenz', accent: 'accent' },
+  { value: '2', label: 'Zweckbindung' },
+  { value: '3', label: 'Datenminimierung' },
+  { value: '4', label: 'Richtigkeit' },
+  { value: '5', label: 'Speicherbegrenzung' },
+  { value: '6', label: 'Integrität und Vertraulichkeit' },
+  { value: '7', label: 'Rechenschaftspflicht' },
+]} />
+
+### Wirksame Einwilligung (Art. 7)
+
+<Timeline events={[
+  { label: '1', title: 'Freiwillig', text: 'Freiwillige Entscheidung der betroffenen Person.' },
+  { label: '2', title: 'Informiert', text: 'Informierte Entscheidung der betroffenen Person.' },
+  { label: '3', title: 'Zweckbestimmt', text: 'Für einen oder mehrere bestimmte Zwecke.' },
+  { label: '4', title: 'Widerrufbar', text: 'Jederzeit widerrufbar, mit Wirkung ab sofort.' },
+]} />
+
+<Callout type="pitfall" title="Verbreiteter Irrtum">
+Die DSGVO <Exam>schreibt keine konkreten Schutzmaßnahmen vor</Exam>. Unternehmen müssen selbst beurteilen, auf welche Rechtsgrundlage sie eine Verarbeitung stellen — der Schutz muss aber dem aktuellen Stand der Technik entsprechen.
+</Callout>
+
+<SourceNote>Human Resources · HR8 · Folien 22–29, 34–35</SourceNote>
+</section>
+
+<section id="dsgvo-sanktionen-dsb">
+
+## Sanktionen und Datenschutzbeauftragte(r)
+
+### Das abgestufte Sanktionssystem
+
+Die DSGVO sieht zwei Bußgeldstufen vor — die Höhe richtet sich nach der Schwere des Verstoßes:
+
+- **Kleinere Verstöße** (Art. 83 Abs. 4) — bis 10 Mio. € oder 2 % Weltjahresumsatz
+- **Größere Verstöße** (Art. 83 Abs. 5) — bis 20 Mio. € oder 4 % Weltjahresumsatz
+
+<DataChart
+  type="bar"
+  title="Bußgeld-Obergrenzen je Stufe (Folie 32)"
+  height={260}
+  xKey="stufe"
+  yLabel="Mio. € bzw. % Weltjahresumsatz"
+  data={[
+    { stufe: 'Art. 83 Abs. 4', 'Mio. €': 10, '% Umsatz': 2 },
+    { stufe: 'Art. 83 Abs. 5', 'Mio. €': 20, '% Umsatz': 4 },
+  ]}
+  series={[
+    { key: 'Mio. €', name: 'Obergrenze (Mio. €)', color: 'var(--color-module-orange)' },
+    { key: '% Umsatz', name: 'Obergrenze (% Weltjahresumsatz)', color: 'var(--color-module-purple)' },
+  ]}
+/>
+
+<CompareCard items={[
+  { tag: 'Art. 83 Abs. 4', title: 'Kleinere Verstöße', subtitle: 'bis 10 Mio. € oder 2 % Weltjahresumsatz', accent: 'warning', points: [
+    'Verstoß gegen **Schutzmaßnahmen**',
+    'Auftragsdatenverarbeitung',
+    'Datenschutz-Folgeabschätzung',
+    'Bestellung des Datenschutzbeauftragten',
+  ] },
+  { tag: 'Art. 83 Abs. 5', title: 'Größere Verstöße', subtitle: 'bis 20 Mio. € oder 4 % Weltjahresumsatz', accent: 'negative', points: [
+    'Verstoß gegen die **Grundsätze des Art. 5**',
+    'Rechtmäßigkeit der Verarbeitung',
+    'Einwilligungsgrundsätze',
+    'Rechte der Betroffenen, Zusammenarbeit mit Aufsichtsbehörde',
+  ] },
+]} />
+
+<DataTable
+  caption="Sanktionssystem im Überblick (Folie 32)"
+  columns={[
+    { key: 'sanktion', label: 'Sanktion', align: 'left' },
+    { key: 'norm', label: 'Norm', align: 'left' },
+    { key: 'folge', label: 'Höhe / Folge', align: 'left' },
+  ]}
+  rows={[
+    { sanktion: 'Datenpannen / Datenverlust', norm: 'Art. 33', folge: 'Vergleichbar wirksame öffentliche Bekanntmachung, wenn Mitteilung an Betroffene nicht möglich' },
+    { sanktion: 'Kleinere Verstöße', norm: 'Art. 83 Abs. 4', folge: 'bis 10 Mio. € oder 2 % Weltjahresumsatz (Vorjahr)' },
+    { sanktion: 'Größere Verstöße', norm: 'Art. 83 Abs. 5', folge: 'bis 20 Mio. € oder 4 % Weltjahresumsatz (Vorjahr)' },
+    { sanktion: 'Recht auf Schadenersatz des Betroffenen', norm: 'Art. 82', folge: 'zivilrechtlicher Schadenersatzanspruch' },
+  ]}
+/>
+
+<Callout type="info" title="Wer verfolgt Verstöße?">
+Die Verfolgung von Datenschutzverstößen liegt bei den **Landesdatenschutzbehörden**. Für kleine und mittelgroße Unternehmen ist es eher unwahrscheinlich, ins Visier zu geraten.
+</Callout>
+
+### Der/die Datenschutzbeauftragte (DSB)
+
+Benennungspflicht nach Art. 37 Abs. 1 DSGVO i. V. m. `§ 38 Abs. 1 BDSG-neu`:
+
+<Columns count={3}>
+<Card title="Wann benennen?" tone="accent" exam>
+- ab **20 Personen**, die ständig mit automatisierter pbD-Verarbeitung beschäftigt sind
+- bei sensibler Kerntätigkeit (Art. 9 / 10 DSGVO)
+- **unabhängig von der Anzahl**, wenn DSFA-pflichtige Verarbeitungen vorliegen
+</Card>
+<Card title="Aufgaben des DSB" tone="teal">
+- berät die Verantwortlichen (trifft selbst **keine** Entscheidung)
+- sensibilisiert und schult MitarbeiterInnen
+- arbeitet mit der Datenschutzbehörde zusammen, Ansprechpartner für Betroffene
+- führt Verzeichnisse, überwacht Datensicherheit und Betroffenenrechte
+</Card>
+<Card title="Schutzrechte" tone="positive">
+- Abberufungsschutz und Benachteiligungsverbot
+- Kündigungsschutz (nur fristlose Kündigung aus wichtigem Grund; Basis: BDSG-neu)
+- Anspruch auf Einbindung, Fortbildung und Unterstützung
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="DSB ist Berater, nicht Entscheider">
+Der DSB <Exam>berät und schult, trifft aber selbst keine Entscheidungen</Exam>. Er schützt ausschließlich personenbezogene Daten (Kunden-/Personaldaten), nicht reine Unternehmensdaten — genießt dafür aber besonderen Abberufungs- und Kündigungsschutz.
+</Callout>
+
+<SourceNote>Human Resources · HR8 · Folien 30–33, 36–42 · Quelle: impulse.de</SourceNote>
+</section>
+
+<section id="personalcontrolling">
+
+## Personalcontrolling
+
+<DefinitionBox term="Personalcontrolling (PC)">
+Die Anwendung des **Controllinggedankens** der BWL auf die Personalwirtschaft. Controlling bedeutet *steuern, regeln, lenken* und wird als Regelkreis interpretiert. Es ist **mehr als Kontrolle** (ex post): es umfasst zusätzlich die Gestaltung der Zukunft (ex ante).
+</DefinitionBox>
+
+### Der Controlling-Regelkreis
+
+<Diagram
+  title="Controlling-Regelkreis im Uhrzeigersinn (Folie 46)"
+  chart={`graph LR
+  ZP["Ziel-Planung<br/>(Humanressourcen in Kennzahlen)"] --> MESS["Messung der aktuellen<br/>Personaldaten (Ist-Analyse)"]
+  MESS --> SOLL["Soll-Ist-Vergleich<br/>(Abweichungsanalyse)"]
+  SOLL --> MASS["Empfehlung & Durchführung<br/>von Maßnahmen"]
+  MASS --> ZP
+  PIS["Personal-<br/>informationssystem"] --- ZP`}
+/>
+
+<Callout type="merksatz" title="Kernaussage">
+Dieser ständig ablaufende Prozess leistet einen wichtigen Beitrag zum Erreichen <Exam>qualitäts-, mengen-, kosten- und zeitbezogener HR-Ziele</Exam>; gespeist wird er aus dem Personalinformationssystem.
+</Callout>
+
+### Zwei Ausprägungspaare
+
+<CompareCard items={[
+  { tag: 'Strategisch', title: 'Strategisches PC', subtitle: 'WOHIN — „die richtigen Dinge tun"', accent: 'accent', points: [
+    'strategische Ziele und Potenziale des Unternehmens',
+    'langfristig, zukunftsbezogen (**Feedforward**-Kontrollen)',
+    'Beispiel: Anteil flexibler Personalkosten, Arbeitgeberattraktivität',
+  ] },
+  { tag: 'Operativ', title: 'Operatives PC', subtitle: 'WIE — „die Dinge richtig tun"', accent: 'positive', points: [
+    'Kosten, Erfolg und Nutzen von Maßnahmen',
+    'kurzfristig (**Feedback**-Kontrollen)',
+    'Beispiel: Anzahl offener Stellen, durchschnittliche Besetzungsdauer',
+  ] },
+]} />
+
+<CompareCard items={[
+  { tag: 'Quantitativ', title: 'Quantitatives PC', subtitle: 'direkt messbare Daten', accent: 'positive', points: [
+    'Personalstrukturdaten (Anzahl MA nach Funktion, Region, Qualifikation, Alter …)',
+    'Personalkostendaten (fixe/variable Entgelte, Personalzusatzkosten)',
+  ] },
+  { tag: 'Qualitativ', title: 'Qualitatives PC', subtitle: '„weiche Faktoren" über Indikatoren', accent: 'purple', points: [
+    'Mitarbeiterzufriedenheit, Leistungskultur, Führungsverhalten — nicht direkt messbar',
+    'Commitment-Index (emotionale Bindung), Innovationsindex (Ideen-/Kreativitätslevel)',
+  ] },
+]} />
+
+### Ausgewählte Instrumente
+
+<Columns count={2}>
+<Card title="Klassische Instrumente" tone="neutral">
+- **Soll-Ist-Vergleiche / Kennzahlen:** führen zur Ursachenanalyse (z. B. Fluktuationsquote)
+- **Benchmarking:** interne/externe Vergleiche, Orientierung an Best-Practices
+- **Zeitreihen:** Trends ex post beschreiben, ex ante prognostizieren
+- **Szenario-Technik:** Variation interner/externer Faktoren für Zukunftsszenarien
+</Card>
+<Card title="Weitere Instrumente" tone="neutral">
+- **Mitarbeiterbefragungen:** z. B. Austrittsinterviews
+- **HR Scorecard:** KPIs für den Bereich Mitarbeiter (Balanced Scorecard)
+- **HR Due Diligence / Audits:** v. a. vor Käufen und Fusionen
+- **Humanvermögensrechnung:** Bewertung des immateriellen Personalwerts
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR8 · Folien 45–51</SourceNote>
+</section>

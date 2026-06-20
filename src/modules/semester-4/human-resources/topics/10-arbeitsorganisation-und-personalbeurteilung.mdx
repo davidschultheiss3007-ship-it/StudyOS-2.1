@@ -1,0 +1,432 @@
+{/* Kapitel 10 · Arbeitsorganisation und Personalbeurteilung. Palette via MDXProvider. */}
+
+<section id="klassische-formen">
+
+## Klassische Formen der Arbeitsorganisation
+
+Die Arbeitsorganisation kennt fünf **klassische Gestaltungsformen** — gleichrangige Optionen, die Aufgaben anders zuschneiden. Gemeinsames Ziel:
+
+- **Monotonie senken** und einseitige Belastung abbauen
+- **Qualifikation** der Beschäftigten erweitern
+- **Verantwortung und Beteiligung** erhöhen
+
+### Die fünf Gestaltungsformen
+
+<Diagram
+  title="Die fünf klassischen Formen der Arbeitsorganisation (Folie 1)"
+  chart={`graph TD
+  ROOT["Klassische Formen der Arbeitsorganisation"] --> A["Job Rotation"]
+  ROOT --> B["Job Enlargement"]
+  ROOT --> C["Job Enrichment"]
+  ROOT --> D["Teilautonome Arbeitsgruppen"]
+  ROOT --> E["Qualitätszirkel"]`}
+/>
+
+### Einzelarbeit: Rotation, Enlargement, Enrichment
+
+<Columns count={3}>
+<Card title="Job Rotation" tone="teal">
+**Arbeitsplatzwechsel:** regelmäßiger, systematischer und planmäßiger Wechsel von Arbeitsplätzen und Aufgaben der Beschäftigten untereinander. Ziel: weniger Monotonie und einseitige Belastung, mehr Qualifikation.
+</Card>
+<Card title="Job Enlargement" tone="teal">
+**Aufgabenerweiterung:** Verminderung der Arbeitsteilung — mehrere Arbeitsprozesse werden an einem Platz zusammengefasst. Folge: mehr Arbeitsinhalt, Vielfalt und Sinnzusammenhang.
+</Card>
+<Card title="Job Enrichment" tone="teal">
+**Aufgabenbereicherung:** Erweiterung des Entscheidungs- und Kontrollspielraums; Planung, Ausführung und Kontrolle werden zusammengelegt. Eigenverantwortung und Verantwortung steigen.
+</Card>
+</Columns>
+
+### Gruppenarbeit: teilautonome Gruppen und Qualitätszirkel
+
+<Columns count={2}>
+<Card title="Teilautonome Arbeitsgruppen" tone="neutral">
+Gruppe von **3 bis ca. 10 Personen** (Tavistock-Institut; bekannt durch Volvo, Kalmar): erhält eine **Gesamtaufgabe** und führt Planung, Ausführung und Kontrolle eigenverantwortlich aus. Mitglieder sollen möglichst alle Arbeiten beherrschen (Wechsel, Ablösen, gegenseitige Hilfe).
+</Card>
+<Card title="Qualitätszirkel" tone="neutral">
+Freiwillige Kleingruppen von **6 bis 12 Beschäftigten**, die sich regelmäßig treffen, um arbeitsplatznahe **Qualitätsprobleme** zu lösen. Die Gruppe bestimmt einen Moderator, der Sitzungen plant, leitet und die Ergebnisse protokolliert.
+</Card>
+</Columns>
+
+<Callout type="examfocus" title="Enlargement vs. Enrichment">
+<Exam>Job Enlargement erweitert horizontal</Exam> (mehr gleichartige Aufgaben → Arbeitsbreite), <Exam>Job Enrichment erweitert vertikal</Exam> (Planung/Entscheidung/Kontrolle → Arbeitstiefe). Die Etiketten „horizontal/vertikal" sind gängige fachliche Deutung, stehen so aber nicht auf der Folie.
+</Callout>
+
+<SourceNote>Human Resources · HR10 · Folien 1–6</SourceNote>
+</section>
+
+<section id="aufgabentiefe-und-breite">
+
+## Aufgabentiefe und Aufgabenbreite
+
+Die Arbeitsformen lassen sich entlang zweier Dimensionen verorten:
+
+- <Exam>Aufgabentiefe</Exam> — vertikale Achse, entspricht Job Enrichment (Planung, Entscheidung, Kontrolle)
+- <Exam>Aufgabenbreite</Exam> — horizontale Achse, entspricht Job Enlargement (mehr gleichartige Tätigkeiten)
+
+<QuadrantMatrix
+  caption="Tiefe-Breite-Portfolio der Arbeitsformen (Folie 7) — Position visuell von der Folie abgelesen, keine numerischen Werte"
+  xLabel="Aufgabenbreite (Job Enlargement)"
+  xLow="gering"
+  xHigh="hoch"
+  yLabel="Aufgabentiefe (Job Enrichment)"
+  yLow="gering"
+  yHigh="hoch"
+  quadrants={[
+    { pos: 'tl', title: 'Über Ziele gesteuerte Projektgruppen', accent: 'purple', points: ['hohe Tiefe, geringe Breite'] },
+    { pos: 'tr', title: 'Teilautonomie Arbeitsgruppen', accent: 'teal', points: ['hohe Tiefe, hohe Breite', 'auf der Folie hervorgehoben'] },
+    { pos: 'bl', title: 'Klassische Arbeitsgruppen', accent: 'neutral', points: ['geringe Tiefe, geringe Breite'] },
+    { pos: 'br', title: 'Fertigungs- / Umsetzungsteams', accent: 'orange', points: ['geringe Tiefe, hohe Breite'] },
+  ]}
+/>
+
+<Callout type="info" title="Qualitätszirkel in der Mitte">
+**Qualitätszirkel** liegen im Diagramm bei mittlerer Tiefe und mittlerer Breite — zwischen den vier Eckfeldern.
+</Callout>
+
+<Callout type="merksatz" title="Kernaussage">
+In der Praxis bilden „teilautonome Arbeitsgruppen" ein **breites Feld hoher Tiefe und Breite** — deshalb sind sie auf der Folie eigens hervorgehoben.
+</Callout>
+
+<SourceNote>Human Resources · HR10 · Folie 7</SourceNote>
+</section>
+
+<section id="arbeitszeit-und-flexibilisierung">
+
+## Arbeitszeit und Flexibilisierung
+
+<Columns count={2}>
+<Card title="Arbeitszeit" tone="neutral" compact>
+Zeit, in der der Arbeitnehmer pro Tag/Woche/Monat/Jahr dem Unternehmen seine **Arbeitskraft** vertraglich gegen Entgelt zur Verfügung stellt.
+</Card>
+<Card title="Betriebszeit" tone="neutral" compact>
+Zeit, in der ein Betrieb **produktiv arbeitet** und seine Abteilungen ansprechbar sind.
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Entkopplung">
+Die Arbeitszeit wird grundsätzlich durch die Betriebszeit bestimmt. Erst die **Entkopplung** der individuellen Arbeitszeit von der Betriebszeit schafft Arbeitsspielräume. Flexibilisierbar sind <Exam>Arbeitsdauer und Arbeitszeitlage</Exam>.
+</Callout>
+
+<CompareCard items={[
+  { tag: 'Dauer', title: 'Chronometrisch', subtitle: 'Variation der Dauer', accent: 'accent', points: [
+    'Verändert das **Arbeitsvolumen** pro Zeiteinheit',
+    'Beispiel: **Teilzeitbeschäftigung**',
+  ] },
+  { tag: 'Lage', title: 'Chronologisch', subtitle: 'Variation der Lage / Verteilung', accent: 'teal', points: [
+    'Verändert die **Verteilung** des Arbeitsvolumens über die Zeit',
+    'Beispiel: **Schichtarbeit**',
+  ] },
+  { tag: 'Misch', title: 'Mischformen', subtitle: 'Dauer + Lage kombiniert', accent: 'purple', points: [
+    'Kombiniert beide Stellhebel',
+    'Beispiel: **Gleitzeit mit flexibler Anwesenheitsdauer**',
+  ] },
+]} />
+
+### Voll- und Teilzeit
+
+<Columns count={2}>
+<Card title="Vollzeit: gesetzlicher Rahmen (ArbZRG)" tone="accent" exam>
+Werktägliche Arbeitszeit = **8 Stunden**; verlängerbar auf **10 Stunden**, wenn im Schnitt über **6 Kalendermonate oder 24 Wochen** 8 Stunden täglich nicht überschritten werden. Festlegung zudem über Tarifverträge, Betriebsvereinbarungen oder Individualarbeitsverträge.
+</Card>
+<Card title="Teilzeit: Flexibilisierungsinstrument" tone="teal">
+Verkürzte Arbeitszeit, festlegbar stunden-/tage-/wochenweise, kontinuierlich oder in Intervallen. Sonderformen:
+- **Job Sharing** (ein Vollzeit-Verhältnis auf zwei oder mehr Teilzeitkräfte aufgeteilt)
+- **Gleitender Übergang** in den Ruhestand
+- Flexibilisierung für **berufstätige Mütter**
+</Card>
+</Columns>
+
+### Mehrarbeit und Minderarbeit
+
+<Columns count={2}>
+<Card title="Überstunden" tone="warning">
+Vom Arbeitgeber **angeordnete oder geduldete** Mehrarbeit. Ein Entgelt ist gesetzlich nicht geregelt; manche Tarifverträge sehen **25 % Zuschlag** vor, aber erst oberhalb der tariflichen Wochenarbeitszeit. Abgeltung variiert: Anordnung in Produktionsbetrieben, Freizeitausgleich in Flexsystemen, mit dem Gehalt abgegolten in höheren Positionen.
+</Card>
+<Card title="Kurzarbeit" tone="negative">
+Vorübergehende Herabsetzung der regelmäßigen Arbeitszeit (mit Entgeltminderung). Braucht eine **Rechtsgrundlage** (Tarifvertrag/Betriebsvereinbarung) und die **Zustimmung des Betriebsrats**; **Kurzarbeitergeld** der Bundesanstalt für Arbeit dient dem Arbeitsplatzerhalt.
+</Card>
+</Columns>
+
+### Arbeit auf Abruf
+
+<Card title="Kapazitätsorientierte variable Arbeitszeit (Arbeit auf Abruf)" tone="neutral" compact>
+Personaleinsatz wird an die Auftragslage angepasst (z. B. Gastronomie); der Arbeitgeber spart Leerlaufkosten. **Starke gesetzliche Einschränkungen:** der AN ist nur verpflichtet, wenn ihm die Einsatzzeit mindestens **4 Tage im Voraus** mitgeteilt wurde. Rechtsgrundlage: <Exam>TzBfG § 12</Exam>.
+</Card>
+
+<SourceNote>Human Resources · HR10 · Folien 8–17</SourceNote>
+</section>
+
+<section id="gleitzeit-und-arbeitszeitmodelle">
+
+## Gleitzeit und Arbeitszeitmodelle
+
+Bei der **Gleitzeit** legt der Arbeitnehmer Beginn und Ende der Arbeitszeit in einem Rahmen selbst fest; in der **Kernzeit** besteht Anwesenheitspflicht. Der folgende Tagesbalken (7–19 Uhr) zeigt ein Beispielmodell — die Segmentbreiten entsprechen den Stundenanteilen.
+
+<ProportionBar
+  caption="Beispielmodell Gleitzeit über den Arbeitstag von 7.00 bis 19.00 Uhr (Folie 12)"
+  segments={[
+    { label: 'Gleitzeit', value: 2, sub: '7.00–9.00 (flexibel)' },
+    { label: 'Kernzeit', value: 2.5, sub: '9.00–11.30 (Anwesenheitspflicht)' },
+    { label: 'Gleitzeit', value: 2, sub: '11.30–13.30 (Mittag)' },
+    { label: 'Kernzeit', value: 2.5, sub: '13.30–16.00 (Anwesenheitspflicht)' },
+    { label: 'Gleitzeit', value: 3, sub: '16.00–19.00 (flexibel)' },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Zwei Gleitzeit-Varianten" tone="neutral">
+- gleitender Beginn bei **fester** täglicher Anwesenheitsdauer
+- gleitender Beginn bei **flexibler** Anwesenheitsdauer (Zeitausgleich)
+</Card>
+<Card title="Arbeitszeitkonto" tone="teal">
+Bei flexibler Dauer entstehen **Zeitguthaben oder Zeitschulden** gegenüber der Sollzeit (z. B. 40 Std./Woche). Sie werden auf einem persönlichen Konto gebucht und im **Ausgleichszeitraum** saldiert (z. B. bis zum 15. des Folgemonats oder max. 15 Stunden Übertrag).
+</Card>
+</Columns>
+
+### Zeit- und einsatzbezogene Modelle
+
+<Columns count={2}>
+<Card title="Jahresarbeitszeitmodelle" tone="neutral" compact>
+Die Arbeitszeit wird über das **Kalenderjahr** festgelegt — fängt saisonale Produktionsschwankungen auf oder berücksichtigt Freizeitwünsche.
+</Card>
+<Card title="Schichtarbeit" tone="neutral" compact>
+Ein Arbeitsplatz wird auf Dauer **abwechselnd nach Plan** von zwei oder mehr AN belegt. Ziele: ununterbrochene Prozesse (z. B. Chemie), bessere Anlagenauslastung. Formen: voll-/teilkontinuierlich, 2- oder 3-Schichten.
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR10 · Folien 12–14</SourceNote>
+</section>
+
+<section id="arbeitsort-mobiles-arbeiten">
+
+## Arbeitsort: Desk-Sharing und mobiles Arbeiten
+
+Flexibilisierung betrifft nicht nur die Zeit, sondern auch den **Ort** der Arbeit. Zwei Ansätze lösen den festen Arbeitsplatz auf:
+
+- **Desk-Sharing** — kein fester Schreibtisch mehr im Büro
+- <Exam>Telearbeit</Exam> — IT-gestützter, dezentraler Arbeitsplatz außerhalb des Betriebs
+
+### Zwei Spielarten der Ortsflexibilisierung
+
+<Columns count={2}>
+<Card title="Desk-Sharing / virtuelle Büros" tone="neutral">
+In kommunikationsintensiven Tätigkeiten sind viele Schreibtische unbesetzt, verursachen aber **Miet-, Heiz-, Reinigungs- und Stromkosten**. Beim Desk-Sharing gibt es keinen festen Platz mehr: Mitarbeiter sitzen projektbezogen zusammen und richten sich bei Bedarf einen freien Platz mit ihrem **Rollcontainer** ein.
+</Card>
+<Card title="Telearbeit" tone="neutral">
+Erwerbsmäßige Tätigkeit an einem Arbeitsplatz, der **IT-gestützt** ausgestattet, **dezentral** eingerichtet und über **elektronische Medien** mit dem Auftraggeber verbunden ist. Im wissenschaftlichen Bereich setzt sich der Begriff „Telearbeit" durch.
+</Card>
+</Columns>
+
+### Vorteile und Nachteile des mobilen Arbeitens
+
+<CompareCard items={[
+  { tag: 'Arbeitnehmer', title: 'Vorteile für AN', subtitle: 'vier Dimensionen', accent: 'positive', points: [
+    '**Eigenverantwortung:** mehr Zeitsouveränität, Selbstorganisation',
+    '**Leistung:** höhere Produktivität (weniger Störungen) und Kreativität',
+    '**Lebensqualität:** weniger Pendeln, bessere Vereinbarkeit, freie Wohnortwahl',
+    '**Nachhaltigkeit & Kosten:** weniger Fahrtkosten und Umweltbelastung',
+  ] },
+  { tag: 'Unternehmen', title: 'Vorteile für AG', subtitle: 'Attraktivität & Produktivität', accent: 'accent', points: [
+    '**höhere Arbeitgeber-Attraktivität** und Imagegewinn',
+    'Erschließung von Arbeitskraftreserven in peripheren Regionen',
+    'Zugang zu mobilitätseingeschränkten, qualifizierten Mitarbeitern',
+    'weniger Fehlzeiten, geringere Büro- und Reisekosten, höhere Motivation',
+  ] },
+  { tag: 'Risiken', title: 'Nachteile', subtitle: 'für AN und AG', accent: 'negative', points: [
+    'Ablenkung zu Hause; **Privatleben** leidet (nicht abschalten können)',
+    'verlangt **persönliche Eignung** (Selbstdisziplin, Verschwiegenheit)',
+    'verringerter Informationsaustausch, **soziale Isolierung**',
+    'Gefahr, zum „Workaholic" zu werden',
+  ] },
+]} />
+
+<SourceNote>Human Resources · HR10 · Folien 18–22</SourceNote>
+</section>
+
+<section id="personalbeurteilung-formen">
+
+## Personalbeurteilung und ihre Formen
+
+<DefinitionBox term="Personalbeurteilung" source="Folie 24">
+Alle **institutionellen Verfahren und Systeme**, die die Leistungsfähigkeit bzw. das Arbeits-, Führungs- und Sozialverhalten oder das Entwicklungspotenzial des Mitarbeiters beurteilen. Weitere Bezeichnungen: **Leistungs-, Mitarbeiter- und Dienstbeurteilung**.
+</DefinitionBox>
+
+### Fünf Formen nach Beurteiler-Perspektive
+
+Beurteilungen lassen sich nach der **Beurteiler-Perspektive** differenzieren — von einer Richtung bis zum Rundumblick. Das <Exam>360-Grad-Feedback</Exam> ist dabei die umfassendste und aufwendigste Form:
+
+<DataTable
+  caption="Fünf Beurteilungsformen nach Beurteiler-Perspektive (Folie 25)"
+  columns={[
+    { key: 'form', label: 'Beurteilungsform', align: 'left' },
+    { key: 'merkmal', label: 'Merkmale', align: 'left' },
+  ]}
+  rows={[
+    { form: 'Mitarbeiterbeurteilung', merkmal: 'Typische Form: Vorgesetzte beurteilen direkt unterstellte Mitarbeiter' },
+    { form: 'Gleichgestelltenbeurteilung', merkmal: 'Gleiche Hierarchieebene/Einheit; Ziel: Kenntnisse der Kollegen nutzen' },
+    { form: 'Vorgesetztenbeurteilung', merkmal: 'Mitarbeiter beurteilen ihren Vorgesetzten (Führungsverhalten, Qualifikation)' },
+    { form: 'Selbstbeurteilung', merkmal: 'Gewinnt an Bedeutung; fördert Entwicklung und Akzeptanz anderer Beurteilungen' },
+    { form: '360-Grad-Feedback', merkmal: 'Umfassendste und aufwendigste Form: Vorgesetzte, Kollegen, Mitarbeiter und Kunden' },
+  ]}
+  highlight={(row) => row.form === '360-Grad-Feedback'}
+/>
+
+### Das Prinzip des 360-Grad-Feedbacks
+
+Der **Feedback-Empfänger** wird aus **allen Richtungen** beurteilt — das eigene Selbstbild trifft auf das Fremdbild aus mehreren Perspektiven:
+
+<Columns count={3}>
+<Card title="Vorgesetzte" tone="purple" compact>
+Führungsperspektive — Blick von oben auf Leistung und Verhalten.
+</Card>
+<Card title="Peers / Kolleg:innen" tone="teal" compact>
+Zusammenarbeit — Blick aus der gleichen Hierarchieebene.
+</Card>
+<Card title="Mitarbeitende" tone="orange" compact>
+Führungsverhalten — Blick von unten auf die Führungswirkung.
+</Card>
+<Card title="Externe Kund:innen" tone="neutral" compact>
+Außenwirkung — Blick von außerhalb der Organisation.
+</Card>
+<Card title="Interne Kund:innen" tone="neutral" compact>
+Innenwirkung — Blick aus angrenzenden Bereichen.
+</Card>
+<Card title="Selbstbild" tone="accent" compact>
+Eigene Einschätzung — wird dem Fremdbild gegenübergestellt.
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Kernsatz (Folie 27)">
+<Exam>360° = Selbstbild + Fremdbild aus mehreren Perspektiven → blinde Flecken sichtbar machen.</Exam>
+</Callout>
+
+<KpiGrid columns={3} items={[
+  { value: '72%', label: 'der Führungskräfte überschätzen ihre Wirkung auf andere (Selbst- vs. Fremdbild)', accent: 'accent' },
+  { value: '3-fach', label: 'höhere Entwicklungswirkung als klassische Jahresgespräche', accent: 'positive' },
+  { value: '85%', label: 'der Teilnehmenden berichten messbare Verhaltensänderungen', accent: 'warning' },
+]} />
+
+<Callout type="warn" title="Hinweis zu den Kennzahlen">
+Die Zahlen 72 %, 3-fach und 85 % sind **plakative Lehr-Kennzahlen ohne Quellenangabe** auf der Folie — als Beispiel, nicht als belegte Statistik zu verstehen.
+</Callout>
+
+<SourceNote>Human Resources · HR10 · Folien 24–27</SourceNote>
+</section>
+
+<section id="dreihundertsechzig-grad-feedback">
+
+## 360-Grad-Feedback
+
+Das 360-Grad-Feedback bewertet das Verhalten in **sechs Kompetenzdimensionen** und vergleicht das Selbstbild mit dem Fremdbild.
+
+<Columns count={3}>
+<Card title="Führung & Orientierung" tone="purple" compact>
+- gibt klare Richtung und Ziele vor
+- entscheidet auch unter Unsicherheit
+- ist Vorbild für Werte und Kultur
+</Card>
+<Card title="Kommunikation" tone="teal" compact>
+- hört aktiv zu und fragt nach
+- formuliert klar und verständlich
+- gibt konstruktives Feedback
+</Card>
+<Card title="Zusammenarbeit & Team" tone="orange" compact>
+- fördert Kooperation im Team
+- geht konstruktiv mit Konflikten um
+- erkennt und nutzt Stärken anderer
+</Card>
+<Card title="Ergebnisorientierung" tone="neutral" compact>
+- priorisiert konsequent
+- hält Vereinbarungen zuverlässig ein
+- treibt Themen mit Energie voran
+</Card>
+<Card title="Entwicklung & Lernen" tone="purple" compact>
+- reflektiert eigenes Verhalten
+- fördert Wachstum im Team
+- ist offen für Veränderung
+</Card>
+<Card title="Strategie & Innovation" tone="teal" compact>
+- denkt über den eigenen Bereich hinaus
+- erkennt Chancen, gestaltet aktiv
+- verbindet Gegenwart mit Zukunft
+</Card>
+</Columns>
+
+### Selbstbild vs. Fremdbild
+
+<DataChart
+  type="bar"
+  title="Beispiel: Kompetenzprofil — Selbstbild vs. Fremdbild (Folie 30)"
+  source="Folie 30 (Beispieldaten, Werte exakt von der Folie; Skala 1–5)"
+  xKey="kompetenz"
+  yLabel="Bewertung (1–5)"
+  height={320}
+  yDomain={[0, 5]}
+  data={[
+    { kompetenz: 'Kommunikation', selbstbild: 4.2, fremdbild: 3.4 },
+    { kompetenz: 'Führung', selbstbild: 3.8, fremdbild: 3.1 },
+    { kompetenz: 'Teamarbeit', selbstbild: 4.5, fremdbild: 4.2 },
+    { kompetenz: 'Ergebnis', selbstbild: 4.0, fremdbild: 4.3 },
+    { kompetenz: 'Entwicklung', selbstbild: 3.6, fremdbild: 4.0 },
+  ]}
+  series={[
+    { key: 'selbstbild', name: 'Selbstbild', color: 'var(--color-module-purple)' },
+    { key: 'fremdbild', name: 'Fremdbild', color: 'var(--color-module-teal)' },
+  ]}
+/>
+
+<QuadrantMatrix
+  caption="Muster aus dem Selbst-/Fremdbild-Vergleich (Folie 30)"
+  xLabel="Fremdbild"
+  xLow="niedrig"
+  xHigh="hoch"
+  yLabel="Selbstbild"
+  yLow="niedrig"
+  yHigh="hoch"
+  quadrants={[
+    { pos: 'tl', title: 'Blinder Fleck', accent: 'negative', points: ['Selbst hoch, Fremd niedrig', 'unbekannte Wirkung'] },
+    { pos: 'tr', title: 'Konsistente Stärke', accent: 'positive', points: ['beide hoch', 'stabiles Kompetenzfeld'] },
+    { pos: 'bl', title: 'Entwicklungsfeld', accent: 'warning', points: ['beide niedrig', 'klarer Handlungsbedarf'] },
+    { pos: 'br', title: 'Verborgene Stärke', accent: 'teal', points: ['Selbst niedrig, Fremd hoch', 'unterschätztes Potenzial'] },
+  ]}
+/>
+
+### Der Prozess
+
+<Timeline events={[
+  { label: '1', title: 'Vorbereitung & Design', text: 'Ziele klären, Geberkreis definieren, Fragebogen gestalten.' },
+  { label: '2', title: 'Befragung durchführen', text: 'Online-Erhebung, Anonymität sichern, Rücklauf sicherstellen.' },
+  { label: '3', title: 'Auswertung & Bericht', text: 'Auswertung je Gruppe, Selbst-/Fremdbild-Vergleich visualisieren.' },
+  { label: '4', title: 'Feedbackgespräch', text: 'Ergebnisse im Coaching-Gespräch reflektieren.' },
+  { label: '5', title: 'Entwicklungsmaßnahmen', text: 'Konkrete Ziele ableiten und verankern.' },
+]} />
+
+<Callout type="info" title="Rahmen">
+Gesamtdauer typisch **6–10 Wochen** · **Vertraulichkeit** ist Voraussetzung für Akzeptanz.
+</Callout>
+
+### Erfolgsfaktoren und typische Fehler
+
+<CompareCard items={[
+  { tag: '✓', title: 'Was es zum Erfolg braucht', accent: 'positive', points: [
+    '**Freiwilligkeit & Vertrauen** — nur mit garantierter Anonymität',
+    '**Klarer Entwicklungsfokus** — Wachstum, nicht Bewertung',
+    '**Professionelle Begleitung** — Ergebnisse im Coaching reflektieren',
+    '**Führung als Vorbild** — Führungskräfte nehmen zuerst teil',
+    '**Folgemaßnahmen verankern** — konkrete Ziele und Review',
+  ] },
+  { tag: '✕', title: 'Häufige Fehler vermeiden', accent: 'negative', points: [
+    '**360° als Beurteilung nutzen** — zerstört sofort Vertrauen',
+    '**Zu viele Geber:innen** — mehr als 8–10 erhöhen nur den Aufwand',
+    '**Ergebnisse ohne Begleitung** — Rohdaten verwirren oder demotivieren',
+    '**Einmaliges Ereignis** — ohne Wiederholung kein Entwicklungstrend',
+    '**Fragebogen zu lang** — mehr als 40–50 Fragen senken die Qualität',
+  ] },
+]} />
+
+<Callout type="pitfall" title="Klausurfalle">
+Das 360-Grad-Feedback ist ein **Entwicklungs-, kein Beurteilungsinstrument**. Es nie mit Gehalts- oder Beförderungsentscheidungen verknüpfen — sonst zerstört es das Vertrauen, auf dem es beruht.
+</Callout>
+
+<SourceNote>Human Resources · HR10 · Folien 28–35</SourceNote>
+</section>

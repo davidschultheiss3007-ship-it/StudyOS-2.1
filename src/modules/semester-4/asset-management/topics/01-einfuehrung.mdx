@@ -1,0 +1,308 @@
+{/* Kapitel 1 · Einführung in das Asset Management. Palette via MDXProvider. */}
+
+<section id="einordnung-und-ziele">
+
+## Einordnung und Modulziele
+
+Asset Management ist ein Modul des Schwerpunkts **Finance & Risk Management**:
+
+- <Exam>im 4. Semester verortet</Exam>, parallel zu *Behavioral Finance*
+- baut auf *Finanzinstrumente und Risikomanagement* (3. Semester) auf
+- führt weiter zu den Modulen des 5. Semesters
+
+### Curriculum-Roadmap des Schwerpunkts
+
+<Diagram
+  title="Curriculum-Roadmap des Schwerpunkts (Folie 3)"
+  source="Folie 3 — aktives Modul orange hervorgehoben"
+  chart={`graph TD
+  subgraph S3["3. Semester"]
+    M1["Finanzinstrumente und Risikomanagement"]
+  end
+  subgraph S4["4. Semester"]
+    M2["Asset Management — dieses Modul"]
+    M3["Behavioral Finance"]
+  end
+  subgraph S5["5. Semester"]
+    M4["Analyse von Finanzdaten und Data Science"]
+    M5["Corporate Financial Management"]
+  end
+  M1 --> M2
+  M1 --> M3`}
+/>
+
+### Die sechs Modulziele
+
+Nach erfolgreichem Abschluss können die Studierenden:
+
+<Columns count={2}>
+<Card title="Theorie und Klassen" tone="accent">
+- Modellimplikationen und -grenzen der modernen **Portfoliotheorie** kritisch diskutieren
+- **Asset-Klassen** abgrenzen und unter Chance-/Risikoverhältnissen bewerten
+- Optimierungspotenzial in **strategischer und taktischer** Asset Allocation identifizieren
+</Card>
+<Card title="Bewertung und Messung" tone="accent">
+- die Portfoliotheorie des **CAPM** sowie die Bewertung von Wertpapieren beschreiben und erläutern
+- **Indexkonzepte** systematisieren und deren Vor- und Nachteile analysieren
+- gängige Kennzahlen zur **Performance-Messung** berechnen
+</Card>
+</Columns>
+
+<SourceNote>Asset Management · Kapitel 1 · Folien 3-4</SourceNote>
+</section>
+
+<section id="organisatorisches">
+
+## Organisatorisches und Spielregeln
+
+Die organisatorischen Eckdaten des Moduls: Aufteilung der Lehrmethoden und Bewertung über eine Klausur.
+
+### Aufteilung der Lehrmethoden
+
+<ProportionBar
+  caption="Lehrmethoden nach Stundenanteil (Folie 5)"
+  source="Folie 5 — Spaltenüberschrift „SWS“ von der Folie übernommen"
+  segments={[
+    { label: 'E-Learning / Selbststudium', value: 88, sub: '88 Stunden' },
+    { label: 'Präsenz', value: 52, sub: '52 Stunden' },
+  ]}
+/>
+
+<Callout type="warn" title="Bezeichnung SWS auf der Folie">
+Die Folie überschreibt die Spalte mit „SWS". Angesichts der Werte 52/88 handelt es sich der Sache nach um Zeitstunden, nicht um klassische Semesterwochenstunden — die Bezeichnung wird hier aber 1:1 von der Folie übernommen.
+</Callout>
+
+### Die Klausur im Überblick
+
+<KpiGrid columns={4} items={[
+  { value: '90 Min', label: 'Dauer der Klausur' },
+  { value: '100 %', label: 'Anteil an der Note', accent: 'accent' },
+  { value: 'Wissen', label: 'Wissensfragen' },
+  { value: 'Praxis + MC', label: 'Praxisbezogene und Multiple-Choice-Fragen' },
+]} />
+
+<Card title="Prüfungsform" tone="neutral" compact exam>
+Die Leistungsbewertung erfolgt <Exam>zu 100 % über eine 90-minütige Klausur</Exam>, die Wissens-, Praxis- und Multiple-Choice-Fragen kombiniert.
+</Card>
+
+<SourceNote>Asset Management · Kapitel 1 · Folie 5</SourceNote>
+</section>
+
+<section id="definition-und-formen">
+
+## Definition und Formen des Asset Management
+
+<DefinitionBox term="Asset Management" source="Folie 10">
+Die **systematische Dienstleistung der professionellen Kapitalanlage** mit dem Ziel, risikoeffiziente Portefeuilles zu bilden. Synonyme: Portfolio Management, Wertpapiermanagement, Fondsmanagement, Investment Management, Vermögensverwaltung.
+</DefinitionBox>
+
+### Ertragsmodell und Zielspannungsfeld
+
+<Columns count={2}>
+<Card title="Ertragsmodell und Organisation" tone="neutral">
+- Erträge der Asset Manager hängen ab von **Assets under Management (AuM)**, Performance und Anlagestil
+- Kundentypen: private vs. institutionelle Kunden (Versicherungen, Pensionsfonds, Stiftungen)
+- Anlageentscheidungen trifft häufig das **Investment-Komittee**
+- beschäftigte Rollen: Portfoliomanager, Buyside-Analysten, Händler, Backoffice
+</Card>
+<Card title="Magisches Viereck" tone="accent" exam>
+Das <Exam>Zielspannungsfeld der Kapitalanlage</Exam> besteht aus vier konkurrierenden Zielen — auf der Folie als Aufzählung genannt, **nicht** als gezeichnetes Diagramm.
+</Card>
+</Columns>
+
+<KpiGrid columns={4} items={[
+  { value: 'Rendite', label: 'Ziel des magischen Vierecks', accent: 'accent' },
+  { value: 'Risiko', label: 'Ziel des magischen Vierecks', accent: 'accent' },
+  { value: 'Liquidität', label: 'Ziel des magischen Vierecks', accent: 'accent' },
+  { value: 'Steuern', label: 'Ziel des magischen Vierecks', accent: 'accent' },
+]} />
+
+### Zwei Formen im Vergleich
+
+<CompareCard items={[
+  { tag: 'Form 1', title: 'Klassisches Asset Management', subtitle: 'Verwaltung durch Bank oder Vermögensverwalter', accent: 'accent', points: [
+    'Verwaltung des Wertpapiervermögens eines Privatanlegers oder institutionellen Investors',
+    'selbstständige Entscheidung im Rahmen eines **Vermögensverwaltungsmandats**',
+    '**Vorteil:** Berücksichtigung der individuellen Anlagevorstellungen',
+    '**Nachteil:** hohe Kosten und Gebühren, geringe Streuung',
+  ] },
+  { tag: 'Form 2', title: 'Fondsgestütztes Asset Management', subtitle: 'Investition in Fonds statt Einzeltitel', accent: 'positive', points: [
+    'Investition in **Fonds**, nicht in einzelne Wertpapiere',
+    '**Vorteil:** jederzeitige Überwachung des Fondsvermögens, breite Streuung möglich',
+    '**Vorteil:** möglich bereits ab deutlich kleinerem Vermögen',
+    '**Nachteil:** geringere Berücksichtigung der individuellen Anlegerinteressen',
+  ] },
+]} />
+
+<SourceNote>Asset Management · Kapitel 1 · Folien 10-11</SourceNote>
+</section>
+
+<section id="anbieter-und-anleger">
+
+## Anbieter und institutionelle Anleger
+
+Die Anbieter von Asset-Management-Dienstleistungen lassen sich nach **Kundentyp** systematisieren.
+
+<Columns count={3}>
+<Card title="Banken" tone="neutral">
+- Information des Anlegers durch **Berater**
+- Entscheidung trifft der **Anleger** selbst
+</Card>
+<Card title="Privatkunden" tone="neutral">
+- Beispiel: Musterdepots
+- Definition von **Anlagerichtlinien**
+- **Einzeldisposition** durch den Verwalter
+</Card>
+<Card title="Institutionelle Anleger" tone="neutral">
+- **Spezialfonds**
+- Wertpapier- und Liquiditätsmanagement, Asset Allocation
+- **Asset-Liability-Management (ALM)**: Abstimmung der Fälligkeitsstruktur aktiver und passiver Bilanzpositionen
+</Card>
+</Columns>
+
+### Charakteristika institutioneller Anleger
+
+<Card title="Merkmale" tone="accent" exam>
+- <Exam>juristische Person</Exam>
+- i. d. R. hohe Anlagebeträge und -bestände
+- Anlage überwiegend **fremder**, von Dritten überlassener Mittel
+- hohe gesetzliche Restriktionen (<Exam>KAGG, WpHG, KWG</Exam>)
+- Informationsverhalten: Nachfrage nach professionellem Research, strukturierte Informationsverarbeitung
+- häufig Entscheidungsfindung **in Gruppen**
+- hohe, regelmäßige Entscheidungsintensität
+</Card>
+
+<Callout type="info" title="Erscheinungsformen">
+Kreditinstitute, Versicherungen, Pensionskassen, Kapitalanlagegesellschaften bzw. Investmentfonds, Stiftungen.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 1 · Folien 12-13</SourceNote>
+</section>
+
+<section id="beteiligte-parteien">
+
+## Beteiligte Parteien im Fondsgeschäft
+
+Das zentrale Schaubild zeigt das Zusammenspiel der am Fondsgeschäft beteiligten Parteien sowie die **Aufsichts-, Auftrags- und Verwahrbeziehungen**. Pfeilrichtung und Beschriftung sind inhaltlich tragend.
+
+<Diagram
+  title="Beziehungsdiagramm der beteiligten Parteien (Folie 14)"
+  source="Folie 14 — Pfeilrichtungen am Original geprüft"
+  height={420}
+  chart={`graph TD
+  BaFin["BaFin"]
+  FDL["Finanzdienstleister §32 KWG"]
+  KVG["KVG / Kapitalverwaltungsgesellschaft"]
+  DB["Depotbank"]
+  FM["Fondsmanager"]
+  IA1["Investment Advisor (links)"]
+  IA2["Investment Advisor (Mitte)"]
+  VS["Verwahrstelle"]
+  SV["Sondervermögen"]
+  INV["Investor"]
+  BaFin -- "kontrolliert" --> FDL
+  BaFin -- "kontrolliert" --> KVG
+  BaFin -- "überwacht" --> DB
+  FDL -- "beauftragt" --> DB
+  KVG -- "beauftragt" --> DB
+  KVG -- "beschäftigt" --> FM
+  FM -- "verwaltet" --> SV
+  DB -- "verwahrt" --> SV
+  IA1 -- "berät" --> FM
+  IA2 -- "beliefert" --> VS
+  INV -- "investiert" --> SV
+  SV -- "Anteile" --> INV`}
+/>
+
+<DataTable
+  caption="Beziehungsmatrix: Quelle → Beziehung → Ziel (Folie 14)"
+  columns={[
+    { key: 'von', label: 'Quelle', align: 'left' },
+    { key: 'bez', label: 'Beziehung', align: 'left' },
+    { key: 'zu', label: 'Ziel', align: 'left' },
+  ]}
+  rows={[
+    { von: 'BaFin', bez: 'kontrolliert', zu: 'Finanzdienstleister (§32 KWG)' },
+    { von: 'BaFin', bez: 'kontrolliert', zu: 'KVG' },
+    { von: 'BaFin', bez: 'überwacht', zu: 'Depotbank' },
+    { von: 'Finanzdienstleister', bez: 'beauftragt', zu: 'Depotbank' },
+    { von: 'KVG', bez: 'beauftragt', zu: 'Depotbank' },
+    { von: 'KVG', bez: 'beschäftigt', zu: 'Fondsmanager' },
+    { von: 'Fondsmanager', bez: 'verwaltet', zu: 'Sondervermögen' },
+    { von: 'Depotbank', bez: 'verwahrt', zu: 'Sondervermögen' },
+    { von: 'Investor', bez: 'investiert', zu: 'Sondervermögen' },
+    { von: 'Sondervermögen', bez: 'gibt Anteile', zu: 'Investor' },
+  ]}
+/>
+
+### Zwei Modelle des Finanzdienstleisters
+
+<CompareCard items={[
+  { tag: 'Modell 1', title: 'Anlageberatung im klassischen Sinn', subtitle: 'Einzelzustimmung', accent: 'accent', points: [
+    '**Einverständnis des Kunden** muss vor jedem Geschäft eingeholt werden',
+    'Kunde behält die Entscheidungshoheit über jede Transaktion',
+  ] },
+  { tag: 'Modell 2', title: 'Finanzportfolioverwaltung', subtitle: 'Generalvollmacht', accent: 'purple', points: [
+    'Kunde erteilt eine **Generalvollmacht**',
+    'die BaFin fordert dafür **höhere EK-Richtlinien**',
+  ] },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+<Exam>Einverständnis vor jedem Geschäft</Exam> kennzeichnet die klassische Anlageberatung; die **Generalvollmacht** kennzeichnet die Finanzportfolioverwaltung.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 1 · Folie 14</SourceNote>
+</section>
+
+<section id="aufsicht-und-akteure">
+
+## BaFin, KVG und Depotbank
+
+Drei Akteure des Fondsgeschäfts im Detail: die Aufsichtsbehörde sowie die beiden zentralen Gesellschaften.
+
+<Card title="Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin)" tone="accent" exam>
+- rechtsfähige Bundesanstalt mit Sitz in **Frankfurt am Main und Bonn**
+- untersteht der Rechts- und Fachaufsicht des Bundesministeriums der Finanzen
+- Rechtsgrundlage: <Exam>Kreditwesengesetz (KWG)</Exam>
+- beaufsichtigt als <Exam>Allfinanzaufsicht</Exam> alle Bereiche des Finanzwesens (Banken, Versicherungen, Wertpapierhandel): Neugründungen von Banken, laufende Aufsicht (SolvV, LiqV, MaRisk), Prüfung der Berufung von Bankvorständen
+- Umgehung staatlicher Kontrolle nur durch Sitzverlegung in **Offshore-Gebiete** möglich
+</Card>
+
+<Columns count={2}>
+<Card title="Österreich" tone="neutral" compact>
+Finanzmarktaufsichtsbehörde (**FMA**)
+</Card>
+<Card title="Schweiz" tone="neutral" compact>
+Eidgenössische Finanzmarktaufsicht (**FINMA**)
+</Card>
+</Columns>
+
+### KVG und Depotbank
+
+<Columns count={2}>
+<Card title="Kapitalverwaltungsgesellschaft (KVG)" tone="accent">
+- sammelt liquide Mittel von Anlegern ein und investiert sie nach vorgegebenen Grundsätzen
+- steuert die <Exam>Anlagepolitik des Sondervermögens</Exam> durch Initiierung von Käufen und Verkäufen
+</Card>
+<Card title="Depotbank" tone="accent">
+- übernimmt die <Exam>Verwahrung der Anlagegelder</Exam>
+- überwacht die KVG bzgl.: Rechtmäßigkeit der Geschäfte, korrekte Ermittlung des Anteilspreises, Collateral Management, Anlagegrenzprüfung, Marktgerechtigkeit
+</Card>
+</Columns>
+
+<CompareCard items={[
+  { tag: 'Form 1', title: 'Spezial-Sondervermögen', subtitle: 'für institutionelle Anleger', accent: 'accent', points: [
+    'basiert auf **Vereinbarungen** zwischen institutionellen Anlegern und der KVG',
+  ] },
+  { tag: 'Form 2', title: 'Publikums-Sondervermögen', subtitle: 'der Rest', accent: 'neutral', points: [
+    '**alle übrigen** Sondervermögen',
+  ] },
+]} />
+
+<DefinitionBox term="Sondervermögen" source="Folien 16-17">
+Das **Anlagekapital der Fondsanleger**, abgetrennt vom Vermögen der KVG und durch die Depotbank verwahrt. Es ist geschützt vor Wertänderungen anderer Fonds der KAG sowie vor deren Zugriff oder dem ihrer Gläubiger. Sein Wert ist die Summe der mit dem aktuellen **Rücknahmepreis** bewerteten Anteilscheine.
+</DefinitionBox>
+
+<SourceNote>Asset Management · Kapitel 1 · Folien 15-17</SourceNote>
+</section>

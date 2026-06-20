@@ -1,0 +1,492 @@
+{/* Kapitel 2 · Traditionelle Assetklassen. Palette components resolve via MDXProvider. */}
+
+<section id="was-sind-assetklassen">
+
+## Was sind Assetklassen?
+
+<DefinitionBox term="Assetklasse" source="Folie 3">
+Anlagen und Anlageinstrumente mit **vergleichbaren Eigenschaften**, die auf Veränderungen von Fundamentalfaktoren einer Wirtschaft ähnlich reagieren. Fundamentalfaktoren sind z. B. Wirtschaftswachstum, Inflation, technischer Fortschritt, Infrastruktur, Arbeit oder Ressourcen.
+</DefinitionBox>
+
+### Standardisiert vs. nicht standardisiert
+
+<Columns count={2}>
+<Card title="Standardisierte Assetklassen" tone="accent">
+- höhere **Liquidität**
+- geringe Transaktionskosten
+- austauschbar, regelmäßiger Handel
+</Card>
+<Card title="Nicht standardisierte Assetklassen" tone="neutral">
+- nicht austauschbare **Einzelstücke**
+- kein regelmäßiger Handel
+- meist keine laufenden Erträge
+</Card>
+</Columns>
+
+### Idealtypische Risiko-Rendite-Rangfolge
+
+Assetklassen lassen sich nach Risiko und erwarteter Rendite in eine **idealtypische, stark vereinfachte** Rangfolge bringen:
+
+- Mit steigendem Risiko steigt auch die erwartete Rendite.
+- Die Punkte ordnen sich entlang einer steigenden Geraden im Risiko-Rendite-Raum an.
+
+<Scene3D
+  title="Idealtypische Risiko-Rendite-Rangfolge der Assetklassen (Folie 3)"
+  source="Folie 3 · idealtypische, stark vereinfachte Darstellung"
+  hint="Maus ziehen zum Drehen. Punkte steigen entlang der Geraden: links unten geringes Risiko/Rendite, rechts oben Futures."
+  height={380}
+  frontier={[{ x: 0.06, y: 0.05 }, { x: 0.95, y: 0.94 }]}
+  points={[
+    { x: 0.08, y: 0.06, label: 'Kurzfr. Bundesanleihen' },
+    { x: 0.18, y: 0.16, label: 'Spareinlagen' },
+    { x: 0.30, y: 0.28, label: 'Langfr. Bundesanleihen' },
+    { x: 0.42, y: 0.40, label: 'Rentenfonds' },
+    { x: 0.55, y: 0.53, label: 'Aktienfonds' },
+    { x: 0.68, y: 0.66, label: 'Aktien' },
+    { x: 0.81, y: 0.80, label: 'Optionen' },
+    { x: 0.93, y: 0.92, label: 'Futures' },
+  ]}
+/>
+
+<Callout type="merksatz" title="Rangfolge (von gering zu hoch)">
+Kurzfristige Bundesanleihen → Spareinlagen → Langfristige Bundesanleihen → Rentenfonds → Aktienfonds → Aktien → Optionen → Futures. <Exam>Höheres Risiko geht mit höherer erwarteter Rendite einher.</Exam>
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 2 · Folie 3</SourceNote>
+</section>
+
+<section id="systematisierung">
+
+## Systematisierung: traditionell vs. alternativ
+
+Assetklassen werden in zwei Hauptgruppen systematisiert:
+
+- **traditionelle (standardisierte)** Klassen — vor allem Aktien und Anleihen
+- **alternative (nicht standardisierte)** Klassen
+
+Dieses Kapitel behandelt nur die traditionellen.
+
+<CompareCard items={[
+  { tag: 'Traditionell', title: 'Standardisierte Assetklassen', subtitle: 'austauschbar · liquide', accent: 'accent', points: [
+    'Aktien',
+    'Anleihen',
+    'Geldmarktinstrumente',
+    'Währungen',
+    'entsprechende **Derivate und Fonds**',
+  ] },
+  { tag: 'Alternativ', title: 'Nicht standardisierte Assetklassen', subtitle: 'Einzelstücke · illiquide', accent: 'positive', points: [
+    'Immobilien',
+    'Hedge Fonds',
+    'Private Equity, Venture Capital',
+    'Rohstoffe, Volatilität',
+    'Sammlerstücke (Oldtimer, Kunst, Briefmarken, Uhren) und entsprechende Fonds',
+  ] },
+]} />
+
+<Callout type="info" title="Abgrenzung zum nächsten Kapitel">
+Die alternativen Assetklassen sind Gegenstand von **Kapitel 3**. Hier liegt der Fokus auf den beiden zentralen traditionellen Klassen: **Aktien** (Kapitel 2.1) und **Anleihen** (Kapitel 2.2).
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 2 · Folie 4</SourceNote>
+</section>
+
+<section id="aktien-rechtsformen">
+
+## Aktien: Rechtsformen und Organe
+
+Eine Aktie verbrieft ein Anteilsrecht an einer Kapitalgesellschaft. Drei Rechtsformen sind relevant:
+
+- **AG** — Aktiengesellschaft
+- **KGaA** — Kommanditgesellschaft auf Aktien
+- **SE** — europäische Societas Europaea
+
+### Die drei Rechtsformen im Vergleich
+
+<CompareCard items={[
+  { tag: 'AG', title: 'Aktiengesellschaft', subtitle: 'Grundkapital in Aktien zerlegt', accent: 'accent', points: [
+    'geregelt durch das **AktG**',
+    'Organe: Vorstand, Aufsichtsrat, Aktionär, Hauptversammlung',
+    'Haftung **nur mit dem Gesellschaftsvermögen**',
+    'Mindest-Grundkapital **50.000 EUR** (mind. 25 % einzuzahlen)',
+    'Vorteile: Börsenhandel, hohe Fungibilität, Trennung von Management und Eigentum',
+  ] },
+  { tag: 'KGaA', title: 'Kommandit­gesellschaft auf Aktien', subtitle: 'AG mit persönlich Haftenden', accent: 'purple', points: [
+    'statt Vorstand: persönlich haftende **Komplementäre** (§ 278 II AktG)',
+    'Komplementäre sind geschäftsführungs- und vertretungsbefugt',
+    '**Kommanditaktionäre** haben die Rechte normaler AG-Aktionäre, keine weitere Haftung',
+    'Beispiele: Henkel, Merck, Fresenius, Borussia Dortmund',
+  ] },
+  { tag: 'SE', title: 'Societas Europaea', subtitle: 'Europa-AG seit 2004', accent: 'neutral', points: [
+    'EU-weit einheitliche Rechtsform für grenzüberschreitende Konzerne',
+    'zwei Leitungssysteme: **dualistisch** (Vorstand + Aufsichtsrat) oder **monistisch** (Verwaltungsrat)',
+    'erleichtert Sitzverlegungen und Fusionen',
+    'Mindestkapital **120.000 EUR**',
+  ] },
+]} />
+
+<KpiGrid columns={3} items={[
+  { value: '50.000 EUR', label: 'Mindest-Grundkapital AG (mind. 25 % einzuzahlen)', accent: 'accent' },
+  { value: '120.000 EUR', label: 'Mindestkapital SE' },
+  { value: '3 Mio. EUR', label: 'Grundkapital-Schwelle: ab hier mind. 2 Vorstandsmitglieder' },
+]} />
+
+### Die drei Organe der Aktiengesellschaft
+
+<Columns count={3}>
+<Card title="Hauptversammlung" tone="accent" compact>
+- Verwendung des Bilanzgewinns
+- Bestellung des Abschlussprüfers
+- Satzungsänderungen, Kapitalmaßnahmen
+- Auflösung der Gesellschaft
+- Bestellung des Aufsichtsrats
+- Entlastung von Vorstand und Aufsichtsrat
+</Card>
+<Card title="Aufsichtsrat" tone="neutral" compact>
+- **überwachendes** Organ
+- 3 bis 21 Mitglieder, abhängig von der Höhe des Grundkapitals
+</Card>
+<Card title="Vorstand" tone="neutral" compact>
+- **laufende Geschäftsführung**
+- mind. 2 Mitglieder bei Grundkapital über 3 Mio. EUR
+</Card>
+</Columns>
+
+### Zusammenspiel der Organe
+
+<Diagram
+  title="Organigramm der AG-Organe (Folie 10)"
+  chart={`graph TD
+  AN["Arbeitnehmer"] -->|"waehlt (ab 500 Beschaeftigte)"| AR["Aufsichtsrat"]
+  AK["Aktionaere"] --> HV["Hauptversammlung"]
+  HV -->|"waehlt und entlastet"| AR
+  AR -->|"bestellt, kontrolliert und entlastet"| VS["Vorstand"]
+  HV -->|"entlastet"| VS`}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+<Exam>Arbeitnehmer (ab 500 Beschäftigten) und die Hauptversammlung wählen den Aufsichtsrat</Exam>; der Aufsichtsrat bestellt, kontrolliert und entlastet den Vorstand. Die Hauptversammlung entlastet zusätzlich auch den Vorstand.
+</Callout>
+
+<DefinitionBox term="Aktie als Anteilsrecht" source="Folie 12">
+Die Aktie verbrieft ein **Anteilsrecht** an einer AG — der Aktionär wird Teilhaber an einem beschränkt haftenden Unternehmen. Ziel des Aktionärs ist die Partizipation am Unternehmenserfolg, der Wertentwicklung, Kapitalaufstockungen und am Liquidationserlös; der Emittent erreicht eine **Eigenkapitalfinanzierung mit unbegrenzter Laufzeit**. Bei nicht-börsennotierten Unternehmen spricht man von „Private Equity".
+</DefinitionBox>
+
+<SourceNote>Asset Management · Kapitel 2 · Folien 6–12</SourceNote>
+</section>
+
+<section id="aktiengattungen">
+
+## Aktiengattungen
+
+Aktien lassen sich nach drei Merkmalspaaren unterscheiden:
+
+- **Stamm- vs. Vorzugsaktie** (Stimmrecht) — das prüfungsrelevanteste Paar
+- **Inhaber- vs. Namens- vs. vinkulierte Namensaktie** (Übertragbarkeit)
+- **Nennwert- vs. Stückaktie** (Anteil am Grundkapital)
+
+### Stamm- vs. Vorzugsaktie
+
+<CompareCard items={[
+  { tag: 'St.', title: 'Stammaktien', subtitle: 'Voting / Common Shares', accent: 'accent', points: [
+    'Aktie **mit Stimmrecht**',
+    'Standardfall der Aktie',
+  ] },
+  { tag: 'Vz.', title: 'Vorzugsaktien', subtitle: 'Voting-frei, aber dividenden­bevorzugt', accent: 'purple', points: [
+    'Aktie **ohne Stimmrecht**',
+    'Ausgleich: Recht auf Vorzugsbehandlung (höhere Dividende oder bessere Rangstelle bei Liquidation)',
+    'maximal **50 %** des Grundkapitals',
+    'Vorzugsdividende grundsätzlich **kumulativ** — Ausfall ist nachzuzahlen',
+    'Sonderstimmrecht nach **zwei Jahren** Dividendenausfall',
+    'notieren meist **mit Abschlag** zur Stammaktie',
+  ] },
+]} />
+
+### Übertragbarkeit: von frei handelbar zu gebunden
+
+<SpectrumAxis
+  caption="Übertragbarkeit und Fungibilität der Aktie — von links (frei) nach rechts (gebunden)"
+  markers={[
+    { at: 8, label: 'Inhaberaktie', sub: 'Rechte an Urkunde gebunden, formlose Übertragung, hohe Fungibilität, Aktionär anonym' },
+    { at: 50, label: 'Namensaktie', sub: 'Eintrag im Aktienregister erforderlich' },
+    { at: 92, label: 'Vinkulierte Namensaktie', sub: 'Übertragung nur mit Zustimmung der Emittentin (z. B. Rüstungs-/Luftfahrtindustrie)' },
+  ]}
+/>
+
+### Nennwert- vs. Stückaktie
+
+<Columns count={2}>
+<Card title="Nennwertaktie" tone="neutral" compact>
+- fester Nennwert als Anteil am Grundkapital
+- mind. **1,00 EUR**
+- Verbot der Unterpari-Emission
+</Card>
+<Card title="Stückaktie" tone="neutral" compact>
+- **nennwertlos**, gleicher Anteil am Grundkapital
+- anteiliger Betrag darf 1 EUR nicht unterschreiten
+- in Deutschland seit **1998**, Zusatz „o. N."
+</Card>
+</Columns>
+
+<Columns count={2}>
+<Callout type="examfocus" title="Übernahmeschutz">
+Namens- und vinkulierte Namensaktien bieten einen besonderen **Übernahmeschutz**: Das „Heranpirschen" eines Käufers bleibt nicht geheim.
+</Callout>
+<Callout type="pitfall" title="Entweder — oder">
+<Exam>Ein Unternehmen kann nicht beide Aktiengattungen ausgeben</Exam> — entweder Nennwertaktien oder Stückaktien, nie beides zugleich.
+</Callout>
+</Columns>
+
+<SourceNote>Asset Management · Kapitel 2 · Folien 13–15</SourceNote>
+</section>
+
+<section id="aktienmaerkte-indizes">
+
+## Aktienmärkte, Indizes und Aktionärsstruktur
+
+- Jeder Aktienindex bildet einen **repräsentativ gewählten Korb** von Unternehmen seines Landes ab.
+- Die folgenden Stände sind reale Marktdaten zum Stichtag.
+
+### Wichtige Aktienindizes weltweit
+
+<Callout type="info" title="Reales Beispiel — kein Prüfungswert">
+Die Indexstände sind Werte **vom 22. März 2026** und dienen als Beispiel. Auffällig: Am Stichtag waren alle Tagesveränderungen negativ.
+</Callout>
+
+<DataTable
+  caption="Wichtige Aktienindizes weltweit (Stände vom 22. März 2026)"
+  columns={[
+    { key: 'land', label: 'Land / Stadt', align: 'left' },
+    { key: 'index', label: 'Index', align: 'left' },
+    { key: 'stand', label: 'Stand', align: 'right' },
+    { key: 'chg', label: 'Veränderung', align: 'right' },
+  ]}
+  rows={[
+    { land: 'Deutschland, Frankfurt', index: 'DAX', stand: '22.380,19', chg: '−2,01 %' },
+    { land: 'Europa', index: 'Euro STOXX 50', stand: '5.501,28', chg: '−2,00 %' },
+    { land: 'USA, New York', index: 'S&P 500', stand: '6.506,48', chg: '−1,51 %' },
+    { land: 'USA, New York', index: 'Dow Jones', stand: '45.577,47', chg: '−0,96 %' },
+    { land: 'USA, New York', index: 'Nasdaq', stand: '21.647,61', chg: '−2,01 %' },
+    { land: 'GB, London', index: 'FTSE 100', stand: '9.918,33', chg: '−1,44 %' },
+    { land: 'Frankreich, Paris', index: 'CAC 40', stand: '7.665,62', chg: '−1,82 %' },
+    { land: 'Schweiz, Zürich', index: 'SMI', stand: '12.320,99', chg: '−1,11 %' },
+    { land: 'Japan, Tokio', index: 'Nikkei', stand: '53.372,53', chg: '−3,38 %' },
+    { land: 'China, Shanghai', index: 'SCI', stand: '4.006,55', chg: '−1,39 %' },
+    { land: 'HongKong', index: 'Hang Seng', stand: '25.277,32', chg: '−0,88 %' },
+    { land: 'Indien, Bombay', index: 'Sensex', stand: '74.207,24', chg: '−3,26 %' },
+    { land: 'Singapur', index: 'Straits Times', stand: '3.280,87', chg: '−5,87 %' },
+  ]}
+/>
+
+<SourceNote>Quelle: finanzen.net/indizes, abgerufen am 22. März 2026 · Folie 16</SourceNote>
+
+### Aktionäre und Aktienfondsbesitzer in Deutschland
+
+- Die Zahl der Aktien- und Aktienfondsbesitzer war um 2000/2001 hoch.
+- Sie sank bis etwa 2009–2011 und steigt seither wieder deutlich an — getrieben vor allem durch **Aktienfondsbesitzer**.
+- Hinweis zur Datenlage: Auf der Folie tragen nur die ungeraden Jahre Zahlenlabels; die geraden Jahre liegen ohne Werte vor.
+
+<DataChart
+  type="bar"
+  title="Aktionäre und Aktienfondsbesitzer in Deutschland 1997–2025 (in Mio.)"
+  source="statista, DAI · Folie 17 (nur beschriftete, ungerade Jahre)"
+  xKey="year"
+  yLabel="Zahl in Mio."
+  height={320}
+  data={[
+    { year: 1997, nurAktien: 3.29, aktienUndFonds: 0.63, nurFonds: 1.68 },
+    { year: 1999, nurAktien: 3.49, aktienUndFonds: 1.52, nurFonds: 3.23 },
+    { year: 2001, nurAktien: 3.09, aktienUndFonds: 2.61, nurFonds: 7.16 },
+    { year: 2003, nurAktien: 2.96, aktienUndFonds: 2.09, nurFonds: 6.08 },
+    { year: 2005, nurAktien: 2.73, aktienUndFonds: 2.01, nurFonds: 6.05 },
+    { year: 2007, nurAktien: 2.37, aktienUndFonds: 1.68, nurFonds: 6.27 },
+    { year: 2009, nurAktien: 2.22, aktienUndFonds: 1.41, nurFonds: 5.19 },
+    { year: 2011, nurAktien: 2.36, aktienUndFonds: 1.53, nurFonds: 4.59 },
+    { year: 2013, nurAktien: 2.81, aktienUndFonds: 1.75, nurFonds: 4.36 },
+    { year: 2015, nurAktien: 2.89, aktienUndFonds: 1.52, nurFonds: 4.6 },
+    { year: 2017, nurAktien: 2.89, aktienUndFonds: 2.03, nurFonds: 5.14 },
+    { year: 2019, nurAktien: 2.55, aktienUndFonds: 1.61, nurFonds: 5.49 },
+    { year: 2021, nurAktien: 3.15, aktienUndFonds: 2.02, nurFonds: 6.9 },
+    { year: 2023, nurAktien: 2.03, aktienUndFonds: 2.64, nurFonds: 7.65 },
+    { year: 2025, nurAktien: 2, aktienUndFonds: 2.9, nurFonds: 9.2 },
+  ]}
+  series={[
+    { key: 'nurAktien', name: 'nur Aktien', color: 'var(--color-module-blue)' },
+    { key: 'aktienUndFonds', name: 'Aktien und Aktienfonds', color: 'var(--color-module-purple)' },
+    { key: 'nurFonds', name: 'nur Aktienfonds', color: 'var(--color-module-teal)' },
+  ]}
+/>
+
+<SourceNote>Quelle: statista, DAI · Folie 17</SourceNote>
+</section>
+
+<section id="anleihen-grundlagen">
+
+## Anleihen: Definition, Typen und Verzinsung
+
+<DefinitionBox term="Anleihe" source="Folie 19">
+Ein als Wertpapier **verbrieftes Forderungsrecht** (Synonyme: Renten, Schuldverschreibungen, Obligationen, Bonds). Der Käufer wird zum **Gläubiger**, der Emittent zum **Schuldner** mit unbedingter Zins- und Tilgungspflicht zu fest definierten Zeitpunkten. Standardfall ist die börsennotierte Inhaberschuldverschreibung.
+</DefinitionBox>
+
+### Verzinsungstypen
+
+<CompareCard items={[
+  { tag: 'fix', title: 'Festverzinsliche Anleihe', subtitle: 'Straight / Plain Vanilla Bond', accent: 'accent', points: [
+    'fixer Nominalzins über die gesamte Laufzeit',
+    'meist jährlich **nachschüssig**, in % des Nominalwerts',
+    'Tilgung am Laufzeitende (endfällig)',
+    'Laufzeit 1–30 Jahre; Stufenzins via Step-Up-/Step-Down-Covenant',
+  ] },
+  { tag: 'variabel', title: 'Variabel verzinsliche Anleihe', subtitle: 'Floater / FRN', accent: 'purple', points: [
+    'Zins an Referenzgröße gekoppelt (meist **EURIBOR + Credit-Spread**)',
+    'Adjustierung alle 3/6 Monate → **limitiertes Kursrisiko**',
+    'Laufzeit 5–7 Jahre',
+    'Varianten: Cap / Floor / Collared / Reverse Floater, Inflation-Linked-Bonds',
+  ] },
+  { tag: 'Zero', title: 'Nullkuponanleihe', subtitle: 'Zero Bond', accent: 'neutral', points: [
+    '**kein laufender Kupon** — Thesaurierung bis Fälligkeit',
+    'Ertrag aus Differenz Ausgabe-/Rückzahlungsbetrag (Disagio)',
+    'Laufzeit 10–30 Jahre',
+    'kein Wiederanlagerisiko; hohes Kurspotenzial bei fallenden Zinsen',
+  ] },
+]} />
+
+### Kurs, Effektivverzinsung und der Pari-Zusammenhang
+
+Die **Effektivverzinsung** (yield-to-maturity, ytm) ist der Zins, bei dem der Barwert aller Zahlungsströme dem aktuellen Kurs plus Stückzinsen entspricht.
+
+- Sie verrechnet Nominalzins, Kursgewinn/-verlust bis zur Fälligkeit und Stückzinsen.
+- Die Praktikerformel liefert dazu eine statische Näherung:
+
+<Formula
+  title="Praktikerformel zur statischen Effektivverzinsung"
+  expr="r_{eff} = \frac{\;r_{nom} + \dfrac{100 - \text{Kaufkurs}}{\text{RLZ}}\;}{\text{Kaufkurs} + \text{Stückzinsen}} \cdot 100"
+  legend={[
+    { sym: 'r_{eff}', desc: 'Effektivverzinsung (ytm) in %' },
+    { sym: 'r_{nom}', desc: 'Nominalzins in %' },
+    { sym: '\\text{RLZ}', desc: 'Restlaufzeit in Jahren' },
+    { sym: '\\text{Kaufkurs}', desc: 'Kaufkurs in % des Nominals' },
+    { sym: '\\text{Stückzinsen}', desc: 'Stückzinsen in % des Nominals' },
+  ]}
+/>
+
+<SpectrumAxis
+  caption="Pari-Zusammenhang: Kurs gegen Effektivverzinsung (ytm) — Wiederholung I&FRM"
+  markers={[
+    { at: 12, label: 'Kurs unter pari', sub: 'ytm über Nominalzins' },
+    { at: 50, label: 'Kurs = pari', sub: 'ytm = Nominalzins' },
+    { at: 88, label: 'Kurs über pari', sub: 'ytm unter Nominalzins' },
+  ]}
+/>
+
+<Callout type="merksatz" title="Pari-Zusammenhang">
+<Exam>Notiert eine Anleihe über pari, liegt ihre ytm unter dem Nominalzins</Exam> — und umgekehrt. Nur bei Kurs = pari sind ytm und Nominalzins gleich.
+</Callout>
+
+<Card title="Reales Beispiel: BMW Finance N.V. EO-MTN 2023(33)" tone="neutral" compact>
+Kurs **101,861 %** (über pari, Tagesveränderung −0,595 %), Nominalzins **4,125 %**, Rendite p. a. **3,826 %**, Fälligkeit 04.10.2033, Duration 6,51. Da die Anleihe über pari notiert, liegt die ytm (3,826 %) **unter** dem Nominalzins (4,125 %) — konsistent mit dem Pari-Zusammenhang. *(comdirect.de, 22.03.2026 — reales Beispiel, kein Prüfungswert.)*
+</Card>
+
+<SourceNote>Asset Management · Kapitel 2 · Folien 19–24 · comdirect.de (Folie 21)</SourceNote>
+</section>
+
+<section id="anleihen-risiken-rating">
+
+## Risiken, Rating und weitere Finanzierungsformen
+
+### Erwartete vs. versprochene Verzinsung
+
+- Wegen des **Ausfallrisikos** weicht die versprochene Rendite (ytm bei vertragsgemäßer Zahlung) von der erwarteten Rendite ab.
+- Die versprochene ytm **überzeichnet** den Ertrag.
+
+<KpiGrid columns={4} items={[
+  { value: '7 %', label: 'Kupon der einjährigen Beispielanleihe' },
+  { value: '90 %', label: 'Kaufkurs' },
+  { value: '20 %', label: 'Ausfallwahrscheinlichkeit (PD)', accent: 'negative' },
+  { value: '60 %', label: 'Recovery im Ausfall' },
+]} />
+
+<Formula expr="YTM_{prom} = \frac{7 + 100}{90} - 1 = 18{,}9\,\%" />
+<Formula expr="YTM_{Def} = \frac{(7 + 100)\cdot 0{,}6}{90} - 1 = -28{,}7\,\%" />
+<Formula expr="YTM_{erw} = 18{,}9\,\% \cdot 0{,}8 + (-28{,}7\,\%)\cdot 0{,}2 = 9{,}4\,\%" />
+
+<Callout type="examfocus" title="Klausurpunkt">
+Die versprochene ytm beträgt <Exam>18,9 %</Exam>, die tatsächlich erwartete ytm aber nur <Exam>9,4 %</Exam>. Das Ausfallrisiko muss in der ytm-Berechnung berücksichtigt werden.
+</Callout>
+
+### Die acht Risikoarten von Anleihen
+
+<KpiGrid columns={4} items={[
+  { value: 'Bonität', label: 'Bonitäts-/Ausfallrisiko', accent: 'negative' },
+  { value: 'Zins', label: 'Zinsänderungsrisiko' },
+  { value: 'Liquidität', label: 'Liquiditätsrisiko' },
+  { value: 'Sicherung', label: 'Sicherungsrisiko' },
+  { value: 'Wieder­anlage', label: 'Wiederanlagerisiko' },
+  { value: 'Währung', label: 'Währungsrisiko' },
+  { value: 'Kündigung', label: 'Kündigungsrisiko' },
+  { value: 'Auslosung', label: 'Auslosungsrisiko' },
+]} />
+
+### Ratingklassen: Investment Grade vs. spekulativ
+
+- Die Ratingskala von Moody’s und S&P bewertet das **Ausfallrisiko**.
+- Die **dicke Grenze** liegt zwischen Baa3/BBB− und Ba1/BB+.
+- <Exam>Darüber Investment Grade, darunter spekulativ bis zum Default</Exam>.
+
+<DataTable
+  caption="Ratingskala Moody’s / S&P (vgl. Bösch S. 191) — hervorgehoben: Investment Grade"
+  columns={[
+    { key: 'risk', label: 'Einschätzung des Ausfallrisikos', align: 'left' },
+    { key: 'moodys', label: 'Moody’s', align: 'left' },
+    { key: 'sp', label: 'S&P', align: 'left' },
+    { key: 'grade', label: 'Gruppe', align: 'left' },
+  ]}
+  highlight={(row) => row.grade === 'Investment'}
+  rows={[
+    { risk: 'Beste Qualität, geringes Ausfallrisiko', moodys: 'Aaa', sp: 'AAA', grade: 'Investment' },
+    { risk: 'Hohe Qualität, etwas größeres Ausfallrisiko', moodys: 'Aa1 / Aa2 / Aa3', sp: 'AA+ / AA / AA−', grade: 'Investment' },
+    { risk: 'Gute Qualität, viele gute Investmentattribute', moodys: 'A1 / A2 / A3', sp: 'A+ / A / A−', grade: 'Investment' },
+    { risk: 'Mittlere Qualität, mangelnder Schutz', moodys: 'Baa1 / Baa2 / Baa3', sp: 'BBB+ / BBB / BBB−', grade: 'Investment' },
+    { risk: 'Spekulativ, nur mäßige Deckung', moodys: 'Ba1 / Ba2 / Ba3', sp: 'BB+ / BB / BB−', grade: 'Spekulativ' },
+    { risk: 'Sehr spekulativ, fehlende Charakteristika', moodys: 'B1 / B2 / B3', sp: 'B+ / B / B−', grade: 'Spekulativ' },
+    { risk: 'Niedrigste Qualität, in Zahlungsverzug oder Gefahr', moodys: 'Caa / Ca / C', sp: 'CCC / CC / C', grade: 'Spekulativ' },
+    { risk: 'Ausfall (Default)', moodys: 'D', sp: 'D', grade: 'Spekulativ' },
+  ]}
+/>
+
+### Weitere Finanzierungsformen
+
+<Columns count={2}>
+<Card title="Schuldscheindarlehen" tone="neutral" compact>
+Nicht börsengehandeltes, bankarrangiertes FK-Instrument für **bonitätsstarke** Unternehmen: keine Besicherung, keine Dokumentationspflichten, kein externes Rating — dafür ca. 0,5 % höhere Verzinsung und erschwerter Verkauf. Vorteil Investor: **kein Abschreibungsrisiko**.
+</Card>
+<Card title="Sonstige Schuldverschreibungen" tone="neutral" compact>
+- **Tilgungsanleihe:** stetige Teiltilgung über die Laufzeit
+- **Annuitätenanleihe:** konstanter Jahresbetrag, steigender Tilgungsanteil
+- **Verlosungsanleihe:** Auslosung und Rückzahlung von Tranchen
+</Card>
+</Columns>
+
+<CompareCard items={[
+  { tag: 'Wandel', title: 'Wandelanleihe', subtitle: 'Convertible Bond', accent: 'accent', points: [
+    'Umtauschrecht der Anleihe in Aktien des Emittenten',
+    'nach Wandlung **geht die Anleihe unter** — Gläubiger wird Aktionär',
+    'hybrid aus Naked Bond + Call',
+  ] },
+  { tag: 'Option', title: 'Optionsanleihe', subtitle: 'Bezugsrecht zusätzlich', accent: 'purple', points: [
+    'Bezugsrecht auf Aktien **zusätzlich** zur Rückzahlung',
+    'nach Ausübung **bleibt die Anleihe bestehen** — Anleger ist Gläubiger und Aktionär',
+    'Voraussetzung: HV-Beschluss über bedingte Kapitalerhöhung',
+  ] },
+  { tag: 'Hybrid', title: 'Hybridanleihe', subtitle: 'Perpetual / Consol Bond', accent: 'orange', points: [
+    'Mischform zwischen EK und FK; Laufzeit über 99 Jahre',
+    'bilanziell **Eigenkapital**, steuerlich **Fremdkapital**',
+    'nachrangig, unbesichert → hoher Zins; Kündigung nur für Emittenten',
+  ] },
+]} />
+
+<Callout type="pitfall" title="Wandel- vs. Optionsanleihe">
+<Exam>Bei der Wandelanleihe erlischt die Anleihe nach der Wandlung</Exam>; bei der Optionsanleihe bleibt sie bestehen und der Anleger erhält zusätzlich Aktien.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 2 · Folien 25–33</SourceNote>
+</section>

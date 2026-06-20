@@ -1,0 +1,376 @@
+{/* Kapitel 4 · Operative Personalplanung. Palette via MDXProvider. */}
+
+<section id="personalgewinnungsplanung">
+
+## Personalgewinnungsplanung und offene Positionen
+
+Die **Personalgewinnungsplanung** ist die vorgelagerte Strukturierung des Beschaffungsprozesses. Sie bündelt alle Informationen, um offene Stellen planbar, budgetierbar und kontrollierbar zu besetzen.
+
+<Card title="Was die Gewinnungsplanung festhält" tone="teal">
+- offene Positionen
+- geplanter Besetzungszeitpunkt
+- Planung der Beschaffungswege
+- beteiligte Personen
+- Festlegung der Gehaltsspannen
+- geplante Gewinnungskosten
+- Status des Gewinnungsprozesses
+</Card>
+
+Die Festlegung einer offenen Position folgt einer **dreistufigen Logik**: Erst wenn die Position konkret beschrieben ist, lassen sich Zielgruppe und Beschaffungsweg sinnvoll ableiten.
+
+<Diagram
+  title="Von der offenen Position zum Beschaffungsweg (Folie 2)"
+  chart={`graph LR
+  A["Offene Position festlegen<br/>Stelle · Anzahl · Kompetenzprofile"] --> B["Anforderungs-/Kompetenz­profil erstellen<br/>vorhanden oder neu"]
+  B --> C["Aus Anforderungen ableiten<br/>Zielgruppe · Beschaffungsweg"]`}
+/>
+
+<Callout type="merksatz" title="Reihenfolge merken">
+<Exam>Zuerst die Position konkretisieren, dann Zielgruppe und Beschaffungsweg ableiten</Exam> — nicht umgekehrt.
+</Callout>
+
+<SourceNote>Human Resources · HR4 · Folien 1–2</SourceNote>
+</section>
+
+<section id="kompetenzmodell">
+
+## Das Vier-Felder-Kompetenzmodell
+
+Anforderungsprofile sollten nicht nur fachliche Qualifikationen enthalten. Für die Personalplanung sind **vier Kompetenzdimensionen** relevant: fachlich, persönlich, methodisch und sozial. Die Folie stellt sie als viergeteiltes Kompetenzmodell dar.
+
+<QuadrantMatrix
+  caption="Vier-Felder-Kompetenzmodell (Folie 3)"
+  quadrants={[
+    { pos: 'tl', title: 'Fachkompetenz', accent: 'teal', points: [
+      'Ausbildung',
+      'Fachkenntnisse',
+      'Berufserfahrung',
+      'Projekterfahrung',
+    ] },
+    { pos: 'tr', title: 'Persönlichkeitskompetenz', accent: 'purple', points: [
+      'Basisantrieb, Energie',
+      'analytische Fähigkeiten',
+      'Kreativität / Innovationsfähigkeit',
+      'Leidenschaft, Stabilität',
+      'Moral, Ethik, Integrität',
+    ] },
+    { pos: 'bl', title: 'Methodenkompetenz', accent: 'accent', points: [
+      'Projektmanagement',
+      'Zeitmanagement',
+      'Anwendungswissen',
+      'Problemlösungskompetenz',
+      'Präsentationstechniken / Moderation',
+    ] },
+    { pos: 'br', title: 'Sozialkompetenz', accent: 'orange', points: [
+      'Kommunikation',
+      'Teamfähigkeit',
+      'Konflikt- und Kritikfähigkeit',
+      'Motivations-, Überzeugungsfähigkeit',
+      'Empathie',
+    ] },
+  ]}
+/>
+
+<Callout type="pitfall" title="Klausurfalle">
+Ein Anforderungsprofil nur über <Exam>Fachkompetenz</Exam> zu definieren, ist unvollständig — Persönlichkeits-, Methoden- und Sozialkompetenz gehören gleichberechtigt dazu.
+</Callout>
+
+<SourceNote>Human Resources · HR4 · Folie 3</SourceNote>
+</section>
+
+<section id="anforderungsprofil">
+
+## Anforderungsprofil: Entstehung und Soll-Skala
+
+Ein Anforderungsprofil entsteht **nicht isoliert**, sondern aus einer dreistufigen Informationskette. Es kann neu erstellt oder aus vorhandenen Grundlagen (Bereichsentwicklungspläne, Stellenbeschreibungen) weiterentwickelt werden.
+
+<Diagram
+  title="Informationsquellen des Anforderungsprofils (Folie 4)"
+  chart={`graph LR
+  A["Organisatorische<br/>Informationen"] --> B["Stellenbezogene<br/>Informationen"]
+  B --> C["Ausprägung des persönlichen<br/>Kompetenzgefühls"]`}
+/>
+
+<Columns count={2}>
+<Card title="Profil erstellen" tone="neutral" compact>
+- Hauptaufgaben
+- Verantwortungsbereiche
+- Anforderungen und Wünsche des Unternehmens
+- fachliche Anforderungsmerkmale
+- persönliche Anforderungsmerkmale
+</Card>
+<Card title="Profil im Bewerbungsprozess vergleichen" tone="accent" compact exam>
+Das **Unternehmensprofil (Soll)** wird mit dem **individuellen Kompetenzprofil der Bewerber (Ist)** verglichen. Idealfall: Ableitung aus einer vorhandenen Stellenbeschreibung.
+</Card>
+</Columns>
+
+### Muster-Anforderungsprofil für eine Führungsaufgabe
+
+Ein Anforderungsprofil übersetzt abstrakte Anforderungen in **messbare Soll-Ausprägungen** auf einer Skala von 1 bis 7. Dadurch werden Bewerberprofile systematisch vergleichbar.
+
+<DataChart
+  type="bar"
+  title="Soll-Ausprägungen je Kompetenzmerkmal (Skala 1–7, ca.)"
+  source="Folie 6 (Werte visuell aus der Folie rekonstruiert, ca.)"
+  xKey="merkmal"
+  yKey="soll"
+  yLabel="Soll-Ausprägung (1–7)"
+  height={360}
+  yDomain={[0, 7]}
+  data={[
+    { merkmal: 'Zielorientierung', soll: 5 },
+    { merkmal: 'MA-Controlling', soll: 6 },
+    { merkmal: 'MA-Motivation', soll: 5 },
+    { merkmal: 'Konfliktfähigkeit', soll: 5 },
+    { merkmal: 'Verantwortungsbereitschaft', soll: 5 },
+    { merkmal: 'Entscheidungsfähigkeit', soll: 6 },
+    { merkmal: 'Sensibilität', soll: 5 },
+    { merkmal: 'Analytisches Denken', soll: 3 },
+    { merkmal: 'Konzeptionelles Denken', soll: 3 },
+    { merkmal: 'Beratungskompetenz', soll: 3 },
+    { merkmal: 'Eigeninitiative', soll: 4 },
+    { merkmal: 'Kommunikationskompetenz', soll: 6 },
+    { merkmal: 'Selbstdarstellung / Auftreten', soll: 5 },
+  ]}
+  series={[{ key: 'soll', name: 'Soll-Wert', color: 'var(--color-module-teal)' }]}
+/>
+
+<Callout type="info" title="Lesehinweis">
+Die Werte sind aus der Folie rekonstruiert (ca.). Sichtbar wird: Führungs- und zwischenmenschliche Merkmale (MA-Controlling, Entscheidungsfähigkeit, Kommunikation) liegen hoch, rein fachliche Merkmale für diese Führungsaufgabe vergleichsweise niedrig (ca. 3).
+</Callout>
+
+<SourceNote>Human Resources · HR4 · Folien 4–6</SourceNote>
+</section>
+
+<section id="funktionsmatrix-und-karrieremodelle">
+
+## Funktionsmatrix und Karrieremodelle
+
+Die **Funktionsmatrix** fasst die Summe aller Anforderungsprofile eines Unternehmens zusammen. Sie ordnet jedes Profil einer Funktionsfamilie (Spalte) und einem Verantwortungs-/Kompetenzlevel (Zeile A–F) zu und macht Entwicklungswege sichtbar.
+
+<DataTable
+  caption="Funktionsmatrix-Beispiel: Funktionsfamilien × Level (Folie 9, Auszug)"
+  columns={[
+    { key: 'level', label: 'Level', align: 'left' },
+    { key: 'consulting', label: 'Consulting', align: 'left' },
+    { key: 'technik', label: 'Technik', align: 'left' },
+    { key: 'vertrieb', label: 'Vertrieb', align: 'left' },
+    { key: 'ebene', label: 'Ebene', align: 'left' },
+  ]}
+  rows={[
+    { level: 'A', consulting: 'Geschäftsführer', technik: 'Geschäftsführer', vertrieb: 'Geschäftsführer', ebene: 'obere Führungsebene' },
+    { level: 'B', consulting: 'Direktor Consulting', technik: 'Direktor IT', vertrieb: 'Direktor Vertrieb', ebene: 'obere Führungsebene' },
+    { level: 'C', consulting: 'Leiter Consulting', technik: 'IT-Leiter', vertrieb: 'Leiter Vertrieb', ebene: 'mittlere Führungsebene' },
+    { level: 'D', consulting: 'Senior Berater', technik: 'Senior Softwareentwickler', vertrieb: 'Vertriebsspezialist', ebene: 'Mitarbeiter (Senior)' },
+    { level: 'E', consulting: 'Berater', technik: 'Softwareentwickler', vertrieb: 'Vertriebsmitarbeiter', ebene: 'Mitarbeiter' },
+    { level: 'F', consulting: 'Beratungsassistenz', technik: 'Systembetreuer', vertrieb: 'Vertriebsassistentin', ebene: 'Mitarbeiter' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Zwei Achsen der Entwicklung">
+<Exam>Vertikal = Aufstieg über Level A–F, horizontal = Wechsel zwischen Funktionsfamilien.</Exam> Rechts erfolgt die Einordnung in Führungs- oder Mitarbeiterebene, unten die Zuordnung der Funktionsfamilien.
+</Callout>
+
+### Karriere bedeutet mehr als Führung
+
+Mit Hilfe der Funktionsmatrix werden Karrierewege sichtbar. Neben der klassischen Führungslaufbahn sollten **gleichwertige Alternativen** mit gleicher Verantwortungsstufe angeboten werden.
+
+<CompareCard items={[
+  { tag: 'Klassik', title: 'Linien-Management', subtitle: 'disziplinarische Führung', accent: 'accent', points: [
+    'klassische Leitungslaufbahn',
+    'Direktor → Bereichs- → Abteilungs- → Gruppenleiter → Mitarbeiter',
+  ] },
+  { tag: 'Fach', title: 'Fach-Management', subtitle: 'Fachlaufbahn', accent: 'teal', points: [
+    'gleichwertige Alternative ohne disziplinarische Führung',
+    'z. B. fachwissenschaftliche/r Berater/-in, wissenschaftliche/r Experte/-in',
+  ] },
+  { tag: 'Projekt', title: 'Projektmanagement', subtitle: 'Projektlaufbahn', accent: 'purple', points: [
+    'Karriere über Projektverantwortung',
+    'verläuft parallel über Hierarchieebenen hinweg',
+  ] },
+]} />
+
+Das klassische Karrieremodell stellt **Leitungsebene** und **Fachlaufbahn** Rang für Rang nebeneinander — so wird die Fachkarriere als gleichwertige Alternative zur Führungslaufbahn sichtbar:
+
+<DataTable
+  caption="Klassiker: Leitungsebene neben Fachlaufbahnstufe (Folie 11)"
+  columns={[
+    { key: 'rang', label: 'Rangstufe', align: 'left' },
+    { key: 'leitung', label: 'Leitungsebene', align: 'left' },
+    { key: 'fach', label: 'Fachlaufbahnstufe', align: 'left' },
+  ]}
+  rows={[
+    { rang: '1', leitung: 'Direktor/-in', fach: '—' },
+    { rang: '2', leitung: 'Bereichsleiter/-in', fach: 'Fachwissenschaftliche/r Berater/-in' },
+    { rang: '3', leitung: 'Abteilungsleiter/-in', fach: 'Wissenschaftliche/r Experte/-in' },
+    { rang: '4', leitung: 'Gruppenleiter/-in', fach: 'Fachwissenschaftler/-in' },
+    { rang: '5', leitung: 'Mitarbeiter/-in', fach: 'Wissenschaftliche/r Assistent/-in' },
+  ]}
+/>
+
+Im modernen Beispiel (Rheinmetall) verlaufen die Laufbahnen **parallel** über fünf Hierarchieebenen — von den *Professionals* als breiter Basis bis zu den *Executives* an der Spitze:
+
+<Diagram
+  title="Hierarchieebenen × parallele Laufbahnen (Folie 12)"
+  chart={`graph TD
+  E["Executives"] --> TM["Top Management"]
+  TM --> SM["Senior Management"]
+  SM --> M["Management"]
+  M --> P["Professionals (Basis)"]
+  P --- L1["Fachkräfte"]
+  P --- L2["Führungskräfte"]
+  P --- L3["Projektmanagement"]`}
+/>
+
+<Callout type="merksatz" title="Kernformel">
+<Exam>Karriere = Laufbahn + Hierarchieebene.</Exam> Fach- und Projektlaufbahn sind keine „Trostpreise", sondern gleichwertige Wege.
+</Callout>
+
+<SourceNote>Human Resources · HR4 · Folien 8–12; Friedl, V.: Die betriebliche Karriereplanung (2002)</SourceNote>
+</section>
+
+<section id="stellenbeschreibung">
+
+## Stellenbeschreibung als Planungsinstrument
+
+Die **Stellenbeschreibung** ist ein altbewährtes Instrument der Personalplanung. Sie legt Aufgaben **funktionsbezogen und mitarbeiterunabhängig** fest und ist zugleich Führungs- und Organisationsinstrument.
+
+<Columns count={2}>
+<Card title="Was sie leistet" tone="teal">
+- gibt Überblick über Befugnisse, Art und Umfang der Anforderungen
+- grenzt Tätigkeits- und Verantwortungsbereich verbindlich ab
+- zeigt die Einordnung des Arbeitsplatzes in die Organisation
+- ergänzt Kompetenzprofile um diskriminierungsfreie Informationen
+</Card>
+<Card title="Was zu beachten ist" tone="warning" exam>
+- erfolgt **unabhängig vom aktuellen Stelleninhaber**
+- <Exam>kein fester Bestandteil des Arbeitsvertrags — damit jederzeit änderbar</Exam>
+- legt Aufgaben <Exam>funktionsbezogen, nicht personenbezogen</Exam> fest
+</Card>
+</Columns>
+
+### Vor- und Nachteile
+
+<CompareCard items={[
+  { tag: 'Pro', title: 'Vorteile', accent: 'positive', points: [
+    'klare Abgrenzung von Aufgaben und Kompetenzen',
+    'festgelegte Vertretung und Vollmachten',
+    'gute Grundlage für Beschaffung, Beurteilung und Entwicklung',
+  ] },
+  { tag: 'Contra', title: 'Nachteile', accent: 'negative', points: [
+    'großer Arbeitsaufwand bei ständiger Aktualisierung',
+    'starre Aufgabenbestimmung: Zusatzaufgaben ggf. nicht verpflichtend',
+    'geringe Flexibilität bei Änderungen',
+  ] },
+]} />
+
+### Aufbau einer Stellenbeschreibung (Beispiel)
+
+Das Beispiel International Sales Manager zeigt: Eine Stellenbeschreibung ist mehr als eine Aufgabenliste — sie verbindet Positionsdaten, Arbeitszeit, Ziele, Aufgaben, Verantwortung, Unterstellung, Vertretung, Vollmacht und formale Bestätigung.
+
+<Timeline events={[
+  { label: '1', title: 'Kopfdaten', text: 'Stellenbezeichnung, Bereich/Abteilung, Kostenstelle (z. B. International Sales Manager · Vertrieb/Export · 1162).' },
+  { label: '2', title: 'Arbeitszeit', text: 'Vollzeit / Teilzeit / geringfügig (im Beispiel: Vollzeit 40 Std./Woche).' },
+  { label: '3', title: 'Ziel der Stelle', text: 'Umsatz- und Gewinnmaximierung, markt- bzw. zielgruppenorientierte Ausrichtung der Vertriebsaktivitäten.' },
+  { label: '4', title: 'Aufgaben und Verantwortung', text: 'Vertriebsentwicklung, Marktbeobachtung, Verkaufsstrategien, Umsatz-/Ergebnisverantwortung, Vertriebscontrolling.' },
+  { label: '5', title: 'Unterstellung und Vertretung', text: 'unterstellt: Geschäftsführer; vertreten durch: International Sales Service Team.' },
+  { label: '6', title: 'Vollmacht und Unterschriften', text: 'Vollmacht i. A.; Unterschriften von Stelleninhaber/in, Vorgesetzte/r und Personalleitung.' },
+]} />
+
+<SourceNote>Human Resources · HR4 · Folien 13–17</SourceNote>
+</section>
+
+<section id="besetzungsprozess">
+
+## Besetzungsprozess: intern oder extern
+
+Nach Konkretisierung von Personalbedarf und Anforderungen wird die Beschaffung geplant. Der **zentrale Verzweigungspunkt** ist die Entscheidung über den Beschaffungsweg: intern oder extern.
+
+<DecisionTree nodes={[
+  { label: 'Besetzung einer konkreten Position', detail: 'Ausfüllen der Personalanforderung (Fachbereich) → Genehmigungsprozess', children: [
+    { label: 'Entscheidung Beschaffungsweg', detail: 'zentraler Verzweigungspunkt (im Personalmarketing rot markiert)', children: [
+      { label: 'Externe Beschaffung', detail: 'Festlegung der Wege → Ende der Vorbereitungsaufgaben' },
+      { label: 'Interne Beschaffung', detail: 'interne Stellenausschreibung → Beförderung bzw. Versetzung → Auswahl geeigneter Beschaffungswege im Unternehmen' },
+    ] },
+  ] },
+]} />
+
+<Columns count={3}>
+<Card title="Zentrale Entscheidungen" tone="accent" compact>
+- Beschaffungswege
+- Beschaffungsmedien
+- Auswahlmethoden
+</Card>
+<Card title="Hilfsmittel" tone="neutral" compact>
+- Personalanforderung (HI888237)
+- Interne Stellenausschreibung (HI708535)
+- Beförderung (HI906805)
+- Versetzung (HI875189 / HI585113)
+</Card>
+<Card title="Bewerber-Fundorte" tone="teal" compact>
+- interner Arbeitsmarkt
+- externer Arbeitsmarkt
+</Card>
+</Columns>
+
+<Callout type="examfocus" title="Der kritische Punkt">
+Erst nach der <Exam>Wahl des Beschaffungswegs</Exam> lässt sich festlegen, ob interne Maßnahmen, externe Wege, Medien oder Auswahlkanäle relevant sind. Im Personalmarketing wird genau dieser Entscheidungsdiamant besonders hervorgehoben.
+</Callout>
+
+<SourceNote>Human Resources · HR4 · Folien 18–19, 24</SourceNote>
+</section>
+
+<section id="arbeitsmarktforschung">
+
+## Personalmarketing und Arbeitsmarktforschung
+
+Die Arbeitsmarktforschung unterscheidet, **woher** Personal gewonnen werden kann. Sie beginnt mit dem Beschaffungspotential und differenziert dann zwischen innerbetrieblicher und außerbetrieblicher Analyse.
+
+<Columns count={2}>
+<Card title="Offenes Beschaffungspotential" tone="teal">
+<Exam>Arbeitslose, arbeitsplatzsuchende Beschäftigte, neu Eintretende</Exam> — Personen, die **offen verfügbar oder suchend** sind.
+</Card>
+<Card title="Latentes Beschaffungspotential" tone="purple">
+<Exam>Abwerben von Arbeitskräften anderer Firmen, Steigerung der Erwerbstätigkeit</Exam> — Personen, die **latent gewonnen** werden könnten.
+</Card>
+</Columns>
+
+### Innerbetriebliche vs. außerbetriebliche Analyse
+
+<CompareCard items={[
+  { tag: 'Intern', title: 'Innerbetriebliche Analyse', subtitle: 'Potenzial im Unternehmen', accent: 'teal', points: [
+    'Mitarbeiterpotenzial aus Personalverwaltung, -planung, -entwicklung',
+    'Herkunft **räumlich**: gleicher Betrieb, andere Betriebsteile, Gesamtkonzern',
+    'Herkunft **inhaltlich**: gleicher oder anderer Tätigkeitsbereich',
+  ] },
+  { tag: 'Extern', title: 'Außerbetriebliche Analyse', subtitle: 'Struktur des Arbeitsmarktes', accent: 'accent', points: [
+    '**Angebot**: Alter, Qualifikation',
+    '**Nachfrage**: Branchen-, Berufsverteilung',
+    '**Entwicklung**: Qualifikationstrends, Branchen-, Berufsbildentwicklung',
+  ] },
+]} />
+
+### Abhängigkeiten des Arbeitsmarktes
+
+Der Arbeitsmarkt ist kein isolierter Markt. Er wird durch mehrere Einflussgrößen geprägt — die Staatspolitik wirkt dabei über drei Teilpolitiken:
+
+<Diagram
+  title="Einflussgrößen auf den Arbeitsmarkt (Folie 23)"
+  chart={`graph TD
+  AM["Arbeitsmarkt"] --- F1["Strukturelle Veränderungen"]
+  AM --- F2["Konjunkturelle Schwankungen"]
+  AM --- F3["Saisonale Schwankungen"]
+  AM --- F4["Bevölkerungsstruktur"]
+  AM --- F5["Beschäftigungsstruktur"]
+  AM --- SP["Staatspolitik"]
+  SP --> SP1["Bildungspolitik"]
+  SP --> SP2["Sozialpolitik"]
+  SP --> SP3["Wirtschaftspolitik"]`}
+/>
+
+<Callout type="pitfall" title="Häufiger Fehler">
+Die außerbetriebliche Analyse betrachtet <Exam>nicht nur verfügbare Personen</Exam>, sondern auch Struktur, Nachfrage und Entwicklung des Arbeitsmarktes.
+</Callout>
+
+<SourceNote>Human Resources · HR4 · Folien 20–23</SourceNote>
+</section>

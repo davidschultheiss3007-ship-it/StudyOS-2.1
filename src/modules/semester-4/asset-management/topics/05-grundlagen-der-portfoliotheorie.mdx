@@ -1,0 +1,520 @@
+{/* Content for topic 05. Palette components resolve via MDXProvider
+    (see ContentSection.jsx). All figures are taken from the verified
+    chapter-5 material (Folien 153–202); schematic charts are marked. */}
+
+<section id="markowitz-und-zwei-asset-portfolio">
+
+## Markowitz und das Zwei-Wertpapier-Portfolio
+
+**Harry M. Markowitz** ist der Begründer der modernen Portfoliotheorie (Wirtschaftsnobelpreis 1990). Sein Kernergebnis lässt sich in drei Punkten fassen:
+
+- Die Theorie liefert **Handlungsanweisungen zur bestmöglichen Kombination** von Anlagealternativen zu einem optimalen Portfolio.
+- Entscheidend ist nicht das Einzelrisiko eines Wertpapiers, sondern die **gemeinsame Bewegung** mehrerer Wertpapiere zueinander.
+- Daraus folgt sein Leitsatz: *„To reduce risk it is necessary to avoid a portfolio whose securities are all highly correlated with each other."*
+
+<DefinitionBox term="Diversifikation nach Markowitz" source="Folien 153–155">
+Risiko wird reduziert, indem ein Portfolio **nicht** nur aus Wertpapieren besteht, die hoch miteinander korreliert sind. Entscheidend ist die *gemeinsame Bewegung* der Assets, nicht ihr Einzelrisiko.
+</DefinitionBox>
+
+Das Lehrbeispiel ist ein Portfolio aus **zwei** Wertpapieren, einer Aktie und einem Corporate Bond:
+
+<KpiGrid items={[
+  { value: '16,0 %', label: 'Erwartete Rendite Aktie', accent: 'positive' },
+  { value: '6,0 %', label: 'Erwartete Rendite Bond' },
+  { value: '14,0 %', label: 'Standardabw. Aktie', accent: 'warning' },
+  { value: '11,0 %', label: 'Standardabw. Bond' },
+  { value: 'ρ = 0,5', label: 'Korrelation A,B', accent: 'accent' },
+]} />
+
+Ein Zwei-Wertpapier-Portfolio wird über die Gewichte $w_A$ und $w_B$ mit $w_A + w_B = 1$ beschrieben. Renditen und Risiko verhalten sich dabei unterschiedlich:
+
+- Die **Rendite ist linear** in den Gewichten, also eine gewichtete Summe der Einzelrenditen.
+- Das **Risiko ist nicht linear**, weil es zusätzlich vom Korrelationsterm zwischen beiden Wertpapieren abhängt.
+
+<Formula
+  title="Erwartete Portfoliorendite"
+  expr="E(r_P) = w_A \cdot E(r_A) + w_B \cdot E(r_B)"
+/>
+
+<Formula
+  title="Portfoliovarianz"
+  expr="\sigma_P^2 = w_A^2\,\sigma_A^2 + w_B^2\,\sigma_B^2 + 2\,w_A w_B\,\sigma_A \sigma_B\,\rho_{A,B}"
+  legend={[
+    { sym: '\\rho_{A,B}', desc: 'Korrelation zwischen A und B, −1 < ρ < +1' },
+    { sym: '\\sigma_A\\sigma_B\\rho_{A,B}', desc: 'Kovarianz — der Diversifikationshebel' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Die Portfoliorendite ist eine **gewichtete Summe**. Das Risiko ist **keine** einfache gewichtete Summe der Einzelrisiken, weil der Korrelationsterm $2\,w_A w_B\,\sigma_A \sigma_B\,\rho_{A,B}$ hinzukommt.
+</Callout>
+
+</section>
+
+<section id="risiko-grosser-portfolios-und-inputdaten">
+
+## Risiko großer Portfolios und Inputdaten
+
+Bei vielen Assets bleibt die Logik gleich, der Datenbedarf wächst jedoch überproportional:
+
+- Renditen, Volatilitäten und Korrelationen bestimmen weiterhin das gesamte μ-σ-Profil.
+- Mit jedem zusätzlichen Wertpapier steigt der Inputbedarf stark, getrieben vor allem durch die **paarweisen Korrelationen**.
+
+<Formula
+  title="Anzahl benötigter Inputdaten"
+  expr="\underbrace{n}_{\text{Renditen}} + \underbrace{n}_{\text{Volatilitäten}} + \underbrace{\tfrac{n(n-1)}{2}}_{\text{Korrelationen}} = \frac{n(n+3)}{2}"
+/>
+
+Schon das Zwei-Asset-Beispiel (ρ = 0,5) zeigt den Diversifikationseffekt, wenn man das Aktiengewicht schrittweise erhöht:
+
+- Die Rendite steigt **linear** mit dem Aktiengewicht.
+- Das Risiko **fällt zunächst** bis zum Minimum-Varianz-Portfolio und steigt danach wieder an.
+
+<DataTable
+  caption="Portfolio aus Aktie und Bond bei steigendem Aktiengewicht (Folie 159)"
+  columns={[
+    { key: 'wA', label: 'Aktiengewicht wₐ', align: 'left' },
+    { key: 'er', label: 'E(r_P)', align: 'right' },
+    { key: 'var', label: 'σ_P²', align: 'right' },
+    { key: 'sd', label: 'σ_P', align: 'right' },
+  ]}
+  rows={[
+    { wA: '0 %', er: '6,0 %', var: '0,0121', sd: '11,00 %' },
+    { wA: '10 %', er: '7,0 %', var: '0,0114', sd: '10,67 %' },
+    { wA: '20 %', er: '8,0 %', var: '0,0110', sd: '10,48 %' },
+    { wA: '30 %', er: '9,0 %', var: '0,0109', sd: '10,50 %' },
+    { wA: '40 %', er: '10,0 %', var: '0,0112', sd: '10,58 %' },
+    { wA: '50 %', er: '11,0 %', var: '0,0118', sd: '10,90 %' },
+    { wA: '60 %', er: '12,0 %', var: '0,0127', sd: '11,26 %' },
+    { wA: '70 %', er: '13,0 %', var: '0,0139', sd: '11,80 %' },
+    { wA: '80 %', er: '14,0 %', var: '0,0155', sd: '12,45 %' },
+    { wA: '90 %', er: '15,0 %', var: '0,0174', sd: '13,18 %' },
+    { wA: '100 %', er: '16,0 %', var: '0,0196', sd: '14,00 %' },
+  ]}
+  highlight={(row) => row.wA === '20 %' || row.wA === '30 %'}
+/>
+
+<Callout type="info" title="Lesehilfe">
+Die niedrigsten Varianzen liegen bei 20–30 % Aktiengewicht (hervorgehoben) — in dieser Region liegt das Minimum-Varianz-Portfolio (Abschnitt 6).
+</Callout>
+
+</section>
+
+<section id="effizienzkurve-korrelation-leerverkaeufe">
+
+## Effizienzkurve, Korrelation und Leerverkäufe
+
+Trägt man die Portfolios aus der Tabelle im **Risiko-Rendite-Raum** ab, entsteht die charakteristische gekrümmte Kurve:
+
+- Jeder Punkt der Kurve ist eine erreichbare Rendite-Risiko-Kombination der beiden Wertpapiere.
+- Effizient ist nur der positiv geneigte, konkave Bereich **oberhalb** des Minimum-Varianz-Portfolios (MVP).
+
+<DataChart
+  type="scatter"
+  title="Effizienzlinie des Aktie-Bond-Portfolios"
+  source="Folie 159 (eigene Darstellung der Tabellenwerte)"
+  xKey="sigma"
+  yKey="er"
+  xLabel="Risiko σ_P (%)"
+  yLabel="Rendite E(r_P) (%)"
+  xDomain={[10, 14.5]}
+  yDomain={[5, 17]}
+  series={[{ key: 'er', name: 'Portfolios', color: 'var(--color-module-blue)', line: true, data: [
+    // Reihenfolge = Zeichenreihenfolge der Linie (recharts verbindet Punkte in
+    // Array-Reihenfolge). Hier nach Rendite aufsteigend geordnet, sodass die
+    // Linie die U-förmige Markowitz-Kurve nachzeichnet: σ fällt erst bis zum MVP
+    // (~10,45) und steigt dann wieder. NICHT nach σ sortieren — das zerstört die
+    // U-Form, weil dasselbe σ zwei Renditen hat.
+    { sigma: 11.0, er: 6.0 }, { sigma: 10.67, er: 7.0 }, { sigma: 10.48, er: 8.0 },
+    { sigma: 10.5, er: 9.0 }, { sigma: 10.58, er: 10.0 }, { sigma: 10.9, er: 11.0 },
+    { sigma: 11.26, er: 12.0 }, { sigma: 11.8, er: 13.0 }, { sigma: 12.45, er: 14.0 },
+    { sigma: 13.18, er: 15.0 }, { sigma: 14.0, er: 16.0 },
+  ] }]}
+  markers={[{ x: 10.45, y: 8.7, label: 'MVP', color: 'var(--color-success)' }]}
+/>
+
+Ein Portfolio ist genau dann **effizient**, wenn kein zweites Portfolio es in mindestens einer Dimension schlägt, ohne in der anderen schlechter zu sein:
+
+- Es gibt kein Portfolio mit höherer Rendite bei gleichem Risiko.
+- Es gibt kein Portfolio mit geringerem Risiko bei gleicher Rendite.
+- Der Hebel, der die Kurve formt, ist der **Korrelationskoeffizient** zwischen den Wertpapieren.
+
+<SpectrumAxis
+  caption="Wirkung der Korrelation auf den Diversifikationseffekt"
+  markers={[
+    { at: 4, label: 'ρ = −1', sub: 'MVP-Grenze aus zwei Geraden, Schnittpunkt bei σ = 0' },
+    { at: 50, label: 'ρ = 0', sub: 'Risiken unabhängig, keine gemeinsame Tendenz' },
+    { at: 96, label: 'ρ = +1', sub: 'Diversifikation sinnlos: vollständig gleichläufig' },
+  ]}
+/>
+
+<Callout type="merksatz">
+Je **niedriger** die Korrelation, desto **größer** die Vorteile der Diversifikation. Die Endpunkte der Effizienzgrenze sind für alle Korrelationskoeffizienten identisch — nur die Krümmung dazwischen ändert sich.
+</Callout>
+
+Über reine Long-Positionen hinaus lassen sich die erreichbaren Kombinationen durch **Leerverkäufe** erweitern:
+
+<CompareCard items={[
+  { tag: 'Long', title: 'Long Position', subtitle: 'normale Situation', accent: 'positive',
+    points: ['Positive Investition in ein Wertpapier.'] },
+  { tag: 'Short', title: 'Short Position', subtitle: 'negative Investition', accent: 'warning',
+    points: ['Verkauf einer nicht im Besitz befindlichen Aktie mit Rückkaufpflicht.', 'Profitabel, wenn der Aktienpreis künftig sinkt.'] },
+  { tag: 'Effekt', title: 'Verlängerung der Effizienzkurve', subtitle: 'durch Leerverkäufe', accent: 'accent',
+    points: ['Erweitert die erreichbaren Rendite-Risiko-Kombinationen über Long-only hinaus.'] },
+]} />
+
+<SourceNote>Asset Management · Kapitel 5 · Folien 160–167</SourceNote>
+
+</section>
+
+<section id="gemeinsames-und-unabhaengiges-risiko">
+
+## Gemeinsames und unabhängiges Risiko
+
+Warum unterscheidet sich das Risiko eines einzelnen Wertpapiers vom Risiko eines Portfolios ähnlicher Wertpapiere? Der Versicherungsvergleich **Einbruch vs. Erdbeben** macht den Unterschied greifbar:
+
+- Beide Policen haben denselben Erwartungswert, aber völlig unterschiedliche Risikoeigenschaften.
+- Der Unterschied entsteht allein dadurch, ob die Einzelrisiken **unabhängig** oder **gemeinsam** auftreten.
+
+<CompareCard items={[
+  { tag: 'unabhängig', title: 'Einbruchsversicherung', subtitle: 'unkorreliertes Risiko', accent: 'positive',
+    points: ['Einbrüche treffen einzelne Häuser, nicht alle Policen zugleich.', 'Bei 100.000 Policen und 1 % Wahrscheinlichkeit ≈ 1.000 Ansprüche/Jahr.', 'Tatsächliche Zahl schwankt nur wenig.'] },
+  { tag: 'gemeinsam', title: 'Erdbebenversicherung', subtitle: 'perfekt korreliertes Risiko', accent: 'negative',
+    points: ['In den meisten Jahren kein Erdbeben.', 'Im Schadensfall sind sehr viele Häuser gleichzeitig betroffen.', 'Gleicher Erwartungswert, völlig andere Risikoeigenschaften.'] },
+]} />
+
+Die Perspektive entscheidet, ob sich das Risiko bündeln lässt:
+
+- Aus Sicht des **Hausbesitzers** ist die Standardabweichung für beide Verlustarten gleich hoch.
+- Aus Sicht der **Versicherung** verschwindet das unabhängige Risiko durch die Bündelung vieler Policen fast vollständig.
+
+<Formula
+  title="Standardabweichung eines einzelnen Anspruchs"
+  expr="\sigma(\text{Anspruch}) = \sqrt{0{,}99\cdot(0-0{,}01)^2 + 0{,}01\cdot(1-0{,}01)^2} = 9{,}95\,\%"
+/>
+
+<Formula
+  title="Standardabweichung des Einbruchsversicherers (gebündelt)"
+  expr="\sigma(\text{Anteil Ansprüche}) = \frac{9{,}95\,\%}{\sqrt{100{.}000}} = 0{,}03\,\%"
+/>
+
+<DefinitionBox term="Diversifikation" source="Folie 174">
+Das **Ausgleichen unabhängiger Risiken** in einem großen Portfolio. Perfekt korreliertes Risiko (gemeinsames Risiko) lässt sich so **nicht** reduzieren.
+</DefinitionBox>
+
+Genau deshalb kann ein **isoliert ineffizientes** Wertpapier ein Portfolio verbessern:
+
+<DecisionTree nodes={[
+  { label: 'Bore Industries im Portfolio mit Intel & Coca-Cola (Folie 168)', children: [
+    { label: 'Einzelsicht: ineffizient', detail: 'Bore hat eine geringere Rendite (2 %) und dieselbe Volatilität wie Coca-Cola (25 %) — isoliert also dominiert.' },
+    { label: 'Portfoliosicht: nützlich', detail: 'Bore ist mit Intel und Coca-Cola unkorreliert; der Diversifikationsvorteil kann die Aufnahme trotzdem lohnen.' },
+    { label: 'Prüfungslogik', detail: 'Ein einzeln ineffizientes Wertpapier kann ein effizientes Portfolio verbessern — entscheidend ist die Korrelation, nicht das Einzelprofil.' },
+  ] },
+]} />
+
+<Callout type="tip" title="Glücksspiel-Analogie">
+Beim Roulette beträgt der erwartete Gewinn des Kasinos pro 1 € Einsatz 0,027 €. Die Standardabweichung eines Einzeleinsatzes ist mit 5,84 € hoch — bei 9 Mio. Wetten pro Monat sinkt sie aber auf 0,0019 € pro gewettetem Euro. Nur **unabhängige** Risiken mitteln sich so heraus.
+</Callout>
+
+</section>
+
+<section id="systematisches-und-unsystematisches-risiko">
+
+## Systematisches und unsystematisches Risiko
+
+Überträgt man die Logik auf Aktienportfolios, zerfällt das Gesamtrisiko in zwei Teile:
+
+- Das **unsystematische Risiko** wird mit zunehmender Assetzahl „wegdiversifiziert".
+- Das **systematische Risiko** bleibt als nicht reduzierbarer Boden bestehen.
+
+<DataChart
+  type="line"
+  title="Diversifikationseffekt nach Anzahl der Assets (schematisch)"
+  source="Folie 183 — schematische Darstellung des Kurvenverlaufs"
+  xKey="n"
+  xLabel="Anzahl Aktien (Assets)"
+  yLabel="Gesamtrisiko des Portfolios"
+  data={[
+    { n: 1, Gesamtrisiko: 100, Systematisch: 40 },
+    { n: 2, Gesamtrisiko: 74, Systematisch: 40 },
+    { n: 5, Gesamtrisiko: 55, Systematisch: 40 },
+    { n: 10, Gesamtrisiko: 48, Systematisch: 40 },
+    { n: 20, Gesamtrisiko: 44, Systematisch: 40 },
+    { n: 30, Gesamtrisiko: 42, Systematisch: 40 },
+    { n: 50, Gesamtrisiko: 41, Systematisch: 40 },
+  ]}
+  series={[
+    { key: 'Gesamtrisiko', name: 'Gesamtrisiko', color: 'var(--color-module-orange)' },
+    { key: 'Systematisch', name: 'Systematisches Risiko (Boden)', color: 'var(--color-module-blue)' },
+  ]}
+/>
+
+<CompareCard items={[
+  { tag: 'nicht diversifizierbar', title: 'Systematisches Risiko', subtitle: 'Marktrisiko', accent: 'negative',
+    points: ['Quelle: marktweite Meldungen (Konjunktur, Zinsen, Makro).', 'Betrifft alle Aktien gleichzeitig.', 'Auch: systematisches oder Marktrisiko.'] },
+  { tag: 'diversifizierbar', title: 'Unsystematisches Risiko', subtitle: 'unternehmensspezifisch', accent: 'positive',
+    points: ['Quelle: unternehmensspezifische Nachrichten, lokale Faktoren.', 'Gleicht sich im großen Portfolio „im Mittel" aus.', 'Auch: idiosynkratisches oder diversifizierbares Risiko.'] },
+]} />
+
+Das Folienbeispiel kontrastiert zwei Unternehmenstypen — bei beiden ist die Lage zu 50 % gut und zu 50 % schlecht:
+
+<DataTable
+  caption="Unternehmenstypen S und I (Folie 181)"
+  columns={[
+    { key: 'typ', label: 'Typ', align: 'left' },
+    { key: 'quelle', label: 'Risikoquelle', align: 'left' },
+    { key: 'gut', label: 'gute Lage', align: 'right' },
+    { key: 'schlecht', label: 'schlechte Lage', align: 'right' },
+    { key: 'div', label: 'im großen Portfolio', align: 'left' },
+  ]}
+  rows={[
+    { typ: 'Typ S', quelle: 'nur wirtschaftliche Lage (systematisch)', gut: '+40 %', schlecht: '−20 %', div: 'Risiko bleibt' },
+    { typ: 'Typ I', quelle: 'nur idiosynkratisch (unternehmensspezifisch)', gut: '+35 %', schlecht: '−25 %', div: 'diversifizierbar' },
+  ]}
+  highlight={(row) => row.typ === 'Typ I'}
+/>
+
+<Callout type="merksatz">
+Das Gesamtrisiko sinkt mit zunehmender Assetzahl, **aber die Diversifikationsgewinne nehmen ab** (Typ S behält sein Risiko, Typ I lässt sich wegdiversifizieren). Das systematische Risiko bleibt bestehen.
+</Callout>
+
+</section>
+
+<section id="minimum-varianz-portfolio-und-kritik">
+
+## Minimum-Varianz-Portfolio und kritische Würdigung
+
+Das **Minimum-Varianz-Portfolio (MVP)** ist der Punkt mit dem geringsten Risiko. Man bestimmt es in drei Schritten:
+
+- Ersetze $w_B$ durch $1 - w_A$, sodass nur noch ein Gewicht variabel ist.
+- Leite die Varianzfunktion nach $w_A$ ab und setze die Ableitung gleich null.
+- Löse nach $w_A$ auf; das Ergebnis ist das risikominimale Aktiengewicht.
+
+<Formula
+  title="Gewicht von A im Minimum-Varianz-Portfolio"
+  expr="w_A = \frac{\sigma_B^2 - \sigma_A \sigma_B\,\rho_{A,B}}{\sigma_A^2 + \sigma_B^2 - 2\,\sigma_A \sigma_B\,\rho_{A,B}}"
+/>
+
+Eingesetzt ergeben sich für das Aktie-Bond-Beispiel:
+
+<KpiGrid items={[
+  { value: '≈ 27 %', label: 'Aktiengewicht im MVP', accent: 'accent' },
+  { value: '8,7 %', label: 'Rendite im MVP', accent: 'positive' },
+  { value: '10,45 %', label: 'Volatilität im MVP', accent: 'positive' },
+  { value: '8,7–16 %', label: 'Renditen im effizienten Rand' },
+  { value: '10,45–14 %', label: 'Volatilitäten im effizienten Rand' },
+]} />
+
+<Callout type="pitfall" title="MVP ≠ effizientes Portfolio">
+Effizient ist nur der **positiv geneigte Bereich oberhalb** des MVP. Das MVP selbst ist der Anfangspunkt — wer es mit „dem effizienten Portfolio" gleichsetzt, verliert Punkte.
+</Callout>
+
+Die Portfoliotheorie hat klare **Grenzen**:
+
+<DecisionTree nodes={[
+  { label: 'Kritische Würdigung der Portfoliotheorie', children: [
+    { label: 'Transaktionskosten', detail: 'Nicht für beliebige Depotgrößen umsetzbar (Depotgrößenproblematik).' },
+    { label: 'Betrachtungszeitraum', detail: 'Nur 1 Periode — Timing- und Portfoliorevisionsproblematik werden vernachlässigt.' },
+    { label: 'Volatilität als Risikomaß', detail: 'Impliziert eine Normalverteilung der Renditen.' },
+    { label: 'Hohe Anzahl Inputdaten', detail: 'n Renditen, n Volatilitäten, n(n−1)/2 Korrelationen — zeitlich instabil.' },
+    { label: 'Irrationalität der Anleger', detail: 'Begrenzt die praktische Anwendbarkeit.' },
+  ] },
+]} />
+
+<SourceNote>Asset Management · Kapitel 5 · Folien 184–187</SourceNote>
+
+</section>
+
+<section id="tobin-separation-und-cml">
+
+## Tobin-Separation und Capital Market Line
+
+**James Tobin** (1918–2002) erweiterte 1958 den Markowitz-Ansatz um die **risikolose Geldanlage**. Daraus folgt:
+
+- Jeder Investor kombiniert das risikolose Asset mit demselben riskanten Marktportfolio.
+- Die **Anlageentscheidung** (welches riskante Portfolio) wird von der **Finanzierungsentscheidung** (wie viel risikolos) getrennt.
+
+<Diagram
+  title="Tobin-Separation: Struktur der Kapitalmarktlinie"
+  chart={`graph LR
+  F["Risikoloses Asset F"] --> CML["Capital Market Line (CML)"]
+  M["Marktportfolio M (Tangentialportfolio)"] --> CML
+  CML --> OPT["Individuelles optimales Portfolio"]
+  RT["Risikoeinstellung des Investors"] --> OPT`}
+/>
+
+Kombiniert man die risikolose Anlage mit dem riskanten Portfolio, ergeben sich Rendite und Risiko als Funktion des riskanten Anteils $x$, und daraus die **Kapitalmarktlinie**:
+
+<Formula
+  title="Erwartete Gesamtrendite"
+  expr="E(r) = x \cdot E(r_P) + (1-x)\cdot r_F"
+/>
+
+<Formula
+  title="Gesamtrisiko (σ_F = 0)"
+  expr="\sigma(r) = x \cdot \sigma_P"
+/>
+
+<Formula
+  title="Capital Market Line"
+  expr="E(r) = r_F + \frac{E(r_M) - r_F}{\sigma_M}\cdot\sigma(r)"
+  legend={[
+    { sym: '\\frac{E(r_M) - r_F}{\\sigma_M}', desc: 'Steigung = Marktpreis des Risikos, je höher desto besser' },
+  ]}
+/>
+
+<Timeline events={[
+  { label: '1', title: 'Riskantes Marktportfolio bestimmen', text: 'Unabhängig von der Risikoeinstellung des Investors.' },
+  { label: '2', title: 'Tangentialpunkt finden', text: 'Das Marktportfolio liegt am Berührpunkt der CML mit der Effizienzkurve.' },
+  { label: '3', title: 'Homogene Erwartungen', text: 'Bei gleichen Erwartungen ist das Marktportfolio für alle Investoren identisch.' },
+  { label: '4', title: 'Individuelles Optimum wählen', text: 'Abhängig vom individuellen Zinssatz und der Risikoeinstellung — Position auf der CML.' },
+  { label: '5', title: 'Separation', text: 'Finanzierungsentscheidung (links/rechts von M) ist getrennt von der Anlageentscheidung (nur Punkte auf der CML sind effizient).' },
+]} />
+
+<Callout type="examfocus" title="CML-Definition">
+Die CML ist der **geometrische Ort aller effizienten μ-σ-Kombinationen**, wenn alle Investoren homogene Erwartungen zu Renditen, Varianzen und Korrelationen riskanter Assets haben. Das Marktportfolio ist vollständig diversifiziert — und praktisch **nicht beobachtbar**.
+</Callout>
+
+</section>
+
+<section id="capm-beta-sml">
+
+## CAPM, Beta, SML und Marktportfolio
+
+In einer Welt mit Marktportfolio verschiebt sich das relevante Risikomaß:
+
+- Nicht mehr die Gesamtvolatilität eines Assets zählt, sondern seine **Kovarianz mit dem Marktportfolio**.
+- Der Risiko-Rendite-Raum zeigt genau das: die Effizienzfrontier mit dem Marktportfolio **M** als Tangentialpunkt — alle Portfolios *unterhalb* der Frontier sind ineffizient.
+
+<DataChart
+  type="scatter"
+  title="Risiko-Rendite-Raum: Effizienzfrontier und Marktportfolio M"
+  height={340}
+  xLabel="Risiko σ"
+  yLabel="Erwartete Rendite E(r)"
+  xDomain={[0, 1]}
+  yDomain={[0, 1]}
+  series={[
+    { key: 'frontier', name: 'Effizienzfrontier', color: 'var(--color-module-green)', line: true,
+      // Reihenfolge = Zeichenreihenfolge der Linie (recharts verbindet Punkte in
+      // Array-Reihenfolge). Muss nach x (Risiko) aufsteigend bleiben, sonst
+      // entsteht eine Zickzack-Linie statt einer monotonen Frontier.
+      data: [
+        { x: 0.18, y: 0.30 }, { x: 0.24, y: 0.45 }, { x: 0.34, y: 0.60 },
+        { x: 0.5, y: 0.74 }, { x: 0.7, y: 0.85 }, { x: 0.92, y: 0.93 },
+      ] },
+    { key: 'inefficient', name: 'Ineffiziente Portfolios', color: 'var(--color-module-purple)',
+      data: [
+        { x: 0.4, y: 0.32 }, { x: 0.6, y: 0.45 }, { x: 0.78, y: 0.55 }, { x: 0.55, y: 0.38 },
+      ] },
+  ]}
+  markers={[
+    { x: 0.5, y: 0.74, label: 'M', color: 'var(--color-accent)' },
+  ]}
+/>
+
+<Explorable label="3D-Ansicht: Risiko-Rendite-Raum drehen" note="Optional · nur zur Veranschaulichung, kein zusätzlicher Prüfungsstoff">
+  <Scene3D
+    title="Risiko-Rendite-Raum mit Effizienzfrontier und Marktportfolio"
+    hint="Ziehen zum Drehen. Grün = effiziente Portfolios auf der Frontier, M = Marktportfolio; violett = ineffiziente Portfolios darunter."
+    frontier={[
+      { x: 0.18, y: 0.30 }, { x: 0.24, y: 0.45 }, { x: 0.34, y: 0.60 },
+      { x: 0.5, y: 0.74 }, { x: 0.7, y: 0.85 }, { x: 0.92, y: 0.93 },
+    ]}
+    points={[
+      { x: 0.18, y: 0.30, efficient: true },
+      { x: 0.34, y: 0.60, efficient: true },
+      { x: 0.5, y: 0.74, efficient: true, label: 'M' },
+      { x: 0.7, y: 0.85, efficient: true },
+      { x: 0.4, y: 0.32, z: 0.3 },
+      { x: 0.6, y: 0.45, z: 0.7 },
+      { x: 0.78, y: 0.55, z: 0.4 },
+      { x: 0.55, y: 0.38, z: 0.6 },
+    ]}
+  />
+</Explorable>
+
+Das **CAPM** ist ein Gleichgewichtsmodell: Die erwartete Rendite eines Assets ist eine lineare Funktion seines systematischen Risikos, ausgedrückt durch **Beta**.
+
+<Formula
+  title="Capital Asset Pricing Model"
+  expr="E(r_i) = r_F + \beta_i \cdot \big[E(r_M) - r_F\big]"
+/>
+
+<Formula
+  title="Beta-Faktor"
+  expr="\beta_i = \frac{\mathrm{cov}(r_i, r_M)}{\sigma_M^2}"
+  legend={[
+    { sym: '\\beta_i', desc: 'Sensitivität des Assets auf Marktänderungen; Marktportfolio hat β = 1' },
+  ]}
+/>
+
+<CompareCard items={[
+  { tag: 'entlohnt', title: 'Systematisches Risiko', subtitle: 'über Beta', accent: 'accent',
+    points: ['Lässt sich nicht wegdiversifizieren.', 'Der Investor erhält dafür eine Risikoprämie.'] },
+  { tag: 'nicht entlohnt', title: 'Unsystematisches Risiko', subtitle: 'wegdiversifizierbar', accent: 'positive',
+    points: ['Durch Diversifikation vollständig vermeidbar.', 'Wird daher nicht vergütet.'] },
+]} />
+
+<Callout type="pitfall" title="SML statt CML — und Beta ist instabil">
+Die **Security Market Line (SML)** beschreibt den linearen Zusammenhang zwischen erwarteter Rendite und **Beta** (nicht σ wie die CML). Beachte: Vergangenheits-Betas sind schlechte Indikatoren für zukünftige Betas — Beta tendiert zur **Mean Reversion**.
+</Callout>
+
+</section>
+
+<section id="multifaktormodelle-und-apt">
+
+## Multifaktormodelle und Arbitrage Pricing Theory
+
+Multifaktormodelle erweitern die Erklärung der Asset-Renditen über die reine Marktrendite hinaus:
+
+- Renditen werden **nicht nur** vom Markt bestimmt, sondern z. B. von Zinsen, Inflation oder industriespezifischen Faktoren.
+- Die **Arbitrage Pricing Theory (APT)** ist die mehrdimensionale Alternative zum CAPM.
+
+<Diagram
+  title="CAPM vs. Multifaktormodelle / APT"
+  chart={`graph TD
+  R["Erwartete Rendite"] --> CAPM["CAPM: 1 Faktor — Beta zum Markt"]
+  R --> APT["APT / Multifaktor: mehrere Faktoren"]
+  APT --> Z["Zinsen"]
+  APT --> I["Inflation"]
+  APT --> N["Industrie / makro &amp; mikro"]`}
+/>
+
+<Formula
+  title="APT-Grundform"
+  expr="E(r_P) = r_F + \lambda_1 \beta_{P,1} + \lambda_2 \beta_{P,2} + \dots + \lambda_k \beta_{P,k}"
+  legend={[
+    { sym: '\\lambda_i', desc: 'Faktorrisikoprämie i (erwartete Überrendite zu r_F bei Sensitivität 1 zu Faktor i)' },
+    { sym: '\\beta_{P,i}', desc: 'Sensitivität des Portfolios auf Faktor i' },
+  ]}
+/>
+
+Die PDF unterscheidet drei Typen von Faktormodellen:
+
+<DecisionTree nodes={[
+  { label: 'Typen von Faktormodellen', children: [
+    { label: 'Makroökonomische Faktormodelle', detail: 'Unerwartete Ereignisse beeinflussen makroökonomische Variablen und damit künftige Cashflows.' },
+    { label: 'Fundamentalfaktormodelle', detail: 'Erklären Bewertungsunterschiede zwischen Segmenten (z. B. KBV, KGV).' },
+    { label: 'Statistische Faktormodelle', detail: 'Erklären historische Portfoliorenditen über quantitative Faktoren (Backtesting).' },
+  ] },
+]} />
+
+<Callout type="info" title="APT-Annahmen (weniger streng als CAPM)">
+Die APT ist **nicht** voraussetzungslos: Sie setzt ein **multivariates Faktormodell** der Asset-Renditen voraus, die Bildung **wohl diversifizierter Portfolios** (asset-spezifische Risiken eliminierbar, empirisch bestätigt für n → ∞) und **keine Arbitragemöglichkeiten** (Gleichgewichtsbedingung). Ein Marktportfolio ist dagegen *nicht* erforderlich.
+</Callout>
+
+<CompareCard items={[
+  { tag: 'Vorteile', title: 'Stärken der APT', subtitle: 'weniger rigide als CAPM', accent: 'positive',
+    points: ['Mehrdimensionale Risikobetrachtung.', 'Kein Marktportfolio erforderlich.', 'Keine Verteilungshypothese der Renditen nötig.'] },
+  { tag: 'Nachteile', title: 'Schwächen der APT', subtitle: 'Umsetzung & Stabilität', accent: 'warning',
+    points: ['Identifikation der Risikofaktoren ist schwierig.', 'Sensitivitäten und Faktoren sind nicht zeitstabil.', 'Hoher Wartungsaufwand, geringere Aussagekraft.'] },
+]} />
+
+<Callout type="examfocus" title="Abgrenzung CAPM ↔ APT">
+CAPM verdichtet das relevante Risiko auf **Beta zum Marktportfolio**. Die APT ersetzt diese Eindimensionalität durch **mehrere Faktoren** — muss diese aber erst identifizieren und laufend pflegen.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 5 · Folien 200–202</SourceNote>
+
+</section>

@@ -1,0 +1,46 @@
+export const meta = {
+  id: 'heuristiken-und-kognitive-verzerrungen',
+  title: 'Kapitel 3 · Heuristiken und kognitive Verzerrungen',
+  source: 'Behavioral Finance · BF3 – Heuristiken & Kognitive Verzerrung · Folien 49–130',
+  estimatedMinutes: 95,
+  sections: [
+    { id: 'wahrnehmung-und-heuristik', title: 'Wahrnehmung, Heuristik und Algorithmus' },
+    { id: 'systematik-und-ueberblick', title: 'Systematisierung und Überblick' },
+    { id: 'verfuegbarkeitsheuristik', title: 'Verfügbarkeitsheuristik' },
+    { id: 'repraesentativitaetsheuristik', title: 'Repräsentativitätsheuristik und Bayes' },
+    { id: 'ueberoptimismus-und-bestaetigung', title: 'Überoptimismus und Bestätigungsirrtum' },
+    { id: 'framing-rueckschau-priming', title: 'Framing, Rückschaufehler und weitere Einflüsse' },
+    { id: 'verankerung-und-vergleich', title: 'Verankerung, Mental Accounting und relativer Vergleich' },
+  ],
+  keyTakeaways: [
+    'Der begrenzt rationale Mensch ist ein „kognitiver Geizhals": Bei Problemen ohne Algorithmus greift System 1 auf Heuristiken zurück — schnell, aber systematisch verzerrungsanfällig (Biases).',
+    'Heuristiken werden vor allem unter Zeitdruck, bei geringer Tragweite, unvollständiger Information und fehlenden Erfahrungswerten eingesetzt; positive Stimmung begünstigt das (fehleranfällige) heuristische Bewerten.',
+    'Verfügbarkeitsheuristik: Wahrscheinlichkeit wird an der Leichtigkeit der Erinnerung gemessen — mediengetriebene, dramatische Risiken werden über-, stille häufige Risiken unterschätzt.',
+    'Repräsentativitätsheuristik: Schema-passende Ereignisse werden überschätzt; das Bayes-Theorem ist die normative Referenz, an der Fehlschlüsse (Conjunction Bias, Base-rate-Fallacy) sichtbar werden.',
+    'Overconfidence führt empirisch zu exzessivem Handel — höhere Handelsaktivität (Portfolioumsatz) geht im Querschnitt mit niedrigerer Nettorendite einher (Barber/Odean 2000).',
+    'Framing: Bei identischem Erwartungswert entscheiden Menschen im Gewinn-Frame risikoavers und im Verlust-Frame risikofreudig (Asian-Disease-Problem).',
+    'Der Verankerungseffekt verschiebt Schätzungen — auch von Experten — systematisch Richtung Anker; gemessen über den Ankerungsindex (im Beispiel 55 %).',
+    'Mental Accounting und der relative Vergleich (Decoy-Effekt) zeigen, dass die Darstellung einer Entscheidung das Verhalten steuert — bis hin zur Vernachlässigung von Diversifikationseffekten.',
+  ],
+  examFocus: [
+    'Abgrenzung Heuristik vs. Algorithmus: schnelle „gut-genug"-Regel (System 1) gegenüber normativem Verfahren mit reproduzierbar gleichen Ergebnissen (System 2).',
+    'Conjunction Bias (Linda) und Base-rate-Fallacy (Jack 70:30) als Verstöße gegen die Wahrscheinlichkeitslogik der Repräsentativitätsheuristik.',
+    'Bayes-Rechnung Brustkrebs: p(Bk|Hr) = p(Bk)·p(Hr|Bk)/p(Hr) = 0,075·0,93/0,57 = 12,2 % — fälschliche Gleichsetzung von p(A|B) und p(B|A).',
+    'Barber/Odean: Depotumsätze 85/73/53/51 % (alleinstehende Männer bis alleinstehende Frauen); Rendite sinkt von Q1 (geringster Umsatz) zu Q4.',
+    'Asian-Disease-Problem: Mehrheit wählt im Gewinn-Frame Alternative A (sicher), im Verlust-Frame Alternative D (riskant) — obwohl A/C und B/D rechnerisch identisch sind.',
+    'Ankerungsindex = Differenz Schätzung / Differenz Anker; 100 % = sklavisch dem Anker folgen, 0 % = Anker irrelevant.',
+    'Mental-Accounting-Kinobeispiel: 54 % (verlorene Karte) gegenüber 12 % (verlorener Geldschein) verzichten auf einen Neukauf — identischer Geldverlust, andere mentale Kontenzuordnung.',
+    'Decoy-Effekt (Economist): das nie gewählte Print-Angebot (0 %) hebt den Anteil von Print+Online von 32 % auf 84 % — Prinzip der asymmetrischen Dominanz.',
+  ],
+  pitfalls: [
+    'Verfügbarkeit ist nicht gleich Häufigkeit — leichte Abrufbarkeit (Medien, Dramatik) wird mit hoher Wahrscheinlichkeit verwechselt.',
+    'p(A|B) und p(B|A) werden gleichgesetzt: Die 93 % der Hochrisikogruppe sind p(Hr|Bk), nicht das gesuchte p(Bk|Hr) = 12,2 %.',
+    'Conjunction Fallacy: Die spezifischere Kombination (Bankangestellte UND Feministin) kann nie wahrscheinlicher sein als das Einzelmerkmal — wirkt aber wegen der Schema-Passung so.',
+    'Gesetz der kleinen Zahlen: Kleine Stichproben werden als repräsentativ behandelt; dünn besiedelte Landkreise zeigen wegen kleiner Fallzahlen sowohl die höchsten als auch die niedrigsten Krebsraten.',
+    'Regression zur Mitte wird kausal fehlgedeutet (Lob schadet, Kritik spornt an) — ein rein statistisches Artefakt.',
+    'Rückschaufehler nicht mit echtem Vorherwissen verwechseln: Die erinnerte Schätzung wird nachträglich Richtung bekannter Lösung verschoben („I knew it all along").',
+    'Mental Accounting blendet Abhängigkeiten zwischen Konten aus — Diversifikationseffekte (Badehosen vs. Regenbekleidung) werden bei getrennter Betrachtung übersehen.',
+  ],
+};
+
+export default meta;

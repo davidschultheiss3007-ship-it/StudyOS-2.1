@@ -1,0 +1,340 @@
+{/* Kapitel 1 · Einführung in die Behavioral Finance. Palette via MDXProvider. */}
+
+<section id="was-ist-behavioral-finance">
+
+## Was ist Behavioral Finance?
+
+Behavioral Finance ist eine **verhaltenswissenschaftlich fundierte Finanzmarkttheorie**. Sie sitzt fachlich zwischen zwei Disziplinen mit gegensätzlichem Anspruch: die Ökonomie sagt, wie man sich verhalten *soll*, die Psychologie beschreibt, wie der Mensch tatsächlich *handelt*.
+
+<CompareCard items={[
+  { tag: 'Blau', title: 'Ökonomie', subtitle: 'normative Disziplin', accent: 'accent', points: [
+    'Wissenschaft vom Einsatz **knapper Ressourcen** zur Produktion und Verteilung wertvoller Güter',
+    'gibt vor, wie sich Wirtschaftssubjekte verhalten **müssen**, damit optimale Allokationen entstehen',
+    'Stichwort: *wie man sich verhalten soll*',
+  ] },
+  { tag: 'Grün', title: 'Psychologie', subtitle: 'deskriptive Disziplin', accent: 'positive', points: [
+    'Wissenschaft von der Erklärung des **Erlebens und Verhaltens** des Menschen',
+    'deskriptiv angelegt, mit geisteswissenschaftlichen wie empirischen Instrumenten',
+    'Stichwort: *wie der Mensch tatsächlich handelt*',
+  ] },
+]} />
+
+Die Verhaltensökonomie liegt genau in der **Schnittmenge** beider Kreise. Die Pfeilrichtungen zeigen die jeweilige „Muttertradition": Wirtschaftspsychologie ist psychologisch geprägt (von links), Verhaltensökonomie ökonomisch geprägt (von rechts).
+
+<Diagram
+  title="Verhaltensökonomie in der Schnittmenge der Disziplinen (Folie 12)"
+  chart={`graph LR
+  P["Psychologie (deskriptiv)"] --> WP["Wirtschafts­psychologie · psychologisch geprägt"]
+  O["Ökonomie (normativ)"] --> VO["Verhaltens­ökonomie · ökonomisch geprägt"]
+  WP --> S(["Schnittmenge Psychologie ∩ Ökonomie"])
+  VO --> S`}
+/>
+
+<DefinitionBox term="Behavioral Finance" source="Daxhammer/Facsar (2018)">
+„Behavioral Finance basiert auf der Erkenntnis, dass Marktteilnehmer nur zu begrenzt rationalem Verhalten in der Lage sind. Es kristallisiert sich ein **Homo Oeconomicus Humanus** heraus, der häufig durch kognitive und emotionale Aspekte beeinflusst wird."
+</DefinitionBox>
+
+<Columns count={2}>
+<Card title="Worum es der Verhaltensökonomik geht" tone="purple">
+- reales **wirtschaftliches Verhalten** verstehen (Warum spart, kauft, spendet, raucht jemand?)
+- „gute" und „schlechte" Entscheidungen erklären und Hilfestellung geben
+- Erkenntnisse aus Laborexperimenten und Psychologie in die Ökonomie übertragen
+- klassische Modelle testen und um **Anomalien-Erklärungen** erweitern
+</Card>
+<Card title="Ziele der Behavioral Finance" tone="accent" exam>
+- klären, warum Anleger immer wieder **begrenzt rationale** Entscheidungen treffen
+- beobachtbares Anlegerverhalten und Phänomene an Finanzmärkten erklären
+- bestehende Modelle an ihren **Schwachstellen** ergänzen
+</Card>
+</Columns>
+
+<SourceNote>Vgl. Cartwright (2011), S. 4; Beck (2014), S. 9; Daxhammer/Facsar (2018) · Folien 11–15</SourceNote>
+</section>
+
+<section id="oekonomisches-prinzip-und-grundbegriffe">
+
+## Ökonomisches Prinzip und Grundbegriffe
+
+Ausgangspunkt allen Wirtschaftens ist die **Knappheit**: Unbegrenzten Bedürfnissen stehen begrenzte Güter gegenüber. Aus diesem Spannungsfeld leitet sich das ökonomische Prinzip ab.
+
+<Diagram
+  title="Spannungsfeld Güterknappheit und das ökonomische Prinzip (Folie 19)"
+  chart={`graph TD
+  B["Unbegrenzte Bedürfnisse"] --> SP["★ Spannungsfeld Güterknappheit"]
+  G["Begrenzte Güter"] --> SP
+  SP --> W["Wirtschaften: Einsatz knapper Güter nach dem Ökonomischen Prinzip"]
+  W --> MAX["Maximalprinzip"]
+  W --> MIN["Minimalprinzip"]`}
+/>
+
+Das ökonomische Prinzip erscheint in zwei spiegelbildlichen Ausprägungen — die Verwechslung beider ist ein klassischer Klausurfehler. Beide Prinzipien ergeben sich daraus, welche Größe man fixiert und welche man variieren lässt:
+
+<QuadrantMatrix
+  caption="Maximalprinzip vs. Minimalprinzip — welche Größe ist fix? (Folie 19)"
+  xLabel="Input"
+  yLabel="Output"
+  xLow="fix"
+  xHigh="variabel"
+  yLow="fix"
+  yHigh="variabel"
+  quadrants={[
+    { pos: 'tl', title: 'Maximalprinzip', accent: 'accent', points: ['Input fix', 'Output so groß wie möglich (max)'] },
+    { pos: 'br', title: 'Minimalprinzip', accent: 'purple', points: ['Output fix', 'Input so klein wie möglich (min)'] },
+  ]}
+/>
+
+### Das ökonomische Grundvokabular
+
+<Columns count={3}>
+<Card title="Wirtschaft" tone="neutral" compact>
+Bereich des Handelns, der in Verfügungen über **knappe Güter** zur Erfüllung menschlicher Bedürfnisse besteht.
+</Card>
+<Card title="Güter" tone="neutral" compact>
+Waren, Dienstleistungen und Rechte. **Freie Güter** sind im Überfluss vorhanden, **knappe Güter** nur beschränkt verfügbar.
+</Card>
+<Card title="Bedürfnisse" tone="neutral" compact>
+Werden in der VWL als **gegeben** betrachtet.
+</Card>
+<Card title="Wirtschaftswissenschaften" tone="neutral" compact>
+Beschäftigen sich damit, möglichst gut mit **knappen Ressourcen** umzugehen.
+</Card>
+<Card title="Grundlegender Ansatzpunkt" tone="neutral" compact>
+Welche **Kosten** entstehen durch welche ökonomische Aktivität?
+</Card>
+<Card title="Opportunitätskosten" tone="purple" compact>
+Auf wie viele Einheiten eines **anderen Gutes** man für eine Einheit des betrachteten Gutes verzichten muss.
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Kernaussage">
+<Exam>Knappheit ist der Ausgangspunkt allen Wirtschaftens</Exam>. Jede Entscheidung lässt sich über ihre Opportunitätskosten — den Verzicht auf die beste Alternative — bewerten.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF1 · Folien 18–19</SourceNote>
+</section>
+
+<section id="homo-oeconomicus">
+
+## Das Menschenbild Homo Oeconomicus
+
+Der Homo Oeconomicus ist das **idealisierte Menschenbild der Neoklassik**: ein Nutzenmaximierer, der rational in Bezug auf seine eigene Zielfunktion handelt.
+
+<KpiGrid columns={3} items={[
+  { value: 'rational', label: 'handelt gemäß dem ökonomischen Prinzip', accent: 'accent' },
+  { value: 'eigennützig', label: 'verfolgt nur eigene Interessen und Präferenzen', accent: 'accent' },
+  { value: 'risikoavers', label: 'meidet Risiko bei der Entscheidung', accent: 'accent' },
+  { value: 'vollständig informiert', label: 'kann Wirkungen und Folgen seines Handelns abschätzen', accent: 'accent' },
+  { value: 'feste Präferenzen', label: 'Präferenzen stehen unveränderlich fest', accent: 'accent' },
+  { value: 'reagiert auf Umwelt', label: 'passt sein Handeln an die Umweltbedingungen an', accent: 'accent' },
+  { value: 'unbegrenzte Willenskraft', label: 'frei von Emotionen und Selbstkontrollproblemen', accent: 'accent' },
+]} />
+
+### Zwei Formen der Rationalität
+
+<CompareCard items={[
+  { tag: 'formell', title: 'Formelle Rationalität', subtitle: 'systematische Auswahl', accent: 'purple', points: [
+    'Handlung ist rational, wenn sie **systematisch** aus den bekannten Alternativen ausgewählt wurde',
+    'damit ist **nahezu jedes** menschliche Handeln rational',
+  ] },
+  { tag: 'substantiell', title: 'Substantielle Rationalität', subtitle: 'Nutzenmaximierung', accent: 'accent', points: [
+    'Handeln orientiert sich an der **Nutzenmaximierung**',
+    'der engere, inhaltlich anspruchsvollere Begriff',
+  ] },
+]} />
+
+### Illustration und Bewertung
+
+<Columns count={2}>
+<Card title="Mill: drei Präferenzen (1806–1876)" tone="neutral">
+Der Homo Oeconomicus nach J. S. Mill ist lieber **reicher als ärmer**, arbeitet lieber **weniger als mehr** und konsumiert lieber **früher als später**. Mill betont selbst, dies sei eine bewusste wissenschaftliche **Vereinfachung**, kein Abbild realer Menschen.
+</Card>
+<Card title="Beispiel: Android Data" tone="neutral">
+Data aus *Star Trek* illustriert das Ideal: allwissend, blitzschnell rechnend, unbestechlich, zuverlässig — **aber ohne Gefühle**. Nützlich als Modell, gerade durch das Fehlen von Emotionen jedoch unmenschlich.
+</Card>
+</Columns>
+
+<Columns count={2}>
+<Card title="Vorteil der Modellannahme" tone="positive">
+Ermöglicht **Modellbildung** und (mathematische) Formalisierungen.
+</Card>
+<Card title="Nachteile" tone="negative" exam>
+- **Realitätsferne**
+- **Normativität**
+
+Genau hier setzt die Verhaltensökonomik kritisch an.
+</Card>
+</Columns>
+
+<SourceNote>intl.startrek.com · Folien 20–23</SourceNote>
+</section>
+
+<section id="grenzen-der-rationalitaet">
+
+## Grenzen der Rationalität: Emotionen und Dilemmata
+
+Reine Nutzenmaximierung erklärt menschliches Verhalten nicht vollständig:
+
+- moralische Dilemmata widerstehen der reinen Schadens-/Nutzenoptimierung
+- die Risikowahrnehmung ist systematisch inkonsistent
+- Emotionen sind nicht nur Störfaktor, sondern auch Entscheidungshilfe
+
+*(Lernbeispiele — die Lehraussage steht jeweils dabei.)*
+
+### Moralische Dilemmata
+
+<Card title="Das Trolley-Problem" tone="neutral">
+Ein Trolley rollt auf eine Gleisverzweigung zu; eine Person steht am Weichenhebel, auf beiden Strängen liegen gefesselte Personen. Reine Nutzen-/Schadensmaximierung bleibt intuitiv unbefriedigend — **moralische Entscheidungen lassen sich nicht allein über rationale Optimierung erfassen**. *(Die genauen Personenzahlen sind auf der Folie nicht beschriftet.)* Heute hochaktuell: Beim **autonomen Fahren** müssen Algorithmen solche Dilemmata real programmieren.
+</Card>
+
+### Inkonsistente Risikowahrnehmung
+
+Ein vierteiliger Cartoon (Folie 26) entlarvt die <Exam>Inkonsistenz der Risikowahrnehmung</Exam> — hohe negative Wahrscheinlichkeiten werden verdrängt, winzige positive überschätzt:
+
+<DataTable
+  caption="Sind wir wirklich rationale Individuen? (Cartoon, Folie 26)"
+  columns={[
+    { key: 'fakt', label: 'Statistischer Fakt', align: 'left' },
+    { key: 'reaktion', label: 'Irrationale Reaktion', align: 'left' },
+  ]}
+  rows={[
+    { fakt: 'Lebenslange Raucher: 1-zu-2-Chance, an einer Folgekrankheit zu sterben', reaktion: '„It will never happen to me."' },
+    { fakt: 'Powerball-Lotterie: Gewinnchance 80 Mio. zu 1', reaktion: '„This could be my lucky day!"' },
+  ]}
+/>
+
+### Emotionen: Störfaktor oder Entscheidungshilfe?
+
+<CompareCard items={[
+  { tag: 'Annahme', title: 'Emotionen ausblenden', subtitle: 'neoklassische Sicht', accent: 'warning', points: [
+    'Emotionen beeinträchtigen die **Prognosekraft** ökonomischer Modelle',
+    'sie machen menschliches Verhalten **unberechenbar**',
+  ] },
+  { tag: 'Realität', title: 'Emotionen wirken', subtitle: 'verhaltensökonomische Sicht', accent: 'purple', points: [
+    'emotionale Reaktionen sind **schneller** als kognitive Prozesse',
+    'Emotionen können Menschen komplett verwandeln',
+    'ihre Auswirkungen werden systematisch **unterschätzt**',
+  ] },
+]} />
+
+<Callout type="examfocus" title="Doppelcharakter der Emotionen">
+Wo rationale Optimierung an begrenzter Problemlösungsfähigkeit scheitert, dienen <Exam>Emotionen als heuristische Entscheidungsregel</Exam> — sie ermöglichen überhaupt erst handlungsfähige Entscheidungen, auch wenn die „First-best"-Lösung verfehlt wird (die aber oft ohnehin unerreichbar ist).
+</Callout>
+
+<SourceNote>www.zwentner.com; computerwoche.de · Behavioral Finance · BF1 · Folien 24–27, 30</SourceNote>
+</section>
+
+<section id="emotionen-und-experimente">
+
+## Emotionen und ökonomische Experimente
+
+Experimente sind das **methodische Kernwerkzeug** der Verhaltensökonomik. Sie werden in drei Typen unterschieden:
+
+<Diagram
+  title="Experimenttypen und ihre Zwecke (Folie 28)"
+  chart={`graph TD
+  E["Ökonomische Experimente"] --> L["Laborexperimente"]
+  E --> F["Feldexperimente"]
+  E --> N["Natürliche Experimente"]
+  E --> Z["Zwecke"]
+  Z --> Z1["Theorien überprüfen"]
+  Z --> Z2["Schwächen finden, neue Theorien entwickeln"]
+  Z --> Z3["Institutionen vergleichen (Robustheit, Leistung)"]
+  Z --> Z4["Politikkonzepte und neue Designs testen"]`}
+/>
+
+Emotionen lassen sich systematisch nach ihrem **zeitlichen und situativen Bezug** ordnen — eine Grundlage, um ihren Einfluss auf ökonomische Entscheidungen zu analysieren:
+
+<DataTable
+  caption="Arten von Emotionen (Folie 29)"
+  columns={[
+    { key: 'kategorie', label: 'Emotionskategorie', align: 'left' },
+    { key: 'beispiele', label: 'Beispiele', align: 'left' },
+  ]}
+  rows={[
+    { kategorie: 'Soziale Emotionen', beispiele: 'Zorn, Hass, Schuld, Stolz, Scham' },
+    { kategorie: 'Über etwas, das hätte passieren können', beispiele: 'Bedauern, Enttäuschung, Erleichterung' },
+    { kategorie: 'Über etwas, das passieren könnte', beispiele: 'Angst, Hoffnung' },
+    { kategorie: 'Über das, was passiert', beispiele: 'Freude, Kummer' },
+    { kategorie: 'Über den Besitz anderer', beispiele: 'Neid, Eifersucht, Schadenfreude' },
+    { kategorie: 'Andere Emotionen', beispiele: 'romantische Gefühle, Zufriedenheit, Ekel' },
+  ]}
+/>
+
+<SourceNote>haus-der-kleinen-forscher.de · Folien 28–29</SourceNote>
+</section>
+
+<section id="paradigmenvergleich">
+
+## Verhaltensökonomik vs. Neoklassik
+
+Die Verhaltensökonomik ersetzt die drei Kernannahmen des Homo Oeconomicus durch **realistischere einschränkende Annahmen**:
+
+### Die drei einschränkenden Annahmen
+
+<CompareCard items={[
+  { tag: 'statt vollständiger Rationalität', title: 'Begrenzte Rationalität', accent: 'purple', points: [
+    'Fehler bei Informationsaufnahme und -verarbeitung',
+    'Rückgriff auf *Heuristiken* (einfache Problemlösungsmechanismen)',
+  ] },
+  { tag: 'statt unbegrenzter Willenskraft', title: 'Begrenzte Willenskraft', accent: 'purple', points: [
+    '*Vertagung* unbequemer Entscheidungen',
+  ] },
+  { tag: 'statt reinen Eigennutzes', title: 'Begrenzter Eigennutz', accent: 'purple', points: [
+    '*Fairness* und andere Nutzenkonzepte spielen eine Rolle',
+  ] },
+]} />
+
+### Modellprinzipien im direkten Vergleich
+
+Konkret tritt an die Stelle jeder neoklassischen Modellannahme eine verhaltensökonomische Entsprechung:
+
+<DataTable
+  caption="Modellprinzipien im Vergleich (in Anlehnung an H. Beck (2014), S. 11)"
+  columns={[
+    { key: 'prinzip', label: 'Modellprinzip', align: 'left' },
+    { key: 'trad', label: 'Traditionelle Ökonomik', align: 'left' },
+    { key: 'beh', label: 'Behavioral Economics', align: 'left' },
+  ]}
+  rows={[
+    { prinzip: 'Kalkül', trad: 'Erwartungsnutzentheorie: Nutzenmaximierung gemäß erwartetem Nutzen', beh: 'Prospect Theory: Angst vor Verlusten, abweichende Bewertung von Eintrittswahrscheinlichkeiten, Orientierung an Referenzwerten' },
+    { prinzip: 'Zeitpräferenz', trad: 'Exponentielles Diskontieren', beh: 'Hyperbolisches Diskontieren' },
+    { prinzip: 'Nutzenkonzept', trad: 'Menschen sind eigennützig', beh: 'Menschen achten auf das Wohlergehen anderer; legen Wert auf Fairness' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Die drei Achsen sind paarweise zu merken: <Exam>Erwartungsnutzentheorie → Prospect Theory</Exam>, exponentielles → hyperbolisches Diskontieren, reiner Eigennutz → Fairness.
+</Callout>
+
+<SourceNote>In Anlehnung an H. Beck (2014), S. 11 · Folie 31</SourceNote>
+</section>
+
+<section id="entscheidungsfindung">
+
+## Entscheidungsfindung im Vergleich
+
+Der zentrale Unterschied beider Paradigmen wird an der **Entscheidungskette** sichtbar. In der Neoklassik führt objektives Risiko direkt zur Entscheidung; verhaltensökonomisch schiebt sich ein **zusätzlicher Schritt** dazwischen.
+
+<Diagram
+  title="Tradionelle Ökonomik (Neoklassik) — direkte Kette (Folie 32)"
+  chart={`graph LR
+  A["Objektives Risiko"] -->|Rationale Entscheider| B["Entscheidung"]`}
+/>
+
+<Diagram
+  title="Verhaltensökonomik — mit subjektiver Risikowahrnehmung (Folie 32)"
+  chart={`graph LR
+  A["Objektives Risiko"] -->|Risiko­darstellung| C(["★ Subjektive Risikowahrnehmung"])
+  C -->|Risiko­einstellung| B["Entscheidung"]`}
+/>
+
+<Callout type="merksatz" title="Der entscheidende Zusatzschritt">
+Verhaltensökonomisch entscheidet nicht das objektive Risiko, sondern die <Exam>subjektive Risikowahrnehmung</Exam> — geprägt durch **Risikodarstellung (Framing)** und individuelle **Risikoeinstellung**. Genau dieser Zwischenschritt verzerrt die Entscheidung gegenüber dem rationalen Idealbild.
+</Callout>
+
+<Callout type="pitfall" title="Folienkonform">
+Auf der Folie steht „**Tradionelle** Ökonomik" (ohne „ti") — diese Schreibweise ist beizubehalten und nicht zu korrigieren.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF1 · Folie 32</SourceNote>
+</section>

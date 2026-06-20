@@ -1,0 +1,447 @@
+{/* Kapitel 9 · FinTechs im Asset Management / Robo Advisors. Palette via MDXProvider. */}
+
+<section id="was-ist-fintech">
+
+## FinTech: Definition und Investitionsdynamik
+
+<DefinitionBox term="FinTech" source="Grüner (2022), S. 60">
+Zusammengesetzt aus **Financial Services** und **Technology**: innovative Unternehmen, die mit moderner Technologie Finanzdienstleistungen erbringen — etwa alternative Bezahlverfahren, automatisiertes Portfoliomanagement oder Plattformen zur automatisierten Anlageberatung.
+</DefinitionBox>
+
+### Historische Einordnung
+
+<Timeline events={[
+  { label: '19. Jh.', title: 'Infrastruktur der Finanzglobalisierung', text: 'Laut Historikern reichen die Ursprünge bis ins 19. Jahrhundert zurück — z. B. das erste transatlantische Kabel.' },
+  { label: '1918', title: 'Fedwire', text: 'Erstes Überweisungssystem als frühe Finanztechnologie.' },
+  { label: 'Mitte 20. Jh.', title: 'Kreditkarten und Geldautomaten', text: 'Erste Kreditkarten und Geldautomaten verbreiten sich.' },
+  { label: '2008', title: 'FinTechs i. e. S.', text: 'Mit der Finanzkrise drängen zahlreiche Start-ups mit neuen Lösungen auf den Markt für Finanzdienstleistungen — der moderne FinTech-Begriff entsteht.' },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+Der moderne FinTech-Begriff ist eine <Exam>Folge der Finanzkrise 2008</Exam> — auch wenn die technischen Wurzeln viel weiter zurückreichen.
+</Callout>
+
+### Investitionen in FinTechs weltweit
+
+<Card title="Zwei Reihen, eine Aussage" tone="neutral" compact>
+- globale FinTech-Investitionen stiegen bis 2019/2021 stark an
+- beide Reihen messen in **Mrd. US-Dollar**, stammen aber aus **unterschiedlichen Quellen**
+- daher die abweichenden Werte für 2020/2021
+</Card>
+
+<DataChart
+  type="bar"
+  title="Gesamtwert der Investitionen in FinTechs weltweit (in Mrd. USD)"
+  source="Reihe 1: Grüner (2022), S. 62 · Reihe 2: Statista, abgerufen am 17.05.2026 (Folie 292)"
+  xKey="year"
+  yLabel="Investitionen in Mrd. USD"
+  height={320}
+  data={[
+    { year: '2012', gruener: 4 },
+    { year: '2013', gruener: 19 },
+    { year: '2014', gruener: 45 },
+    { year: '2015', gruener: 67 },
+    { year: '2016', gruener: 63 },
+    { year: '2017', gruener: 59 },
+    { year: '2018', gruener: 149 },
+    { year: '2019', gruener: 214 },
+    { year: '2020', gruener: 125, statista: 138.8 },
+    { year: '2021', gruener: 210, statista: 239.7 },
+    { year: '2022', statista: 168.4 },
+    { year: '2023', statista: 119.3 },
+    { year: '2024', statista: 95.5 },
+    { year: '2025', statista: 116 },
+  ]}
+  series={[
+    { key: 'gruener', name: 'Grüner 2012–2021', color: 'var(--color-text-muted)' },
+    { key: 'statista', name: 'Statista 2020–2025', color: 'var(--color-module-blue)' },
+  ]}
+/>
+
+<Callout type="info" title="Lesehinweis">
+Nach dem Höchststand 2021 (239,7 Mrd. USD laut Statista) ist das Investitionsvolumen rückläufig; der Tiefstwert der zweiten Reihe liegt 2024 bei 95,5 Mrd. USD.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folien 291–292</SourceNote>
+</section>
+
+<section id="fintech-klassifikation">
+
+## Klassifikation der FinTech-Segmente
+
+<Card title="Vier Hauptsegmente" tone="neutral" compact>
+- FinTechs gliedern sich in **vier Hauptsegmente**: Finanzierung, Vermögensverwaltung, Zahlungsverkehr, Sonstige FinTechs
+- <Exam>Robo-Advice ist Unterkategorie der Vermögensverwaltung</Exam> — der inhaltliche Fokus dieses Kapitels (im Diagramm hervorgehoben)
+</Card>
+
+<Diagram
+  title="FinTech-Segmente mit hervorgehobenem Pfad Vermögensverwaltung → Robo-Advice (Folie 293)"
+  source="Grüner (2022), S. 65, in Anlehnung an Dorfleitner et al. (2020)"
+  height={420}
+  chart={`graph TD
+  ROOT["FinTech-Segmente"] --> FIN["Finanzierung"]
+  ROOT --> VV["Vermögensverwaltung"]
+  ROOT --> ZV["Zahlungsverkehr"]
+  ROOT --> SO["Sonstige FinTechs"]
+
+  FIN --> CF["Crowdfunding"]
+  FIN --> KF["Kredite & Factoring"]
+  CF --> CF1["Gegenleistungsbasiertes CF"]
+  CF --> CF2["Spendenbasiertes CF"]
+  CF --> CF3["Crowdinvesting"]
+  CF --> CF4["Crowdlending"]
+
+  VV --> VV1["Social Trading"]
+  VV --> RA["Robo-Advice"]
+  VV --> VV3["Personal Financial Management"]
+  VV --> VV4["Anlage & Banking"]
+
+  ZV --> ZV1["Alternative Bezahlverfahren"]
+  ZV --> ZV2["Blockchain & Kryptowaehrungen"]
+  ZV --> ZV3["Sonstige FinTechs"]
+
+  SO --> SO1["Versicherungen"]
+  SO --> SO2["Suchmaschinen & Vergleichsportale"]
+  SO --> SO3["Technik, IT & Infrastruktur"]
+  SO --> SO4["Sonstige FinTechs"]
+
+  classDef focus fill:#1d4ed8,stroke:#f59e0b,stroke-width:3px,color:#ffffff;
+  class VV,RA focus;`}
+/>
+
+<Callout type="merksatz" title="Verortung">
+<Exam>Robo-Advice gehört zum FinTech-Segment Vermögensverwaltung</Exam> — neben Social Trading, Personal Financial Management sowie Anlage & Banking.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folie 293</SourceNote>
+</section>
+
+<section id="komplexitaet-und-defizite">
+
+## Komplexität und Defizite des traditionellen Asset Managements
+
+<Card title="Warum Robo Advisory?" tone="neutral" compact>
+- das Asset Management ist auf **zwei Ebenen** komplex (intensiv + extensiv)
+- diese Komplexität plus strukturelle Defizite begründen den Bedarf an Robo Advisory
+</Card>
+
+### Zwei Dimensionen der Komplexität
+
+<CompareCard items={[
+  { tag: 'Pro Person', title: 'Intensive Komplexität', subtitle: 'Komplexität für die individuelle Person', accent: 'accent', points: [
+    'Fähigkeit und Wille zur Risikoübernahme hängen von **demografischen, individual- und makroökonomischen** Einflüssen ab',
+    'diese Variablen können sich im Zeitablauf verändern (z. B. Inflation)',
+    'i. d. R. wird der **Rat eines Experten** gesucht',
+  ] },
+  { tag: 'Zwischen Personen', title: 'Extensive Komplexität', subtitle: 'Komplexität durch Unterschiede zwischen Personen', accent: 'purple', points: [
+    'Folge: **hohe Herausforderungen auch für Experten**',
+    'hängt von demografischen und ökonomischen Einflüssen ab',
+    '**nicht** von makroökonomischen Größen — diese sind als Rahmenbedingungen für alle Marktteilnehmer identisch',
+  ] },
+]} />
+
+<Callout type="pitfall" title="Verwechslungsgefahr">
+Nur die <Exam>extensive Komplexität ist von makroökonomischen Größen unabhängig</Exam>, weil diese für alle Marktteilnehmer gleich sind. Bei der intensiven Komplexität wirken makroökonomische Einflüsse dagegen mit.
+</Callout>
+
+### Defizite des traditionellen Asset Managements
+
+<Card title="Strukturelle Defizite" tone="negative">
+- geringer Grad der **Financial Literacy**
+- **Interessenskonflikte** zwischen Anleger und Portfoliomanager
+- starke **Abhängigkeit** von den Fähigkeiten des Portfoliomanagers
+- grds. geringere Erfolgsaussichten des **aktiven** Portfoliomanagements
+- Verhalten/Entscheidungen von Kunden und Berater durch **Heuristiken und Verzerrungen** beeinflusst (s. Behavioral Finance)
+</Card>
+
+<Callout type="merksatz" title="Schlussfolgerung">
+**Potenzielle Lösung** für Komplexität und Defizite im traditionellen Asset Management: <Exam>Robo Advisory</Exam>.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folien 294–295</SourceNote>
+</section>
+
+<section id="robo-advisor-charakteristika">
+
+## Charakteristika der Robo Advisors
+
+<Card title="Kurzprofil" tone="neutral" compact>
+- automatisieren das Asset-/Wealth-Management zu **niedrigen Gebühren**
+- der Markt wächst stark und entwickelt sich hin zu **hybriden Modellen**
+</Card>
+
+<KpiGrid columns={3} items={[
+  { value: 'seit 2008', label: 'Entwicklung der Robo Advisors' },
+  { value: 'UK & DE', label: 'Größte Märkte in Europa' },
+  { value: 'USA', label: 'Höchste Wachstumsraten', accent: 'accent' },
+]} />
+
+### Verwaltungsgebühren im Vergleich (p. a. der AuM)
+
+<SpectrumAxis
+  min="0 %"
+  max="1 %"
+  caption="Gebührenniveau der Robo Advisors — USA als Spanne, Europa als Durchschnitt aller Anbieter"
+  markers={[
+    { at: 15, label: 'USA · 0,15 %', sub: 'unteres Ende der US-Spanne' },
+    { at: 67, label: 'USA · 0,67 %', sub: 'oberes Ende der US-Spanne' },
+    { at: 80, label: 'Europa · Ø 0,8 %', sub: 'Durchschnitt aller Anbieter' },
+  ]}
+/>
+
+### Was Robo Advisors ausmacht
+
+<Columns count={2}>
+<Card title="Merkmale" tone="neutral">
+- **FinTech-Lösung** für Asset- bzw. Wealth Management (Entwicklungen seit 2008)
+- **automatisierte** Asset-Management-Prozesse
+- relativ **geringe Verwaltungsgebühren**
+- **sehr hohe Wachstumsraten**, v. a. in den USA
+</Card>
+<Card title="Kunden und Trend" tone="accent">
+- Anfangsphase: technologie-affine **„Millenials"**
+- aktuell zunehmend **vermögende, gut ausgebildete** Privatpersonen in den 40ern und 50ern
+- **Trend zu hybriden Lösungen** (Robo Advisory + Human Advice)
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Anlageberatung vs. Vermögensverwaltung">
+<Exam>Robo Advice i. S. der Anlageberatung</Exam> ist eine einzelne/einmalige Anlageempfehlung. Eine **fortlaufende** Vermögensverwaltung (z. B. mit Rebalancing) entspricht dagegen der **Finanzportfolioverwaltung** — beides nicht gleichsetzen.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folie 296</SourceNote>
+</section>
+
+<section id="markt-und-aum">
+
+## Markt und verwaltetes Vermögen
+
+<Columns count={2}>
+<Card title="Nordamerika (Übersicht 2020)" tone="neutral" compact>
+- Wealthsimple
+- Betterment
+- Wealthfront
+</Card>
+<Card title="Europa / UK (Übersicht 2020)" tone="accent" compact>
+- Nutmeg, moneyfarm
+- Scalable Capital
+- LIQID
+</Card>
+</Columns>
+
+Robo-Advisor-Anbieter sind weltweit verbreitet; zwei Datensätze zeigen die Marktstruktur quantitativ.
+
+<Callout type="info" title="Quellenhinweis">
+Die genaue, vollständige Anbieterliste der Weltkarte (Folie 297, publish0x.com) ist im Original nicht zuverlässig lesbar — die genannten Namen sind nur die deutlichst erkennbaren.
+</Callout>
+
+### Weltweit konzentriert: AuM ausgewählter Robo-Advisors 2021
+
+<Card title="Marktkonzentration" tone="accent" compact exam>
+- der Markt ist **stark konzentriert**
+- <Exam>Vanguard dominiert das verwaltete Vermögen</Exam> deutlich vor allen anderen Anbietern (206,6 Mrd. USD)
+</Card>
+
+<ProportionBar
+  caption="Verwaltetes Vermögen ausgewählter Robo-Advisors weltweit 2021 (in Mrd. USD)"
+  source="Statista, abgerufen am 17.05.2026 (Folie 298)"
+  segments={[
+    { label: 'Vanguard', value: 206.6, sub: '206,6 Mrd. USD' },
+    { label: 'Charles Schwab (Intelligent Portfolios)', value: 65.8, sub: '65,8' },
+    { label: 'Betterment', value: 26.8, sub: '26,8' },
+    { label: 'Wealthfront', value: 21.4, sub: '21,4' },
+    { label: 'Personal Capital', value: 16.1, sub: '16,1' },
+    { label: 'Scalable Capital', value: 10.7, sub: '10,7' },
+    { label: 'Nutmeg', value: 5.5, sub: '5,5' },
+  ]}
+/>
+
+### Starkes Wachstum: AuM der Robo-Advisors in Deutschland
+
+<Card title="Wachstumspfad Deutschland" tone="neutral" compact>
+- AuM wächst stark — von **0,76 Mrd. Euro (2017)** auf prognostizierte **ca. 32 Mrd. Euro (2026)**
+- **abflachendes Wachstum** in den Prognosejahren
+</Card>
+
+<DataChart
+  type="bar"
+  title="Verwaltetes Vermögen der Robo-Advisors in Deutschland 2017–2026 (in Mrd. Euro)"
+  source="Statista (Folie 299) · Werte ab 2022 (*) sind Prognosewerte"
+  xKey="year"
+  yLabel="Verwaltetes Vermögen in Mrd. Euro"
+  height={320}
+  data={[
+    { year: '2017', ist: 0.76 },
+    { year: '2018', ist: 1.8 },
+    { year: '2019', ist: 4.18 },
+    { year: '2020', ist: 8.31 },
+    { year: '2021', ist: 15.26 },
+    { year: '2022*', prognose: 22.37 },
+    { year: '2023*', prognose: 27.29 },
+    { year: '2024*', prognose: 29.91 },
+    { year: '2025*', prognose: 31.35 },
+    { year: '2026*', prognose: 31.98 },
+  ]}
+  series={[
+    { key: 'ist', name: 'Ist-Werte', color: 'var(--color-module-blue)' },
+    { key: 'prognose', name: 'Prognose (*)', color: 'var(--color-module-teal)' },
+  ]}
+/>
+
+<Callout type="pitfall" title="Prognose beachten">
+Die Werte ab 2022 sind mit <Exam>* als Prognosewerte</Exam> gekennzeichnet — keine realisierten Zahlen. Das Wachstum flacht in den Prognosejahren spürbar ab.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folien 297–299</SourceNote>
+</section>
+
+<section id="robo-advisory-prozess">
+
+## Der Robo-Advisory-Prozess
+
+<Card title="Drei Schritte" tone="neutral" compact>
+- der Prozess gliedert sich in **drei Schritte** — als roter Faden durchgängig nummeriert
+- <Exam>1) Onboarding, 2) Investmentstrategie-Implementierung, 3) Monitoring und Rebalancing</Exam>
+</Card>
+
+<Timeline events={[
+  { label: '1', title: 'Investor Screening & Onboarding', text: 'Profilierung des Kunden über nutzerfreundliche Websites/Apps und Online-Fragebögen; oft Kooperationen zwischen FinTechs und traditionellen Anbietern.' },
+  { label: '2', title: 'Investmentstrategie-Implementierung', text: 'Portfoliobildung gemäß Portfolio Selection Theory mit ETFs als Anlageuniversum; Ziel: Eliminierung von Interessenskonflikten.' },
+  { label: '3', title: 'Monitoring und Rebalancing', text: 'Laufende Portfolioanpassungen; Rebalancing meist regelbasiert und/oder periodisch mit geringer Frequenz (Transaktionskosten).' },
+]} />
+
+### Schritt 1 · Onboarding per Online-Fragebogen
+
+<Card title="Onboarding-Kanal" tone="neutral" compact>
+- Investorenanalyse über **Online-Fragebögen** (i. d. R. Multiple Choice)
+- klare Vorteile, aber der Teilaspekt **„Advisor"** weist drei Nachteile auf
+</Card>
+
+<Columns count={2}>
+<Card title="Pro · Online-Fragebogen" tone="positive">
+- geringere Kosten als beim persönlichen Interview (Ø ca. 15 Minuten Dauer)
+- flexible Anpassung der Investmentziele durch den Kunden möglich
+- einfache und kostengünstige Dokumentation der Investmentziele durch den Robo Advisor
+</Card>
+<Card title="Con · Advisor" tone="negative">
+- Informationsverlust durch das Multiple-Choice-Format
+- Kunden interpretieren die Fragen unterschiedlich
+- Fragebögen unterstellen vergleichbare Anlegertypen, obwohl die Antworten subjektiv sind → **Response Bias**
+</Card>
+</Columns>
+
+#### Beispiel-Fragebogen · Kundenprofiling
+
+Typische Profiling-Fragen erheben Anlageziel, Horizont, Risikotoleranz und Erfahrung:
+
+<Columns count={2}>
+<Card title="Was ist Ihnen bei der Geldanlage am wichtigsten?" tone="neutral" compact>
+- Riskante Vermögensanlage
+- Sorgenfrei Vermögen aufbauen
+- Gewinne möglichst maximieren
+</Card>
+<Card title="Wie lange möchten Sie Ihr Geld anlegen?" tone="neutral" compact>
+- Weniger als 3 Jahre
+- 3 bis 10 Jahre
+- Mehr als 10 Jahre
+</Card>
+<Card title="10.000 EUR verlieren an Wert — wann verkaufen Sie?" tone="neutral" compact>
+- bei 1.000 EUR Verlust (-10 %)
+- bei 2.000 EUR Verlust (-20 %)
+- bei 5.000 EUR Verlust (-50 %)
+- ich verkaufe nicht
+- ich meide diese Investition
+</Card>
+<Card title="Erfahrung und Kenntnisse beim Investieren?" tone="neutral" compact>
+- gering (erste Investition)
+- mittel (bereits erste Erfahrungen)
+- gut (investiere bereits seit längerer Zeit)
+- sehr gut (arbeite/studiere in diesem Bereich)
+</Card>
+</Columns>
+
+### Schritt 2 · ETF-Filterkaskade
+
+<Card title="Filterlogik" tone="neutral" compact>
+- ETF-Universum wird über **mehrstufige Ausschlusskriterien** reduziert
+- am Ende bleiben nur <Exam>ca. 3–6 % aller ETFs aus Stufe (1)</Exam>
+</Card>
+
+<DecisionTree nodes={[
+  { label: '(1) Universum aller investierbaren ETFs', detail: 'Ausgangspunkt der Filterkaskade.', children: [
+    { label: '(2) Ausschluss von Nischen- und Leveraged-ETFs', children: [
+      { label: '(3) Ausschluss von ETFs mit kurzer Kurshistorie', children: [
+        { label: '(4) Ausschluss von ETFs mit ungenügender Marktliquidität', children: [
+          { label: '(5) Ausschluss von ETFs mit schlechter Performance', children: [
+            { label: '(6) Finales Set investierbarer ETFs', detail: 'ca. 3–6 % aller ETFs aus Stufe (1).' },
+          ] },
+        ] },
+      ] },
+    ] },
+  ] },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+Ziel der Implementierung ist die <Exam>Eliminierung von Interessenskonflikten</Exam> — dennoch bleiben **Agency-Probleme** möglich (z. B. bei der Trade Execution durch Kooperationen).
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folien 300–302</SourceNote>
+</section>
+
+<section id="angebotstypen-und-generationen">
+
+## Angebotstypen und Entwicklungspfad
+
+<Card title="Wichtigstes Unterscheidungskriterium" tone="accent" compact exam>
+- die genaue **Ausgestaltung der Portfolioanpassungen** (Rebalancing) ist das wohl <Exam>wichtigste Unterscheidungskriterium</Exam> für FinTechs in der Vermögensanlage
+- daraus ergeben sich **zwei Angebotstypen**
+</Card>
+
+### Zwei Angebotstypen
+
+<CompareCard items={[
+  { tag: '§ 34f GewO', title: 'Einfache Angebote', subtitle: 'Anbieterbeispiele: vaamo, GINMON', accent: 'accent', points: [
+    'Hilfe bei der Auswahl der passenden **strategischen** Asset Allocation',
+    'Hinterlegung der Assetklassen mit kostengünstigen **ETFs**',
+    '**regelmäßiges** Rebalancing',
+  ] },
+  { tag: 'mit Lizenz', title: 'Aufwendigere Angebote', subtitle: 'mit Vermögensverwaltungs-Lizenz · scalable.CAPITAL, investify', accent: 'positive', points: [
+    'Hilfe bei der Auswahl der passenden strategischen Asset Allocation',
+    'Hinterlegung mittels ETFs **oder Zertifikaten** (z. B. Themenzertifikate)',
+    '**aktive, automatische taktische Neugewichtung** in Bandbreiten um die Target-Allokation',
+  ] },
+]} />
+
+<Callout type="merksatz" title="Unterscheidungskriterium">
+Nur <Exam>aufwendigere (lizenzierte) Angebote nehmen eine aktive, automatische taktische Neugewichtung</Exam> vor; einfache Angebote (§ 34f GewO) beschränken sich auf die strategische Allokation mit regelmäßigem Rebalancing.
+</Callout>
+
+### Entwicklungspfad der digitalen Vermögensanlage
+
+<Card title="Vier Generationen" tone="neutral" compact>
+- Entwicklung über **vier Generationen** mit steigendem **Leistungsumfang** und **Individualisierungsgrad**
+- aktuell dominieren Angebote der <Exam>zweiten Generation</Exam> (z. B. Scalable Capital, LIQID)
+</Card>
+
+<QuadrantMatrix
+  caption="Vier Generationen entlang Individualisierungsgrad (x) und Leistungsumfang (y) — Seidel (Hrsg.): Banking Innovation 2017 (Folie 304)"
+  xLabel="Individualisierungsgrad"
+  xLow="gering"
+  xHigh="hoch"
+  yLabel="Leistungsumfang"
+  yLow="einmalige Portfolio-Zusammenstellung"
+  yHigh="Vermögensverwaltung"
+  quadrants={[
+    { pos: 'bl', title: '1. Generation', accent: 'neutral', points: ['Beschränkung auf WpHG-Kriterien'] },
+    { pos: 'br', title: '2. Generation (dominiert aktuell)', accent: 'accent', points: ['zusätzliche produkt- und prozessbezogene Kundenpräferenzen', 'z. B. Scalable Capital, LIQID'] },
+    { pos: 'tl', title: '3. Generation', accent: 'purple', points: ['Übergangsstufe: weiter steigender Leistungsumfang/Individualisierungsgrad'] },
+    { pos: 'tr', title: '4. Generation', accent: 'positive', points: ['Einbringung zusätzlicher Intelligenz'] },
+  ]}
+/>
+
+<Callout type="info" title="Lesehinweis zur Anordnung">
+Im Original sind die vier Generationen treppenförmig von links unten (1.) nach rechts oben (4.) angeordnet — Leistungsumfang und Individualisierungsgrad steigen also gemeinsam. Die Vier-Felder-Darstellung gibt diese Reihenfolge wieder; die 3. Generation trägt im Original keine eigene Achsenbeschriftung.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folien 303–304</SourceNote>
+</section>

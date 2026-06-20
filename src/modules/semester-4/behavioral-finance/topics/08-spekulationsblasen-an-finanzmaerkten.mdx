@@ -1,0 +1,352 @@
+{/* Kapitel 8 · Spekulationsblasen an Finanzmärkten. Palette via MDXProvider. */}
+
+<section id="definition-und-ansteckung">
+
+## Spekulationsblasen, Spekulationsfieber und Herdentrieb
+
+Eine Spekulationsblase ist eine **Marktanomalie** mit dem Lebenszyklus einer Kaugummiblase:
+
+- Sie **baut sich auf, wächst und platzt** — ersetzt man Kaugummi durch Aktien und Luft durch Geld, ergibt sich eine Börsenblase.
+- Das Platzen schädigt auch **unbeteiligte Marktteilnehmer**.
+
+<DefinitionBox term="Spekulationsblasen" source="Putnoki (2018) · Folien 275-276">
+Starke und **langfristige Übertreibung** bei den Preisen für Wertpapiere, Immobilien oder andere Anlagegüter.
+</DefinitionBox>
+
+### Spekulationsfieber als soziale Ansteckung
+
+Getrieben wird die Blase durch ein **Spekulationsfieber** — eine soziale Ansteckung durch Boom-Denken:
+
+- Beobachtungen und mediale Berichterstattung verstärken sich in einer **selbstverstärkenden Schleife** (Feedback-Theorie).
+- Es entsteht eine <Exam>Preis-Story-Preis-Schleife</Exam>, die den Glauben an die Fortsetzung des Booms immer wieder neu bestätigt.
+
+<Diagram
+  title="Feedback-Schleife des Spekulationsfiebers (Folie 276)"
+  chart={`graph LR
+  A["Beobachtungen + mediale Berichterstattung"] --> B["steigende Kurse"]
+  B --> C["Geschichten, die den Glauben an Fortsetzung des Booms bestärken"]
+  C --> A`}
+/>
+
+<Columns count={2}>
+<Card title="Epidemie-Analogie" tone="purple">
+Wie in der Medizin steigt die **Ansteckungsrate über die Abklingrate**: Eine optimistische Markteinschätzung breitet sich aus, bis die ausschließlich positiven Argumente breite Akzeptanz finden.
+</Card>
+<Card title="Informationskaskaden" tone="accent">
+Selbst rationale Marktteilnehmer übernehmen überzogene Ansichten — die **Qualität der Informationen in der Gruppe sinkt** (Preis-Story-Preis-Schleife durch Medien).
+</Card>
+</Columns>
+
+### Herdentrieb als Treiber
+
+<DefinitionBox term="Herdentrieb" source="Folie 277">
+Menschen „schwimmen als soziale Wesen **mit dem Strom**" und suchen Leitfiguren. Shiller: *„The meaning of herd behaviors is that investors tend to do as other investors do. They imitate the behavior of others and disregard their own information."*
+</DefinitionBox>
+
+<Card title="Massenpsychologie nach Gustave Le Bon (1841-1931)" tone="purple">
+- Massen entwickeln eine **Kollektivseele** (abgestimmte Handlungsweisen)
+- hohe Verbundenheit innerhalb der Masse (unbewusste Persönlichkeit)
+- Gesamtinteresse infiziert Einzelinteresse — **emotionale Ansteckung**
+- einfache Gefühle dominieren — Impulsivität und Reizbarkeit
+- einzelne Meinungen/Gerüchte führen zur Meinungsbildung der Masse und zur unverzüglichen Verwirklichung suggerierter Ideen
+</Card>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Spekulationsblasen sind <Exam>Marktanomalien, die durch soziale Ansteckung, mediale Feedback-Schleifen und Informationskaskaden</Exam> befeuert werden. Der Herdentrieb erklärt, warum Investoren eigene Informationen zugunsten des Massenverhaltens ignorieren.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF8 · Folien 275-277</SourceNote>
+</section>
+
+<section id="kategorien-und-arten">
+
+## Kategorien des Herdentriebs und Arten von Blasen
+
+Zwei Klassifikationen ordnen das Phänomen:
+
+- Herdenverhalten gliedert sich nach seinem **Auslöser** in vier Kategorien.
+- Die resultierenden Blasen gliedern sich nach ihrer **Entstehungsursache** in vier Typen.
+
+### Die vier Kategorien des Herdentriebs
+
+<DecisionTree nodes={[
+  { label: 'Herdentrieb — vier Auslöser-Kategorien', children: [
+    { label: '1 · Informationskaskaden', detail: 'Marktteilnehmer ignorieren eigene Informationen und schließen sich der Meinung der Masse an — die eigene Meinung kann die Masse ohnehin nicht umstimmen.' },
+    { label: '2 · Reputationsinteressen', detail: 'Aus Sorge um den eigenen Ruf schließt man sich der Gruppenmeinung an und vernachlässigt eigene Informationen.' },
+    { label: '3 · Informationsquellen', detail: 'Man nutzt Quellen, von denen man glaubt, dass auch andere Marktteilnehmer sie nutzen werden.' },
+    { label: '4 · Historische Marktbewegungen', detail: 'Analyse historischer Marktbewegungen (Chart-Analyse) in der Annahme, dass auch andere so entscheiden.' },
+  ] },
+]} />
+
+### Die vier Arten von Spekulationsblasen
+
+<DataTable
+  caption="Klassifikation der Blasentypen nach Entstehungsursache (Folie 279)"
+  columns={[
+    { key: 'typ', label: 'Blasentyp', align: 'left' },
+    { key: 'merkmale', label: 'Merkmale', align: 'left' },
+  ]}
+  rows={[
+    { typ: 'Rationale / fast-rationale Blasen', merkmale: 'Preis ist Funktion des erwarteten (Wieder-)Verkaufswerts; Akteure wissen, dass die Blase platzt, kennen aber den Zeitpunkt nicht — „Markt der größeren Narren".' },
+    { typ: 'Intrinsische Blasen', merkmale: 'Abhängig von Fundamentaldaten; übertriebene Reaktion auf Nachrichten; Projektion vergangener Wachstumsraten in die Zukunft.' },
+    { typ: 'Launen und Moden', merkmale: 'Sozialpsychologische Faktoren; übertriebener Optimismus; stark steigende Erwartungen an langfristige Wachstums- und Renditeaussichten.' },
+    { typ: 'Informationsbedingte Blasen', merkmale: 'Unzureichende Einpreisung aller Informationen; der Preis spiegelt nicht den Fundamentalwert wider.' },
+  ]}
+/>
+
+<Callout type="pitfall" title="Rationale Blasen richtig verstehen">
+Rationale Blasen heißen nicht, dass die Akteure uninformiert sind: Sie <Exam>wissen, dass die Blase platzen wird</Exam> — nur den Zeitpunkt kennen sie nicht und hoffen, vorher an einen „größeren Narren" zu verkaufen.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF8 · Folien 278-279</SourceNote>
+</section>
+
+<section id="fuenf-phasen-modell">
+
+## Das 5-Phasen-Modell nach Kindleberger/Minsky
+
+Das Kindleberger/Minsky-Modell beschreibt den Verlauf einer Spekulationsblase in fünf aufeinanderfolgenden Phasen: **Verlagerung → Positives Feedback → Euphorie → Kritische Phase → Abscheu**.
+
+<Timeline events={[
+  { label: '1', title: 'Verlagerung', text: 'Beginn eines Booms durch steigende Preise; ein exogener Schock verlagert Investitionen (Profitchancen) auf einen anderen Vermögenssektor; entstehende Chancen erhöhen Investitionen und Produktion.' },
+  { label: '2', title: 'Positives Feedback', text: 'Ausweitung der Investitionen durch Fremdkapital; Nachfrage übersteigt Angebot, Preise steigen weiter; steigende Preise erzeugen weitere Investitionen (Positive Feedback Loop); soziale Ansteckung durch Boom-Denken.' },
+  { label: '3', title: 'Euphorie', text: 'Spekulation auf Preissteigerung führt zu zusätzlichen Investitionen; Marktteilnehmer überschätzen die zu erwartenden Renditen; neue Bewertungsmodelle sollen die steigenden Kurse rechtfertigen.' },
+  { label: '4', title: 'Kritische Phase', text: 'Insider realisieren zunehmend ihre Gewinne; Phase der finanziellen Not — Unternehmen können ihre Schulden möglicherweise nicht bedienen; Tendenz zur Umschichtung in Liquidität (z. B. nach Aufdeckung von Betrügereien).' },
+  { label: '5', title: 'Abscheu', text: 'Kapitulation der verbleibenden Marktteilnehmer in Form der „entarteten Panik"; massiver Rückzug; Zunahme regulatorischer Bemühungen seitens der Politik.' },
+]} />
+
+<Callout type="merksatz" title="Kernsequenz">
+Die Reihenfolge ist klausurrelevant: Die <Exam>kritische Phase (finanzielle Not) liegt am Gipfel</Exam>, die Abscheu (Panik, Crash) folgt erst danach auf dem Abwärtsast.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF8 · Folien 280-285</SourceNote>
+</section>
+
+<section id="blasenkurve">
+
+## Die Blasenkurve: Anatomie des Preisverlaufs
+
+Der Preisverlauf einer Blase ist eine **asymmetrische Glockenkurve**: langsamer Aufbau, euphorischer Steilanstieg, scharfer Gipfel bei „finanzieller Not" und anschließender Crash. Die Achsen „Zeit" (x) und „Preis" (y) tragen bewusst **keine Skalenwerte** — gezeigt wird die Verlaufslogik.
+
+<DataChart
+  type="area"
+  title="Anatomie der Spekulationsblase nach Kindleberger / Minsky (Folie 286)"
+  source="Quelle: vv / Grafik: FuW, sk · Achsen ohne Skala (Darstellung der Kurvenlogik)"
+  xKey="t"
+  yKey="preis"
+  xLabel="Zeit"
+  yLabel="Preis"
+  height={340}
+  data={[
+    { t: 0, preis: 8 }, { t: 1, preis: 10 }, { t: 2, preis: 13 }, { t: 3, preis: 18 },
+    { t: 4, preis: 26 }, { t: 5, preis: 40 }, { t: 6, preis: 62 }, { t: 7, preis: 86 },
+    { t: 8, preis: 100 }, { t: 9, preis: 72 }, { t: 10, preis: 45 }, { t: 11, preis: 28 },
+    { t: 12, preis: 20 }, { t: 13, preis: 16 }, { t: 14, preis: 14 },
+  ]}
+  series={[{ key: 'preis', name: 'Preis', color: 'var(--color-module-purple)' }]}
+/>
+
+<Card title="Lage der fünf Phasen entlang der Kurve" tone="purple" exam>
+- **1 · Verlagerung** — ganz links am flachen Anfang
+- **2 · Positives Feedback, Boom** — beginnender Anstieg
+- **3 · Euphorie** — steiler Aufwärtsast
+- **4 · Finanzielle Not** — am Gipfel (Hochpunkt)
+- **5 · Abscheu** — am abfallenden rechten Ast (Crash)
+</Card>
+
+<SourceNote>Behavioral Finance · BF8 · Folie 286</SourceNote>
+</section>
+
+<section id="historische-fallbeispiele">
+
+## Historische Fallbeispiele im Phasenraster
+
+Vier historische Blasen folgen exakt demselben Kindleberger/Minsky-Schema:
+
+- **Tulpenmanie** (17. Jh.), **Crash 1929**, **Dot.com** (ab 1997) und **Subprime** (ab 2007) durchlaufen dieselben fünf Phasen.
+- Ein Lehrbeispiel für die **Wiederkehr des Musters** über Epochen und Anlageklassen hinweg.
+
+<DataTable
+  caption="Vier Fallbeispiele entlang der fünf Phasen (Folien 287-289, 291)"
+  columns={[
+    { key: 'phase', label: 'Phase', align: 'left' },
+    { key: 'tulpen', label: 'Tulpenmanie (17. Jh.)', align: 'left' },
+    { key: 'crash', label: 'Crash 1929', align: 'left' },
+    { key: 'dotcom', label: 'Dot.com (ab 1997)', align: 'left' },
+    { key: 'subprime', label: 'Subprime (ab 2007)', align: 'left' },
+  ]}
+  rows={[
+    {
+      phase: 'Verlagerung',
+      tulpen: 'Begeisterung nach Import nach Europa; Mode treibt Tulpenzüchtung.',
+      crash: 'Konsolidierungsdrang der Unternehmen; euphorische Kommentare einflussreicher Akteure.',
+      dotcom: 'Internetzugang lenkt Investitionen in Infrastruktur und e-Commerce; Tech-Firmen ins Anlegerblickfeld.',
+      subprime: 'Gesetzesänderungen begünstigen seit den 80ern Kredite an Schuldner niedriger Bonität; Lockvogelangebote.',
+    },
+    {
+      phase: 'Positives Feedback',
+      tulpen: 'Bürger verschulden sich; Tulpenzwiebel als allgemeines Zahlungsmittel anerkannt.',
+      crash: 'Kreditfinanzierter Konsum; Nutzung von Fremdkapital für Investitionen.',
+      dotcom: 'Mediale Berichterstattung erzeugt soziale Ansteckung; niedrige US-Leitzinsen als Katalysator.',
+      subprime: 'Schwache Kreditkontrollen; Verbriefung der Kreditverpflichtungen und Weitergabe an internationale Investoren.',
+    },
+    {
+      phase: 'Euphorie',
+      tulpen: 'Nachfrageanstieg 1636; eigene Handelstische; Tulpen wechseln z. T. 10-mal am Tag den Besitzer.',
+      crash: 'Dow Jones vervierfacht sich 1924-1929; hebelgetriebener Handel; Gründung von Investmentfonds.',
+      dotcom: 'IPO-Welle der New Economy; Zeichnungsgewinne von bis zu 100 % in den ersten Tagen.',
+      subprime: 'House-flipping (Erwerb zum schnellen Weiterverkauf); kumulierter Immobilienpreisanstieg +92 % von 1996 bis 2007.',
+    },
+    {
+      phase: 'Kritische Phase',
+      tulpen: 'Eine Zwiebel z. T. teurer als ein Grachtenhaus; Kursverluste steigern Furcht und Verkaufswunsch.',
+      crash: 'Steigende Leitzinsen der US-Notenbank; höhere Kreditzinsen; Nachfrage geht zurück.',
+      dotcom: 'Misstrauen gegenüber Geschäftsmodellen; steigende Leitzinsen beschränken Investitionspläne.',
+      subprime: '„This time is different"-Syndrom; Schieflage zweier Bear-Stearns-Fonds; Zunahme von Kreditausfällen.',
+    },
+    {
+      phase: 'Abscheu',
+      tulpen: '-95 % des Werts binnen Wochen; Annullierung von Handelsvereinbarungen als Eindämmung.',
+      crash: 'Crash durch massive Verkäufe; Gründung der SEC; Bankrott von 40 % aller Banken bis 1933.',
+      dotcom: 'Bilanzmanipulationen; Nemax-Einstellung Ende 2002 nach Sturz von über 10.000 auf unter 300 Punkte.',
+      subprime: 'Verstaatlichungen; Höhepunkt mit dem Zusammenbruch von Lehman Brothers; einsetzende Bank-Runs.',
+    },
+  ]}
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Trotz unterschiedlicher Epochen und Anlageklassen folgen alle Fälle demselben Muster. Wiederkehrende Auslöser: <Exam>billige Liquidität, Fremdkapital-Hebel und soziale Ansteckung</Exam> in der Euphorie, eine Zinswende oder Vertrauenskrise als Kipppunkt.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF8 · Folien 287-289, 291</SourceNote>
+</section>
+
+<section id="verhaltensanomalien-neuer-markt">
+
+## Verhaltensanomalien am Beispiel Neuer Markt
+
+Am realen Verlauf des **Neuer-Markt-Index** (Skala 0-9000, Mrz. 97 bis Nov. 02) lässt sich zeigen, welche Verhaltensanomalien typischerweise in welcher Phase auftreten — vom übersteigerten Optimismus bis zur gelernten Hilflosigkeit nach dem Crash. Der Verlauf:
+
+- **Ab 1997** moderater Anstieg, **Anfang 1999** Zwischenhoch (~4000).
+- **Um Mrz. 2000** Gipfel (~8500), danach **Sturz bis Ende 2002** auf ~500-1000.
+
+<DataChart
+  type="line"
+  title="Neuer-Markt-Index mit zeitlich verorteten Verhaltensanomalien (Folie 290)"
+  source="Folie 290 · Werte visuell abgelesen, keine exakten Indexstände"
+  xKey="datum"
+  yKey="index"
+  xLabel="Mrz. 97 — Nov. 02"
+  yLabel="Index"
+  height={340}
+  yDomain={[0, 9000]}
+  data={[
+    { datum: 'Mrz 97', index: 700 }, { datum: 'Nov 97', index: 1300 }, { datum: 'Mrz 98', index: 1800 },
+    { datum: 'Nov 98', index: 2600 }, { datum: 'Mrz 99', index: 4000 }, { datum: 'Jul 99', index: 3400 },
+    { datum: 'Nov 99', index: 5200 }, { datum: 'Jan 00', index: 7200 }, { datum: 'Mrz 00', index: 8500 },
+    { datum: 'Jul 00', index: 6500 }, { datum: 'Nov 00', index: 4200 }, { datum: 'Mrz 01', index: 2600 },
+    { datum: 'Nov 01', index: 1500 }, { datum: 'Mrz 02', index: 900 }, { datum: 'Nov 02', index: 600 },
+  ]}
+  series={[{ key: 'index', name: 'Neuer Markt', color: 'var(--color-module-purple)' }]}
+/>
+
+### Anomalien nach Marktphase und zeitlicher Lage
+
+<QuadrantMatrix
+  caption="Verhaltensanomalien entlang des Index-Verlaufs (Folie 290)"
+  xLabel="Marktphase"
+  xLow="Aufschwung"
+  xHigh="Abschwung"
+  yLabel="Zeitliche Lage"
+  yLow="am Extrempunkt"
+  yHigh="laufend"
+  quadrants={[
+    { pos: 'tl', title: 'Aufwärtsast — Optimismus', accent: 'warning', points: [
+      'Selbstwertdienliche Attribution', 'Schematisches Denken', 'Kontrollillusion', 'Verzerrte Interpretation von Informationen',
+    ] },
+    { pos: 'tr', title: 'Wende & Abwärtsast — Verdrängung', accent: 'negative', points: [
+      'Selektive Wahrnehmung', 'Herding (Beginn der Wende)', 'Verluste aussitzen', 'Schönfärberei',
+    ] },
+    { pos: 'bl', title: 'Am Gipfel', accent: 'warning', points: [
+      'Erlernte Sorglosigkeit',
+    ] },
+    { pos: 'br', title: 'Spät nach dem Crash', accent: 'negative', points: [
+      'Gelernte Hilflosigkeit',
+    ] },
+  ]}
+/>
+
+<Callout type="pitfall" title="Zuordnung der Anomalien">
+Nicht verwechseln: <Exam>erlernte Sorglosigkeit</Exam> tritt am Gipfel auf, <Exam>gelernte Hilflosigkeit</Exam> erst spät nach dem Absturz. Herding markiert den Beginn der Wende.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF8 · Folie 290</SourceNote>
+</section>
+
+<section id="blasenvergleich-und-effekte">
+
+## Blasenvergleich und volkswirtschaftliche Effekte
+
+Synchronisiert man berühmte Blasen um ihren jeweiligen Gipfel (Year 0):
+
+- Es zeigt sich dasselbe charakteristische **Auf- und Abstiegsmuster** über alle Fälle hinweg.
+- **Bitcoin** sticht mit dem extremsten Preisvielfachen (~65× am Gipfel) heraus.
+
+<DataChart
+  type="line"
+  title="Rise and fall of some famous asset bubbles (Folie 292)"
+  source="Source: Elliot Wave International, Yale SOM, St. Louis FRED, GlobalFin, and Convoy analysis · Werte visuell abgelesen"
+  xKey="jahr"
+  yLabel="Multiple of starting price"
+  xLabel="Years around peak"
+  height={360}
+  yDomain={[0, 70]}
+  data={[
+    { jahr: -2, bitcoin: 2, tulip: 3, southsea: 2, tech: 4 },
+    { jahr: -1.5, bitcoin: 5, tulip: 6, southsea: 5, tech: 7 },
+    { jahr: -1, bitcoin: 12, tulip: 11, southsea: 9, tech: 12 },
+    { jahr: -0.5, bitcoin: 30, tulip: 18, southsea: 14, tech: 17 },
+    { jahr: 0, bitcoin: 65, tulip: 24, southsea: 22, tech: 20 },
+    { jahr: 0.5, bitcoin: 28, tulip: 9, southsea: 11, tech: 13 },
+    { jahr: 1, bitcoin: 14, tulip: 4, southsea: 6, tech: 8 },
+    { jahr: 1.5, bitcoin: 8, tulip: 2, southsea: 3, tech: 5 },
+    { jahr: 2, bitcoin: 6, tulip: 2, southsea: 2, tech: 4 },
+  ]}
+  series={[
+    { key: 'bitcoin', name: 'Bitcoin (2014-Today)', color: 'var(--color-module-pink)' },
+    { key: 'tulip', name: 'Tulip Mania (1634-1637)', color: 'var(--color-module-purple)' },
+    { key: 'southsea', name: 'South Sea Bubble (1719-1721)', color: 'var(--color-module-blue)' },
+    { key: 'tech', name: 'Tech Bubble (1994-2002)', color: 'var(--color-module-teal)' },
+  ]}
+/>
+
+<Callout type="info" title="Weitere im Vergleich gezeigte Blasen">
+Die Originalgrafik enthält zusätzlich Mississippi Bubble (1718-1720), Financial Crisis Stocks (2006-2009), Japanese Stocks (1982-1992), Great Depression Stocks (1923-1932) und den S&P 500. Alle kulminieren um „Year 0".
+</Callout>
+
+### Volkswirtschaftliche Effekte: ambivalent
+
+Spekulationsblasen wirken <Exam>ambivalent</Exam>:
+
+- **Kurzfristig** konsum- und investitionsfördernd.
+- **Langfristig** drohen jedoch erhebliche Schäden für die Realwirtschaft.
+
+<CompareCard items={[
+  { tag: 'kurzfristig', title: 'Positive Effekte', subtitle: 'konsum- und investitionsfördernd', accent: 'positive', points: [
+    '**Einkommens- und Vermögenseffekt:** steigende Konsummöglichkeiten mit positiver Wirkung auf die Nachfrageseite im realen Sektor durch steigende Vermögenspreise',
+    '**Bilanzeffekt:** steigende Vermögenswerte können die Investitionstätigkeit beeinflussen',
+    '**Übertragungseffekt:** hohe Aktienkurse begünstigen Investitionsentscheidungen, geringe beschränken sie',
+  ] },
+  { tag: 'langfristig', title: 'Negative Effekte', subtitle: 'Gefahr für die Realwirtschaft', accent: 'negative', points: [
+    '**Verlust der Informationsfunktion von Preisen:** Fehleinschätzungen und Fehlsteuerungen, wenn sich Preise von den Fundamentalwerten abkoppeln',
+    '**Verlust der Kaufkraft:** starke Produktionsrückgänge durch extreme Preiskorrekturen können auf die Realwirtschaft übergreifen',
+    '**Vertrauensverlust der Marktteilnehmer:** Investitions- und Konsumtätigkeit nehmen ab',
+  ] },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+Spekulationsblasen sind volkswirtschaftlich <Exam>ambivalent</Exam>: kurzfristig fördernd, langfristig droht der Verlust der Preisfunktion sowie Kaufkraft- und Vertrauensverlust mit Übergreifen auf die Realwirtschaft.
+</Callout>
+
+<SourceNote>Behavioral Finance · BF8 · Folien 292-293</SourceNote>
+</section>

@@ -1,0 +1,773 @@
+{/* Kapitel 4 · Mathematische und statistische Grundlagen. Palette via MDXProvider. */}
+
+<section id="durchschnittswerte">
+
+## Durchschnitts- und Renditemaße
+
+Wie mittelt man Renditen über mehrere Perioden korrekt? Die Antwort hängt an einer einzigen Frage:
+
+- Werden die Erträge **wiederangelegt** (Zinseszins) oder am Periodenende **entnommen**?
+- Ohne Wiederanlage passt das arithmetische, mit Wiederanlage das geometrische Mittel.
+
+### Lagemaße im Überblick
+
+<Columns count={3}>
+<Card title="Arithmetisches Mittel" tone="accent">
+Summe der Beobachtungswerte geteilt durch ihre Anzahl. Ideal für **Einperiodenrenditen ohne Wiederanlage** (Ertrag wird am Periodenende entnommen, keine Zinseszinsen).
+- Nachteil: hohe Sensitivität gegenüber Extremwerten.
+</Card>
+<Card title="Median und Modus" tone="neutral">
+- **Median:** mittlerer Wert der sortierten Reihe — robust bei Extremwerten.
+- **Modus:** häufigster Wert bzw. Maximum der Häufigkeitsverteilung.
+</Card>
+<Card title="Gewichtetes Mittel" tone="neutral">
+Unterschiedliche Gewichtung der Komponenten über die Anteile w_i (z. B. Asset-Anteile im Portfolio).
+</Card>
+</Columns>
+
+<Formula
+  title="Arithmetisches und gewichtetes Mittel"
+  expr="\bar{x}_{\text{arithm}} = \frac{1}{n}\sum_{i=1}^{n} x_i \qquad r = \sum_{i=1}^{n} w_i\, x_i"
+  legend={[
+    { sym: 'n', desc: 'Anzahl der Beobachtungen' },
+    { sym: 'w_i', desc: 'Anteil / Gewicht der Komponente i' },
+  ]}
+/>
+
+### Geometrisches Mittel — das Maß bei Wiederanlage
+
+Bei der Berechnung über Zeitreihen mit **Wiederanlage der Zinsen** (Zinseszins) ist das geometrische Mittel das korrekte Durchschnittsmaß.
+
+<Formula
+  title="Geometrisches Mittel von Renditen"
+  expr="(1+r_{\text{geom}})^T = \prod_{i=1}^{T}(1+r_i) \;\Leftrightarrow\; r_{\text{geom}} = \left(\prod_{i=1}^{T}(1+r_i)\right)^{1/T} - 1 = \left(\frac{V_T}{V_0}\right)^{1/T} - 1"
+  legend={[
+    { sym: 'T', desc: 'Anzahl der Perioden' },
+    { sym: 'V_T, V_0', desc: 'End- bzw. Anfangsvermögen' },
+  ]}
+/>
+
+### Übung: arithmetisch vs. geometrisch
+
+Kurs einer Aktie über zwei Jahre — das arithmetische Mittel führt hier in die Irre.
+
+<Columns count={2}>
+<Card title="Kursverlauf und Periodenrenditen" tone="neutral" compact>
+<DataTable
+  columns={[
+    { key: 't', label: 't', align: 'center' },
+    { key: 'kurs', label: 'Kurs (EUR)', align: 'right' },
+    { key: 'rendite', label: 'Periodenrendite', align: 'right' },
+  ]}
+  rows={[
+    { t: '1', kurs: '100,00', rendite: '—' },
+    { t: '2', kurs: '200,00', rendite: '+100,0 %' },
+    { t: '3', kurs: '100,00', rendite: '−50,0 %' },
+  ]}
+/>
+</Card>
+<Card title="Ergebnis: zwei Mittelwerte" tone="accent" exam>
+- Arithmetisch: (100 % − 50 %) / 2 = **25 %**
+- Geometrisch: ((1 + 100 %)(1 − 50 %))^(1/2) − 1 = **0 %**
+
+Der Kurs steht nach zwei Jahren wieder bei 100 EUR — die wahre Rendite ist 0 %.
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Merksatz">
+Bei schwankenden Mehrperiodenrenditen <Exam>überschätzt das arithmetische Mittel (25 %) die tatsächliche Wertentwicklung</Exam>; das geometrische Mittel (0 %) ist korrekt.
+</Callout>
+
+### Stetige Rendite
+
+- Lässt man die Verzinsung unendlich häufig (stetig) erfolgen, geht die Aufzinsung in die e-Funktion über.
+- Diskrete und stetige Renditen sind dann <Exam>ineinander umrechenbar</Exam> (e-Funktion bzw. natürlicher Logarithmus).
+
+<Formula
+  title="Stetige Verzinsung und Umrechnung"
+  expr="K_1 = K_0\cdot\lim_{m\to\infty}\!\left(1+\tfrac{i}{m}\right)^{m} = K_0\, e^{\,i} \qquad r_{\text{diskret}} = e^{\,r_{\text{stetig}}}-1 \qquad \ln(1+r_{\text{diskret}}) = r_{\text{stetig}}"
+/>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Stetige Renditen sind **zeitadditiv**: Über die Zeit erfolgt die Durchschnittsbildung daher mit dem <Exam>arithmetischen Mittel der stetigen Renditen</Exam> — nicht mit dem geometrischen.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 3–8 (Wiederholung FI&RM)</SourceNote>
+</section>
+
+<section id="erwartete-rendite-und-anleihen">
+
+## Erwartete Rendite und Anleihenbewertung
+
+### Erwartete Rendite als Szenario-Mittelwert
+
+Künftige Renditen sind Zufallsvariablen:
+
+- Investoren bilden eine **erwartete Rendite** als wahrscheinlichkeitsgewichteten Mittelwert der Szenariorenditen.
+- Jedes Szenario i steuert seine Rendite r_i mit dem Gewicht seiner Eintrittswahrscheinlichkeit p_i bei.
+
+<Formula
+  title="Erwartete Rendite"
+  expr="\mu = \sum_{i=1}^{n} r_i \cdot p_i"
+  legend={[
+    { sym: 'r_i', desc: 'Rendite im Szenario i' },
+    { sym: 'p_i', desc: 'Eintrittswahrscheinlichkeit des Szenarios i' },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Beispiel: Birne-Aktie (aktuell 100 EUR)" tone="neutral" compact>
+<DataTable
+  columns={[
+    { key: 'p', label: 'Wahrscheinlichkeit', align: 'center' },
+    { key: 'kurs', label: 'Kurs', align: 'right' },
+    { key: 'r', label: 'Rendite', align: 'right' },
+  ]}
+  rows={[
+    { p: '25 %', kurs: '140 EUR', r: '+20 %' },
+    { p: '50 %', kurs: '110 EUR', r: '+10 %' },
+    { p: '25 %', kurs: '80 EUR', r: '−20 %' },
+  ]}
+/>
+</Card>
+<Card title="Erwartungswert" tone="accent" exam>
+μ = 0,25 · 20 % + 0,5 · 10 % + 0,25 · (−20 %) = **10 %**
+</Card>
+</Columns>
+
+<Callout type="warn" title="Folienhinweis">
+Im Folienbeispiel wird die Rendite des 140-EUR-Szenarios mit +20 % angesetzt (aus 100 → 140 EUR ergäben sich rechnerisch +40 %). Der Wert +20 % stammt unverändert von der Folie und wird hier nicht als Folienfehler korrigiert.
+</Callout>
+
+### Preisbildung von Anleihen
+
+- Der Wert einer Anleihe ist der **Barwert** aller künftigen Kupon- und Rückzahlungsströme.
+- Diskontiert wird mit der <Exam>Renditeforderung r des Kapitalgebers</Exam>, nicht mit dem Nominalzins.
+
+<Formula
+  title="Barwertformel des Anleihewerts"
+  expr="K_A = \sum_{t=1}^{T} \frac{r_n}{(1+r)^t} + \frac{RK}{(1+r)^T}"
+  legend={[
+    { sym: 'r_n', desc: 'Nominalzinssatz (Kupon)' },
+    { sym: 'r', desc: 'Renditeforderung des Kapitalgebers' },
+    { sym: 'RK', desc: 'Rückzahlungskurs, i.d.R. 100 %' },
+    { sym: 'T', desc: 'Restlaufzeit' },
+  ]}
+/>
+
+### Pari-Regeln: Notierung aus r_n im Verhältnis zu r
+
+Das Verhältnis von Nominalzins r_n zur geforderten Rendite r bestimmt die Notierung:
+
+<CompareCard items={[
+  { tag: 'r_n > r', title: 'Über pari', subtitle: 'Kurs über Nennwert', accent: 'positive', points: ['Kupon liegt über der Marktforderung', 'Anleihe notiert oberhalb von 100 %'] },
+  { tag: 'r_n = r', title: 'Zu pari', subtitle: 'Kurs gleich Nennwert', accent: 'neutral', points: ['Kupon entspricht der Marktforderung', 'Anleihe notiert bei 100 %'] },
+  { tag: 'r_n < r', title: 'Unter pari', subtitle: 'Kurs unter Nennwert', accent: 'negative', points: ['Kupon liegt unter der Marktforderung', 'Anleihe notiert unterhalb von 100 %'] },
+]} />
+
+### Cashflow-Beispiel (Bösch S. 238)
+
+Eine 5 %-Anleihe mit sieben Jahren Laufzeit:
+
+- Kaufpreis 98,5 EUR als Barwert von sechs Kupons (je 5 EUR) plus Schlusszahlung aus Kupon und Tilgung (105 EUR).
+- Die zugehörige Rendite beträgt <Exam>r = 5,26 %</Exam>.
+
+<KpiGrid columns={4} items={[
+  { value: '5 %', label: 'Nominalzins (Kupon)' },
+  { value: '7 J.', label: 'Laufzeit' },
+  { value: '98,5 EUR', label: 'fairer Kurs (Barwert)', accent: 'accent' },
+  { value: '5,26 %', label: 'Rendite r', accent: 'positive' },
+]} />
+
+<DataChart
+  type="bar"
+  title="Cashflow-Zeitstrahl: Zahlungen je Periode (Folie 11)"
+  source="vgl. Bösch S. 238"
+  xKey="t"
+  yKey="zahlung"
+  xLabel="Zeitpunkt"
+  yLabel="Zahlung (EUR)"
+  height={300}
+  data={[
+    { t: 't (Kauf)', zahlung: -98.5 },
+    { t: 't+1', zahlung: 5 },
+    { t: 't+2', zahlung: 5 },
+    { t: 't+3', zahlung: 5 },
+    { t: 't+4', zahlung: 5 },
+    { t: 't+5', zahlung: 5 },
+    { t: 't+6', zahlung: 5 },
+    { t: 't+7', zahlung: 105 },
+  ]}
+  series={[{ key: 'zahlung', name: 'Zahlung (EUR)', color: 'var(--color-module-blue)' }]}
+/>
+
+<Callout type="merksatz" title="Kerngedanke">
+In einer Welt vollständiger Kapitalmarkteffizienz sind **Wert und Kurs** einer Anleihe identisch. Der faire Kurs (98,5 EUR) ist genau der Barwert aller Zahlungsströme bei r = 5,26 %.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 9–11</SourceNote>
+</section>
+
+<section id="zinsaenderungsrisiken">
+
+## Zinsänderungsrisiken: Duration und Konvexität
+
+Anleihekurse reagieren auf Marktzinsänderungen — wie stark, hängt von drei Treibern ab:
+
+- **Laufzeit:** je länger, desto sensibler.
+- **Coupon:** je niedriger, desto sensibler.
+- **Rendite-Niveau:** bestimmt die Krümmung der Kurs-Rendite-Kurve.
+
+### Tatsächlicher Zusammenhang: Kurs und Rendite
+
+Der Zusammenhang zwischen Anleihepreis und Rendite ist <Exam>negativ und konvex (nicht linear)</Exam> — Grundlage für das Konvexitätskonzept.
+
+<DataChart
+  type="line"
+  title="Kurs-Rendite-Beziehung zum Zeitpunkt t (Folie 19)"
+  source="Abbildung nach Hull (2019): Optionen, Futures und andere Derivate"
+  xKey="rendite"
+  yKey="preis"
+  xLabel="Anleiherendite (%)"
+  yLabel="Anleihepreis"
+  height={300}
+  data={[
+    { rendite: 1, preis: 128 }, { rendite: 2, preis: 116 }, { rendite: 3, preis: 106 },
+    { rendite: 4, preis: 98 }, { rendite: 5, preis: 91 }, { rendite: 6, preis: 86 },
+    { rendite: 7, preis: 82 }, { rendite: 8, preis: 79 },
+  ]}
+  series={[{ key: 'preis', name: 'Anleihepreis', color: 'var(--color-module-orange)' }]}
+/>
+
+### Zinssensitivität nach Laufzeit
+
+Je länger die Laufzeit, desto stärker reagiert eine Anleihe auf Zinsänderungen:
+
+- Ferne Cashflows werden von Diskontierungsänderungen stärker getroffen.
+- Im Folienbeispiel steigt der Barwertabschlag von −16,3 % (5 J.) auf −58,0 % (50 J.).
+
+<DataChart
+  type="bar"
+  title="Barwertänderung bei Zinsanstieg nach Laufzeit (Folie 12)"
+  source="Folie 12 (Werte visuell abgelesen)"
+  xKey="laufzeit"
+  yKey="aenderung"
+  xLabel="Restlaufzeit"
+  yLabel="Barwertänderung (%)"
+  height={300}
+  data={[
+    { laufzeit: '5 Jahre', aenderung: -16.3 },
+    { laufzeit: '10 Jahre', aenderung: -27.7 },
+    { laufzeit: '20 Jahre', aenderung: -41.9 },
+    { laufzeit: '50 Jahre', aenderung: -58.0 },
+  ]}
+  series={[{ key: 'aenderung', name: 'Barwertänderung', color: 'var(--color-module-blue)' }]}
+/>
+
+<Columns count={2}>
+<Card title="Regel Laufzeit" tone="neutral">
+Je **länger** die Laufzeit, desto sensibler reagiert der Bond auf Zinsänderungen. Im Beispiel: −16,3 % (5J) bis −58,0 % (50J).
+</Card>
+<Card title="Regel Nominalverzinsung" tone="neutral">
+Je **niedriger** der Nominalzins (Coupon), desto sensibler der Bond. Hohe Kupons bringen frühe Cashflows; im Extremfall reagiert ein **Zero-Bond** am stärksten.
+</Card>
+</Columns>
+
+### Duration
+
+<Formula
+  title="Macaulay-Duration (Macaulay 1938)"
+  expr="D = \frac{\displaystyle\sum_{t=1}^{n} t\cdot CF_t\,(1+r)^{-t}}{\displaystyle\sum_{t=1}^{n} CF_t\,(1+r)^{-t}}"
+  legend={[
+    { sym: 'CF_t', desc: 'Cashflow im Zeitpunkt t' },
+    { sym: 'r', desc: 'Marktzinssatz' },
+    { sym: 't', desc: 'Zeitindex / Gewichtungsfaktor' },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Was die Duration ist" tone="accent">
+Barwertgewichtete **mittlere Kapitalbindungsdauer** (in Jahren). Sie ist der Gleichgewichtszeitpunkt, an dem sich Marktwert- und Wiederanlageeffekt einer Zinsänderung gerade aufheben (Beispiel: 5 %-Anleihe, 7 Jahre → **D = 6,07**).
+- Annahmen: flache Zinsstrukturkurve, nur Parallelverschiebungen.
+- Interpretation: je höher D, desto stärker fällt der Kurs bei Zinsanstieg.
+</Card>
+<Card title="Duration ist höher bei …" tone="neutral" compact>
+- niedrigerem Coupon
+- niedrigerer Rendite
+- längerer Restlaufzeit
+- späteren / geringeren vorzeitigen Tilgungen
+
+Zero-Bond: D = Restlaufzeit. Grenzwert für sehr lange Laufzeiten:
+<Formula inline expr="D_{\max} = 1 + \tfrac{1}{r}" />
+</Card>
+</Columns>
+
+### Modified Duration und Konvexität
+
+<Formula
+  title="Modified Duration und Konvexität"
+  expr="MD = \frac{D}{1+r_M} \qquad C = \frac{\displaystyle\sum_{t=1}^{n}\frac{t\cdot CF_t}{(1+r)^t}(1+t)}{\displaystyle\sum_{t=1}^{n}\frac{CF_t}{(1+r)^t}(1+t)^2}"
+/>
+
+<Card title="Approximation der relativen Kursänderung" tone="accent" exam>
+<Formula expr="\text{relative Kursänderung} = -MD\cdot\Delta r + 0{,}5\cdot C\cdot(\Delta r)^2" />
+Da die Kurs-Rendite-Beziehung konvex ist, **unterschätzt** die Modified Duration die Kursreaktion; die Konvexität C korrigiert diese Krümmung. Bei gleicher MD ist eine **höhere Konvexität** vorteilhaft (mehr Kursgewinn bei fallenden, weniger Abschlag bei steigenden Zinsen).
+</Card>
+
+### Reale Marktbeispiele
+
+<DataTable
+  caption="Duration und Konvexität ausgewählter Anleihen (Kurs am 30.11.2009)"
+  columns={[
+    { key: 'nr', label: 'Nr.', align: 'center' },
+    { key: 'name', label: 'Anleihe', align: 'left' },
+    { key: 'rendite', label: 'Rendite p.a. (%)', align: 'right' },
+    { key: 'd', label: 'Duration (J.)', align: 'right' },
+    { key: 'md', label: 'Mod. Duration', align: 'right' },
+    { key: 'c', label: 'Konvexität', align: 'right' },
+  ]}
+  rows={[
+    { nr: '1', name: '8,5% ThyssenKrupp AG (2016)', rendite: '6,302', d: '4,88', md: '4,73', c: '0,28' },
+    { nr: '2', name: '8,0% Daimler Finance NA (2010)', rendite: '1,694', d: '0,52', md: '0,51', c: '0,01' },
+    { nr: '3', name: '4,375% E.ON AG (2016)', rendite: '3,438', d: '5,44', md: '5,34', c: '0,34' },
+    { nr: '4', name: '4,375% Daimler Finance NA (2010)', rendite: '1,576', d: '0,28', md: '0,28', c: '0,00' },
+    { nr: '5', name: '3,5% Bundesrepublik Deutschland (2016)', rendite: '2,559', d: '5,44', md: '5,37', c: '0,35' },
+    { nr: '6', name: '3,125% Bundesobligation (2010)', rendite: '0,547', d: '0,35', md: '0,35', c: '0,00' },
+  ]}
+/>
+
+<Callout type="info" title="Lesart der Tabelle">
+Kurze Restlaufzeit bedeutet niedrige Duration und Konvexität (Bundesobligation: 0,35 / 0,00), längere Laufzeit höhere Werte (E.ON: 5,34 / 0,34). Die **Portfolio-Duration** ist additiv: D_Portfolio = Σ w_i · D_i (Barwertanteile w_i).
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 12–22 · Frère/Rojahn/Schyra (2010), Hull (2019)</SourceNote>
+</section>
+
+<section id="volatilitaet-und-normalverteilung">
+
+## Volatilität und Normalverteilung
+
+Risiko wird als **Abweichung vom Erwartungswert** verstanden:
+
+- Bei gleichem Erwartungswert ist die Anlage mit geringerer Streuung „sicherer".
+- Geringere Streuung bedeutet eine höhere Zielerreichungswahrscheinlichkeit.
+
+<Formula
+  title="Standardabweichung (Volatilität) und Annualisierung"
+  expr="\sigma = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(r_i-\bar{r})^2} \qquad \sigma_{\text{ann}} = \sqrt{250}\,\sigma_d = \sqrt{52}\,\sigma_w = \sqrt{12}\,\sigma_m = \sqrt{4}\,\sigma_q"
+  legend={[
+    { sym: '\\sigma', desc: 'Standardabweichung der Renditen' },
+    { sym: '\\sigma_d,\\sigma_w,\\sigma_m,\\sigma_q', desc: 'tägliche / wöchentliche / monatliche / quartalsweise Volatilität' },
+  ]}
+/>
+
+<Card title="Volatilität als Risikomaß" tone="accent">
+- zentrales Streuungs- und Risikomaß; an der Börse: Intensität der Kursschwankungen um den Mittelwert.
+- Vorteil: gleiche Dimension wie der Erwartungswert (z. B. %).
+- Annualisierung über die Wurzel der Periodenzahl pro Jahr (250 Handelstage, 52 Wochen, 12 Monate, 4 Quartale).
+</Card>
+
+### Wann dominiert Asset A das Asset B? (μ-σ-Prinzip)
+
+<QuadrantMatrix
+  caption="Dominanz im Rendite-Risiko-Raum: A schlägt B, wenn es in einer Dimension besser und in keiner schlechter ist"
+  xLabel="Risiko σ"
+  xLow="geringer"
+  xHigh="höher"
+  yLabel="erwartete Rendite μ"
+  yLow="niedriger"
+  yHigh="höher"
+  quadrants={[
+    { pos: 'tl', title: 'σ-Regel erfüllt', accent: 'positive', points: ['A dominiert B', 'dieselbe Rendite bei geringerer Standardabweichung'] },
+    { pos: 'tr', title: 'μ-Regel erfüllt', accent: 'accent', points: ['A dominiert B', 'höhere Rendite bei gleicher Standardabweichung'] },
+    { pos: 'bl', title: 'kein eindeutiger Vergleich', accent: 'warning', points: ['weniger Rendite, aber auch weniger Risiko', 'Entscheidung hängt von der Risikoneigung ab'] },
+    { pos: 'br', title: 'A wird dominiert', accent: 'negative', points: ['weniger Rendite bei höherem Risiko', 'B ist vorzuziehen'] },
+  ]}
+/>
+
+### Empirische Volatilität am US-Markt (1926–2017)
+
+<DataChart
+  type="bar"
+  title="Volatilität der Rendite nach Assetklasse"
+  source="Tabelle 10.4, Berk / DeMarzo (2020)"
+  xKey="investition"
+  yKey="vola"
+  yLabel="Volatilität (%)"
+  height={300}
+  data={[
+    { investition: 'Aktien kleiner Unt.', vola: 39.2 },
+    { investition: 'S&P 500', vola: 19.8 },
+    { investition: 'Unternehmensanleihen', vola: 6.4 },
+    { investition: 'Schatzwechsel', vola: 3.1 },
+  ]}
+  series={[{ key: 'vola', name: 'Volatilität', color: 'var(--color-module-blue)' }]}
+/>
+
+### Normalverteilung und σ-Intervalle
+
+Volatilität ist nur dann ein geeignetes Risikomaß, wenn die Renditen **normalverteilt** sind:
+
+- Die Normalverteilung ist durch Erwartungswert und Standardabweichung vollständig beschrieben.
+- Bei ihr gilt Mittelwert = Median = Modus.
+
+<DataChart
+  type="area"
+  title="Gauß-Glockenkurve mit σ-Intervallen (μ = 10 %, σ = 20 %)"
+  source="Folie 31"
+  xKey="r"
+  yKey="dichte"
+  xLabel="Rendite (%)"
+  yLabel="Wahrscheinlichkeit"
+  height={300}
+  data={[
+    { r: -50, dichte: 0.4 }, { r: -40, dichte: 1.5 }, { r: -30, dichte: 5.4 },
+    { r: -20, dichte: 15.4 }, { r: -10, dichte: 30.1 }, { r: 0, dichte: 45.3 },
+    { r: 10, dichte: 52.0 }, { r: 20, dichte: 45.3 }, { r: 30, dichte: 30.1 },
+    { r: 40, dichte: 15.4 }, { r: 50, dichte: 5.4 }, { r: 60, dichte: 1.5 }, { r: 70, dichte: 0.4 },
+  ]}
+  series={[{ key: 'dichte', name: 'Dichte', color: 'var(--color-module-blue)' }]}
+/>
+
+<DataTable
+  caption="Wahrscheinlichkeit der σ-Intervalle (μ = 10 %, σ = 20 %)"
+  columns={[
+    { key: 'intervall', label: 'Intervall', align: 'left' },
+    { key: 'bereich', label: 'Bereich', align: 'center' },
+    { key: 'p', label: 'Wahrscheinlichkeit', align: 'right' },
+  ]}
+  rows={[
+    { intervall: 'E(r) ± 1σ', bereich: '−10 % bis +30 %', p: '68,3 %' },
+    { intervall: 'E(r) ± 2σ', bereich: '−30 % bis +50 %', p: '95,5 %' },
+    { intervall: 'E(r) ± 3σ', bereich: '−50 % bis +70 %', p: '99,7 %' },
+  ]}
+/>
+
+### Kritik am Volatilitätskonzept
+
+<Columns count={2}>
+<Card title="Wertpapier A" tone="neutral" compact>
+Renditen 5 % / 15 % / 10 % → **σ_A = 4,1 %**, Gesamtperformance +32,8 %.
+</Card>
+<Card title="Wertpapier B" tone="warning" compact>
+Renditen −15 % / −15 % / −15 % → **σ_B = 0 %**, Gesamtperformance −38,6 %.
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Volatilität misst Schwankung, nicht Verlust">
+Der Verlust von 38,6 % bei Wertpapier B kam <Exam>völlig „risikolos" zustande (σ_B = 0 %)</Exam> — obwohl real Geld verloren wurde. Eine symmetrische Schwankungskennzahl erfasst gerade negative Abweichungen nicht als das eigentliche Risiko.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 23–32 · Berk / DeMarzo (2020)</SourceNote>
+</section>
+
+<section id="hoehere-momente">
+
+## Höhere Momente: Schiefe und Wölbung
+
+Die Volatilität ist symmetrisch — daher reicht sie bei nicht normalverteilten Renditen nicht aus:
+
+- Der Nutzen hängt dann zusätzlich von den **höheren Momenten** ab.
+- Eine Wahrscheinlichkeitsverteilung wird durch vier Momente beschrieben:
+
+<KpiGrid columns={4} items={[
+  { value: '1.', label: 'Erwartungswert (Mean)' },
+  { value: '2.', label: 'Volatilität (Standardabweichung)' },
+  { value: '3.', label: 'Schiefe (Skewness)' },
+  { value: '4.', label: 'Wölbung (Kurtosis)' },
+]} />
+
+<Formula
+  title="Schiefe (3. Moment) und Wölbung (4. Moment)"
+  expr="\text{Skewness} = \frac{1}{n}\frac{\sum_{i=1}^{n}(r_i-\bar{r})^3}{\sigma^3} \qquad \text{Kurtosis} = \frac{1}{n}\frac{\sum_{i=1}^{n}(r_i-\bar{r})^4}{\sigma^4}"
+/>
+
+### Rechts- und linksschiefe Verteilungen
+
+<CompareCard items={[
+  { tag: 'Skewness > 0', title: 'Rechtsschief (linkssteil)', subtitle: 'Mean > Median > Modus', accent: 'positive', points: [
+    'Gipfel links der Mitte, langer Ausläufer nach rechts',
+    'begrenztes, häufiges Downside und unbegrenztes, seltenes Upside',
+    'von **risikoaversen Anlegern bevorzugt**',
+  ] },
+  { tag: 'Skewness < 0', title: 'Linksschief (rechtssteil)', subtitle: 'Mean < Median < Modus', accent: 'negative', points: [
+    'Gipfel rechts der Mitte, langer Ausläufer nach links',
+    'größere Gefahr hoher negativer Extremwerte',
+    'bei gleichem μ und σ unvorteilhaft',
+  ] },
+]} />
+
+<Callout type="info" title="Wann erst die Schiefe entscheidet">
+Zwei Wertpapiere mit **identischem Erwartungswert (5 %) und identischer Volatilität (8,215 %)** lassen sich über das μ-σ-Prinzip nicht unterscheiden. Erst die Schiefe schafft eine Rangordnung: Wertpapier A = +0,61 (rechtsschief), Wertpapier B = −0,61 (linksschief).
+</Callout>
+
+### Wölbung (Kurtosis)
+
+Die Kurtosis verortet eine Verteilung relativ zur Normalverteilung (Referenzwert 3):
+
+<SpectrumAxis
+  caption="Wölbung als Kontinuum um den Normalverteilungswert von 3"
+  min="platykurtisch · kleiner 3"
+  max="leptokurtisch · größer 3"
+  markers={[
+    { at: 12, label: 'Platykurtisch', sub: 'dünne Enden, Extremwerte unwahrscheinlicher' },
+    { at: 50, label: 'Mesokurtisch (= 3)', sub: 'Referenzwert der Normalverteilung' },
+    { at: 88, label: 'Leptokurtisch', sub: 'fette Enden, spitzer Gipfel, Extremwerte wahrscheinlicher' },
+  ]}
+/>
+
+### Schiefe und Wölbung an Kapitalmärkten
+
+<DataTable
+  caption="Rendite- und Risikokennzahlen gängiger Assetklassen (Monatsrenditen Jan. 1996 – Jun. 2010)"
+  columns={[
+    { key: 'asset', label: 'Assetklasse', align: 'left' },
+    { key: 'rendite', label: 'Rendite % p.a.', align: 'right' },
+    { key: 'vola', label: 'Volatilität % p.a.', align: 'right' },
+    { key: 'schiefe', label: 'Schiefe', align: 'right' },
+    { key: 'kurtosis', label: 'Kurtosis', align: 'right' },
+  ]}
+  rows={[
+    { asset: 'EURO-Staatsanleihen 5-7J.', rendite: '5,94', vola: '3,71', schiefe: '−0,43', kurtosis: '3,46' },
+    { asset: 'MSCI Europe', rendite: '5,74', vola: '17,43', schiefe: '−0,76', kurtosis: '3,77' },
+    { asset: 'DAX', rendite: '6,08', vola: '23,99', schiefe: '−0,83', kurtosis: '5,23' },
+    { asset: 'MDAX', rendite: '7,07', vola: '20,36', schiefe: '−0,88', kurtosis: '6,46' },
+    { asset: 'MSCI North America', rendite: '5,44', vola: '18,63', schiefe: '−0,51', kurtosis: '3,16' },
+    { asset: 'Dow Jones China Offshore', rendite: '7,90', vola: '43,11', schiefe: '0,01', kurtosis: '5,05' },
+    { asset: 'MSCI Latin America', rendite: '13,32', vola: '31,20', schiefe: '−1,24', kurtosis: '6,63' },
+    { asset: 'XETRA GOLD', rendite: '8,56', vola: '15,25', schiefe: '0,54', kurtosis: '4,27' },
+    { asset: 'RICI Rogers Metals', rendite: '10,04', vola: '17,07', schiefe: '−0,35', kurtosis: '4,37' },
+    { asset: 'Crude Oil DJ-AIGCI', rendite: '9,97', vola: '34,87', schiefe: '−0,71', kurtosis: '5,36' },
+    { asset: 'Agriculture DJ-AIGCI', rendite: '1,60', vola: '18,67', schiefe: '−0,18', kurtosis: '3,21' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Handlungsempfehlung Portfoliomanagement">
+An Kapitalmärkten dominieren **Linksschiefe und fette Enden** — die Normalverteilungsannahme unterschätzt dann Risiken systematisch. Daraus folgt: <Exam>ungerade Momente (erwartete Rendite, Schiefe) maximieren, gerade Momente (Volatilität, Wölbung) minimieren</Exam>.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 33–40 · Rojahn et al. (2010)</SourceNote>
+</section>
+
+<section id="value-at-risk">
+
+## Value-at-Risk (VaR)
+
+<DefinitionBox term="Value-at-Risk" source="Folie 41">
+Schätzung des Verlustbetrags, von dem erwartet wird, dass er mit einer bestimmten **Wahrscheinlichkeit** über einen bestimmten **Zeitraum** nicht überschritten wird. Wahrscheinlichkeitsbasiertes Maß des Verlustpotenzials, ausgedrückt als Prozentsatz oder in Währungseinheiten. Leitfrage: „Bei welchem Verlustniveau können wir zu X % sicher sein, dass es nach N Geschäftstagen nicht überschritten wird?"
+</DefinitionBox>
+
+<Callout type="pitfall" title="VaR ist ein Mindestverlust">
+Beispiel: VaR = 1,5 Mio. EUR pro Tag bei 5 % Wahrscheinlichkeit. Das bedeutet, der Verlust beträgt mit **95 %** Wahrscheinlichkeit nicht mehr als 1,5 Mio. EUR. Der VaR beschreibt einen <Exam>Mindestverlust</Exam> — der tatsächliche Verlust kann größer sein. Eine Senkung der Wahrscheinlichkeit von 5 % auf 1 % erhöht den VaR.
+</Callout>
+
+### Der VaR als Quantil der Verteilung
+
+Der VaR ist ein Quantil der Verteilung der Wertänderungen:
+
+- Er markiert den Punkt, links von dem die Restfläche (100 − X) % liegt.
+- Diese Restfläche ist die <Exam>Verlustwahrscheinlichkeit</Exam>.
+
+<DataChart
+  type="area"
+  title="VaR als linker Tail der Wertänderungsverteilung (Folie 43/47)"
+  source="Abbildung 22.1 nach Hull (2019)"
+  xKey="wert"
+  yKey="dichte"
+  xLabel="Wertänderung (Verlust ← → Gewinn)"
+  yLabel="Wahrscheinlichkeit"
+  height={300}
+  markers={[{ x: -35, y: 6.2, label: 'VaR' }]}
+  data={[
+    { wert: -45, dichte: 0.9 }, { wert: -40, dichte: 2.8 }, { wert: -35, dichte: 6.2 },
+    { wert: -30, dichte: 12.5 }, { wert: -25, dichte: 21.5 }, { wert: -20, dichte: 32.5 },
+    { wert: -15, dichte: 43.0 }, { wert: -10, dichte: 49.5 }, { wert: -5, dichte: 50.0 },
+    { wert: 0, dichte: 45.0 }, { wert: 5, dichte: 34.5 }, { wert: 10, dichte: 22.5 },
+    { wert: 15, dichte: 12.5 }, { wert: 20, dichte: 5.5 },
+  ]}
+  series={[{ key: 'dichte', name: 'Dichte', color: 'var(--color-module-blue)' }]}
+/>
+
+### Varianz-Kovarianz-Ansatz und Quantile
+
+<Formula
+  title="VaR im Varianz-Kovarianz-Ansatz"
+  expr="VaR_t = \mu_t - z_\alpha\cdot\sigma_t \qquad VaR_t = -\,z_\alpha\cdot\sigma_t \;\;(\mu=0,\ \text{kurze Horizonte})"
+  legend={[
+    { sym: '\\mu_t', desc: 'erwartete Rendite über den Zeithorizont' },
+    { sym: '\\sigma_t', desc: 'erwartete Volatilität über den Zeithorizont' },
+    { sym: 'z_\\alpha', desc: 'α-Quantil der Normalverteilung' },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Quantile der Normalverteilung" tone="neutral" compact>
+<DataTable
+  columns={[
+    { key: 'kn', label: 'Konfidenzniveau', align: 'left' },
+    { key: 'z', label: 'z_α', align: 'right' },
+  ]}
+  rows={[
+    { kn: '95 %', z: '1,645' },
+    { kn: '99 %', z: '2,326' },
+  ]}
+/>
+</Card>
+<Card title="Haltedauer skaliert über Wurzel-T" tone="neutral" compact>
+<Formula expr="\text{Risiko}_{\text{Jahr}} = \text{Risiko}_{\text{Haltedauer}}\cdot\sqrt{\tfrac{250}{\text{Haltedauer}}}" />
+Marktpreisrisiko meist 10 Tage, Adressrisiken 250 Handelstage. Von 10 auf 250 Tage: √(250/10) = 5.
+</Card>
+</Columns>
+
+### Drei VaR-Ansätze im Vergleich
+
+<DataTable
+  caption="Varianz-Kovarianz, Historische Simulation und Monte-Carlo-Simulation"
+  columns={[
+    { key: 'kriterium', label: '', align: 'left' },
+    { key: 'vk', label: 'Varianz-Kovarianz', align: 'left' },
+    { key: 'hist', label: 'Historische Simulation', align: 'left' },
+    { key: 'mc', label: 'Monte-Carlo-Simulation', align: 'left' },
+  ]}
+  rows={[
+    { kriterium: 'Definition', vk: 'Normalverteilung mit konstantem Mittel/σ; VaR = z-Wert × σ, korrigiert um den Mittelwert.', hist: 'Beobachtete Vergangenheitsänderungen werden fortgeschrieben; Korrelation inhärent enthalten.', mc: 'Erweiterung der hist. Simulation; historische Werte um Zufallszahlen angereichert, quasi unbegrenzte Szenarien.' },
+    { kriterium: 'Vorteil', vk: 'Relativ einfache Anwendung.', hist: 'Intuitiv nachvollziehbar; für beliebige Verteilungen.', mc: 'Nahezu unbegrenzte Szenarien; für beliebige Verteilungen.' },
+    { kriterium: 'Nachteil', vk: 'Normalverteilungsannahme kann Risiken unterschätzen.', hist: 'Vergangenheit als einziger Maßstab für die Zukunft.', mc: 'Schwer nachvollziehbar; hoher Rechenaufwand.' },
+  ]}
+/>
+
+### Rechenbeispiel (Folie 48/49)
+
+Ausgangslage des Portfolios:
+
+<KpiGrid columns={2} items={[
+  { value: '200.000 EUR', label: 'Portfoliowert (Birnen-Aktien)' },
+  { value: '30 % p.a.', label: 'Volatilität σ', accent: 'warning' },
+]} />
+
+<Timeline events={[
+  { label: 'a', title: 'VaR 95 %, 1 Tag', text: 'σ_1d = 0,30 / √250 = 0,019; z_95% = 1,645 → VaR = 0,019 · 1,645 = 0,0312 (= 3,12 %).' },
+  { label: 'b', title: 'VaR 95 %, 10 Tage', text: 'Skalierung über Wurzel-T: VaR = 0,0312 · √10 = 0,0987 (= 9,87 %).' },
+  { label: 'c', title: 'VaR in Euro', text: 'VaR = 0,0987 · 200.000 EUR = 19.740 EUR.' },
+]} />
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 41–49 · Hull (2019), Reuse (2006)</SourceNote>
+</section>
+
+<section id="kovarianz-korrelation-diversifikation">
+
+## Kovarianz, Korrelation und Diversifikation
+
+Zwei Kennzahlen messen den linearen Gleichlauf zweier Renditereihen:
+
+- Die **Kovarianz** misst die Stärke des linearen Zusammenhangs — aber dimensionsbehaftet.
+- Die **Korrelation** normiert sie auf den dimensionslosen Bereich −1 bis +1.
+
+<Formula
+  title="Kovarianz und Korrelationskoeffizient"
+  expr="\text{cov}_{xy} = \frac{1}{n-1}\sum_{i=1}^{n}(r_{i,x}-\bar{r}_x)(r_{i,y}-\bar{r}_y) \qquad \rho_{x,y} = \frac{\text{cov}_{xy}}{\sigma_x\,\sigma_y}"
+/>
+
+### Die Korrelationsskala
+
+<SpectrumAxis
+  caption="Bedeutung des Korrelationskoeffizienten von −1 bis +1 (Abbildung 11.1, Folie 51)"
+  min="−1 · stets gegenläufig"
+  max="+1 · stets gleichläufig"
+  markers={[
+    { at: 0, label: '−1', sub: 'stets gegenläufige Bewegung' },
+    { at: 25, label: '−0,5', sub: 'tendenziell gegenläufig' },
+    { at: 50, label: '0', sub: 'keine Tendenz' },
+    { at: 75, label: '+0,5', sub: 'tendenziell gleichläufig' },
+    { at: 100, label: '+1', sub: 'stets gleichläufige Bewegung' },
+  ]}
+/>
+
+### Streudiagramme bei verschiedenen Korrelationen
+
+Die Punktwolke verrät die Korrelation:
+
+- Je näher der Betrag von ρ an 1 liegt, desto enger liegen die Punkte auf einer Geraden (negatives Vorzeichen fallend, positives steigend).
+- Bei ρ = 0 entsteht eine strukturlose Punktwolke.
+
+<DataChart
+  type="scatter"
+  title="Punktwolken bei ρ = −0,9, ρ = 0 und ρ = +0,9 (Folie 52)"
+  source="Folie 52 (stilisierte Punktwolken)"
+  xKey="x"
+  yKey="y"
+  xLabel="Rendite X"
+  yLabel="Rendite Y"
+  height={320}
+  series={[
+    { key: 'neg', name: 'ρ = −0,9', color: 'var(--color-module-orange)', data: [
+      { x: 1, y: 9 }, { x: 2, y: 8.3 }, { x: 3, y: 7.8 }, { x: 4, y: 6.6 }, { x: 5, y: 6.2 },
+      { x: 6, y: 4.8 }, { x: 7, y: 4.3 }, { x: 8, y: 3.0 }, { x: 9, y: 2.4 }, { x: 10, y: 1.2 },
+    ] },
+    { key: 'zero', name: 'ρ = 0', color: 'var(--color-module-teal)', data: [
+      { x: 1, y: 5.5 }, { x: 2, y: 3.1 }, { x: 3, y: 7.2 }, { x: 4, y: 4.0 }, { x: 5, y: 6.4 },
+      { x: 6, y: 2.8 }, { x: 7, y: 5.9 }, { x: 8, y: 3.7 }, { x: 9, y: 6.8 }, { x: 10, y: 4.4 },
+    ] },
+    { key: 'pos', name: 'ρ = +0,9', color: 'var(--color-module-blue)', data: [
+      { x: 1, y: 1.4 }, { x: 2, y: 2.1 }, { x: 3, y: 3.0 }, { x: 4, y: 3.6 }, { x: 5, y: 4.9 },
+      { x: 6, y: 5.4 }, { x: 7, y: 6.7 }, { x: 8, y: 7.3 }, { x: 9, y: 8.6 }, { x: 10, y: 9.2 },
+    ] },
+  ]}
+/>
+
+### Korrelationen sind nicht stabil
+
+Rollierende 52-Wochen-Korrelationen zwischen Assetklassen sind keine Konstanten:
+
+- Sie schwanken über die Zeit erheblich.
+- In Krisen schlagen sie sprunghaft um — eine zentrale Einschränkung für die Diversifikationsplanung.
+
+<DataChart
+  type="line"
+  title="Rollierende 52-Wochen-Korrelationen um den Corona-Crash (Folie 55)"
+  source="Zeitraum 01.01.2018 – 27.05.2020, Datenquelle: Datastream (Werte visuell abgelesen)"
+  xKey="zeit"
+  yKey="wert"
+  xLabel="Zeit"
+  yLabel="Korrelation"
+  height={300}
+  yDomain={[-0.6, 0.6]}
+  data={[
+    { zeit: '01.2018', dax_rexp: -0.05, dax_gsci: 0.10, rexp_gsci: -0.02 },
+    { zeit: '07.2018', dax_rexp: -0.12, dax_gsci: 0.15, rexp_gsci: -0.06 },
+    { zeit: '01.2019', dax_rexp: -0.18, dax_gsci: 0.18, rexp_gsci: -0.09 },
+    { zeit: '07.2019', dax_rexp: -0.20, dax_gsci: 0.20, rexp_gsci: -0.10 },
+    { zeit: '01.2020', dax_rexp: -0.15, dax_gsci: 0.22, rexp_gsci: -0.08 },
+    { zeit: '03.2020', dax_rexp: -0.38, dax_gsci: 0.50, rexp_gsci: -0.13 },
+    { zeit: '05.2020', dax_rexp: -0.217, dax_gsci: 0.243, rexp_gsci: -0.111 },
+  ]}
+  series={[
+    { key: 'dax_rexp', name: 'DAX vs. REXP (Aktien/Renten)', color: 'var(--color-module-teal)' },
+    { key: 'dax_gsci', name: 'DAX vs. GSCI (Aktien/Rohstoffe)', color: 'var(--color-module-blue)' },
+    { key: 'rexp_gsci', name: 'REXP vs. GSCI (Renten/Rohstoffe)', color: 'var(--color-module-orange)' },
+  ]}
+/>
+
+### Der Diversifikationseffekt hängt von der Korrelation ab
+
+<CompareCard items={[
+  { tag: 'ρ ≈ +1', title: 'Keine Diversifikation', subtitle: 'gleichgerichtete Anlagen', accent: 'negative', points: [
+    'Investments A und B laufen parallel',
+    'Portfolio glättet die Schwankungen **kaum**',
+  ] },
+  { tag: 'ρ zwischen', title: 'Mittlere Diversifikation', subtitle: 'teils gegenläufig', accent: 'warning', points: [
+    'Investments E und F teils gegenläufig',
+    'Portfolio glättet die Schwankungen **teilweise**',
+  ] },
+  { tag: 'ρ ≈ −1', title: 'Vollständige Diversifikation', subtitle: 'gegenläufige Anlagen', accent: 'positive', points: [
+    'Investments C und D laufen gegenläufig',
+    'Schwankungen heben sich **(nahezu) vollständig** auf',
+  ] },
+]} />
+
+<Callout type="merksatz" title="Kernaussage Diversifikation">
+Der Diversifikationseffekt ist umso größer, je **negativer die Korrelation** der Anlagen ist. Bei negativ korrelierten (gegenläufigen) Investments gleichen sich Schwankungen im Portfolio aus — bei gleichgerichteten kaum.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 4 · Folien 50–56 · Berk / DeMarzo (2020)</SourceNote>
+</section>

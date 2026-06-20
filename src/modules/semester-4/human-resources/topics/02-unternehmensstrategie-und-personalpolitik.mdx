@@ -1,0 +1,438 @@
+{/* Kapitel 2 · Unternehmensstrategie und Personalpolitik. Palette via MDXProvider. */}
+
+<section id="arbeitsrecht-und-personalbegriffe">
+
+## Individuelles Arbeitsrecht und Personalbegriffe
+
+### Pflichten aus dem Arbeitsvertrag
+
+Das **individuelle Arbeitsrecht** regelt die Beziehung zwischen einzelnem Arbeitgeber und einzelnem Arbeitnehmer:
+
+- Ausgangspunkt ist der **Arbeitsvertrag**.
+- Aus ihm entstehen **beidseitige** Haupt- und Nebenpflichten.
+
+<CompareCard items={[
+  { tag: 'Arbeitgeber', title: 'Pflichten des Arbeitgebers', subtitle: 'aus dem Arbeitsvertrag', accent: 'teal', points: [
+    'Entgeltzahlungspflicht',
+    'Fürsorgepflicht',
+    'Zeugnisausstellungspflicht',
+    'Urlaubsgewährungspflicht',
+  ] },
+  { tag: 'Arbeitnehmer', title: 'Pflichten des Arbeitnehmers', subtitle: 'aus dem Arbeitsvertrag', accent: 'accent', points: [
+    'Arbeitspflicht',
+    'Gehorsamspflicht',
+    'Haftungspflicht',
+    'Treuepflicht',
+  ] },
+]} />
+
+### Wer zählt als Personal?
+
+- Ob Personen als Personal zählen, kann **betriebsindividuell** festgelegt werden.
+- Die folgende Hierarchie trennt abhängig Beschäftigte, Leiharbeit, freie Mitarbeit und arbeitnehmerähnliche Personen.
+
+<Diagram
+  title="Personalarten als Hierarchie (Folie 3)"
+  chart={`graph TD
+  P["Personal"] --> AN["Arbeitnehmer/in"]
+  P --> LA["Leiharbeiter/in"]
+  P --> FM["Freie/r Mitarbeiter/in"]
+  P --> AAP["Arbeitnehmer­ähnliche Personen"]
+  AN --> AN1["Arbeiter/in · Angestellte/r"]
+  AN --> AN2["Leitende/r Angestellte/r"]
+  AN --> AN3["Auszubildende/r"]
+  AN --> AN4["Praktikant/in"]
+  AN --> AN5["Werkstudent/in"]
+  AAP --> AAP1["Heimarbeiter/in"]
+  AAP --> AAP2["Handelsvertreter/in"]`}
+/>
+
+<Columns count={2}>
+<Card title="Köpfe vs. Kapazitäten" tone="neutral" exam>
+- **Köpfe:** Anzahl der Mitarbeiter ohne Berücksichtigung von Teilzeitfaktoren
+- **Kapazitäten:** Anzahl der Full-Time-Equivalent-Mitarbeiter, also rechnerische Vollzeitäquivalente
+</Card>
+<Card title="Abgrenzungsproblem" tone="neutral" compact>
+<Exam>Arbeits-, steuer- und sozialversicherungsrechtlicher Arbeitnehmerbegriff können auseinanderfallen.</Exam> Werkstudenten können Arbeitnehmer sein; Vorstandsmitglieder juristischer Personen sind arbeitsrechtlich **keine** Arbeitnehmer.
+</Card>
+</Columns>
+
+### Leitende Angestellte (§ 5 Abs. 3 BetrVG)
+
+Leitende Angestellte stehen im **Spannungsfeld** zwischen Arbeitnehmerstatus und Arbeitgeberfunktionen — mit Nähe zur Betriebsleitung, möglichen Interessenkollisionen und besonderer rechtlicher Behandlung.
+
+<SpectrumAxis
+  caption="Sonderstellung der leitenden Angestellten (Folie 7)"
+  min="Arbeitnehmerstatus"
+  max="Arbeitgeberfunktionen"
+  markers={[
+    { at: 12, label: 'Arbeitnehmerstatus', sub: 'arbeitsrechtlich Arbeitnehmer' },
+    { at: 50, label: 'Leitende/r Angestellte/r', sub: 'Nähe zur Betriebsleitung, Interessenkollisionen' },
+    { at: 88, label: 'Arbeitgeberfunktionen', sub: 'Wahrung der Arbeitgeberinteressen' },
+  ]}
+/>
+
+Daraus folgen drei gesetzliche Kriterien und besondere Rechtsfolgen:
+
+<Columns count={2}>
+<Card title="Kriterien nach § 5 Abs. 3 BetrVG" tone="teal">
+- Berechtigung zur selbständigen Einstellung und Entlassung von Arbeitnehmern
+- Generalvollmacht oder Prokura (sofern nicht unbedeutend)
+- regelmäßige Wahrnehmung bedeutsamer Aufgaben für Bestand und Entwicklung des Unternehmens, im Wesentlichen frei von Weisungen
+</Card>
+<Card title="Rechtsfolgen / Sonderstellung" tone="warning">
+- gelten **nicht** als Arbeitnehmer im Sinne des BetrVG
+- weder wahlberechtigt noch zum Betriebsrat wählbar
+- Pflicht zur Wahrung der Arbeitgeberinteressen geht weiter
+- niedrigere Anforderungen an Kündigungsgründe
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Häufige Falle">
+Leitende Angestellte sind im Arbeitsrecht <Exam>zwar Arbeitnehmer</Exam>, im Betriebsverfassungsrecht aber gerade **keine** Arbeitnehmer im Sinne des BetrVG. Nicht gleichsetzen.
+</Callout>
+
+<SourceNote>Human Resources · HR3 · Folien 1–9</SourceNote>
+</section>
+
+<section id="strategie-und-umwelt">
+
+## Strategie, Umwelt und Interessensgruppen
+
+### Wozu Strategie?
+
+Strategie zwingt zur bewussten Planung und macht Abweichungen lernbar — ihre Funktionen reichen von Orientierung bis Lerneffekt.
+
+<Columns count={2}>
+<Card title="Wozu Strategie? Funktionen" tone="teal">
+- Einheitliche Orientierung
+- Koordination der Ressourcen und Aktivitäten aller im Unternehmen
+- Gemeinsames Verständnis aufbauen
+- Sich zwingen, sich mit der Zukunft auseinanderzusetzen
+- Verbindliche Ziele setzen
+- Überprüfung der Zielerreichung
+- Lerneffekte aus Entscheidungen
+</Card>
+<Card title="Marktorientierung" tone="neutral" compact>
+Unternehmen agieren nicht isoliert. **Marktorientierung ist Voraussetzung für langfristigen Erfolg** — Strategie muss Branchen- und Makroumwelt berücksichtigen.
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Warum überhaupt planen?">
+Von Abweichungen vom Plan kann man lernen, vom Zufall nicht. Ohne Plan gibt es keine systematische Lernbasis.
+</Callout>
+
+### Die Umwelt des Unternehmens
+
+- Die **Branchenumwelt** (Unternehmen, Kunden, Konkurrenz) bildet den inneren Kern.
+- Sie ist von einer **Makroumwelt** aus fünf Segmenten umgeben.
+
+<Diagram
+  title="Branchen- und Makroumwelt (Folie 13)"
+  chart={`graph TD
+  subgraph MAKRO["Makroumwelt"]
+    RP["Rechtliche & politische Umwelt"]
+    OE["Ökonomische Umwelt"]
+    TE["Technologische Umwelt"]
+    SO["Soziale Umwelt"]
+    NA["Natürliche Umwelt"]
+    subgraph BRANCHE["Branchenumwelt"]
+      U["Unternehmen"]
+      KU["Kunden"]
+      KO["Konkurrenz"]
+      U --- KU
+      U --- KO
+      KU --- KO
+    end
+  end`}
+/>
+
+### Interessensgruppen und Ziele
+
+- Das Unternehmen steht in **Austauschbeziehungen** mit verschiedenen Anspruchsgruppen.
+- Strategische Ziele lassen sich diesen Gruppen zuordnen.
+
+<DataTable
+  caption="Zielbereiche und zugeordnete Interessengruppen (Folie 15)"
+  columns={[
+    { key: 'ziel', label: 'Zielbereich', align: 'left' },
+    { key: 'bsp', label: 'Beispiele', align: 'left' },
+    { key: 'gruppe', label: 'Interessengruppe', align: 'left' },
+  ]}
+  rows={[
+    { ziel: 'Finanzielle Ziele', bsp: 'Kalkulatorischer Gewinn, Jahresüberschuss, Unternehmenswert', gruppe: 'Eigenkapitalgeber' },
+    { ziel: 'Soziale Ziele', bsp: 'Ökologie, Mitarbeiterzufriedenheit', gruppe: 'Mitarbeiter, Staat, Gesellschaft' },
+    { ziel: 'Produktziele', bsp: 'Qualität, innerhalb bestimmter Zeit, mit bestimmten Kosten', gruppe: 'Kunden' },
+  ]}
+/>
+
+<Callout type="info" title="Austauschströme">
+Oben Kapitalgeber (Gewinn/Zinsen gegen Kapital), links Bezugsquellen (Lohn gegen Arbeit, Bezahlung gegen Material), rechts Abnehmer (Bezahlung gegen Produkte), unten die Öffentlichkeit aus Staat und Gesellschaft (Recht/Steuern, Kultur/Beiträge).
+</Callout>
+
+<SourceNote>Human Resources · HR3 · Folien 12–15</SourceNote>
+</section>
+
+<section id="managementebenen-und-zeithorizonte">
+
+## Managementebenen und Zeithorizonte
+
+### Drei Ebenen nach Zeithorizont
+
+Strategisches Management liegt zwischen normativer Orientierung und operativer Umsetzung:
+
+- relativ **langfristig**, komplexitätsorientiert und auf wesentliche Erfolgsfaktoren gerichtet
+- jede Ebene hat einen eigenen Zeithorizont und einen eigenen Leitsatz
+
+<Timeline events={[
+  { label: '> 5 J.', title: 'Normativer Rahmen · Unternehmenspolitik', text: 'Leitsatz: „Der Grund, warum Dinge getan werden." Sinngebende, werterhaltende Dinge tun.' },
+  { label: '2–5 J.', title: 'Strategisches Management · Personalpolitik', text: 'Leitsatz: „Die richtigen Dinge tun." (Effektivität) — verbindet die Ebenen.' },
+  { label: '≤ 1 J.', title: 'Operatives Management · Maßnahmen', text: 'Leitsatz: „Die Dinge richtig tun." (Effizienz). Taktische Entscheidungen bis 2 Jahre.' },
+]} />
+
+<Callout type="examfocus" title="Klausurpunkt">
+<Exam>Strategisch = die richtigen Dinge tun (Effektivität); operativ = die Dinge richtig tun (Effizienz).</Exam> Personalpolitik ist auf der strategischen Ebene angesiedelt und übersetzt langfristige Unternehmenspolitik in handlungsnahe Aktivitäten.
+</Callout>
+
+### Merkmale des strategischen Managements
+
+Aus der Einordnung zwischen normativem und operativem Management leiten sich fünf Merkmale ab, die sich auf die besondere Erfolgsbedeutung verdichten.
+
+<Columns count={2}>
+<Card title="Fünf Merkmale" tone="teal">
+- relativ langfristig in die Zukunft blickend
+- Möglichkeit zur Kapazitätsveränderung
+- hohe Komplexität von Sachverhalten
+- Konzentration auf das Wesentliche
+- besondere Erfolgsbedeutung
+</Card>
+<Card title="Steuerungsfunktionen" tone="neutral" compact>
+Das Steuerungsmodell ordnet jeder Ebene eine Funktion zu: **Planung** (normativ), **Steuerung** (strategisch) und **Kontrolle** (operativ). Pfeile zeigen Wechselwirkungen nach oben und unten.
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Harmonisierung statt Trennung">
+Normative, strategische und operative Führung lassen sich theoretisch unterscheiden, praktisch aber nicht sauber trennen. **Operatives Handeln ohne strategische Grundlage führt zur Verzettelung der Kräfte und letztlich ins Chaos** — Strategie ohne Umsetzung bleibt wirkungslos.
+</Callout>
+
+<SourceNote>Human Resources · HR3 · Folien 16–20</SourceNote>
+</section>
+
+<section id="personalpolitik-als-teilbereich">
+
+## Personalpolitik als Teilbereich der Unternehmenspolitik
+
+### Einordnung in die Teilpolitiken
+
+- Unternehmenspolitik gliedert sich in **Teilpolitiken**, die an unterschiedlichen Anspruchsgruppen ansetzen.
+- **Personalpolitik ist eine davon** — neben Finanz-, Absatz-, Produktions-, Beschaffungs- und Steuerpolitik.
+
+<Diagram
+  title="Teilbereiche der Unternehmenspolitik (Folie 21)"
+  chart={`graph TD
+  UP["Unternehmens­politik"] --> PP["Personalpolitik"]
+  UP --> BP["Beschaffungspolitik"]
+  UP --> SP["Steuerpolitik"]
+  UP --> FP["Finanzpolitik"]
+  UP --> PRP["Produktionspolitik"]
+  UP --> AP["Absatzpolitik"]`}
+/>
+
+<DefinitionBox term="Personalpolitik" source="HR3 · Folie 22">
+Grundsätze und Entscheidungen zu den Beziehungen zwischen Vorgesetzten und Mitarbeitern, Mitarbeitern untereinander sowie Mitarbeitern und ihrer Arbeit. Ziele: Auswahl bestgeeigneter Mitarbeiter, Erhaltung von Leistungsbereitschaft und -fähigkeit, am Unternehmensleitbild orientierte Führung und eine sozialverantwortliche Unternehmenskultur.
+</DefinitionBox>
+
+### Säulen der Personalpolitik
+
+Personalpolitik steht auf dem Fundament der Unternehmensgrundsätze und -werte; darauf bauen fünf Säulen auf.
+
+<Diagram
+  title="Säulenmodell der Personalpolitik (Folie 23)"
+  source="bwl-lexikon.de/wiki/personalpolitik"
+  chart={`graph TD
+  DACH["Personalpolitik"] --> S1["Soziales Verantwortungs­bewusstsein"]
+  DACH --> S2["Wohlergehen der MitarbeiterInnen"]
+  DACH --> S3["Faires Führungsverhalten"]
+  DACH --> S4["Personalmanagement"]
+  DACH --> S5["Chancengleichheit & Gleichberechtigung"]
+  S1 --> F["Unternehmensgrundsätze und -werte"]
+  S2 --> F
+  S3 --> F
+  S4 --> F
+  S5 --> F`}
+/>
+
+### Ressource Mensch als nachhaltiger Wettbewerbsvorteil
+
+- Mitarbeiterqualifikation ist **schwerer und langfristiger imitierbar** als andere Wettbewerbsfaktoren.
+- Sie hat zugleich die **höchste Bedeutung** für die Strategieumsetzung.
+- Im Achsendiagramm steigen die Faktoren diagonal an.
+
+<DataChart
+  type="scatter"
+  title="Imitierbarkeit und strategische Bedeutung (Folie 25)"
+  source="HR3 · Folie 25 (eigene Darstellung der Achsenlogik)"
+  xKey="x"
+  yKey="y"
+  xLabel="Imitierbarkeit (kurzfristig → langfristig)"
+  yLabel="Bedeutung für die Strategieumsetzung"
+  height={340}
+  xDomain={[0, 1]}
+  yDomain={[0, 1]}
+  data={[
+    { x: 0.18, y: 0.18, label: 'Produkteigenschaften' },
+    { x: 0.38, y: 0.36, label: 'Produktionsverfahren' },
+    { x: 0.58, y: 0.55, label: 'Marketingkonzeption' },
+    { x: 0.78, y: 0.80, label: 'Mitarbeiterqualifikation' },
+  ]}
+  series={[{ key: 'y', name: 'Wettbewerbsfaktoren', color: 'var(--color-module-teal)' }]}
+  markers={[{ x: 0.78, y: 0.80, label: 'Mitarbeiterqualifikation', color: 'var(--color-module-teal)' }]}
+/>
+
+<Callout type="examfocus" title="Argumentationslogik">
+<Exam>Mitarbeiterqualifikation ist ein nachhaltiger Wettbewerbsvorteil</Exam>, weil sie im Vergleich zu Produkteigenschaften, Produktionsverfahren und Marketingkonzeption schwerer und langfristiger imitierbar ist und hohe Bedeutung für die Strategieumsetzung hat.
+</Callout>
+
+<Callout type="info" title="Zitat (Gälweiler, 2005)">
+Kreative und innovative Kräfte zählen in jedem Unternehmen und in jeder Volkswirtschaft zu den knappsten Ressourcen.
+</Callout>
+
+<SourceNote>Human Resources · HR3 · Folien 21–25 · Gälweiler (2005)</SourceNote>
+</section>
+
+<section id="nachhaltige-personalpolitik">
+
+## Nachhaltige und mitarbeiterfreundliche Personalpolitik
+
+### Die magischen Dreiecke der Nachhaltigkeit
+
+Nachhaltige Personalpolitik entsteht aus der **Balance** mehrerer Dimensionen — in den magischen Dreiecken der Nachhaltigkeit (Rump/Eilers, 2014):
+
+- vier Eckpunkte für die **Personalpolitik**
+- drei Eckpunkte für die **Führung**
+
+<QuadrantMatrix
+  caption="Magisches Dreieck · Personalpolitik (Folie 26): vier Eckpunkte nachhaltiger Personalpolitik"
+  xLabel="Bezug der Eckpunkte"
+  yLabel="Ausrichtung"
+  quadrants={[
+    { pos: 'tl', title: 'Work-Life-Balance', accent: 'teal', points: ['Vereinbarkeit von Beruf, Freizeit und Familie'] },
+    { pos: 'tr', title: 'Identifikation / Motivation', accent: 'teal', points: ['Bindung an Aufgabe und Unternehmen'] },
+    { pos: 'bl', title: 'Qualifikationen / Kompetenzen', accent: 'accent', points: ['Wissen, Können und Entwicklung'] },
+    { pos: 'br', title: 'Gesundheit / Wohlbefinden', accent: 'accent', points: ['Leistungsfähigkeit und Wohlergehen'] },
+  ]}
+/>
+
+<Card title="Magisches Dreieck · Führung" tone="accent">
+- Glaubwürdigkeit
+- Verlässlichkeit
+- Beweglichkeit
+</Card>
+
+<Columns count={2}>
+<Card title="Beschäftigungsfähigkeit" tone="neutral" compact>
+- steigende Bedeutung von Wissen und Kompetenz
+- zunehmender Bedarf an Fachkräften
+</Card>
+<Card title="Demografie-Orientierung" tone="neutral" compact>
+- Verschiebung der Altersstruktur
+- Verlängerung der Arbeitszeit
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR3 · Folie 26 · Rump/Eilers (2014)</SourceNote>
+
+### Psychologischer Vertrag und Grundsätze
+
+<DefinitionBox term="Psychologischer Vertrag" source="Schein (1970) · HR3 · Folie 27">
+Neben dem formalen Vertrag entsteht bei gut qualifizierten Kräften ein ungeschriebener Vertrag über das Geben und Nehmen beider Seiten. Daraus wird eine Partnerschaft auf Augenhöhe über den gesamten Erwerbslebenszyklus; persönliche Ziel- und Wertvorstellungen haben hohen Stellenwert.
+</DefinitionBox>
+
+<Callout type="merksatz" title="Grundsätze wirken nur durch Beachtung (Gälweiler, 2005)">
+Die eigentliche Wirksamkeit geschäftspolitischer Grundsätze besteht nicht in ihrer Formulierung und Festlegung, sondern in ihrer permanenten Beachtung.
+</Callout>
+
+### Mitarbeiterfreundliche Personalpolitik und Herausforderungen
+
+- Mitarbeiterfreundliche Personalpolitik ist **kein einzelnes Instrument**, sondern ein Set an Prinzipien.
+- Sie muss aktuelle gesellschaftliche **Herausforderungen** gleichzeitig adressieren.
+
+<Columns count={2}>
+<Card title="Prinzipien (vier Bereiche)" tone="neutral">
+- **Führungskommunikation:** Führungsleitlinien, offene Vorgesetzten-Tür
+- **Mitarbeiterentwicklung:** Förderung, Laufbahnplanung, interne Aufstiegsbesetzung
+- **Mitarbeiterbeteiligung:** Zusammenarbeit mit Betriebsrat, Beurteilung, Meinungsermittlung
+- **Mitarbeiterauswahl:** behinderte Bewerber, Frauenförderung, Diversity
+</Card>
+<Card title="Aktuelle Herausforderungen" tone="teal" exam>
+- **Familienorientierung:** Arbeitszeitflexibilität, neue Karrieremodelle, Familienservice
+- **Demografie:** angepasste Weiterbildung, neue Arbeitsorganisation, gleitender Ruhestand
+- **Social Responsibility:** Corporate Social Responsibility, kooperatives Betriebsklima
+</Card>
+</Columns>
+
+<Callout type="info" title="Leadership Company (Hinterhuber)">
+Je höher der Grad selbständigen Denkens und Handelns der Führungskräfte und je besser sie ihre Handlungsfreiheit im Interesse der Unternehmung nutzen, desto größer ist die Elastizität der Unternehmung. Die Unternehmung der Zukunft ist deshalb die „Leadership Company".
+</Callout>
+
+<SourceNote>Human Resources · HR3 · Folien 27–32 · Schein (1970); Gälweiler (2005); Hinterhuber</SourceNote>
+</section>
+
+<section id="generationen-und-werte">
+
+## Generationen, Werte und Arbeitshaltung
+
+### Zeitliche Einordnung der Generationen
+
+Generationen werden differenziert nach:
+
+- **Jahrgängen** (Geburtsjahrgang)
+- **Lebensphase**
+- **Wertprägung**
+
+Die Zeitachse ordnet sie nach Geburtsjahrgängen ein:
+
+<Timeline events={[
+  { label: '1928–1945', title: 'Generation Silent · Weltkriegs-Generation' },
+  { label: '1946–1964', title: 'Generation Boomer · Baby Boomer' },
+  { label: '1965–1980', title: 'Generation X · Slacker' },
+  { label: '1981–1996', title: 'Generation Y · Me / Millennials' },
+  { label: '1997–2010', title: 'Generation Z · Zoomer / Digital Natives' },
+  { label: '2011–2025', title: 'Generation Alpha · Gen Alpha' },
+]} />
+
+<SourceNote>Human Resources · HR3 · Folie 34 · PEW Research Center / Wikipedia / Institute</SourceNote>
+
+### Attributmatrix der Generationen
+
+- Die Matrix zeigt generationsspezifische Unterschiede und ist <Exam>zentral für generationengerechte Führung und Personalpolitik</Exam>.
+- Für **Generation Alpha** sind Arbeitshaltung, Werte, Motivation und Technologien noch nicht ausreichend stabil beschrieben.
+
+<DataTable
+  caption="Generationsvergleich (Folie 35) — Auszug zentraler Charakterisierungen"
+  columns={[
+    { key: 'merkmal', label: 'Charakterisierung', align: 'left' },
+    { key: 'trad', label: 'Traditionals', align: 'left' },
+    { key: 'bb', label: 'Babyboomer', align: 'left' },
+    { key: 'genx', label: 'Generation X', align: 'left' },
+    { key: 'geny', label: 'Generation Y', align: 'left' },
+    { key: 'genz', label: 'Generation Z', align: 'left' },
+  ]}
+  rows={[
+    { merkmal: 'Arbeitshaltung', trad: 'hoher Stellenwert', bb: 'hoher Stellenwert (Workaholics), Teamwork', genx: 'Karriere + Work-Life-Balance, ergebnisorientiert', geny: 'Spaß wichtiger als Karriere, Arbeit/Privates vermischen sich', genz: 'Arbeit und Privates streng getrennt' },
+    { merkmal: 'Werte', trad: 'Respekt vor Regeln, Gehorsam, Konformität', bb: 'Durchsetzung, Teamgeist, Idealismus, Protest', genx: 'Unabhängigkeit, Individualismus, Pragmatismus', geny: 'Unabhängigkeit, Freiheit, Hier und Jetzt', genz: 'Authentizität, Ehrlichkeit, Offenheit' },
+    { merkmal: 'Motivation', trad: 'Finanzierung des Lebensunterhalts', bb: 'Wachstum, Wertschätzung, gebraucht werden', genx: 'Freiheit, Entwicklungsmöglichkeiten', geny: 'Selbstverwirklichung, Vernetztsein, Klima', genz: 'Selbstverwirklichung, Spaß, gutes Klima' },
+    { merkmal: 'Kommunikation', trad: 'Face-to-Face', bb: 'Face-to-Face, Telefon', genx: 'SMS, E-Mail, Messenger', geny: 'Social Media, Messenger, Web 2.0', genz: 'Videochat, Messenger' },
+  ]}
+/>
+
+<Callout type="info" title="Baby Boomer — pointierte Darstellung">
+Die Folie zeichnet ein bewusst positives, zugespitztes Bild: „nicht den Diesel-Motor erfunden, aber die Disco; nicht die Wasserstoffbombe, aber das World Wide Web." Laut einer Studie des Wuppertaler Instituts stimmen 69 Prozent der über 60-Jährigen zu, im Alltag auf Ressourcenschonung zu achten. Es ist eine charakterisierende, keine neutrale soziologische Definition.
+</Callout>
+
+<Callout type="examfocus" title="Klausurpunkt">
+Die <Exam>Generationen-Attributmatrix</Exam> ist Grundlage generationengerechter Führung: Erfahrungen, Arbeitshaltung, Werte, Motivation, Technologiebezug und Kommunikation unterscheiden sich systematisch je Generation.
+</Callout>
+
+<SourceNote>Human Resources · HR3 · Folien 33–36</SourceNote>
+</section>

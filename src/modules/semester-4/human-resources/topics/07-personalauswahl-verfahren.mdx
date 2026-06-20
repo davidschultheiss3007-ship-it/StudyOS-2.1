@@ -1,0 +1,333 @@
+{/* Kapitel 7 · Personalauswahl – Verfahren. Palette via MDXProvider. */}
+
+<section id="auswahlinstrumente-ueberblick">
+
+## Auswahlinstrumente im Überblick
+
+Die Personalauswahl nutzt ein **abgestuftes Instrumentarium**. Es reicht von der Bewerbungs- und Datenanalyse bis zur abschließenden ärztlichen Eignungsuntersuchung.
+
+<Diagram
+  title="Instrumente der Personalauswahl und ihre Reihenfolge (Folie 1)"
+  chart={`graph TD
+  A["Analyse der Bewerbung / Daten"] <--> F["Fragebogen"]
+  A -.-> BC["Background-Check"]
+  F -.-> BC
+  A --> V["Vorstellungs­gespräch"]
+  A --> T["Testverfahren"]
+  A --> S["Situative Verfahren"]
+  F --> G["Grafologische Gutachten"]
+  subgraph AC["= Assessment Center"]
+    V
+    T
+    S
+  end
+  V --> AE["Ärztliche Eignungs­untersuchung"]
+  T --> AE
+  S --> AE
+  G --> AE`}
+/>
+
+<Callout type="examfocus" title="Was bildet das Assessment Center?">
+Nur <Exam>Vorstellungsgespräch, Testverfahren und situative Verfahren</Exam> bilden zusammen das Assessment Center. Grafologische Gutachten stehen **eigenständig daneben** und gehören nicht dazu.
+</Callout>
+
+<Columns count={2}>
+<Card title="Vorgelagerte Instrumente" tone="neutral" compact>
+- Analyse der Bewerbung / Daten (mit Fragebogen verknüpft)
+- Fragebogen
+- Background-Check
+</Card>
+<Card title="Verfahren und Abschluss" tone="teal" compact>
+- Vorstellungsgespräch, Testverfahren, situative Verfahren (= AC)
+- Grafologische Gutachten (eigenständig)
+- Ärztliche Eignungsuntersuchung (abschließend)
+</Card>
+</Columns>
+
+<SourceNote>Human Resources · HR7 · Folie 1</SourceNote>
+</section>
+
+<section id="anforderungsmerkmale">
+
+## Anforderungsmerkmale operationalisieren
+
+Ein Anforderungsmerkmal ist abstrakt — für die Bewertung im Assessment Center wird es über <Exam>konkrete, beobachtbare Umsetzungskriterien</Exam> messbar gemacht.
+
+<DefinitionBox term="Kommunikationsfähigkeit" source="Folie 2">
+Fähigkeit, durch eigene Aktionen und Reaktionen eine **vertrauensvolle Beziehung** zum Gesprächspartner oder zur Gruppe aufzubauen und weiterzuentwickeln.
+</DefinitionBox>
+
+### Vom abstrakten Merkmal zum beobachtbaren Verhalten
+
+Zwei Beispielmerkmale zeigen die Übersetzung des abstrakten Merkmals in beobachtbares Verhalten:
+
+- jedes Umsetzungskriterium ist eine konkret beobachtbare Handlung
+- die Kriterien dienen als Bewertungsraster im Assessment Center
+
+<Columns count={2}>
+<Card title="Umsetzungskriterien: Kommunikationsfähigkeit" tone="teal">
+- zugewandte Körperhaltung
+- sucht und hält Blickkontakt
+- zeigt Wertschätzung, achtet die Person des anderen
+- stellt sich auf Gesprächspartner ein
+- dokumentiert durch Fragen sein Interesse
+- lässt andere ausreden
+- bezieht passive Gesprächspartner ein
+- löst emotionale Spannungen auf
+</Card>
+<Card title="Umsetzungskriterien: Beobachtungsfähigkeit" tone="accent">
+*Leitfrage: Inwieweit geht der/die Teilnehmer/in auf die Bedürfnisse des Kunden ein?*
+- baut positive Atmosphäre auf
+- hört aktiv zu
+- hält Blickkontakt
+- achtet die Person des anderen
+- lässt den Kunden ausreden
+- zeigt Wertschätzung
+</Card>
+</Columns>
+
+### Drei Analysedimensionen
+
+Eine ganzheitliche Auswahl betrachtet <Exam>drei Ebenen: Kompetenzen, Verhalten und Motive</Exam> — jede mit eigener Leitfrage und eigenem diagnostischem Instrument.
+
+<CompareCard items={[
+  { tag: 'Ebene 1', title: 'Kompetenzen', subtitle: 'Was *kann* die Person?', accent: 'accent', points: [
+    'Erfassung über Bericht / Auswertungsbogen mit Skalen.',
+  ] },
+  { tag: 'Ebene 2', title: 'Verhalten', subtitle: 'Wie *verhält* sich die Person?', accent: 'positive', points: [
+    'Erfassung über das Insights-Farbrad.',
+  ] },
+  { tag: 'Ebene 3', title: 'Motive', subtitle: 'Was *treibt* die Person an?', accent: 'purple', points: [
+    'Erfassung über ein farbiges Motiv-Rad.',
+  ] },
+]} />
+
+<SourceNote>Human Resources · HR7 · Folien 2–4</SourceNote>
+</section>
+
+<section id="insights-farbrad">
+
+## Insights-MDI: das Farbrad der vier Typen
+
+Das **Insights-MDI-Modell** ordnet vier Grund-Persönlichkeitstypen je einer Farbe mit charakteristischen Eigenschaften zu. Das vollständige Rad teilt sich in vier feste Quadranten.
+
+<QuadrantMatrix
+  caption="Das vollständige Insights-Farbrad mit Position und Kerneigenschaften (Folie 9)"
+  quadrants={[
+    { pos: 'tl', title: 'BLAU · analytisch', accent: 'accent', points: ['vorsichtig, präzise, besonnen', 'hinterfragend, formal, analytisch'] },
+    { pos: 'tr', title: 'ROT · dominant', accent: 'negative', points: ['fordernd, entschlossen, entschieden', 'zielgerichtet, willensstark, sachorientiert'] },
+    { pos: 'bl', title: 'GRÜN · stetig', accent: 'positive', points: ['vertrauenvoll, ermutigend, mitfühlend', 'geduldig, freundlich, entspannt'] },
+    { pos: 'br', title: 'GELB · initiativ', accent: 'warning', points: ['umgänglich, enthusiastisch, ausdrucksstark', 'dynamisch, offen, überzeugend'] },
+  ]}
+/>
+
+Die vier Farben lassen sich über eine emotionale Naturanmutung merken:
+
+<DataTable
+  caption="Insights-Farbtypologien (Folie 5)"
+  columns={[
+    { key: 'farbe', label: 'Farbe', align: 'left' },
+    { key: 'bild', label: 'Bildmotiv', align: 'left' },
+    { key: 'eig', label: 'Eigenschaften', align: 'left' },
+  ]}
+  rows={[
+    { farbe: 'ROT', bild: 'Feuer', eig: 'bestimmt, risikofreudig, zielorientiert, positiv' },
+    { farbe: 'GELB', bild: 'gelbe Blüte', eig: 'fröhlich, aufmunternd, schwungvoll, lebhaft' },
+    { farbe: 'GRÜN', bild: 'grünes Blatt', eig: 'besänftigend, gelassen, mitfühlend, zurückhaltend' },
+    { farbe: 'BLAU', bild: 'Wasser', eig: 'taktvoll, scharfsinnig, anspruchsvoll' },
+  ]}
+/>
+
+### Selbstbild und Fremdbild
+
+Ein und dieselbe Eigenschaft kann **positiv (Selbstbild)** oder **negativ (Fremdbild)** wahrgenommen werden. Jede Stärke kann aus der Außensicht als Schwäche erscheinen.
+
+<CompareCard items={[
+  { tag: 'Selbstbild', title: 'Wie wir uns selbst sehen', subtitle: 'positiv formuliert', accent: 'positive', points: [
+    'ROT: fordernd, entschlossen, willensstark, zielgerichtet',
+    'BLAU: vorsichtig, präzise, besonnen, hinterfragend',
+    'GRÜN: vertrauensvoll, ermutigend, mitfühlend, geduldig',
+    'GELB: umgänglich, enthusiastisch, offen, überzeugend',
+  ] },
+  { tag: 'Fremdbild', title: 'Wie uns das Gegenüber sehen könnte', subtitle: 'negativ formuliert', accent: 'negative', points: [
+    'ROT: aggressiv, beherrschend, antreibend, intolerant',
+    'BLAU: steif, misstrauisch, kalt, reserviert',
+    'GRÜN: fügsam, indifferent, abhängig, stur',
+    'GELB: erregt, hektisch, indiskret, voreilig',
+  ] },
+]} />
+
+<Callout type="pitfall" title="Nicht verwechseln">
+Das <Exam>Selbstbild beschreibt Eigenschaften positiv</Exam>, das <Exam>Fremdbild dieselben Eigenschaften negativ</Exam> — z. B. wird „willensstark" (Selbstbild) von außen als „beherrschend/antreibend" wahrgenommen.
+</Callout>
+
+<SourceNote>Human Resources · HR7 · Folien 5–10</SourceNote>
+</section>
+
+<section id="stilanalyse-und-typen">
+
+## Stilanalyse und acht Haupttypen
+
+Die **Stilanalyse** stellt zwei Profile derselben Person über die vier Dimensionen D/I/S/G gegenüber:
+
+- den <Exam>adaptierten Stil (situativ angepasstes Verhalten)</Exam>
+- den <Exam>Basis-Stil (natürliche Grundprägung)</Exam>
+
+So werden Unterschiede zwischen gezeigtem und natürlichem Verhalten sichtbar.
+
+<DataChart
+  type="bar"
+  title="Stilanalyse: adaptierter Stil vs. Basis-Stil über D/I/S/G (Folie 12)"
+  source="Basis: deutschsprachige Normierungsstudie 2017 R4; Werte visuell abgelesen"
+  xKey="dim"
+  yKey="adaptiert"
+  yLabel="Ausprägung (%)"
+  yDomain={[0, 100]}
+  height={320}
+  markers={[{ x: 'G', y: 50, label: 'Referenz 50', color: 'var(--color-text-muted)' }]}
+  data={[
+    { dim: 'D', adaptiert: 42, basis: 55 },
+    { dim: 'I', adaptiert: 38, basis: 42 },
+    { dim: 'S', adaptiert: 58, basis: 54 },
+    { dim: 'G', adaptiert: 82, basis: 62 },
+  ]}
+  series={[
+    { key: 'adaptiert', name: 'Adaptierter Stil (Grafik I)', color: 'var(--color-module-teal)' },
+    { key: 'basis', name: 'Basis-Stil (Grafik II)', color: 'var(--color-module-blue)' },
+  ]}
+/>
+
+<Columns count={2}>
+<Card title="Adaptierter Stil" tone="teal" compact>
+Situativ **angepasstes** Verhalten — wie sich die Person aktuell im Kontext zeigt.
+</Card>
+<Card title="Basis-Stil" tone="neutral" compact>
+Die **natürliche Grundprägung** — das Verhalten ohne situative Anpassung.
+</Card>
+</Columns>
+
+### Von vier Farben zu acht Haupttypen
+
+Aus den vier Grundfarben werden acht differenzierte Haupttypen abgeleitet (Mischtypen zwischen den Quadranten).
+
+<KpiGrid columns={4} items={[
+  { value: 'Reformer', label: 'oben', accent: 'accent' },
+  { value: 'Direktor', label: 'oben rechts' },
+  { value: 'Motivator', label: 'rechts' },
+  { value: 'Inspirator', label: 'unten rechts' },
+  { value: 'Berater', label: 'unten', accent: 'accent' },
+  { value: 'Unterstützer', label: 'unten links' },
+  { value: 'Koordinator', label: 'links' },
+  { value: 'Beobachter', label: 'oben links' },
+]} />
+
+<Callout type="info" title="Hinweis zum Kurztest">
+Das Skript verweist auf einen frei verfügbaren Online-Kurztest („DISG-Persönlichkeitstest", 100 % kostenlos), mit dem das eigene DISG/Insights-Profil über die vier Dimensionen ermittelt werden kann. (Didaktischer Selbstanwendungs-Hinweis, kein Prüfungsstoff.)
+</Callout>
+
+<SourceNote>Human Resources · HR7 · Folien 11–13 · Stilanalyse Folie 12</SourceNote>
+</section>
+
+<section id="profilext">
+
+## ProfileXT: Bausteine und Skalen
+
+**ProfileXT** analysiert die Eignung über <Exam>fünf Bausteine</Exam>. Jeder Baustein beantwortet eine eigene Leitfrage; vier Bausteine münden in den abschließenden Job-Match.
+
+<DecisionTree nodes={[
+  { label: 'Job-Match · Passen die Person und die Arbeit zusammen?', detail: 'Abschließender Abgleich der vier Bausteine mit dem Anforderungsprofil.', children: [
+    { label: 'Anforderungsprofil', detail: 'Welche Anforderungen hat die Arbeit?' },
+    { label: 'Denkmuster', detail: 'Kann die Person die Arbeit leisten?' },
+    { label: 'Verhaltensmerkmale', detail: 'Wie wird die Person die Arbeit machen?' },
+    { label: 'Berufsinteressen', detail: 'Will die Person die Arbeit machen?' },
+  ] },
+]} />
+
+### Das Anforderungsband-Prinzip
+
+Jede Skala läuft von 1 bis 10. Das **dunkle Anforderungsband** zeigt die Stellenanforderung (hier Position: ZZ_Business Coach); die hervorgehobene Box ist das **individuelle Ergebnis**. Liegt das Ergebnis außerhalb des Bandes, weicht die Person von der Anforderung ab.
+
+<DataChart
+  type="bar"
+  title="ProfileXT Verhaltensmerkmale: individuelles Ergebnis je Skala (Folien 16–17)"
+  source="Position ZZ_Business Coach; Werte visuell abgelesen, daher ca."
+  xKey="merkmal"
+  yKey="ergebnis"
+  yLabel="Skalenwert (1–10)"
+  yDomain={[0, 10]}
+  height={340}
+  data={[
+    { merkmal: 'Energie-Ebene', ergebnis: 9, band: '2–6' },
+    { merkmal: 'Durchsetzungsstärke', ergebnis: 2, band: '4–7' },
+    { merkmal: 'Soziale Ausrichtung', ergebnis: 1, band: '5–8' },
+    { merkmal: 'Lenkbarkeit', ergebnis: 3, band: '6–9' },
+    { merkmal: 'Entscheidungsstärke', ergebnis: 5, band: '3–7' },
+    { merkmal: 'Kompromissfähigkeit', ergebnis: 9, band: '5–8' },
+    { merkmal: 'Unabhängigkeit', ergebnis: 8, band: '5–7' },
+    { merkmal: 'Objektivität', ergebnis: 4, band: '5–7' },
+  ]}
+  series={[{ key: 'ergebnis', name: 'Individuelles Ergebnis (ca.)', color: 'var(--color-module-teal)' }]}
+/>
+
+<Columns count={2}>
+<Card title="Denkmuster (kognitive Skalen)" tone="neutral" compact>
+Lernindex, Verbaler Ausdruck, Verbales Denken, Umgang mit Zahlen, Numerisches Denken — Anforderungsband durchgehend ca. 5–8.
+</Card>
+<Card title="Verhaltensmerkmale" tone="neutral" compact>
+Beschreiben das typische **Arbeitsverhalten** (Energie, Durchsetzung, soziale Ausrichtung, Lenkbarkeit, Grundeinstellung, Entscheidung, Kompromiss, Unabhängigkeit, Objektivität).
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Anforderungsband ist nicht das Ergebnis">
+Das dunkle Band ist die <Exam>Stellenanforderung</Exam>, die hervorgehobene Box das <Exam>individuelle Ergebnis</Exam>. Beide werden gern verwechselt. Die Skalenwerte stammen aus dem Skript und sind **visuell abgelesen** (nur als ca.-Werte zu lesen).
+</Callout>
+
+<SourceNote>Human Resources · HR7 · Folien 14–17</SourceNote>
+</section>
+
+<section id="gespraech-und-gehalt">
+
+## Bewerbungsgespräch und Gehaltsverhandlung
+
+Ein strukturiertes Bewerbungsgespräch folgt typischen **Phasen** — vom informellen Einstieg bis zum zusammenfassenden Abschluss.
+
+<Timeline events={[
+  { label: '1', title: 'Gesprächsbeginn', text: 'Kurze informelle Unterhaltung zum Einstieg.' },
+  { label: '2', title: 'Selbstvorstellung', text: 'Der Bewerber stellt sich selbst vor.' },
+  { label: '3', title: 'Freies Gespräch', text: 'Der Bewerber kann offene Fragen stellen; Berufsinteressen sowie Berufs- und Organisationswahl werden erfragt.' },
+  { label: '4', title: 'Biografiebezogene Fragen', text: 'Fragen zum bisherigen Werdegang.' },
+  { label: '5', title: 'Tätigkeitsinformationen', text: 'Informationen über Arbeitsplatz und Unternehmen.' },
+  { label: '6', title: 'Situative Fragen', text: 'z. B. „Erzählen Sie mir von einem Ereignis, bei dem Sie mit einem Kunden …".' },
+  { label: '7', title: 'Gesprächsabschluss', text: 'Fragen des Bewerbers und Zusammenfassung.' },
+]} />
+
+### Übung und typische Fehler bei Gehaltsverhandlungen
+
+<Card title="Gruppenübung: Rollenspiel Vorstellungsgespräch" tone="teal" compact>
+Jeweils zwei Personen bereiten sich als **Arbeitgeber** auf das Gespräch vor; eine Person ist der **Bewerbungskandidat**. (Praktische Anwendung der Inhalte.)
+</Card>
+
+Fünf typische Fehler bei Gehaltsverhandlungen — jeweils mit konkreter Gegenstrategie:
+
+<DataTable
+  caption="Gehaltsverhandlung: Fehler und Gegenmaßnahme (Folie 21)"
+  columns={[
+    { key: 'nr', label: 'Nr.', align: 'left' },
+    { key: 'fehler', label: 'Fehler', align: 'left' },
+    { key: 'gegen', label: 'Gegenmaßnahme', align: 'left' },
+  ]}
+  rows={[
+    { nr: '1', fehler: 'Bescheiden sein', gegen: 'Selbstbewusst auftreten — Führungskräfte kommen nicht von sich aus' },
+    { nr: '2', fehler: 'Über fehlende Erhöhung klagen', gegen: 'Geleistetes und eigene Stärken aufzählen' },
+    { nr: '3', fehler: 'Auf fairen Vorschlag warten', gegen: 'Selbst recherchieren und Vorstellung nennen' },
+    { nr: '4', fehler: 'Sich mit „Gehaltsgefüge"-Argument abspeisen lassen', gegen: 'Andere Leistungen einbringen: Bonus, Fortbildung, Urlaubstage' },
+    { nr: '5', fehler: 'Chef behält alle Details', gegen: 'Protokoll verfassen' },
+  ]}
+/>
+
+<Callout type="merksatz" title="Kernbotschaft">
+Selbstbewusst auftreten, **Leistungen belegen**, vorab recherchieren, Alternativen verhandeln und das Ergebnis schriftlich festhalten.
+</Callout>
+
+<SourceNote>Human Resources · HR7 · Folien 18, 20–21</SourceNote>
+</section>
