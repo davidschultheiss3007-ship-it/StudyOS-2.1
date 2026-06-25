@@ -4,12 +4,12 @@ export const meta = {
   source: 'Behavioral Finance · BF7 - Altersvorsorge und private Finanzplanung · Folien 236-272',
   estimatedMinutes: 90,
   sections: [
-    { id: 'grundlagen-und-lebenszyklus', title: 'Grundlagen und die Lebenszyklus-Hypothese' },
-    { id: 'beitritt-traegheit-defaults', title: 'I. Beitritt: Trägheit und Default-Effekte' },
-    { id: 'beitritt-komplexitaet-und-loesungen', title: 'I. Beitritt: Komplexität und Lösungen' },
-    { id: 'beitragshoehe-menueeffekte', title: 'II. Beitragshöhe: Menüeffekte und Gegenwartspräferenz' },
-    { id: 'beitragshoehe-loesungen', title: 'II. Beitragshöhe: Lösungen' },
-    { id: 'anlage-und-trendfolge', title: 'III. Anlage: naive Diversifizierung und Trendfolge' },
+    { id: 'grundlagen-und-lebenszyklus', title: 'Grundlagen und die Lebenszyklus-Hypothese', pages: 'Folien 236–241' },
+    { id: 'beitritt-traegheit-defaults', title: 'I. Beitritt: Trägheit und Default-Effekte', pages: 'Folien 7–11' },
+    { id: 'beitritt-komplexitaet-und-loesungen', title: 'I. Beitritt: Komplexität und Lösungen', pages: 'Folien 12–18' },
+    { id: 'beitragshoehe-menueeffekte', title: 'II. Beitragshöhe: Menüeffekte und Gegenwartspräferenz', pages: 'Folien 19–23' },
+    { id: 'beitragshoehe-loesungen', title: 'II. Beitragshöhe: Lösungen', pages: 'Folien 24–26' },
+    { id: 'anlage-und-trendfolge', title: 'III. Anlage: naive Diversifizierung und Trendfolge', pages: 'Folien 27–37' },
   ],
   keyTakeaways: [
     'Die Altersvorsorge ist besonders anfällig für Verhaltensverzerrungen: extrem langer Anlagehorizont, kaum Lernmöglichkeiten und oft fehlendes Finanzwissen.',

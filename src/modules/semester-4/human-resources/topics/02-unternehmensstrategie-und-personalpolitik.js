@@ -4,12 +4,12 @@ export const meta = {
   source: 'Human Resources · HR3 – Personalpolitik und -beschaffung',
   estimatedMinutes: 60,
   sections: [
-    { id: 'arbeitsrecht-und-personalbegriffe', title: 'Individuelles Arbeitsrecht und Personalbegriffe' },
-    { id: 'strategie-und-umwelt', title: 'Strategie, Umwelt und Interessensgruppen' },
-    { id: 'managementebenen-und-zeithorizonte', title: 'Managementebenen und Zeithorizonte' },
-    { id: 'personalpolitik-als-teilbereich', title: 'Personalpolitik als Teilbereich der Unternehmenspolitik' },
-    { id: 'nachhaltige-personalpolitik', title: 'Nachhaltige und mitarbeiterfreundliche Personalpolitik' },
-    { id: 'generationen-und-werte', title: 'Generationen, Werte und Arbeitshaltung' },
+    { id: 'arbeitsrecht-und-personalbegriffe', title: 'Individuelles Arbeitsrecht und Personalbegriffe', pages: 'Folien 1–9' },
+    { id: 'strategie-und-umwelt', title: 'Strategie, Umwelt und Interessensgruppen', pages: 'Folien 12–15' },
+    { id: 'managementebenen-und-zeithorizonte', title: 'Managementebenen und Zeithorizonte', pages: 'Folien 16–20' },
+    { id: 'personalpolitik-als-teilbereich', title: 'Personalpolitik als Teilbereich der Unternehmenspolitik', pages: 'Folien 21–25' },
+    { id: 'nachhaltige-personalpolitik', title: 'Nachhaltige und mitarbeiterfreundliche Personalpolitik', pages: 'Folien 26–32' },
+    { id: 'generationen-und-werte', title: 'Generationen, Werte und Arbeitshaltung', pages: 'Folien 33–36' },
   ],
   keyTakeaways: [
     'Das individuelle Arbeitsrecht regelt die Beziehung zwischen einzelnem Arbeitgeber und Arbeitnehmer; aus dem Arbeitsvertrag entstehen beidseitige Haupt- und Nebenpflichten.',

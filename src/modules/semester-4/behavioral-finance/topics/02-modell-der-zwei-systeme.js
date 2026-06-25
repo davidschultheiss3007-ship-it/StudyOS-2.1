@@ -7,12 +7,12 @@ export const meta = {
   source: 'Behavioral Finance · BF2 – Modell 2 Systeme · Folien 33–48',
   estimatedMinutes: 45,
   sections: [
-    { id: 'zwei-systeme-im-ueberblick', title: 'Zwei Systeme des Denkens' },
-    { id: 'system-1-vs-system-2', title: 'System 1 vs. System 2 im Vergleich' },
-    { id: 'typische-beispiele', title: 'Typische Aktivitäten beider Systeme' },
-    { id: 'zusammenspiel-und-denkfehler', title: 'Zusammenspiel und die Entstehung von Denkfehlern' },
-    { id: 'kognitive-leichtigkeit', title: 'Kognitive Leichtigkeit' },
-    { id: 'mentale-traegheit-beispiele', title: 'Mentale Trägheit: Selbsttests und Konflikte' },
+    { id: 'zwei-systeme-im-ueberblick', title: 'Zwei Systeme des Denkens', pages: 'Folien 33–38' },
+    { id: 'system-1-vs-system-2', title: 'System 1 vs. System 2 im Vergleich', pages: 'Folie 39' },
+    { id: 'typische-beispiele', title: 'Typische Aktivitäten beider Systeme', pages: 'Folien 40–41' },
+    { id: 'zusammenspiel-und-denkfehler', title: 'Zusammenspiel und die Entstehung von Denkfehlern', pages: 'Folie 42' },
+    { id: 'kognitive-leichtigkeit', title: 'Kognitive Leichtigkeit', pages: 'Folie 13' },
+    { id: 'mentale-traegheit-beispiele', title: 'Mentale Trägheit: Selbsttests und Konflikte', pages: 'Folien 11–16' },
   ],
   keyTakeaways: [
     'Nach Kahneman arbeitet das Denken über zwei Systeme: System 1 (schnell, automatisch, unbewusst) und System 2 (langsam, bewusst, anstrengend).',

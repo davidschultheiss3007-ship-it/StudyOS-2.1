@@ -7,12 +7,12 @@ export const meta = {
   source: 'Asset Management · Kapitel 1 · Einführung · Folien 1-17',
   estimatedMinutes: 45,
   sections: [
-    { id: 'einordnung-und-ziele', title: 'Einordnung und Modulziele' },
-    { id: 'organisatorisches', title: 'Organisatorisches und Spielregeln' },
-    { id: 'definition-und-formen', title: 'Definition und Formen des Asset Management' },
-    { id: 'anbieter-und-anleger', title: 'Anbieter und institutionelle Anleger' },
-    { id: 'beteiligte-parteien', title: 'Beteiligte Parteien im Fondsgeschäft' },
-    { id: 'aufsicht-und-akteure', title: 'BaFin, KVG und Depotbank' },
+    { id: 'einordnung-und-ziele', title: 'Einordnung und Modulziele', pages: 'Folien 3–4' },
+    { id: 'organisatorisches', title: 'Organisatorisches und Spielregeln', pages: 'Folie 5' },
+    { id: 'definition-und-formen', title: 'Definition und Formen des Asset Management', pages: 'Folien 10–11' },
+    { id: 'anbieter-und-anleger', title: 'Anbieter und institutionelle Anleger', pages: 'Folien 12–13' },
+    { id: 'beteiligte-parteien', title: 'Beteiligte Parteien im Fondsgeschäft', pages: 'Folie 14' },
+    { id: 'aufsicht-und-akteure', title: 'BaFin, KVG und Depotbank', pages: 'Folien 15–17' },
   ],
   keyTakeaways: [
     'Asset Management ist die systematische Dienstleistung der professionellen Kapitalanlage mit dem Ziel, risikoeffiziente Portefeuilles zu bilden; Synonyme sind u. a. Portfolio-, Fonds- und Investment Management sowie Vermögensverwaltung.',

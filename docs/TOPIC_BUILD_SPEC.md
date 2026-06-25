@@ -44,7 +44,7 @@ export const meta = {
   source: 'Modul · Kapitel N · Titel · Folien XX–YY',
   estimatedMinutes: 60,
   sections: [                              // 4–8 entries; each id MUST match a <section id> in the mdx
-    { id: 'section-id', title: 'Section Title' },
+    { id: 'section-id', title: 'Section Title', pages: 'Folien XX–YY' },
   ],
   keyTakeaways: [ /* 5–8 central statements */ ],
   examFocus:    [ /* 4–8 exam-relevant points */ ],
@@ -67,6 +67,8 @@ export const meta = {
 
 - `## ` renders as the section heading (h3), `### ` as a sub-heading separator (h4) to group cards.
 - One `<section>` per `meta.sections[]` entry; ids must match exactly.
+- Every section metadata entry carries a precise `pages` label (`Folie X`, `Folien X–Y`, or a compact
+  comma-separated list for non-contiguous ranges) matching the section's source note.
 
 ---
 

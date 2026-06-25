@@ -144,7 +144,8 @@ export function FullContentView({ topic }) {
                     onClick={() => scrollTo(s.id)}
                     className={cn('toc-panel__link', activeSection === s.id && 'toc-panel__link--active')}
                   >
-                    {s.title}
+                    <span className="toc-panel__link-title">{s.title}</span>
+                    {s.pages && <span className="toc-panel__link-pages">{s.pages}</span>}
                   </button>
                 </li>
               ))}

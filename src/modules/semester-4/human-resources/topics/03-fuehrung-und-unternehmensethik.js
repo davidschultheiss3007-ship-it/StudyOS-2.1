@@ -8,12 +8,12 @@ export const meta = {
   source: 'Human Resources · HR3 – Personalpolitik 2',
   estimatedMinutes: 55,
   sections: [
-    { id: 'generationen-und-fuehrung', title: 'Generationen und generationengerechte Führung' },
-    { id: 'arbeitgeberqualitaet', title: 'Arbeitgeberqualität: Parameter und Branchen' },
-    { id: 'ethik-grundbegriffe', title: 'Ethik: Grundbegriffe und Definition' },
-    { id: 'klassische-ethikpositionen', title: 'Klassische Ethikpositionen: Aristoteles und Kant' },
-    { id: 'ethische-bewertung-und-hr', title: 'Ethische Bewertung und HR-Kompetenzen' },
-    { id: 'ethische-bezugsfelder', title: 'Ethische Bezugsfelder und Unternehmensethik' },
+    { id: 'generationen-und-fuehrung', title: 'Generationen und generationengerechte Führung', pages: 'Folien 1–3' },
+    { id: 'arbeitgeberqualitaet', title: 'Arbeitgeberqualität: Parameter und Branchen', pages: 'Folien 4–5' },
+    { id: 'ethik-grundbegriffe', title: 'Ethik: Grundbegriffe und Definition', pages: 'Folien 6–7, 14' },
+    { id: 'klassische-ethikpositionen', title: 'Klassische Ethikpositionen: Aristoteles und Kant', pages: 'Folien 8–11' },
+    { id: 'ethische-bewertung-und-hr', title: 'Ethische Bewertung und HR-Kompetenzen', pages: 'Folien 12–13' },
+    { id: 'ethische-bezugsfelder', title: 'Ethische Bezugsfelder und Unternehmensethik', pages: 'Folien 15–17' },
   ],
   keyTakeaways: [
     '2026 sind mehrere Generationen (Baby Boomer, X, Y, Z) gleichzeitig im Arbeitsleben; Führung muss unterschiedliche Sozialisationsprägungen, Erwerbsphasen und Ruhestandsübergänge parallel berücksichtigen.',

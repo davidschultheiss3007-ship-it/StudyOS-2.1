@@ -9,12 +9,12 @@ export const meta = {
     'Asset Management · Kapitel 8 · Indizes / Aktives vs. Passives Management · Folien 259–288',
   estimatedMinutes: 60,
   sections: [
-    { id: 'investmentphilosophien', title: 'Investmentphilosophien: aktiv, tilted, passiv' },
-    { id: 'benchmark-und-index', title: 'Rolle der Benchmark und Definition des Index' },
-    { id: 'differenzierung-und-gewichtung', title: 'Differenzierung und Gewichtung von Indizes' },
-    { id: 'msci-world-zusammensetzung', title: 'Beispiel MSCI World: Market Cap Bias' },
-    { id: 'passive-vehikel-und-etfs', title: 'Passive Vehikel und der Siegeszug der ETFs' },
-    { id: 'aktiv-vs-passiv-empirie', title: 'Aktiv vs. passiv: Vor-/Nachteile und Empirie' },
+    { id: 'investmentphilosophien', title: 'Investmentphilosophien: aktiv, tilted, passiv', pages: 'Folien 3–5' },
+    { id: 'benchmark-und-index', title: 'Rolle der Benchmark und Definition des Index', pages: 'Folien 6–8' },
+    { id: 'differenzierung-und-gewichtung', title: 'Differenzierung und Gewichtung von Indizes', pages: 'Folien 13–14, 17–20' },
+    { id: 'msci-world-zusammensetzung', title: 'Beispiel MSCI World: Market Cap Bias', pages: 'Folien 15–16' },
+    { id: 'passive-vehikel-und-etfs', title: 'Passive Vehikel und der Siegeszug der ETFs', pages: 'Folien 22–25' },
+    { id: 'aktiv-vs-passiv-empirie', title: 'Aktiv vs. passiv: Vor-/Nachteile und Empirie', pages: 'Folien 26–30' },
   ],
   keyTakeaways: [
     'Investmentphilosophien gliedern sich in aktiv und passiv; tilted Management ist die Mischform, die ausgehend vom passiven Portfolio gezielt nach Risikofaktoren abweicht (umsetzbar als Core-Satellite-Strategie).',

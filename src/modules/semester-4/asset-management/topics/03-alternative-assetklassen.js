@@ -7,12 +7,12 @@ export const meta = {
   source: 'Asset Management · Kapitel 3 · Alternative Assetklassen',
   estimatedMinutes: 75,
   sections: [
-    { id: 'systematisierung', title: 'Systematisierung der Assetklassen' },
-    { id: 'hedge-funds', title: 'Hedge Funds: Merkmale, Strategien und Markt' },
-    { id: 'immobilien-grundlagen', title: 'Immobilien: Argumente, Formen und Risikoklassen' },
-    { id: 'immobilien-bewertung', title: 'Immobilien: Bewertung, Smoothing und Verteilung' },
-    { id: 'rohstoffe', title: 'Rohstoffe: Klassifizierung, Bewertung und Rollrendite' },
-    { id: 'digital-assets', title: 'Digital Assets und Kryptowährungen' },
+    { id: 'systematisierung', title: 'Systematisierung der Assetklassen', pages: 'Folien 2–3' },
+    { id: 'hedge-funds', title: 'Hedge Funds: Merkmale, Strategien und Markt', pages: 'Folien 5–14' },
+    { id: 'immobilien-grundlagen', title: 'Immobilien: Argumente, Formen und Risikoklassen', pages: 'Folien 16–22' },
+    { id: 'immobilien-bewertung', title: 'Immobilien: Bewertung, Smoothing und Verteilung', pages: 'Folien 23–31' },
+    { id: 'rohstoffe', title: 'Rohstoffe: Klassifizierung, Bewertung und Rollrendite', pages: 'Folien 33–41' },
+    { id: 'digital-assets', title: 'Digital Assets und Kryptowährungen', pages: 'Folien 43–46' },
   ],
   keyTakeaways: [
     'Alternative (nicht standardisierte) Assetklassen umfassen Immobilien, Hedge Funds, Private Equity/Venture Capital, Rohstoffe, Volatilität und Sammlerstücke — im Gegensatz zu den traditionellen (standardisierten) Klassen Aktien, Anleihen, Geldmarkt und Währungen.',

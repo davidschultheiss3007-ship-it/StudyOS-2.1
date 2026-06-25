@@ -4,12 +4,12 @@ export const meta = {
   source: 'Human Resources · HR9 – Personalcontrolling, Onboarding & Laufbahnplanung',
   estimatedMinutes: 65,
   sections: [
-    { id: 'personalstatistik-grundlagen', title: 'Personalstatistik: Grundlagen und Empfänger' },
-    { id: 'personal-kennzahlen', title: 'Kennzahlen der Personalstatistik' },
-    { id: 'hr-kpis', title: 'Moderne HR-KPIs' },
-    { id: 'onboarding', title: 'Personalintegration: Onboarding' },
-    { id: 'laufbahnplanung', title: 'Laufbahnplanung und Entwicklung' },
-    { id: 'personaleinsatz-arbeitsgestaltung', title: 'Personaleinsatz, Arbeitsgestaltung und Arbeitsschutz' },
+    { id: 'personalstatistik-grundlagen', title: 'Personalstatistik: Grundlagen und Empfänger', pages: 'Folien 1–3' },
+    { id: 'personal-kennzahlen', title: 'Kennzahlen der Personalstatistik', pages: 'Folien 4–11' },
+    { id: 'hr-kpis', title: 'Moderne HR-KPIs', pages: 'Folien 12–13' },
+    { id: 'onboarding', title: 'Personalintegration: Onboarding', pages: 'Folien 14–20' },
+    { id: 'laufbahnplanung', title: 'Laufbahnplanung und Entwicklung', pages: 'Folien 21–27' },
+    { id: 'personaleinsatz-arbeitsgestaltung', title: 'Personaleinsatz, Arbeitsgestaltung und Arbeitsschutz', pages: 'Folien 28–36' },
   ],
   keyTakeaways: [
     'Personalstatistik ist Teil des operativen Personalcontrollings und arbeitet kennzahlenbasiert; Kennzahlen werden erst durch Vergleich mit Bezugswerten (Vorjahr, Plan/Soll, Branchendurchschnitt) aussagekräftig.',
