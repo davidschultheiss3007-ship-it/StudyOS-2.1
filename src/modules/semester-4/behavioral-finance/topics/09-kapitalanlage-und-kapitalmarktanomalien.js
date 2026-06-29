@@ -10,7 +10,7 @@ export const meta = {
   sections: [
     { id: 'informationseffizienz', title: 'Traditionelle Theorie: Informationseffizienz', pages: 'Folien 3–5' },
     { id: 'traditional-vs-behavioral', title: 'Traditional vs. Behavioral Finance', pages: 'Folien 6–8' },
-    { id: 'kapitalmarktanomalien', title: 'Anomalien an den Finanzmärkten', pages: 'Folien 9–16' },
+    { id: 'kapitalmarktanomalien', title: 'Anomalien an den Finanzmärkten', pages: 'Folien 9–17' },
     { id: 'winner-loser-effekt', title: 'Winner-Loser-Effekt', pages: 'Folien 18–21' },
     { id: 'value-effekt', title: 'Value-Effekt', pages: 'Folien 22–34' },
     { id: 'risikopraemie', title: 'Risikoprämie als Anlagestrategie', pages: 'Folien 35–40' },

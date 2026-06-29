@@ -12,7 +12,7 @@ export const meta = {
     { id: 'insights-farbrad', title: 'Insights-MDI: das Farbrad der vier Typen', pages: 'Folien 5–10' },
     { id: 'stilanalyse-und-typen', title: 'Stilanalyse und acht Haupttypen', pages: 'Folien 11–13' },
     { id: 'profilext', title: 'ProfileXT: Bausteine und Skalen', pages: 'Folien 14–17' },
-    { id: 'gespraech-und-gehalt', title: 'Bewerbungsgespräch und Gehaltsverhandlung', pages: 'Folien 18, 20–21' },
+    { id: 'gespraech-und-gehalt', title: 'Bewerbungsgespräch und Gehaltsverhandlung', pages: 'Folien 18–21' },
   ],
   keyTakeaways: [
     'Die Personalauswahl nutzt ein abgestuftes Instrumentarium: von Bewerbungs-/Datenanalyse und Fragebogen über Background-Check und mehrere Verfahren bis zur abschließenden ärztlichen Eignungsuntersuchung.',

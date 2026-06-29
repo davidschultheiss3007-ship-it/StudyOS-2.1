@@ -128,6 +128,70 @@ Indizes werden in vier Bereichen genutzt — jeweils durch unterschiedliche Akte
 <SourceNote>Asset Management · Kapitel 8 · Folien 6–8</SourceNote>
 </section>
 
+<section id="indexanwendungen-und-indexindustrie">
+
+## Indexanwendungen und Indexindustrie
+
+Indizes sind nicht nur Vergleichsmaßstab. Im Asset-Management-Prozess dienen sie als operative Referenz für Reporting, Planung, Handel, Risikoüberwachung und Kontrolle.
+
+<Diagram
+  title="Indexanwendungen im Asset-Management-Prozess (Folie 9)"
+  chart={`graph LR
+  IR["Investoren-Reporting"] --> AS["Asset-Allocation / Szenario-Rechnungen"]
+  AS --> FO["Handel / Front Office"]
+  FO --> AB["Abwicklung & Buchhaltung"]
+  AB --> TR["Treasury / Risk-Management"]
+  TR --> IC["Internes Reporting / Controlling"]
+  IC --> IR`}
+/>
+
+<DataTable
+  caption="Wofür Indizes im Prozess genutzt werden"
+  columns={[
+    { key: 'station', label: 'Station', align: 'left' },
+    { key: 'funktion', label: 'Indexfunktion', align: 'left' },
+  ]}
+  rows={[
+    { station: 'Investoren-Reporting', funktion: 'Marketing, Performance-Benchmark sowie Soll-/Ist-Vergleiche der Portfoliostruktur' },
+    { station: 'Asset-Allocation / Szenario-Rechnungen', funktion: 'Performance- und Risikosimulation verschiedener Portfoliostrukturen; Vorgabe von Benchmark- und Default-Portfolio-Leitlinien' },
+    { station: 'Handel / Front Office', funktion: 'Leitlinien für Portfolio-Reallokationen, Derivateeinsatz zur Absicherung und Stop-Loss-Logik auf Portfolioebene' },
+    { station: 'Abwicklung & Buchhaltung', funktion: 'Fairness-Prüfung indexbezogener Produkte sowie regulatorisches Reporting und Buchhaltung' },
+    { station: 'Treasury / Risk-Management', funktion: 'Hedging-Strategien, laufendes Monitoring, Szenario-Rechnungen und Überwachung der Risikokapitalnutzung' },
+    { station: 'Internes Reporting / Controlling', funktion: 'Performance- und Risikovergleiche: Portfolio gegen Markt, Asset Allocation und Benchmark' },
+  ]}
+/>
+
+### Größe und Wachstum der Indexindustrie
+
+<KpiGrid columns={5} items={[
+  { value: '14', label: 'Mitglieder der Index Industry Association', accent: 'accent' },
+  { value: '98 %', label: 'geschätzte globale Marktabdeckung', accent: 'positive' },
+  { value: '+96 %', label: 'ESG-Indizes gegenüber 2021', accent: 'teal' },
+  { value: '3,7 Mio.', label: 'Index-Höchststand 2018', accent: 'purple' },
+  { value: '~3 Mio.', label: 'Indizes nach Konsolidierung', accent: 'neutral' },
+]} />
+
+<Callout type="info" title="Mehr Benchmarks/ETFs als Aktien">
+Die Folie zur Indexanzahl zeigt ein stark exponentielles Wachstum: Um 2016 übersteigt die Zahl der Benchmarks/ETFs die Zahl der gelisteten Aktien deutlich. Fachlich wichtig ist nicht ein einzelner Punktwert, sondern die Aussage, dass Indexprodukte schneller wachsen als das zugrunde liegende Aktienuniversum.
+</Callout>
+
+### Warum entstehen so viele Indizes?
+
+<CompareCard items={[
+  { tag: 'Digitalisierung', title: 'Rechenkapazität', subtitle: 'neue Indizes werden schnell kalkulierbar', accent: 'accent', points: [
+    'verfügbare IT-Kapazität senkt die Kosten der Indexberechnung',
+    'neue Indexvarianten lassen sich technisch sehr schnell erzeugen',
+  ] },
+  { tag: 'Kombination', title: 'Variantenlogik', subtitle: 'ein Hauptindex erzeugt viele Ableitungen', accent: 'teal', points: [
+    'Auswahl innerhalb des Anlageuniversums',
+    'unterschiedliche Gewichtungen, z. B. gleichgewichtet oder nach Marktkapitalisierung',
+    'Berechnung in mehreren Währungen, mit/ohne Währungsabsicherung sowie mit/ohne Dividenden und Steuern',
+  ] },
+]} />
+
+<SourceNote>Asset Management · Kapitel 8 · Folien 9–12 · IIA; Bernstein Analysis; Wurgler (2011); FT; ERI Scientific Beta; Worldbank</SourceNote>
+</section>
+
 <section id="differenzierung-und-gewichtung">
 
 ## Differenzierung und Gewichtung von Indizes
@@ -215,7 +279,37 @@ Gewichtung und Dividendenbehandlung sind unabhängige Dimensionen — bekannte I
   ]}
 />
 
-<SourceNote>Asset Management · Kapitel 8 · Folien 13–14, 17–20</SourceNote>
+### Anzahl der Aktien in verschiedenen Aktienindizes
+
+Die Mitgliederzahl zeigt, ob ein Index eher als enger Auswahlindex oder als breiter Markt-/Benchmarkindex gelesen werden sollte.
+
+<DataTable
+  caption="Führende Aktienindizes und Mitgliederzahlen (Folie 21)"
+  columns={[
+    { key: 'markt', label: 'Aktienmarkt', align: 'left' },
+    { key: 'index', label: 'Index', align: 'left' },
+    { key: 'anzahl', label: 'Anzahl der Aktien', align: 'right' },
+  ]}
+  rows={[
+    { markt: 'New York SE', index: 'DJIA, S&P 500, NYSE Comp.', anzahl: '30, 500, ca. 1.900' },
+    { markt: 'NASDAQ', index: 'NASDAQ Composite', anzahl: 'ca. 2.500' },
+    { markt: 'London', index: 'Financial Times', anzahl: '100' },
+    { markt: 'Paris', index: 'CAC 40', anzahl: '40' },
+    { markt: 'Frankfurt', index: 'DAX', anzahl: '40' },
+    { markt: 'Zürich', index: 'SMI', anzahl: '20' },
+    { markt: 'Mailand', index: 'FTSE MIB', anzahl: '40' },
+    { markt: 'Tokio', index: 'TOPIX100', anzahl: '100' },
+    { markt: 'Toronto', index: 'S&P/TSX 60', anzahl: '60' },
+    { markt: 'Singapur', index: 'Straits Times Index', anzahl: '30' },
+    { markt: 'Hong Kong', index: 'Hang Seng', anzahl: '50' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Auswahlindex vs. Benchmarkindex praktisch lesen">
+Sehr kleine Mitgliederzahlen wie DJIA 30 oder SMI 20 sprechen für selektive Auswahlindizes; sehr breite Indizes wie NYSE Composite oder NASDAQ Composite decken den Markt deutlich umfassender ab.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 8 · Folien 13–14, 17–21</SourceNote>
 </section>
 
 <section id="msci-world-zusammensetzung">

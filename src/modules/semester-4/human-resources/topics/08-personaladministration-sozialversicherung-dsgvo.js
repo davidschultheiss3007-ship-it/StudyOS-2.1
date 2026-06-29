@@ -8,12 +8,12 @@ export const meta = {
   source: 'Human Resources · HR8 – Personaladministration, Sozialversicherung & DSGVO',
   estimatedMinutes: 65,
   sections: [
-    { id: 'personalbetreuung', title: 'Personalbetreuung und freiwillige Sozialleistungen', pages: 'Folien 1–6' },
+    { id: 'personalbetreuung', title: 'Personalbetreuung und freiwillige Sozialleistungen', pages: 'Folien 1–7' },
     { id: 'sozialversicherung', title: 'Das Sozialversicherungssystem in Deutschland', pages: 'Folie 9' },
     { id: 'personaladministration', title: 'Personaladministration: Aufgaben und Daten', pages: 'Folien 8, 10–17' },
     { id: 'personalkosten', title: 'Personalkosten und Entgeltabrechnung', pages: 'Folien 18–20' },
-    { id: 'datenschutz-dsgvo', title: 'Datenschutz und die DSGVO', pages: 'Folien 22–29, 34–35' },
-    { id: 'dsgvo-sanktionen-dsb', title: 'Sanktionen und Datenschutzbeauftragte(r)', pages: 'Folien 30–33, 36–42' },
+    { id: 'datenschutz-dsgvo', title: 'Datenschutz und die DSGVO', pages: 'Folien 21–29, 34–35' },
+    { id: 'dsgvo-sanktionen-dsb', title: 'Sanktionen und Datenschutzbeauftragte(r)', pages: 'Folien 30–33, 36–44' },
     { id: 'personalcontrolling', title: 'Personalcontrolling', pages: 'Folien 45–51' },
   ],
   keyTakeaways: [

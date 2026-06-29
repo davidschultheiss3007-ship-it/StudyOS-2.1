@@ -11,11 +11,11 @@ export const meta = {
     { id: 'markowitz-und-zwei-asset-portfolio', title: 'Markowitz und das Zwei-Wertpapier-Portfolio', pages: 'Folien 155–157' },
     { id: 'risiko-grosser-portfolios-und-inputdaten', title: 'Risiko großer Portfolios und Inputdaten', pages: 'Folien 158–159' },
     { id: 'effizienzkurve-korrelation-leerverkaeufe', title: 'Effizienzkurve, Korrelation und Leerverkäufe', pages: 'Folien 160–167' },
-    { id: 'gemeinsames-und-unabhaengiges-risiko', title: 'Gemeinsames und unabhängiges Risiko', pages: 'Folie 168, Folien 172–177' },
+    { id: 'gemeinsames-und-unabhaengiges-risiko', title: 'Gemeinsames und unabhängiges Risiko', pages: 'Folien 168–177' },
     { id: 'systematisches-und-unsystematisches-risiko', title: 'Systematisches und unsystematisches Risiko', pages: 'Folien 178–183' },
     { id: 'minimum-varianz-portfolio-und-kritik', title: 'Minimum-Varianz-Portfolio und kritische Würdigung', pages: 'Folien 184–187' },
     { id: 'tobin-separation-und-cml', title: 'Tobin-Separation und Capital Market Line', pages: 'Folien 188–194' },
-    { id: 'capm-beta-sml', title: 'CAPM, Beta, SML und Marktportfolio', pages: 'Folien 196–199' },
+    { id: 'capm-beta-sml', title: 'CAPM, Beta, SML und Marktportfolio', pages: 'Folien 195–199' },
     { id: 'multifaktormodelle-und-apt', title: 'Multifaktormodelle und Arbitrage Pricing Theory', pages: 'Folien 200–202' },
   ],
   keyTakeaways: [

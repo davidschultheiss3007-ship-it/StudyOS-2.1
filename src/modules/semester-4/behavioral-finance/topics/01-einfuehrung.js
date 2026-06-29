@@ -7,7 +7,7 @@ export const meta = {
   source: 'Behavioral Finance · BF1 – Einführung · Folien 1–32',
   estimatedMinutes: 50,
   sections: [
-    { id: 'was-ist-behavioral-finance', title: 'Was ist Behavioral Finance?', pages: 'Folien 11–15' },
+    { id: 'was-ist-behavioral-finance', title: 'Was ist Behavioral Finance?', pages: 'Folien 11–17' },
     { id: 'oekonomisches-prinzip-und-grundbegriffe', title: 'Ökonomisches Prinzip und Grundbegriffe', pages: 'Folien 18–19' },
     { id: 'homo-oeconomicus', title: 'Das Menschenbild Homo Oeconomicus', pages: 'Folien 20–23' },
     { id: 'grenzen-der-rationalitaet', title: 'Grenzen der Rationalität: Emotionen und Dilemmata', pages: 'Folien 24–27, 30' },

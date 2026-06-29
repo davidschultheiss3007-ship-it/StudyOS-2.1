@@ -212,6 +212,26 @@ Genau deshalb kann ein **isoliert ineffizientes** Wertpapier ein Portfolio verbe
   ] },
 ]} />
 
+### Effizienzkurve für zahlreiche Wertpapiere
+
+Das Bore-Beispiel wird auf mehrere Wertpapiere erweitert: Ein einzeln dominiertes Wertpapier kann durch geringe Korrelationen trotzdem zur effizienten Hülle beitragen. Mit drei Aktien entsteht eine ganze Region erreichbarer Portfolios; mit zehn Aktien verschiebt sich die Effizienzlinie weiter nach links/oben.
+
+<Columns count={3}>
+<Card title="Drei Einzelwerte" tone="neutral">
+Intel, Coca-Cola und Bore bilden Paar-Kombinationskurven. Bore liegt isoliert unter Coca-Cola, kann aber durch Diversifikation trotzdem nützlich sein.
+</Card>
+<Card title="Region mit Leerverkäufen" tone="accent">
+Alle Portfolios aus Intel, Coca-Cola und Bore bilden eine Fläche. Die obere linke Begrenzung ist die Effizienzgrenze; mit Leerverkäufen erweitert sich der erreichbare Bereich.
+</Card>
+<Card title="Zehn Aktien" tone="teal">
+Weitere Aktien erweitern das Anlageuniversum. Die Effizienzlinie mit allen zehn Aktien liegt gegenüber der kleineren Menge weiter links/oben.
+</Card>
+</Columns>
+
+<Callout type="examfocus" title="Portfolio statt Einzelwert">
+Die Folien 169–171 zeigen dieselbe Kernlogik in drei Stufen: Effizienz wird im Portfolio-Kontext bestimmt. Entscheidend ist nicht nur Rendite und Volatilität eines Einzelwerts, sondern sein Beitrag zur erreichbaren Effizienzgrenze.
+</Callout>
+
 <Callout type="tip" title="Glücksspiel-Analogie">
 Beim Roulette beträgt der erwartete Gewinn des Kasinos pro 1 € Einsatz 0,027 €. Die Standardabweichung eines Einzeleinsatzes ist mit 5,84 € hoch — bei 9 Mio. Wetten pro Monat sinkt sie aber auf 0,0019 € pro gewettetem Euro. Nur **unabhängige** Risiken mitteln sich so heraus.
 </Callout>
@@ -458,6 +478,33 @@ Das **CAPM** ist ein Gleichgewichtsmodell: Die erwartete Rendite eines Assets is
 
 <Callout type="pitfall" title="SML statt CML — und Beta ist instabil">
 Die **Security Market Line (SML)** beschreibt den linearen Zusammenhang zwischen erwarteter Rendite und **Beta** (nicht σ wie die CML). Beachte: Vergangenheits-Betas sind schlechte Indikatoren für zukünftige Betas — Beta tendiert zur **Mean Reversion**.
+</Callout>
+
+### Marktwerte des globalen Marktportfolios 2012
+
+Das Marktportfolio ist theoretisch zentral, praktisch aber schwer beobachtbar. Die Folie zeigt als Annäherung die Marktwerte des globalen Marktportfolios 2012 mit einer Gesamtsumme von **USD 90,6 Bio.**
+
+<DataTable
+  caption="Globales Marktportfolio 2012 (USD Bio.)"
+  columns={[
+    { key: 'segment', label: 'Segment', align: 'left' },
+    { key: 'wert', label: 'Marktwert', align: 'right' },
+  ]}
+  rows={[
+    { segment: 'Equities', wert: '32,9' },
+    { segment: 'Government Bonds', wert: '26,7' },
+    { segment: 'High Grade Credits', wert: '16,8' },
+    { segment: 'Real Estate', wert: '4,6' },
+    { segment: 'Private Equity', wert: '3,3' },
+    { segment: 'Emerging Markets Debt', wert: '2,7' },
+    { segment: 'High Yield', wert: '1,5' },
+    { segment: 'Gesamt', wert: '90,6' },
+  ]}
+  highlight={(row) => row.segment === 'Gesamt'}
+/>
+
+<Callout type="info" title="Warum das wichtig ist">
+Das theoretische Marktportfolio umfasst nicht nur Aktien, sondern auch Staatsanleihen, Investment-Grade-Credits, Immobilien, Private Equity, Emerging-Market-Debt und High Yield. Genau deshalb ist es in der Praxis nicht direkt beobachtbar.
 </Callout>
 
 </section>

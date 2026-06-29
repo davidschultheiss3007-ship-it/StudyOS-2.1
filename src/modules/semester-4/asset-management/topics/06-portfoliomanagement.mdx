@@ -106,6 +106,19 @@ Die operativen Schritte 2 bis 4 des Prozesses im Detail.
   { label: 'd', title: 'Portfoliorevision', text: 'Anpassung nach neuen Informationen — siehe Rebalancing vs. Upgrading.' },
 ]} />
 
+<DataTable
+  caption="Einflussfaktoren auf Transaktionskosten (Folie 11)"
+  columns={[
+    { key: 'faktor', label: 'Faktor', align: 'left' },
+    { key: 'wirkung', label: 'Wirkung / Beispiele', align: 'left' },
+  ]}
+  rows={[
+    { faktor: 'Brokerage-Gebühren, Provisionen, Spesen', wirkung: 'direkte Kosten der Transaktionsausführung' },
+    { faktor: 'Geld-Brief-Spanne / Bid-Ask-Spread', wirkung: 'abhängig von Liquidität, Risiko, Preisniveau, Informationstransparenz und Börsensegment' },
+    { faktor: 'Handelbarkeit (Fungibilität)', wirkung: 'hoch bei standardisierten Anlagen wie börsennotierten Aktien, Anleihen oder Fonds; gering bei nicht-standardisierten Assets wie GmbH-Anteilen' },
+  ]}
+/>
+
 <Columns count={2}>
 <Card title="Portfolio Rebalancing" tone="neutral">
 Umschichtung zur **Wiederherstellung der ursprünglichen** Portfoliostruktur, z. B. nach Outperformance einzelner Assetklassen.
@@ -128,7 +141,7 @@ Umschichtung zur **Wiederherstellung der ursprünglichen** Portfoliostruktur, z.
 - **Reporting**
 </Card>
 
-<SourceNote>Asset Management · Kapitel 6 · Folien 208–212</SourceNote>
+<SourceNote>Asset Management · Kapitel 6 · Folien 208–214</SourceNote>
 </section>
 
 <section id="diversifikation-und-risiken">
@@ -186,6 +199,10 @@ Bleibt innerhalb einer Assetklasse **bestehen**. Senkbar nur durch Mischung mehr
 
 ## Asset Allocation: Definition und Ebenen
 
+<Callout type="examfocus" title="Zentrale Frage der Portfolioauswahl">
+Welche Mischung der Assetklassen aus dem gesamten Anlageuniversum liefert die **optimale Rendite-/Risikoposition** und ist zugleich **gesetzlich bzw. vertraglich erlaubt**? Antwort a) liefert die Portfolio-Selection-Theorie nach Markowitz; Antwort b) ergibt sich aus gesetzlichen Anlageverordnungen sowie Vertragsbedingungen bzw. Verkaufsprospekt.
+</Callout>
+
 <DefinitionBox term="Asset Allocation" source="Folie 17">
 Die **Aufteilung der Anlagegelder** in bestimmte Bereiche (Diversifikationsebenen). Grundlage ist zumeist die Risikodiversifikation durch geeignete Portfoliostrukturen nach Markowitz.
 </DefinitionBox>
@@ -228,7 +245,25 @@ Assetklassen lassen sich grob oder fein granular definieren — die Granularitä
   TAA --> B2["Titel / Emittenten"]`}
 />
 
-<SourceNote>Asset Management · Kapitel 6 · Folien 17–19</SourceNote>
+### Theoretische Diversifikationspotentiale
+
+<Columns count={3}>
+<Card title="Assetklassendiversifikation" tone="accent">
+Beimischung von Assetklassen mit möglichst **negativen Korrelationen** zu den anderen Assetklassen.
+</Card>
+<Card title="Länderdiversifikation" tone="neutral">
+Beimischung von **internationalen Assets**, damit das Portfolio nicht nur von einem nationalen Markt abhängt.
+</Card>
+<Card title="Währungsdiversifikation" tone="teal">
+Beimischung verschiedener **Währungen**, wenn die Währungsebene bewusst als Diversifikationsebene genutzt wird.
+</Card>
+</Columns>
+
+<Callout type="examfocus" title="Strategische Ebene vor taktischer Ebene">
+Fazit der Folie: Die **strategische Ebene (SAA)** hat empirisch einen größeren Einfluss auf die Performance als die taktische Ebene (TAA). Deshalb sind Assetklassen-, Länder- und Währungsentscheidungen nicht nur Vorarbeit, sondern Kern der Portfoliosteuerung.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 16–20</SourceNote>
 </section>
 
 <section id="bedeutung-der-saa">

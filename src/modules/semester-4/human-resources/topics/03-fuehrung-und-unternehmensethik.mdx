@@ -320,3 +320,229 @@ Moralische Reflexion des unternehmerischen Handelns **über die reine Legalität
 
 <SourceNote>Human Resources · HR2 · Folien 15–17 · Kreikebaum (1996); i. A. Pech (2016)</SourceNote>
 </section>
+
+<section id="themenfelder-und-personalplanung">
+
+## Themenfelder und Personalplanung
+
+Nach Führung und Unternehmensethik ordnet die Vorlesung die weiteren HR-Themenfelder ein und leitet zur Personalplanung über. Die Folien bilden damit die Brücke zur operativen Personalarbeit.
+
+### Überblick der Themenfelder
+
+<Columns count={3}>
+<Card title="Beschaffung und Auswahl" tone="teal" compact>
+- Personalbeschaffung
+- Personalauswahl
+- integrierter Prozess aus Planung, Marketing und Auswahl
+</Card>
+<Card title="Entwicklung und Beurteilung" tone="neutral" compact>
+- Personalentwicklung
+- Personalbeurteilung
+- Qualifikationen und Anforderungen systematisch erfassen
+</Card>
+<Card title="Einsatz, Kosten, Freisetzung" tone="accent" compact>
+- Personalfreisetzung
+- Personaleinsatz
+- Personalkostenmanagement
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Beschaffung als integrierter Prozess">
+Personalbeschaffung ist kein isolierter Schritt. <Exam>Planung, Personalmarketing und Auswahl greifen ineinander</Exam> und können sich gegenseitig rückkoppeln.
+</Callout>
+
+<Diagram
+  title="Integrierter Prozess der Personalbeschaffung"
+  height={260}
+  chart={`graph TD
+  P["Planung"] --> M["Marketing"]
+  M --> A["Auswahl"]
+  A --> P`}
+/>
+
+### Personalstrategie und Anforderungsdimensionen
+
+Personalstrategie wird aus der Unternehmenspolitik abgeleitet und auf personalpolitische Ziele übertragen. Zentral sind zwei Leitfragen:
+
+<Columns count={2}>
+<Card title="Positionierung" tone="teal" compact>
+Wo möchte sich das Unternehmen in der **Personalarbeit positionieren**?
+</Card>
+<Card title="Umsetzung" tone="teal" compact>
+Wie will das Unternehmen dieses Ziel **erreichen**?
+</Card>
+</Columns>
+
+Strategisches Personalmanagement ist dabei mehr als operative Umsetzung: Es kann eigenständige Impulse in Unternehmensplanung und -führung einbringen.
+
+<KpiGrid columns={4} items={[
+  { value: 'Anzahl', label: 'quantitative Bereitstellung', accent: 'accent' },
+  { value: 'Art', label: 'qualitative Bereitstellung', accent: 'accent' },
+  { value: 'Zeit', label: 'Zeitpunkt und Dauer', accent: 'accent' },
+  { value: 'Ort', label: 'räumlicher Einsatzort', accent: 'accent' },
+]} />
+
+### Personalbedarfsbestimmung
+
+Die Bedarfsbestimmung ermittelt den erforderlichen **Soll-Personalbestand**:
+
+- differenziert nach Perioden des Planungszeitraums
+- differenziert nach Qualifikationsgruppen bzw. Arbeitsplätzen
+- zukunftsorientiert, nicht vergangenheitsorientiert
+- zentral für Beschaffungs- oder Freistellungsentscheidungen
+
+<Diagram
+  title="Personalbedarfsplanung: Bedarf, Bestand, Vergleich und Maßnahmen"
+  source="Bernd, R.; Fantapié Altobelli, C.; Sander, M. (2016)"
+  height={380}
+  chart={`graph TD
+  B["Ermittlung Personalbedarf: qualitativ, quantitativ, zeitlich"] --> BP["Brutto-Personalbedarf"]
+  I["Ermittlung Personalbestand: qualitativ, quantitativ, zeitlich"] --> PI["Personal-Istbestand"]
+  BP --> V["Vergleich"]
+  PI --> V
+  V --> UEB["Überdeckung"]
+  V --> UND["Unterdeckung"]
+  V --> N["Netto-Personalbedarf"]
+  UEB --> FB["Personalfreisetzungsbedarf"]
+  UND --> BB["Personalbeschaffungsbedarf"]
+  FB --> FBE["extern: Reduktion der Beschäftigtenzahl"]
+  FB --> FBI["intern: Reduktion der Personalkapazität"]
+  BB --> BBI["intern: vor allem Personalentwicklung"]
+  BB --> BBE["extern: externe Personalrekrutierung"]`}
+/>
+
+### Ablauf der Personalplanung
+
+<Timeline events={[
+  { label: '1', title: 'Personalbestandsanalyse', text: 'Ermittlung der aktuellen Personalausstattung nach Quantität und Qualität.' },
+  { label: '2', title: 'Personalbedarfsanalyse', text: 'Ermittlung des zukünftigen Soll-Personalbedarfs nach Quantität und Qualität.' },
+  { label: '3', title: 'Soll-Ist-Abgleich', text: 'Ermittlung des Netto-Bedarfs als Differenz zwischen künftigem Personalbestand und erwartetem Personalbedarf.' },
+  { label: '4', title: 'Planung der Maßnahmen', text: 'Deckungsart bestimmen und Maßnahmen gegen Personalüberdeckung oder Personalunterdeckung planen.' },
+]} />
+
+<Callout type="examfocus" title="Klausuranker">
+Die Logik lautet: <Exam>Bedarf und Bestand ermitteln, vergleichen, Netto-Bedarf bestimmen, dann Beschaffung oder Freisetzung planen</Exam>.
+</Callout>
+
+<SourceNote>Human Resources · HR2 · Folien 18–24 · Personalbeschaffung und Personalplanung</SourceNote>
+</section>
+
+<section id="personalplanungsanalyse">
+
+## Personalplanungsanalyse und Soll-Ist-Abgleich
+
+Die Personalplanungsanalyse übersetzt Personalbewegungen, Prognosen und Soll-Ist-Abgleiche in konkrete Rechen- und Entscheidungslogik.
+
+### Bestandsfortschreibung
+
+<Formula
+  title="Personalausstattung am Anfang des Folgejahres"
+  expr="\text{Anfangsbestand} - \text{Abgänge} + \text{Zugänge} = \text{Folgejahresbestand}"
+  display
+/>
+
+<Callout type="info" title="Bestandsstatistik">
+Auch Mitarbeitende, die vorübergehend keinem produktiven Einsatz zugeordnet werden können, zählen in die Bestandsstatistik, z. B. bei Elternzeit oder längerer Krankheit.
+</Callout>
+
+### Abgänge und Zugänge systematisch erfassen
+
+<DataTable
+  caption="Tabellenformular zur Personalbewegung"
+  columns={[
+    { key: 'abgang', label: 'Abgänge', align: 'left' },
+    { key: 'zugang', label: 'Zugänge', align: 'left' },
+  ]}
+  rows={[
+    { abgang: 'Beförderung aus der Abteilung', zugang: 'Beförderung in die Abteilung' },
+    { abgang: 'Versetzung aus der Abteilung', zugang: 'Versetzung in die Abteilung' },
+    { abgang: 'Aus-/Weiterbildung', zugang: 'Rückkehr aus Weiterbildung' },
+    { abgang: 'Pensionierung', zugang: 'Übernahme nach Ausbildung' },
+    { abgang: 'Mutterschutz', zugang: 'Sichere Einstellungen' },
+    { abgang: 'Entlassung', zugang: 'Beendigung des Mutterschutzes' },
+    { abgang: 'Kündigung durch Mitarbeiter', zugang: 'Sonstiges' },
+    { abgang: 'Sonstiges', zugang: '' },
+    { abgang: 'Summe der Abgänge', zugang: 'Summe der Zugänge' },
+  ]}
+  highlight={(row) => row.abgang.startsWith('Summe')}
+/>
+
+### Prognosefragen der Personalplanung
+
+<Columns count={2}>
+<Card title="Bestands- und Bedarfsprognose" tone="teal">
+- zukünftigen Personalbedarf aus Unternehmenszielen ableiten
+- anschließend Detailplanung je Bereich
+- qualitative Mitarbeiteranforderungen berücksichtigen
+- relevante Arbeitsverträge einheitlich in Mitarbeiterjahre umrechnen
+</Card>
+<Card title="Leitfragen" tone="neutral">
+- Werden zusätzliche Mitarbeiter zur Zielerreichung benötigt?
+- In welchen Bereichen und auf welchem Verantwortungslevel?
+- Welche Anforderungen werden gestellt?
+- Müssen bestehende Mitarbeiter Qualifikationen steigern?
+- Gibt es Funktionen oder Mitarbeiter, die künftig nicht mehr benötigt werden?
+</Card>
+</Columns>
+
+### Soll-Ist-Abgleich
+
+Das Beispiel kontrastiert eine starre Ist-Situation mit einer bedarfsgerechter geplanten Soll-Situation:
+
+<CompareCard items={[
+  { tag: 'Ist-Situation', title: 'Schwankender Bedarf, starre Ressourcen', accent: 'warning', points: [
+    'Personalbedarf schwankt über den Zeitraum.',
+    'Personalressourcen sind nur mit langer Reaktionszeit verfügbar oder veränderbar.',
+    'Es entstehen Überdeckung und Unterdeckung.'
+  ] },
+  { tag: 'Soll-Situation', title: 'Personaleinsatz am Bedarf ausgerichtet', accent: 'positive', points: [
+    'Personaleinsatz wird an den Personalbedarf angeglichen.',
+    'Abweichungen zwischen Kapazität und Bedarf werden reduziert.',
+    'Ziel ist eine bessere Synchronisation von Ressourcen und Bedarf.'
+  ] },
+]} />
+
+<DataTable
+  caption="Legende der Soll-Ist-Grafik"
+  columns={[
+    { key: 'farbe', label: 'Darstellung', align: 'left' },
+    { key: 'bedeutung', label: 'Bedeutung', align: 'left' },
+  ]}
+  rows={[
+    { farbe: 'Dunkelgrau / Schwarz', bedeutung: 'bedarfsgerecht' },
+    { farbe: 'Hellgrau', bedeutung: 'nicht bedarfsgerecht' },
+    { farbe: 'Orange', bedeutung: 'Überdeckung / Unterdeckung' },
+  ]}
+/>
+
+<Callout type="examfocus" title="Maßnahmenentscheidung">
+Bei <Exam>Unterdeckung</Exam> folgt nach Abstimmung und Konkretisierung des Bedarfs die Beschaffungs- bzw. Gewinnungsplanung. Bei <Exam>Überdeckung</Exam> folgt die Freistellungsplanung.
+</Callout>
+
+### Brutto- und Nettopersonalbedarf
+
+<Formula
+  title="Brutto-Personalbedarf"
+  expr="\text{Einsatzbedarf }600 + \text{ Reservebedarf }50 = \text{ Brutto-Personalbedarf }650"
+  display
+/>
+
+<Formula
+  title="Nettopersonalbedarf mit Klammerlogik"
+  expr="650 - (620 + 40 - 30) = 20"
+  display
+  legend={[
+    { sym: '650', desc: 'Brutto-Personalbedarf' },
+    { sym: '620', desc: 'verfügbar' },
+    { sym: '40', desc: 'Neueinstellungen' },
+    { sym: '30', desc: 'Abgänge' },
+    { sym: '20', desc: 'zusätzlicher Netto-Personalbedarf' },
+  ]}
+/>
+
+<Callout type="pitfall" title="Rechenfalle">
+Die lineare Darstellung aus der Folie ist nur mit Klammerlogik konsistent: <Exam>Nettopersonalbedarf = Brutto-Personalbedarf minus erwartbar verfügbare Kapazität</Exam>. Deshalb ergibt das Beispiel `20` Mitarbeitende.
+</Callout>
+
+<SourceNote>Human Resources · HR2 · Folien 25–31 · Atoss Software GmbH</SourceNote>
+</section>

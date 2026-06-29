@@ -9,11 +9,11 @@ export const meta = {
   sections: [
     { id: 'personalgewinnungsplanung', title: 'Personalgewinnungsplanung und offene Positionen', pages: 'Folien 1–2' },
     { id: 'kompetenzmodell', title: 'Das Vier-Felder-Kompetenzmodell', pages: 'Folie 3' },
-    { id: 'anforderungsprofil', title: 'Anforderungsprofil: Entstehung und Soll-Skala', pages: 'Folien 4–6' },
+    { id: 'anforderungsprofil', title: 'Anforderungsprofil: Entstehung und Soll-Skala', pages: 'Folien 4–7' },
     { id: 'funktionsmatrix-und-karrieremodelle', title: 'Funktionsmatrix und Karrieremodelle', pages: 'Folien 8–12' },
     { id: 'stellenbeschreibung', title: 'Stellenbeschreibung als Planungsinstrument', pages: 'Folien 13–17' },
     { id: 'besetzungsprozess', title: 'Besetzungsprozess: intern oder extern', pages: 'Folien 18–19, 24' },
-    { id: 'arbeitsmarktforschung', title: 'Personalmarketing und Arbeitsmarktforschung', pages: 'Folien 20–23' },
+    { id: 'arbeitsmarktforschung', title: 'Personalmarketing und Arbeitsmarktforschung', pages: 'Folien 20–25' },
   ],
   keyTakeaways: [
     'Personalgewinnungsplanung strukturiert den Beschaffungsprozess vorgelagert: offene Positionen, Besetzungszeitpunkt, Beschaffungswege, Beteiligte, Gehaltsspannen, Kosten und Status.',
@@ -24,6 +24,7 @@ export const meta = {
     'Moderne Karrieremodelle bieten neben der Linienlaufbahn gleichwertige Fach- und Projektlaufbahnen.',
     'Die Stellenbeschreibung legt Aufgaben funktionsbezogen und mitarbeiterunabhängig fest; sie schafft Klarheit, kann aber Flexibilität reduzieren.',
     'Die Entscheidung über den Beschaffungsweg (intern vs. extern) ist der zentrale Verzweigungspunkt des Besetzungsprozesses.',
+    'Die praktische Anwendung verbindet Unternehmensbereich, Berufsrichtung, Zielgruppe, Anforderungen und Arbeitgeberargumente zu einer konsistenten Stellenanzeige.',
   ],
   examFocus: [
     'Die vier Kompetenzarten (Fach-, Persönlichkeits-, Methoden-, Sozialkompetenz) mit Beispielen benennen.',
@@ -33,6 +34,7 @@ export const meta = {
     'Vor- und Nachteile der Stellenbeschreibung nennen und erklären, warum sie nicht fester Vertragsbestandteil sein sollte.',
     'Den Besetzungsprozess mit dem Entscheidungsdiamanten Beschaffungsweg (intern/extern) skizzieren.',
     'Offenes vs. latentes Beschaffungspotential sowie innerbetriebliche und außerbetriebliche Arbeitsmarktanalyse unterscheiden.',
+    'Aus Anforderungsprofil und Personalmarketing ableiten, welche Informationen eine zielgruppengerechte Stellenanzeige enthalten muss.',
   ],
   pitfalls: [
     'Anforderungsprofile auf fachliche Qualifikationen reduzieren und Persönlichkeits-, Methoden- und Sozialkompetenz vergessen.',

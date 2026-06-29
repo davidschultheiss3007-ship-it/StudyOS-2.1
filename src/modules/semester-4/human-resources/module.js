@@ -22,7 +22,7 @@ export const module = {
       title: 'Kapitel 2 · Unternehmensstrategie und Personalpolitik',
       status: 'available',
       hasContent: true,
-      source: 'Human Resources · HR2 – Personalpolitik',
+      source: 'Human Resources · HR3 – Personalpolitik',
       estimatedMinutes: 60,
     },
     {
@@ -30,8 +30,8 @@ export const module = {
       title: 'Kapitel 3 · Führung, Generationen und Unternehmensethik',
       status: 'available',
       hasContent: true,
-      source: 'Human Resources · HR3 – Personalpolitik 2',
-      estimatedMinutes: 55,
+      source: 'Human Resources · HR2 – Führung und Unternehmensethik',
+      estimatedMinutes: 75,
     },
     {
       id: 'operative-personalplanung',

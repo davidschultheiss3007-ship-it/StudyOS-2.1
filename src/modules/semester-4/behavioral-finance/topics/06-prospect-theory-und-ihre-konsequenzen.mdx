@@ -125,7 +125,17 @@ Ein **Prospekt** ist das Ergebnis einer riskanten Entscheidung mit der zugehöri
 Der subjektive Wert ergibt sich als Produkt aus verzerrtem Wert und verzerrter Wahrscheinlichkeit: <Exam>V(x,p) = v(x) · pi(p)</Exam>. Dabei ist <Exam>pi keine Maßzahl für die Wahrscheinlichkeit</Exam>, sondern die subjektive Einschätzung des Entscheiders bezüglich dieser Wahrscheinlichkeit.
 </Callout>
 
-<SourceNote>Behavioral Finance · BF6 · Folien 196–200, 207</SourceNote>
+### Beispiel: fairer Münzwurf, subjektiv unattraktiv
+
+<Card title="Evaluation eines Prospekts" tone="purple">
+Bei **Kopf** erhält man 1 Euro, bei **Zahl** zahlt man 1 Euro; beide Zustände haben die Wahrscheinlichkeit 0,50.
+
+<Formula expr="V(1;0{,}5 / -1;0{,}5) = \pi(0{,}5)\cdot v(1) + \pi(0{,}5)\cdot v(-1)" />
+
+Objektiv ist die Wette fair. Subjektiv kann sie unattraktiv sein, wenn der Verlust von 1 Euro stärker bewertet wird als der Gewinn von 1 Euro.
+</Card>
+
+<SourceNote>Behavioral Finance · BF6 · Folien 196–200, 207–208</SourceNote>
 </section>
 
 <section id="editing-phase">
@@ -270,6 +280,33 @@ Der Wert einer Alternative hängt von zwei Elementen ab: dem **Referenzpunkt** u
 Die Spiegelung von Gewinnen zu Verlusten **kehrt das Risikoverhalten um**: bei positiven Prospekten dominiert **Risikoaversion**, bei negativen **Risikofreude**. Das widerspricht der klassischen Theorie und zeigt sich auch bei rein anderer Darstellung (Framing) objektiv identischer Ergebnisse.
 </Callout>
 
+### Zentrale kognitive Merkmale und Framing
+
+<Columns count={3}>
+<Card title="Referenzpunkt" tone="accent">
+Die Beurteilung erfolgt relativ zu einem neutralen Bezugspunkt, nicht absolut über das Endvermögen.
+</Card>
+<Card title="Abnehmende Empfindlichkeit" tone="neutral">
+Zusätzliche Gewinne oder Verluste werden mit zunehmender Entfernung vom Referenzpunkt weniger stark empfunden.
+</Card>
+<Card title="Verlustaversion" tone="negative">
+Verluste wirken stärker als gleich hohe Gewinne.
+</Card>
+</Columns>
+
+<CompareCard items={[
+  { tag: 'Beispiele', title: 'Framing', subtitle: 'gleiche Situation, andere Darstellung', accent: 'purple', points: [
+    'Geldillusion: nominale Einkommensänderung wird als Gewinn oder Verlust gerahmt.',
+    'Steuerlicher Rahmen: Nachlass für Familien oder Erhöhung für Kinderlose?',
+    'Kreditkartenindustrie: Barnachlass statt Aufpreis für Kreditkartenzahlung.',
+  ] },
+  { tag: 'Erklärung', title: 'Prospect-Theory-Logik', subtitle: 'Gewinn- vs. Verlustrahmen', accent: 'accent', points: [
+    'Menschen sind bei Gewinnen eher risikoavers und bei Verlusten eher risikofreudig.',
+    'Negative Informationen werden stärker beachtet als positive.',
+    'In transparenten Situationen nähern sich Entscheidungen eher der Erwartungsnutzentheorie an.',
+  ] },
+]} />
+
 <Explorable label="3D-Ansicht der Wertfunktion (optionale Vertiefung)" note="Dieselbe S-Logik als Fläche: konkav im Gewinn-, konvex und steiler im Verlustbereich.">
 <Surface3D
   kind="s-curve"
@@ -282,7 +319,7 @@ Die Spiegelung von Gewinnen zu Verlusten **kehrt das Risikoverhalten um**: bei p
 />
 </Explorable>
 
-<SourceNote>Kahneman/Tversky (1979), S. 265 ff. · Folien 209–211</SourceNote>
+<SourceNote>Kahneman/Tversky (1979), S. 265 ff. · Folien 209–213</SourceNote>
 </section>
 
 <section id="konsequenzen-der-wertfunktion">
@@ -361,7 +398,7 @@ Sunk-Cost-Falle an der Börse: **Gewinne werden zu früh realisiert** (Risikoave
 Der Referenzpunkt hat **neutralen Charakter („Norm")** und kann u. a. der Status quo, Pläne/Erwartungen (Branchendurchschnitt), ein naheliegender Vergleichsmaßstab oder ein latenter historischer Wert sein.
 </Callout>
 
-<SourceNote>Behavioral Finance · BF6 · Folien 214–223</SourceNote>
+<SourceNote>Behavioral Finance · BF6 · Folien 214–224</SourceNote>
 </section>
 
 <section id="gewichtungsfunktion">

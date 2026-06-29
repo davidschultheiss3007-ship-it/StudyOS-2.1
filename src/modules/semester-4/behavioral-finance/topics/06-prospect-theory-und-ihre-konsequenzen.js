@@ -5,10 +5,10 @@ export const meta = {
   estimatedMinutes: 100,
   sections: [
     { id: 'allais-paradoxon', title: 'Das Allais-Paradoxon als Anomalie', pages: 'Folien 191–195' },
-    { id: 'prospect-theory-grundlagen', title: 'Prospect Theory: Grundlagen und zwei Phasen', pages: 'Folien 196–200, 207' },
+    { id: 'prospect-theory-grundlagen', title: 'Prospect Theory: Grundlagen und zwei Phasen', pages: 'Folien 196–200, 207–208' },
     { id: 'editing-phase', title: 'Die Editing-Phase', pages: 'Folien 201–206' },
-    { id: 'wertfunktion', title: 'Die Wertfunktion (Value Function)', pages: 'Folien 209–211' },
-    { id: 'konsequenzen-der-wertfunktion', title: 'Konsequenzen: Mental Accounting, Sunk Cost & Co.', pages: 'Folien 214–223' },
+    { id: 'wertfunktion', title: 'Die Wertfunktion (Value Function)', pages: 'Folien 209–213' },
+    { id: 'konsequenzen-der-wertfunktion', title: 'Konsequenzen: Mental Accounting, Sunk Cost & Co.', pages: 'Folien 214–224' },
     { id: 'gewichtungsfunktion', title: 'Die Gewichtungsfunktion (Weighting Function)', pages: 'Folien 225–235' },
   ],
   keyTakeaways: [

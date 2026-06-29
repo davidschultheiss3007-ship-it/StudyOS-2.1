@@ -5,7 +5,7 @@ export const meta = {
   estimatedMinutes: 60,
   sections: [
     { id: 'arbeitsrecht-und-personalbegriffe', title: 'Individuelles Arbeitsrecht und Personalbegriffe', pages: 'Folien 1–9' },
-    { id: 'strategie-und-umwelt', title: 'Strategie, Umwelt und Interessensgruppen', pages: 'Folien 12–15' },
+    { id: 'strategie-und-umwelt', title: 'Strategie, Umwelt und Interessensgruppen', pages: 'Folien 11–15' },
     { id: 'managementebenen-und-zeithorizonte', title: 'Managementebenen und Zeithorizonte', pages: 'Folien 16–20' },
     { id: 'personalpolitik-als-teilbereich', title: 'Personalpolitik als Teilbereich der Unternehmenspolitik', pages: 'Folien 21–25' },
     { id: 'nachhaltige-personalpolitik', title: 'Nachhaltige und mitarbeiterfreundliche Personalpolitik', pages: 'Folien 26–32' },
