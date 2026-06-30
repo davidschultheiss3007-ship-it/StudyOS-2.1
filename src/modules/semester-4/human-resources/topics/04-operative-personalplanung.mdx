@@ -6,17 +6,23 @@
 
 Die **Personalgewinnungsplanung** ist die vorgelagerte Strukturierung des Beschaffungsprozesses. Sie bündelt alle Informationen, um offene Stellen planbar, budgetierbar und kontrollierbar zu besetzen.
 
-<Card title="Was die Gewinnungsplanung festhält" tone="teal">
+<Columns count={2}>
+<Card title="Planungsdaten" tone="teal">
 - offene Positionen
 - geplanter Besetzungszeitpunkt
-- Planung der Beschaffungswege
 - beteiligte Personen
 - Festlegung der Gehaltsspannen
 - geplante Gewinnungskosten
-- Status des Gewinnungsprozesses
 </Card>
+<Card title="Steuerungsdaten" tone="accent" exam>
+- Planung der Beschaffungswege
+- Status des Gewinnungsprozesses
+- Ableitung der passenden Auswahl-Zielgruppe
+- Kontrolle, ob Budget, Timing und Besetzungsweg zusammenpassen
+</Card>
+</Columns>
 
-Die Festlegung einer offenen Position folgt einer **dreistufigen Logik**: Erst wenn die Position konkret beschrieben ist, lassen sich Zielgruppe und Beschaffungsweg sinnvoll ableiten.
+Die Festlegung einer offenen Position folgt einer **dreistufigen Logik**. Erst wenn die Position konkret beschrieben ist, lassen sich Zielgruppe und Beschaffungsweg sinnvoll ableiten.
 
 <Diagram
   title="Von der offenen Position zum Beschaffungsweg (Folie 2)"
@@ -108,31 +114,30 @@ Das **Unternehmensprofil (Soll)** wird mit dem **individuellen Kompetenzprofil d
 
 Ein Anforderungsprofil übersetzt abstrakte Anforderungen in **messbare Soll-Ausprägungen** auf einer Skala von 1 bis 7. Dadurch werden Bewerberprofile systematisch vergleichbar.
 
-<DataChart
-  type="bar"
-  title="Soll-Ausprägungen je Kompetenzmerkmal (Skala 1–7, ca.)"
-  source="Folie 6 (Werte visuell aus der Folie rekonstruiert, ca.)"
-  xKey="merkmal"
-  yKey="soll"
-  yLabel="Soll-Ausprägung (1–7)"
-  height={360}
-  yDomain={[0, 7]}
-  data={[
-    { merkmal: 'Zielorientierung', soll: 5 },
-    { merkmal: 'MA-Controlling', soll: 6 },
-    { merkmal: 'MA-Motivation', soll: 5 },
-    { merkmal: 'Konfliktfähigkeit', soll: 5 },
-    { merkmal: 'Verantwortungsbereitschaft', soll: 5 },
-    { merkmal: 'Entscheidungsfähigkeit', soll: 6 },
-    { merkmal: 'Sensibilität', soll: 5 },
-    { merkmal: 'Analytisches Denken', soll: 3 },
-    { merkmal: 'Konzeptionelles Denken', soll: 3 },
-    { merkmal: 'Beratungskompetenz', soll: 3 },
-    { merkmal: 'Eigeninitiative', soll: 4 },
-    { merkmal: 'Kommunikationskompetenz', soll: 6 },
-    { merkmal: 'Selbstdarstellung / Auftreten', soll: 5 },
+<ScaleProfile
+  caption="Muster-Anforderungsprofil für eine Führungsaufgabe"
+  source="Folie 6 (Sollwerte visuell aus der Folie rekonstruiert, ca.)"
+  groups={[
+    { title: 'Führungskompetenz', accent: 'teal', items: [
+      { label: 'Zielorientierung', value: 5 },
+      { label: 'MA-Controlling', value: 6 },
+      { label: 'MA-Motivation', value: 5 },
+      { label: 'Konfliktfähigkeit', value: 5 },
+      { label: 'Verantwortungsbereitschaft', value: 5 },
+      { label: 'Entscheidungsfähigkeit', value: 6 },
+      { label: 'Sensibilität', value: 5 },
+    ] },
+    { title: 'Fachkompetenz', accent: 'accent', items: [
+      { label: 'Analytisches Denken', value: 3 },
+      { label: 'Konzeptionelles / lösungsorientiertes Denken', value: 3 },
+      { label: 'Beratungskompetenz', value: 3 },
+      { label: 'Eigeninitiative', value: 4 },
+    ] },
+    { title: 'Zwischenmenschliche Kompetenz', accent: 'purple', items: [
+      { label: 'Kommunikationskompetenz', value: 6 },
+      { label: 'Selbstdarstellung und Auftreten', value: 5 },
+    ] },
   ]}
-  series={[{ key: 'soll', name: 'Soll-Wert', color: 'var(--color-module-teal)' }]}
 />
 
 <Callout type="info" title="Lesehinweis">
@@ -288,14 +293,22 @@ Die **Stellenbeschreibung** ist ein altbewährtes Instrument der Personalplanung
 
 Das Beispiel International Sales Manager zeigt: Eine Stellenbeschreibung ist mehr als eine Aufgabenliste — sie verbindet Positionsdaten, Arbeitszeit, Ziele, Aufgaben, Verantwortung, Unterstellung, Vertretung, Vollmacht und formale Bestätigung.
 
-<Timeline events={[
-  { label: '1', title: 'Kopfdaten', text: 'Stellenbezeichnung, Bereich/Abteilung, Kostenstelle (z. B. International Sales Manager · Vertrieb/Export · 1162).' },
-  { label: '2', title: 'Arbeitszeit', text: 'Vollzeit / Teilzeit / geringfügig (im Beispiel: Vollzeit 40 Std./Woche).' },
-  { label: '3', title: 'Ziel der Stelle', text: 'Umsatz- und Gewinnmaximierung, markt- bzw. zielgruppenorientierte Ausrichtung der Vertriebsaktivitäten.' },
-  { label: '4', title: 'Aufgaben und Verantwortung', text: 'Vertriebsentwicklung, Marktbeobachtung, Verkaufsstrategien, Umsatz-/Ergebnisverantwortung, Vertriebscontrolling.' },
-  { label: '5', title: 'Unterstellung und Vertretung', text: 'unterstellt: Geschäftsführer; vertreten durch: International Sales Service Team.' },
-  { label: '6', title: 'Vollmacht und Unterschriften', text: 'Vollmacht i. A.; Unterschriften von Stelleninhaber/in, Vorgesetzte/r und Personalleitung.' },
-]} />
+<DataTable
+  caption="Dokumentbausteine im Beispiel International Sales Manager"
+  columns={[
+    { key: 'baustein', label: 'Baustein', align: 'left' },
+    { key: 'inhalt', label: 'Beispielinhalt', align: 'left' },
+    { key: 'funktion', label: 'Funktion im Dokument', align: 'left' },
+  ]}
+  rows={[
+    { baustein: 'Kopfdaten', inhalt: 'International Sales Manager · Vertrieb/Export · Kostenstelle 1162', funktion: 'ordnet die Stelle organisatorisch ein' },
+    { baustein: 'Arbeitszeit', inhalt: 'Vollzeit 40 Std./Woche', funktion: 'klärt Beschäftigungsumfang' },
+    { baustein: 'Ziel der Stelle', inhalt: 'Umsatz- und Gewinnmaximierung, zielgruppenorientierte Vertriebsaktivitäten', funktion: 'übersetzt die Stelle in Ergebnisverantwortung' },
+    { baustein: 'Aufgaben und Verantwortung', inhalt: 'Vertriebsentwicklung, Marktbeobachtung, Verkaufsstrategien, Vertriebscontrolling', funktion: 'grenzt Tätigkeits- und Verantwortungsbereich ab' },
+    { baustein: 'Unterstellung und Vertretung', inhalt: 'unterstellt: Geschäftsführer; vertreten durch: International Sales Service Team', funktion: 'zeigt Einordnung, Vertretung und Schnittstellen' },
+    { baustein: 'Vollmacht und Bestätigung', inhalt: 'Vollmacht i. A.; Unterschriften von Stelleninhaber/in, Vorgesetzte/r und Personalleitung', funktion: 'macht Zuständigkeit formal nachvollziehbar' },
+  ]}
+/>
 
 <SourceNote>Human Resources · HR4 · Folien 13–17</SourceNote>
 </section>
@@ -306,14 +319,19 @@ Das Beispiel International Sales Manager zeigt: Eine Stellenbeschreibung ist meh
 
 Nach Konkretisierung von Personalbedarf und Anforderungen wird die Beschaffung geplant. Der **zentrale Verzweigungspunkt** ist die Entscheidung über den Beschaffungsweg: intern oder extern.
 
-<DecisionTree nodes={[
-  { label: 'Besetzung einer konkreten Position', detail: 'Ausfüllen der Personalanforderung (Fachbereich) → Genehmigungsprozess', children: [
-    { label: 'Entscheidung Beschaffungsweg', detail: 'zentraler Verzweigungspunkt (im Personalmarketing rot markiert)', children: [
-      { label: 'Externe Beschaffung', detail: 'Festlegung der Wege → Ende der Vorbereitungsaufgaben' },
-      { label: 'Interne Beschaffung', detail: 'interne Stellenausschreibung → Beförderung bzw. Versetzung → Auswahl geeigneter Beschaffungswege im Unternehmen' },
-    ] },
-  ] },
-]} />
+<Diagram
+  title="Besetzung einer konkreten Position: Vorbereitungsprozess"
+  chart={`flowchart TD
+  A["Besetzung einer konkreten Position"] --> B["Personalanforderung ausfüllen<br/>(Fachbereich)"]
+  B --> C["Genehmigungsprozess"]
+  C --> D{"Entscheidung<br/>Beschaffungsweg"}
+  D -->|extern| E["Externe Beschaffung:<br/>Wege festlegen"]
+  E --> F["Ende der Vorbereitungsaufgaben"]
+  D -->|intern| G["Interne Stellenausschreibung"]
+  G --> H["Beförderung bzw. Versetzung"]
+  H --> I["Geeignete Beschaffungswege<br/>im Unternehmen auswählen"]
+  I --> D` }
+/>
 
 <Columns count={3}>
 <Card title="Zentrale Entscheidungen" tone="accent" compact>
@@ -360,13 +378,13 @@ Die Arbeitsmarktforschung unterscheidet, **woher** Personal gewonnen werden kann
 <CompareCard items={[
   { tag: 'Intern', title: 'Innerbetriebliche Analyse', subtitle: 'Potenzial im Unternehmen', accent: 'teal', points: [
     'Mitarbeiterpotenzial aus Personalverwaltung, -planung, -entwicklung',
-    'Herkunft **räumlich**: gleicher Betrieb, andere Betriebsteile, Gesamtkonzern',
-    'Herkunft **inhaltlich**: gleicher oder anderer Tätigkeitsbereich',
+    'Herkunft räumlich: gleicher Betrieb, andere Betriebsteile, Gesamtkonzern',
+    'Herkunft inhaltlich: gleicher oder anderer Tätigkeitsbereich',
   ] },
   { tag: 'Extern', title: 'Außerbetriebliche Analyse', subtitle: 'Struktur des Arbeitsmarktes', accent: 'accent', points: [
-    '**Angebot**: Alter, Qualifikation',
-    '**Nachfrage**: Branchen-, Berufsverteilung',
-    '**Entwicklung**: Qualifikationstrends, Branchen-, Berufsbildentwicklung',
+    'Angebot: Alter, Qualifikation',
+    'Nachfrage: Branchen-, Berufsverteilung',
+    'Entwicklung: Qualifikationstrends, Branchen-, Berufsbildentwicklung',
   ] },
 ]} />
 

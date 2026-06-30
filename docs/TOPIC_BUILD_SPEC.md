@@ -91,6 +91,7 @@ For **every** section, first ask: *can this be a real visualization?* If yes, us
 | A composition / 100% split | `<ProportionBar>` |
 | 2–3 way contrast | `<CompareCard>` |
 | A position on a continuum | `<SpectrumAxis>` |
+| Competency / requirement scale profile | `<ScaleProfile>` |
 | Branching decision / criteria tree | `<DecisionTree>` |
 | Key figures / KPIs | `<KpiGrid>` |
 | Structured tabular data | `<DataTable>` |
@@ -131,6 +132,7 @@ lazy-loaded inside `DataChart` / `Diagram` / `Scene3D` / `Surface3D`.
 - `<DecisionTree nodes={[{label,detail?,children?:[…]}]} />`
 - `<QuadrantMatrix xLabel yLabel xLow xHigh yLow yHigh caption? quadrants={[{pos:'tl|tr|bl|br',title,points?:[],accent?}]} />`
 - `<SpectrumAxis markers={[{at:0–100,label,sub?}]} min? max? caption? />`
+- `<ScaleProfile groups={[{title,accent?,items:[{label,value,note?}]}]} min?={1} max?={7} caption? source? />`
 - `<CompareCard items={[{tag?,title,subtitle?,accent?,points:[…]}]} />`  accent: `neutral|positive|negative|warning|accent|purple`
 
 **3D (flagship — use where 3D genuinely explains)**

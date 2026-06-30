@@ -23,6 +23,7 @@ import { DecisionTree } from './DecisionTree.jsx';
 import { SpectrumAxis } from './SpectrumAxis.jsx';
 import { QuadrantMatrix } from './QuadrantMatrix.jsx';
 import { ProportionBar } from './ProportionBar.jsx';
+import { ScaleProfile } from './ScaleProfile.jsx';
 import { SourceNote } from './SourceNote.jsx';
 import { Explorable } from './Explorable.jsx';
 import { Card } from './Card.jsx';
@@ -31,7 +32,7 @@ import { Exam } from './Exam.jsx';
 
 export {
   Formula, DataChart, Diagram, Scene3D, Surface3D, CompareCard, Timeline,
-  DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis,
+  DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis, ScaleProfile,
   QuadrantMatrix, ProportionBar, SourceNote, Explorable, Card, Columns, Exam,
 };
 
@@ -39,6 +40,6 @@ export {
 export const mdxComponents = {
   ...proseComponents,
   Formula, DataChart, Diagram, Scene3D, Surface3D, CompareCard, Timeline,
-  DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis,
+  DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis, ScaleProfile,
   QuadrantMatrix, ProportionBar, SourceNote, Explorable, Card, Columns, Exam,
 };
