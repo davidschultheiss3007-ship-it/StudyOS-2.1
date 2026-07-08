@@ -102,7 +102,7 @@ Der Diskontfaktor ist <Exam>konstant und exponentiell</Exam>: Jede zusätzliche 
 
 ### Grundidee: ein vierperiodiges Konsumprofil
 
-Annahmen: Menschen verlangen Zinsen (hier **i = 10 %**) und wollen ihren Gesamtlebensnutzen maximieren, beschrieben durch eine intertemporale Nutzenfunktion. Ein hypothetisches Konsumprofil über vier Jahre:
+Annahmen: Zinssatz **i = 10 %**, intertemporale Nutzenmaximierung, vierperiodiges Konsumprofil:
 
 <DataTable
   caption="Hypothetisches Konsumprofil über vier Jahre"
@@ -179,8 +179,8 @@ Die Logik der Konsistenz als Kette:
 
 <Timeline events={[
   { label: '1', title: 'Aussage heute', text: 'Lieber 13 Monate auf EUR 1.100 warten als 12 Monate auf EUR 1.000.' },
-  { label: '2', title: 'Konsistenzforderung', text: 'Wenn 1.100 in 13 Monaten = 1.000 in 12 Monaten, dann muss auch gelten:' },
-  { label: '3', title: 'Nach 12 Monaten', text: '1.100 in 1 Monat = 1.000 sofort — die Präferenz darf sich nicht umkehren.' },
+  { label: '2', title: 'Konsistenzforderung', text: 'Bei gleicher Verschiebung darf sich die Rangfolge nicht ändern.' },
+  { label: '3', title: 'Nach 12 Monaten', text: 'Dann muss auch gelten: 1.100 in 1 Monat = 1.000 sofort.' },
 ]} />
 
 ### Zeitkonsistentes Verhalten bei exponentiellem Diskontieren
@@ -221,7 +221,7 @@ Wer einen für unterschiedliche Zeiträume **unterschiedlichen** persönlichen Z
 
 ## Hyperbolisches Diskontieren und Präferenzumkehr
 
-Die Verhaltensökonomik verwendet das **hyperbolische Diskontieren**, das Zeitinkonsistenzen berücksichtigt. Alltagsbeispiele:
+**Hyperbolisches Diskontieren** erklärt Präferenzumkehr durch starke Gegenwartsnähe. Typische Beispiele:
 
 <Columns count={3}>
 <Card title="Gute Vorsätze" tone="purple" compact>
@@ -250,7 +250,7 @@ Statt <Exam>(1+i)^n</Exam> steht hier <Exam>(1 + i·n)</Exam> im Nenner: der Dis
 
 ### Die beiden Diskontfaktoren im Vergleich
 
-Beide Faktoren bei i = 0,1 über die Periode n — hyperbolisch fällt anfangs steiler, später flacher als exponentiell:
+Bei i = 0,1 fällt hyperbolisch anfangs steiler, später flacher als exponentiell:
 
 <DataChart
   type="line"
@@ -322,7 +322,7 @@ Situation 1: 909,09 (Opt. 1) ist größer als 883,33 (Opt. 2) — man wählt sof
 
 ## Empirie: Thaler (1981) und der Marshmallow-Test
 
-Menschen verlangen für unterschiedliche Zeiträume unterschiedliche Zinssätze. Thaler (1981) fragte Probanden, welche Kompensation nötig wäre, um heute auf 15 $ zu verzichten — der **implizite Jahreszins sinkt mit zunehmender Wartezeit**.
+Thaler (1981): Für den Verzicht auf 15 $ heute sinkt der **implizite Jahreszins mit zunehmender Wartezeit**.
 
 <DataChart
   type="bar"
@@ -356,7 +356,7 @@ Menschen verlangen für unterschiedliche Zeiträume unterschiedliche Zinssätze.
 />
 
 <Callout type="examfocus" title="Was die Daten belegen">
-Sinkende implizite Jahreszinsen mit zunehmender Frist sind ein <Exam>empirischer Beleg für hyperbolisches Diskontieren</Exam>: für nahe Ereignisse ist die Ungeduld groß, für ferne klein.
+Sinkende implizite Jahreszinsen sind ein <Exam>empirischer Beleg für hyperbolisches Diskontieren</Exam>: nahe Ereignisse werden stärker diskontiert.
 </Callout>
 
 ### Der Marshmallow-Test: Selbstbeherrschung bei Kindern
@@ -379,7 +379,7 @@ Die Fähigkeit zu warten korreliert eng mit <Exam>Sozialkompetenz und akademisch
 
 ## Diskontierung aufgrund von Ähnlichkeit (Rubinstein)
 
-Rubinstein (2003) bietet einen **alternativen Ansatz** zur Modellierung zeitinkonsistenter Präferenzen: Entscheidungen hängen davon ab, ob Beträge und/oder Zeitpunkte als *ähnlich* wahrgenommen werden — nicht allein vom Diskontfaktor.
+Rubinstein (2003) modelliert Zeitinkonsistenz über **wahrgenommene Ähnlichkeit**: Entscheidend ist, ob Beträge und/oder Zeitpunkte ähnlich wirken — nicht allein der Diskontfaktor.
 
 <CompareCard items={[
   { tag: 'Situation 1', title: 'Stereoanlage in 60 Tagen', subtitle: 'Angebot abgelehnt', accent: 'negative', points: [
@@ -424,7 +424,7 @@ Bei Frage 1 wählen mehr Menschen das Warten als bei Frage 2: Sie warten in zwei
 
 ## Weitere Zeitanomalien
 
-Drei weitere empirische Effekte widersprechen der reinen DU-Logik:
+Drei weitere Effekte verletzen die reine DU-Logik:
 
 - **Vorzeicheneffekt** — Gewinne werden stärker diskontiert als Verluste (Thaler 1981).
 - **Größeneffekt** — kleine Beträge werden stärker diskontiert als große (Thaler 1981).

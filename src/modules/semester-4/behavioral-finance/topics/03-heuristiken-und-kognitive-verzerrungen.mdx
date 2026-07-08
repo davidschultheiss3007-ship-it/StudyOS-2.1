@@ -111,10 +111,13 @@ Heuristiken lassen sich danach klassifizieren, **welches Objekt fehlerhaft einge
   ]}
 />
 
-### Überblick: behandelte Heuristiken und exogene Einflüsse
+### Kapitelkarte: Biases und Einflüsse
 
 <Card title="Im Kapitel behandelte Biases und Einflüsse" tone="accent" compact>
-Verfügbarkeitsheuristik · Repräsentativitätsheuristik · Verankerungsheuristik (Anker) · Bestätigungsirrtum · Überoptimismus · Affektheuristik · Herdenverhalten · Versuchung · Framing · Rückschaufehler · Endowment-Effekt · Status-Quo-Bias · Halo-Effekt · WYSIATI · Priming-Effekt · Mentale Kontenführung · Relativer Vergleich.
+- Verfügbarkeits-, Repräsentativitäts- und Verankerungsheuristik
+- Bestätigungsirrtum, Überoptimismus, Affektheuristik, Herdenverhalten
+- Versuchung, Framing, Rückschaufehler, Endowment- und Status-Quo-Bias
+- Halo-Effekt, WYSIATI, Priming, Mentale Kontenführung, Relativer Vergleich
 </Card>
 
 <SourceNote>Behavioral Finance · BF3 · Folien 21–23; Cognitive Bias Codex (de.wikipedia.org)</SourceNote>
@@ -148,10 +151,7 @@ Die Wahrscheinlichkeitsschätzung für ein Ereignis hängt von der **Abrufbarkei
 
 ### Empirie: wahrgenommenes vs. tatsächliches Risiko (USA)
 
-- Forschungen zur öffentlichen Risikowahrnehmung belegen die Verzerrung.
-- Dramatische Risiken werden über-, stille häufige unterschätzt.
-
-Trägt man die **tatsächliche** Häufigkeit als Vielfaches gegenüber dem subjektiv für gefährlicher gehaltenen Risiko ab, kippt das Bild in jedem Paar:
+Dramatische Risiken werden überschätzt, stille häufige unterschätzt. Die Balken zeigen jeweils, wie viel häufiger das unterschätzte Risiko tatsächlich ist:
 
 <DataChart
   type="bar"
@@ -170,11 +170,8 @@ Trägt man die **tatsächliche** Häufigkeit als Vielfaches gegenüber dem subje
   series={[{ key: 'faktor', name: 'Faktor real / subjektiv', color: 'var(--color-module-purple)' }]}
 />
 
-<Card title="Lesart: subjektiv für gefährlicher gehalten — tatsächlich seltener" tone="neutral" compact>
-- **Unfalltod** gilt als wahrscheinlicher — Schlaganfälle fordern ca. doppelt so viele Tote.
-- **Tornado** gilt als gefährlicher — Asthma fordert 20-mal mehr Tote.
-- **Blitzschlag** gilt als unwahrscheinlich — er ist 52-mal häufiger als Lebensmittelvergiftung.
-- **Krankheit und Unfall** werden gleich beurteilt — Krankheiten fordern ca. 18-mal mehr Tote.
+<Card title="Lesart" tone="neutral" compact>
+Die Tabelle im Kopf behalten: Verfügbarkeit kehrt die Risikowahrnehmung um. Schlaganfall, Asthma, Blitzschlag und Krankheiten sind real häufiger als die jeweils auffälligere Vergleichskategorie.
 </Card>
 
 <Callout type="pitfall" title="Fehlerquellen">
@@ -256,10 +253,13 @@ Menschen setzen durch schematisches Denken <Exam>p(A | B) und p(B | A) gleich</E
 
 <Columns count={2}>
 <Card title="Bestätigungsirrtum (Confirmation Bias)" tone="purple">
-Fakten werden im Sinne der **bereits vorgefassten Meinung** gesucht und interpretiert; die Verteidigung der Meinung rückt in den Mittelpunkt. Tritt sowohl bei der **Suche** als auch bei der **Interpretation** auf (z. B. Todesstrafe-Literatur bestätigt jede Position).
+- Fakten werden passend zur **vorgefassten Meinung** gesucht und interpretiert.
+- Die Verteidigung der Meinung rückt in den Mittelpunkt.
+- Wirkt bei **Suche** und **Interpretation** (z. B. Todesstrafe-Literatur bestätigt jede Position).
 </Card>
 <Card title="Überoptimismus (Overconfidence)" tone="accent">
-Eigennützige, egozentrische Selbsteinschätzung → falsche Wahrscheinlichkeiten. Varianten: **Self-serving-Bias** (Erfolg = ich, Misserfolg = Zufall), **Kontrollillusion**, **Selbstüberschätzung**.
+- Eigennützige, egozentrische Selbsteinschätzung → falsche Wahrscheinlichkeiten.
+- Varianten: **Self-serving-Bias** (Erfolg = ich, Misserfolg = Zufall), **Kontrollillusion**, **Selbstüberschätzung**.
 </Card>
 </Columns>
 
@@ -271,8 +271,7 @@ Eigennützige, egozentrische Selbsteinschätzung → falsche Wahrscheinlichkeite
 
 ### Konsequenz: Overconfidence treibt exzessiven Handel
 
-- Selbstüberschätzung lässt Investoren ihre Informationen höher gewichten als der Markt („Difference in Opinion") — das führt zu Handel.
-- Empirisch handeln (alleinstehende) Männer wegen stärkerer Overconfidence deutlich häufiger:
+Selbstüberschätzung erzeugt „Difference in Opinion": Investoren gewichten eigene Informationen höher als der Markt. Der sichtbare Befund ist höherer Depotumsatz:
 
 <DataChart
   type="bar"
@@ -291,7 +290,7 @@ Eigennützige, egozentrische Selbsteinschätzung → falsche Wahrscheinlichkeite
   series={[{ key: 'umsatz', name: 'Depotumsatz', color: 'var(--color-module-purple)' }]}
 />
 
-Häufiges Handeln schadet jedoch der Rendite: Sortiert man Anleger nach Portfolioumsatz in Quintile, **sinkt die Nettorendite mit steigendem Umsatz** — der Trend fällt monoton.
+Der zweite Befund schärft die Klausurlogik: **mehr Umsatz, niedrigere Nettorendite**.
 
 <DataChart
   type="line"
@@ -312,7 +311,7 @@ Häufiges Handeln schadet jedoch der Rendite: Sortiert man Anleger nach Portfoli
 />
 
 <Callout type="examfocus" title="Klausurpunkt">
-Die umsatzärmste Gruppe schlägt den S&P 500 leicht (nicht signifikant); mit steigendem Umsatz sinkt die Performance. <Exam>Häufiges Handeln (Overconfidence) verringert die Nettorendite.</Exam>
+Die umsatzärmste Gruppe schlägt den S&P 500 leicht (nicht signifikant). <Exam>Häufiges Handeln (Overconfidence) verringert die Nettorendite.</Exam>
 </Callout>
 
 <SourceNote>Behavioral Finance · BF3 · Folien 40–49; Svenson (1981); Barber/Odean (2000)</SourceNote>
@@ -431,9 +430,7 @@ Gemessen wird die Stärke über den **Ankerungsindex**:
 
 ### Empirie: Sozialversicherungsnummer als Anker (Ariely et al. 2003)
 
-- 55 MBA-Studierende gaben zunächst an, ob sie einen Betrag in Höhe der letzten beiden Ziffern ihrer Sozialversicherungsnummer zahlen würden.
-- Anschließend nannten sie die maximale Zahlungsbereitschaft (WTP).
-- Die WTP steigt **monoton** mit dem Quintil der völlig sachfremden Nummer:
+55 MBA-Studierende nannten nach einem sachfremden SS#-Anker ihre maximale Zahlungsbereitschaft. Ergebnis: Die WTP steigt **monoton** mit dem SS#-Quintil.
 
 <DataChart
   type="line"
@@ -485,15 +482,14 @@ Alle Korrelationen sind positiv (0,319 bis 0,516) und signifikant (p ≤ .0172).
 
 ### Mental Accounting: vernachlässigte Abhängigkeiten
 
-- Menschen ordnen Konsequenzen verschiedenen **mentalen Konten** zu, statt alle Tatbestände gemeinsam zu betrachten.
-- Im Kinobeispiel ist der Geldverlust identisch — das Verhalten nicht:
+Menschen trennen mentale Konten. Im Kinobeispiel ist der Geldverlust identisch — das Verhalten nicht:
 
 <KpiGrid columns={2} items={[
   { value: '54 %', label: 'verzichten auf Neukauf, wenn die 10-EUR-Karte verloren ging (Kino-Konto)', accent: 'accent' },
   { value: '12 %', label: 'verzichten, wenn ein 10-EUR-Schein verloren ging (Bargeld-Konto)', accent: 'accent' },
 ]} />
 
-Werden mentale Konten getrennt betrachtet, werden **Diversifikationseffekte übersehen**: Zwei gegenläufige Investments ergeben in jedem Wetterszenario eine positive Summe.
+Getrennte Konten verdecken **Diversifikationseffekte**; die Matrix zeigt die Gegenrechnung.
 
 <DataTable
   caption="Wetter-Diversifikationsmatrix (Folie 70)"
@@ -516,7 +512,7 @@ Werden mentale Konten getrennt betrachtet, werden **Diversifikationseffekte übe
 
 ### Relativer Vergleich: der Decoy-Effekt
 
-Ein bewusst minderwertiger „Köder" verschiebt die Wahl. Beim Economist-Abo hebt das nie gewählte Print-Angebot (0 %) den Anteil des Print+Online-Pakets:
+Ein minderwertiger „Köder" verschiebt die Wahl. Beim Economist-Abo steigt Print+Online trotz 0-%-Köder:
 
 <Columns count={2}>
 <Card title="Ohne Köder" tone="neutral">

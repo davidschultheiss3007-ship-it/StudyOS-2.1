@@ -82,7 +82,7 @@ Die Folgerung aus Problem I (<Formula inline expr="0{,}33\,u(2.500) < 0{,}34\,u(
 ## Prospect Theory: Grundlagen und zwei Phasen
 
 <DefinitionBox term="Prospect Theory" source="Kahneman/Tversky (1979/1992), Econometrica">
-Ein **deskriptives** kognitionspsychologisches Entscheidungsmodell: Es beschreibt, wie Menschen *real* zwischen riskanten Alternativen mit bekannten Wahrscheinlichkeiten wählen — auf Grundlage des potenziellen Werts von **Gewinnen und Verlusten**, nicht des absoluten Endvermögens.
+**Deskriptives** kognitionspsychologisches Entscheidungsmodell: Menschen wählen real zwischen riskanten Alternativen mit bekannten Wahrscheinlichkeiten anhand von **Gewinnen und Verlusten** relativ zum Referenzpunkt, nicht anhand des absoluten Endvermögens.
 </DefinitionBox>
 
 <Columns count={2}>
@@ -107,8 +107,8 @@ Ein **Prospekt** ist das Ergebnis einer riskanten Entscheidung mit der zugehöri
 ### Die zwei Phasen der Entscheidungsfindung
 
 <Timeline events={[
-  { label: '1', title: 'Editing (Aufbereitung)', text: 'Konsequenzen und Wahrscheinlichkeiten der Alternativen werden durch Operationen transformiert: Kombination, Vereinfachung, Segregation, Streichung, Eliminierung dominierter Alternativen, Kodierung (Referenzpunkt setzen).' },
-  { label: '2', title: 'Evaluation (Bewertung)', text: 'Die aufbereiteten Prospects werden bewertet — über zwei Funktionen: die Wertfunktion v (Gewinne/Verluste relativ zum Referenzpunkt) und die Gewichtungsfunktion pi (subjektive Gewichtung der Wahrscheinlichkeiten).' },
+  { label: '1', title: 'Editing (Aufbereitung)', text: 'Konsequenzen und Wahrscheinlichkeiten werden transformiert: Kombination, Vereinfachung, Segregation, Streichung, Eliminierung dominierter Alternativen, Kodierung.' },
+  { label: '2', title: 'Evaluation (Bewertung)', text: 'Die aufbereiteten Prospects werden über Wertfunktion v und Gewichtungsfunktion pi bewertet.' },
 ]} />
 
 <Formula
@@ -326,7 +326,7 @@ Verluste wirken stärker als gleich hohe Gewinne.
 
 ## Konsequenzen: Mental Accounting, Sunk Cost & Co.
 
-Aus der S-Form der Wertfunktion folgen mehrere systematische Verhaltensmuster. Die meisten beruhen auf **Verlustaversion** und **abnehmender Empfindlichkeit**.
+Aus der S-Form folgen Verhaltensmuster aus **Verlustaversion** und **abnehmender Empfindlichkeit**.
 
 <CompareCard items={[
   { tag: 'Status-quo-Bias', title: 'Status-quo-Bias', subtitle: 'lieber alles beim Alten lassen', accent: 'purple', points: [
@@ -380,7 +380,7 @@ Menschen verbuchen Ergebnisse mental so, dass der wahrgenommene Nutzen maximiert
 />
 
 <Callout type="info" title="Pointe">
-Alle vier Varianten ergeben **denselben Gesamtpreis (33.250 €)** — durch Bündelung/Entbündelung von Preisen und Rabatten wirken sie jedoch unterschiedlich attraktiv (Hedonic Framing).
+Alle Varianten ergeben **33.250 €**; Bündelung/Entbündelung verändert nur die Wahrnehmung (Hedonic Framing).
 </Callout>
 
 ### Sunk-Cost-Falle und Dispositionseffekt
@@ -405,7 +405,7 @@ Der Referenzpunkt hat **neutralen Charakter („Norm")** und kann u. a. der Stat
 
 ## Die Gewichtungsfunktion (Weighting Function)
 
-Neben der Risikoneigung aus der Wertfunktion stellten Kahneman und Tversky ein zweites Muster fest: Die **objektive Wahrscheinlichkeit** wird subjektiv **verzerrt** gewichtet.
+Zweites Muster der Prospect Theory: **objektive Wahrscheinlichkeiten** werden subjektiv **verzerrt** gewichtet.
 
 <DataChart
   type="line"
@@ -458,7 +458,7 @@ Kleine, objektiv unwahrscheinliche Ereignisse werden **überbewertet**: <Exam>pi
 
 <Card title="Steile Ränder, zwei Bezugspunkte" tone="neutral">
 - Es gibt zwei natürliche Bezugspunkte: **0%** und **100%**.
-- Die Funktion verläuft an den **Endpunkten sehr steil** → hohe Sensibilität für Wahrscheinlichkeitsänderungen dort (z. B. ein Risiko von 0,001% auf 0% reduzieren wird höher bewertet als von 0,20% auf 0,15%).
+- An den **Endpunkten** ist die Funktion sehr steil: 0,001% → 0% wird höher bewertet als 0,20% → 0,15%.
 - Gewinn- und Verlustwahrscheinlichkeiten werden unterschiedlich bewertet.
 - **Certainty-Effekt** nahe 100%: „Auch eine noch so hohe Wahrscheinlichkeit ist immer noch deutlich schlechter als absolute Sicherheit."
 </Card>
@@ -473,7 +473,7 @@ Jahresprämie 40 €, Wert des Fahrrads 600 €, Diebstahlwahrscheinlichkeit 5%.
 </Card>
 
 <Callout type="merksatz" title="Fazit">
-Die Versicherung ist im Erwartungswert teurer (−40 € statt −30 €), wird aber wegen der **Überbewertung der kleinen Diebstahlwahrscheinlichkeit** subjektiv attraktiv.
+Trotz schlechterem Erwartungswert (−40 € statt −30 €) wirkt die Versicherung attraktiv, weil die kleine Diebstahlwahrscheinlichkeit überbewertet wird.
 </Callout>
 
 ### Synthese: Hürden für rationale Entscheidungen

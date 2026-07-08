@@ -136,8 +136,8 @@ Jede Zelle <Formula inline expr="X_{ij}" /> ist das Ergebnis (die Konsequenz) de
 
 Bei **Ungewissheit** fehlen Wahrscheinlichkeiten:
 
-- Sechs klassische Regeln werten dieselbe Beispielmatrix aus.
-- Je nach Grundeinstellung des Entscheiders empfehlen sie unterschiedliche Alternativen.
+- Dieselbe Ergebnismatrix wird mit sechs Regeln bewertet.
+- Die Regeln spiegeln unterschiedliche Grundeinstellungen: optimistisch, pessimistisch, kompromissorientiert oder regret-orientiert.
 
 ### Beispielmatrix
 
@@ -386,11 +386,11 @@ Mit der Nutzenfunktion <Formula inline expr="u(z)=\ln(z)" /> (z in Tsd. €) wir
 
 <Columns count={2}>
 <Card title="Sicherheitsäquivalent s" tone="accent">
-Fiktives **sicheres Ergebnis** mit demselben Nutzen wie die riskante Handlung. Der Entscheider ist zwischen s und X indifferent.
+**Sicherer Betrag** mit demselben Nutzen wie die riskante Handlung; der Entscheider ist zwischen s und X indifferent.
 <Formula expr="u(s)=E(u(X)) \;\Rightarrow\; s=u^{-1}(E(u(X)))" />
 </Card>
 <Card title="Risikoprämie π" tone="purple">
-Der vom Erwartungswert vorzunehmende **Abschlag**, der gerade Indifferenz herbeiführt.
+**Abschlag vom Erwartungswert**, der gerade Indifferenz herbeiführt.
 <Formula expr="\pi = E(X) - s" />
 </Card>
 </Columns>
@@ -401,8 +401,8 @@ Lotterie: 50 % → 100 €, 50 % → 0 €, also <Formula inline expr="E(X)=50" 
 
 ### Erwartungsnutzenhypothese (von Neumann / Morgenstern)
 
-- Die **Erwartungsnutzenhypothese** fordert die <Exam>Maximierung des Erwartungsnutzens</Exam>.
-- Die Risikoprämie π ergibt sich als Differenz aus Erwartungswert und Sicherheitsäquivalent.
+- Entscheidungsregel: <Exam>Maximierung des Erwartungsnutzens</Exam>.
+- Risikoprämie π = Erwartungswert minus Sicherheitsäquivalent.
 
 <Formula
   title="Erwartungsnutzen und Risikoprämie (Folie 32)"
@@ -434,7 +434,7 @@ Lotterie: 50 % → 100 €, 50 % → 0 €, also <Formula inline expr="E(X)=50" 
 
 Die **Krümmung** der Nutzenfunktion bestimmt die Risikoeinstellung:
 
-- Ablesbar an der Lage der roten Sehne (Erwartungsnutzen) relativ zur Kurve (Nutzen des Erwartungswerts).
+- Lage der roten Sehne relativ zur Kurve zeigt Erwartungsnutzen vs. Nutzen des Erwartungswerts.
 - Das <Exam>Vorzeichen der Risikoprämie π</Exam> ordnet die Einstellung eindeutig zu.
 
 ### Risikoeinstellung auf dem Kontinuum

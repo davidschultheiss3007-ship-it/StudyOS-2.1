@@ -212,11 +212,7 @@ In einer Welt vollständiger Kapitalmarkteffizienz sind **Wert und Kurs** einer 
 
 ## Zinsänderungsrisiken: Duration und Konvexität
 
-Anleihekurse reagieren auf Marktzinsänderungen — wie stark, hängt von drei Treibern ab:
-
-- **Laufzeit:** je länger, desto sensibler.
-- **Coupon:** je niedriger, desto sensibler.
-- **Rendite-Niveau:** bestimmt die Krümmung der Kurs-Rendite-Kurve.
+Anleihekurse reagieren auf Marktzinsänderungen; die zentralen Treiber sind Laufzeit, Coupon und Rendite-Niveau.
 
 ### Tatsächlicher Zusammenhang: Kurs und Rendite
 
@@ -241,10 +237,7 @@ Der Zusammenhang zwischen Anleihepreis und Rendite ist <Exam>negativ und konvex 
 
 ### Zinssensitivität nach Laufzeit
 
-Je länger die Laufzeit, desto stärker reagiert eine Anleihe auf Zinsänderungen:
-
-- Ferne Cashflows werden von Diskontierungsänderungen stärker getroffen.
-- Im Folienbeispiel steigt der Barwertabschlag von −16,3 % (5 J.) auf −58,0 % (50 J.).
+Lesart: Je länger die Laufzeit, desto stärker trifft der Zinsanstieg; im Beispiel von −16,3 % (5 J.) bis −58,0 % (50 J.).
 
 <DataChart
   type="bar"
@@ -266,10 +259,13 @@ Je länger die Laufzeit, desto stärker reagiert eine Anleihe auf Zinsänderunge
 
 <Columns count={2}>
 <Card title="Regel Laufzeit" tone="neutral">
-Je **länger** die Laufzeit, desto sensibler reagiert der Bond auf Zinsänderungen. Im Beispiel: −16,3 % (5J) bis −58,0 % (50J).
+- **längere** Laufzeit = stärkere Zinssensitivität
+- Beispiel: −16,3 % (5J) bis −58,0 % (50J)
 </Card>
 <Card title="Regel Nominalverzinsung" tone="neutral">
-Je **niedriger** der Nominalzins (Coupon), desto sensibler der Bond. Hohe Kupons bringen frühe Cashflows; im Extremfall reagiert ein **Zero-Bond** am stärksten.
+- **niedrigerer** Coupon = stärkere Zinssensitivität
+- hohe Kupons bringen frühe Cashflows
+- Extremfall: **Zero-Bond** reagiert am stärksten
 </Card>
 </Columns>
 
@@ -287,9 +283,10 @@ Je **niedriger** der Nominalzins (Coupon), desto sensibler der Bond. Hohe Kupons
 
 <Columns count={2}>
 <Card title="Was die Duration ist" tone="accent">
-Barwertgewichtete **mittlere Kapitalbindungsdauer** (in Jahren). Sie ist der Gleichgewichtszeitpunkt, an dem sich Marktwert- und Wiederanlageeffekt einer Zinsänderung gerade aufheben (Beispiel: 5 %-Anleihe, 7 Jahre → **D = 6,07**).
+- barwertgewichtete **mittlere Kapitalbindungsdauer** (in Jahren)
+- Gleichgewichtszeitpunkt: Marktwert- und Wiederanlageeffekt einer Zinsänderung heben sich auf
+- Beispiel: 5 %-Anleihe, 7 Jahre → **D = 6,07**
 - Annahmen: flache Zinsstrukturkurve, nur Parallelverschiebungen.
-- Interpretation: je höher D, desto stärker fällt der Kurs bei Zinsanstieg.
 </Card>
 <Card title="Duration ist höher bei …" tone="neutral" compact>
 - niedrigerem Coupon
@@ -311,7 +308,8 @@ Zero-Bond: D = Restlaufzeit. Grenzwert für sehr lange Laufzeiten:
 
 <Card title="Approximation der relativen Kursänderung" tone="accent" exam>
 <Formula expr="\text{relative Kursänderung} = -MD\cdot\Delta r + 0{,}5\cdot C\cdot(\Delta r)^2" />
-Da die Kurs-Rendite-Beziehung konvex ist, **unterschätzt** die Modified Duration die Kursreaktion; die Konvexität C korrigiert diese Krümmung. Bei gleicher MD ist eine **höhere Konvexität** vorteilhaft (mehr Kursgewinn bei fallenden, weniger Abschlag bei steigenden Zinsen).
+- Modified Duration **unterschätzt** wegen Konvexität die Kursreaktion
+- bei gleicher MD ist **höhere Konvexität** vorteilhaft: mehr Kursgewinn bei fallenden, weniger Abschlag bei steigenden Zinsen
 </Card>
 
 ### Reale Marktbeispiele
@@ -337,7 +335,9 @@ Da die Kurs-Rendite-Beziehung konvex ist, **unterschätzt** die Modified Duratio
 />
 
 <Callout type="info" title="Lesart der Tabelle">
-Kurze Restlaufzeit bedeutet niedrige Duration und Konvexität (Bundesobligation: 0,35 / 0,00), längere Laufzeit höhere Werte (E.ON: 5,34 / 0,34). Die **Portfolio-Duration** ist additiv: D_Portfolio = Σ w_i · D_i (Barwertanteile w_i).
+- kurze Restlaufzeit: niedrige Duration/Konvexität (Bundesobligation: 0,35 / 0,00)
+- längere Laufzeit: höhere Werte (E.ON: 5,34 / 0,34)
+- **Portfolio-Duration** ist additiv: D_Portfolio = Σ w_i · D_i (Barwertanteile w_i)
 </Callout>
 
 <SourceNote>Asset Management · Kapitel 4 · Folien 12–22 · Frère/Rojahn/Schyra (2010), Hull (2019)</SourceNote>
@@ -558,15 +558,14 @@ Schätzung des Verlustbetrags, von dem erwartet wird, dass er mit einer bestimmt
 </DefinitionBox>
 
 <Callout type="pitfall" title="VaR ist ein Mindestverlust">
-Beispiel: VaR = 1,5 Mio. EUR pro Tag bei 5 % Wahrscheinlichkeit. Das bedeutet, der Verlust beträgt mit **95 %** Wahrscheinlichkeit nicht mehr als 1,5 Mio. EUR. Der VaR beschreibt einen <Exam>Mindestverlust</Exam> — der tatsächliche Verlust kann größer sein. Eine Senkung der Wahrscheinlichkeit von 5 % auf 1 % erhöht den VaR.
+- Beispiel: VaR = 1,5 Mio. EUR pro Tag bei 5 % Wahrscheinlichkeit
+- Interpretation: Verlust beträgt mit **95 %** Wahrscheinlichkeit nicht mehr als 1,5 Mio. EUR
+- <Exam>Mindestverlust</Exam>: tatsächlicher Verlust kann größer sein; 1 % statt 5 % erhöht den VaR
 </Callout>
 
 ### Der VaR als Quantil der Verteilung
 
-Der VaR ist ein Quantil der Verteilung der Wertänderungen:
-
-- Er markiert den Punkt, links von dem die Restfläche (100 − X) % liegt.
-- Diese Restfläche ist die <Exam>Verlustwahrscheinlichkeit</Exam>.
+Lesart: Der VaR markiert das Quantil; links davon liegt die Restfläche (100 − X) % = <Exam>Verlustwahrscheinlichkeit</Exam>.
 
 <DataChart
   type="area"
@@ -615,7 +614,8 @@ Der VaR ist ein Quantil der Verteilung der Wertänderungen:
 </Card>
 <Card title="Haltedauer skaliert über Wurzel-T" tone="neutral" compact>
 <Formula expr="\text{Risiko}_{\text{Jahr}} = \text{Risiko}_{\text{Haltedauer}}\cdot\sqrt{\tfrac{250}{\text{Haltedauer}}}" />
-Marktpreisrisiko meist 10 Tage, Adressrisiken 250 Handelstage. Von 10 auf 250 Tage: √(250/10) = 5.
+- Marktpreisrisiko meist 10 Tage, Adressrisiken 250 Handelstage
+- von 10 auf 250 Tage: √(250/10) = 5
 </Card>
 </Columns>
 

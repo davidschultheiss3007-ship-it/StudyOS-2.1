@@ -4,7 +4,7 @@
 
 ## Personalstatistik: Grundlagen und Empfänger
 
-Im operativen Controlling bzw. der **Personalstatistik** arbeitet man im Wesentlichen mit **Kennzahlen**. Aussagefähig werden diese erst durch den **Vergleich mit Bezugswerten**.
+Personalstatistik arbeitet kennzahlenbasiert; aussagefähig werden Kennzahlen erst durch den **Vergleich mit Bezugswerten**.
 
 <Columns count={2}>
 <Card title="Mögliche Bezugswerte" tone="teal">
@@ -20,7 +20,7 @@ Im operativen Controlling bzw. der **Personalstatistik** arbeitet man im Wesentl
 
 ### Externe Empfänger
 
-Personalstatistische Daten fließen — teils gesetzlich verpflichtend — an mehrere externe Stellen weiter:
+Externe Weitergabe: teils gesetzlich verpflichtend.
 
 <Columns count={2}>
 <Card title="Pflicht- und Interessensempfänger" tone="neutral" compact>
@@ -38,7 +38,7 @@ Personalstatistische Daten fließen — teils gesetzlich verpflichtend — an me
 
 ### Fünf Auskunftsbereiche
 
-Die betriebliche Personalstatistik selbst sollte über <Exam>fünf inhaltliche Bereiche</Exam> Auskunft geben:
+Die fünf Auskunftsbereiche:
 
 <KpiGrid columns={5} items={[
   { value: '1', label: 'Personalstruktur', accent: 'accent' },
@@ -50,7 +50,7 @@ Die betriebliche Personalstatistik selbst sollte über <Exam>fünf inhaltliche B
 
 ### Merkmale der Personalstrukturstatistik
 
-Die **Personalstrukturstatistik** veranschaulicht die Zusammensetzung der Belegschaft. Sie kann nach folgenden Merkmalen ausgewertet werden:
+Personalstrukturstatistik beschreibt die Zusammensetzung der Belegschaft nach:
 
 <Columns count={2}>
 <Card title="Personen- und vertragsbezogen" tone="neutral" compact>
@@ -73,7 +73,7 @@ Die **Personalstrukturstatistik** veranschaulicht die Zusammensetzung der Belegs
 
 ## Kennzahlen der Personalstatistik
 
-Die Kennzahlen sind durchgängig **Brüche** der Form „Bezeichnung = Zähler / Nenner". Sie messen Anteile am durchschnittlichen Personalbestand bzw. setzen Größen zueinander ins Verhältnis.
+Kennzahlen sind meist **Brüche**: Zähler / Nenner.
 
 ### Strukturquoten
 
@@ -82,7 +82,7 @@ Die Kennzahlen sind durchgängig **Brüche** der Form „Bezeichnung = Zähler /
   expr="\text{Quote}(i)=\dfrac{\varnothing\,\text{Anzahl der Gruppe }(i)\text{ p.a.}\times 100}{\varnothing\,\text{Personalbestand p.a.}}"
 />
 
-Konkretisiert wird sie in mehreren Beispielen — Bezugsgröße ist jeweils der durchschnittliche Personalbestand, bei der Teilzeitquote dagegen alle Beschäftigten:
+Prüfungsfalle: Bei der Teilzeitquote ist der Nenner **alle Beschäftigten**, nicht der gesamte Personalbestand p.a.
 
 <DataTable
   caption="Beispiele der Strukturquote (Folie 4)"
@@ -100,7 +100,7 @@ Konkretisiert wird sie in mehreren Beispielen — Bezugsgröße ist jeweils der 
 
 ### Personalbewegungen
 
-Die Personalbewegungsstatistik zeigt <Exam>Zu- und Abgänge</Exam> im Personal auf.
+Personalbewegungsstatistik = <Exam>Zu- und Abgänge</Exam>.
 
 <Columns count={2}>
 <Card title="Außerbetriebliche Abgänge" tone="neutral">
@@ -122,7 +122,7 @@ Abgänge setzen sich zusammen aus:
 
 ### Arbeits- und Ausfallzeiten
 
-Zwischen vertraglicher und tatsächlich geleisteter Arbeitszeit besteht oft eine starke Diskrepanz: **Mehrarbeit** erhöht, **Ausfallzeiten** vermindern die vereinbarte Zeit. Die effektive Arbeitszeit wird stufenweise abgeleitet.
+Effektive Arbeitszeit: Mehrarbeit erhöht, Ausfallzeiten vermindern die vereinbarte Zeit.
 
 <Columns count={2}>
 <Card title="Soll-Arbeitszeit" tone="teal">
@@ -152,14 +152,14 @@ Ausgangspunkt: Soll-Arbeitszeit
 
 ### Personalkosten
 
-Personalkosten umfassen **Entgelte** (Löhne, Gehälter, Zulagen, Prämien, Beteiligungen), **Personalzusatzkosten** (gesetzliche Sozialleistungen) und **freiwillige Leistungen** (z. B. Bildungskosten, Kantine, Beihilfen). Vier Strukturkennzahlen analysieren ihre Zusammensetzung:
+Vier Strukturkennzahlen analysieren Entgelte, Personalzusatzkosten und freiwillige Leistungen:
 
 <Formula expr="\text{Anteil PK an Gesamtkosten}=\dfrac{\text{Personalkosten}\times 100}{\text{Gesamtkosten (lt. GuV)}}" />
 <Formula expr="\text{Anteil Entgelt an PK}=\dfrac{\text{Entgelt (Löhne und Gehälter)}}{\text{Personalkosten gesamt}}" />
 <Formula expr="\text{Anteil Zusatzkosten an PK}=\dfrac{\text{Personalzusatzkosten}}{\text{Personalkosten gesamt}}" />
 <Formula expr="\text{Anteil freiwillige Leistungen an PK}=\dfrac{\text{Freiwillige Leistungen}}{\text{Personalkosten gesamt}}" />
 
-Zusätzlich werden Personalkosten zu **Bezugsgrößen** ins Verhältnis gesetzt (pro Kopf / pro Leistungseinheit):
+Weitere Lesart: Personalkosten pro Bezugsgröße.
 
 <KpiGrid columns={3} items={[
   { value: 'PK / Umsatz', label: 'Personalkosten je Umsatz', accent: 'accent' },
@@ -182,7 +182,7 @@ Die Beispiel-Reporting-Tabelle „Personalkennzahlen für (Bereich)" ist in der 
 
 ## Moderne HR-KPIs
 
-Über die klassischen Quoten hinaus nennt die Vorlage eine Liste moderner **HR-Kennzahlen (KPIs)** mit Kurzdefinitionen.
+Moderne HR-KPIs mit Kurzdefinitionen:
 
 <DataTable
   caption="Top-Personal-Kennzahlen 2025 (Folien 12–13)"
@@ -221,7 +221,7 @@ Der Folientitel von Folie 13 spricht von „Top 16", die Liste endet jedoch bei 
 
 ## Personalintegration: Onboarding
 
-Die **Personalintegration** (Onboarding) gliedert sich in aufeinander aufbauende Phasen — von der Vorbereitung vor dem ersten Arbeitstag bis zur Einweisung und Rückmeldung an das Personalwesen.
+Onboarding läuft von Vorbereitung bis Einweisung/Rückmeldung:
 
 <Timeline events={[
   { label: '1', title: 'Vorbereitung', text: 'Arbeitsbeginn und Einarbeitungszeit vormerken, Arbeitsplatz vorbereiten, Bewerbungsunterlagen prüfen, Kollegen/Führungskräfte/Belegschaftsvertretung unterrichten, Einarbeitungsplan erstellen, Paten für soziale Integration benennen, evtl. Hilfe bei der Wohnungssuche.' },
@@ -246,7 +246,7 @@ Die **Personalintegration** (Onboarding) gliedert sich in aufeinander aufbauende
 
 ## Laufbahnplanung und Entwicklung
 
-Strukturierte, individuelle Laufbahnplanung ist betriebswirtschaftlich relevant. Drei Kennzahlen begründen ihre Bedeutung:
+Drei Kennzahlen begründen die Relevanz strukturierter Laufbahnplanung:
 
 <KpiGrid columns={3} items={[
   { value: '70 %', label: 'verlassen das Unternehmen wegen fehlender Entwicklungsperspektiven', accent: 'positive' },
@@ -256,34 +256,20 @@ Strukturierte, individuelle Laufbahnplanung ist betriebswirtschaftlich relevant.
 
 ### Der Vier-Phasen-Prozess
 
-Laufbahnplanung läuft in vier aufeinander aufbauenden, **iterativen** Phasen ab; jede Phase baut auf der vorherigen auf und wird an das Unternehmen angepasst.
+Vier **iterative** Phasen, unternehmensspezifisch anzupassen:
 
 <Diagram
   title="Vier Phasen der Laufbahnplanung (Folie 22)"
   chart={`graph LR
-  P1["1 · Diagnose & Verstehen"] --> P2["2 · Orientierung & Modell"]
-  P2 --> P3["3 · Individuelle Planung"]
-  P3 --> P4["4 · Umsetzung & Verankerung"]
+  P1["1 · Diagnose & Verstehen<br/>Ist-Zustand, Bedürfnisse, Stakeholder"] --> P2["2 · Orientierung & Modell<br/>Laufbahnpfade und Kriterien"]
+  P2 --> P3["3 · Individuelle Planung<br/>Ziele, Maßnahmen, Entwicklungspläne"]
+  P3 --> P4["4 · Umsetzung & Verankerung<br/>Gespräche, Befähigung, Review"]
   P4 -.iterativ.-> P1`}
-/>
-
-<DataTable
-  caption="Inhalt der vier Phasen (Folie 22)"
-  columns={[
-    { key: 'p', label: 'Phase', align: 'left' },
-    { key: 'inhalt', label: 'Inhalt', align: 'left' },
-  ]}
-  rows={[
-    { p: '1 · Diagnose & Verstehen', inhalt: 'Ist-Zustand, Bedürfnisse und Stakeholder klären' },
-    { p: '2 · Orientierung & Modell', inhalt: 'Laufbahnpfade und Kriterien entwickeln' },
-    { p: '3 · Individuelle Planung', inhalt: 'Ziele, Maßnahmen und Entwicklungspläne' },
-    { p: '4 · Umsetzung & Verankerung', inhalt: 'Gespräche, Befähigung und Review' },
-  ]}
 />
 
 ### Drei gleichwertige Karrierepfade
 
-Moderne Laufbahnmodelle bieten **drei gleichwertige Pfade** mit je vier aufsteigenden Stufen — Karriere ist damit nicht nur über Führung möglich (Stufe 1 = Einstiegsstufe).
+**Drei gleichwertige Pfade** mit je vier Stufen; Karriere läuft nicht nur über Führung (Stufe 1 = Einstiegsstufe).
 
 <CompareCard items={[
   { tag: 'Pfad 1', title: 'Fachliche Laufbahn', subtitle: 'Tiefe Expertise, Wissenstransfer und fachliche Autorität', accent: 'accent', points: [
@@ -308,7 +294,7 @@ Moderne Laufbahnmodelle bieten **drei gleichwertige Pfade** mit je vier aufsteig
 
 ### Das 70/20/10-Lernmodell
 
-Kompetenzentwicklung entsteht überwiegend durch Erfahrung. Die Anteile zeigen, wo Lernen tatsächlich stattfindet:
+Kompetenzentwicklung entsteht überwiegend durch Erfahrung:
 
 <ProportionBar
   caption="70/20/10-Lernmodell (Folie 24)"
@@ -346,7 +332,7 @@ Den <Exam>70-%-Anteil bewusst gestalten</Exam> — die richtigen Aufgaben zur ri
 
 ### Der individuelle Entwicklungsplan
 
-Ein individueller Entwicklungsplan durchläuft <Exam>fünf Schritte</Exam>; Mitarbeitende, Führungskraft und HR haben dabei klar abgegrenzte Rollen.
+Individueller Entwicklungsplan: <Exam>fünf Schritte</Exam> plus klare Rollen.
 
 <Card title="Prozess-Schritte" tone="teal">
 1. **Stärken-Profil erstellen** — Was kann die Person besonders gut? Welche Talente sind ungenutzt?
@@ -356,7 +342,7 @@ Ein individueller Entwicklungsplan durchläuft <Exam>fünf Schritte</Exam>; Mita
 5. **Verantwortung klären** — Wer tut was bis wann?
 </Card>
 
-Die drei Rollen tragen dabei klar abgegrenzte Verantwortung:
+Rollenverteilung:
 
 <CompareCard items={[
   { tag: 'Eigeninitiative', title: 'Mitarbeitende:r', subtitle: 'Treiber der eigenen Entwicklung', accent: 'accent', points: [
@@ -378,7 +364,7 @@ Die drei Rollen tragen dabei klar abgegrenzte Verantwortung:
 
 ### Einschätzungsbogen zur Standortbestimmung
 
-Zur Zielsetzung dient ein Selbst-/Fremdeinschätzungsbogen mit **zwei Kompetenzdimensionen**, die je über fünf Aussagen auf einer 5er-Skala (1 = trifft nie zu … 5 = trifft immer zu) bewertet werden. *(Hier als statisches Lernbeispiel dargestellt.)*
+Standortbestimmung: **zwei Kompetenzdimensionen**, je fünf Aussagen, 5er-Skala (1 = trifft nie zu … 5 = trifft immer zu).
 
 <Columns count={2}>
 <Card title="Entwicklung & Lernen" tone="accent" compact>
@@ -414,7 +400,7 @@ Funktionsbereich des HRM: die Zuordnung der Arbeitspersonen zu den zu erfüllend
 
 ### Wechselseitige Adaption von Person und Stelle
 
-Personaleinsatz im weiteren Sinne ist die **wechselseitige Anpassung** von Person und Arbeitsplatz im Hinblick auf optimale Effizienz und Humanität.
+Weiterer Sinn: **wechselseitige Anpassung** von Person und Arbeitsplatz.
 
 <CompareCard items={[
   { tag: 'Person', title: 'Personalauswahl und -entwicklung', subtitle: 'Adaption des Qualifikationsprofils', accent: 'purple', points: [
@@ -433,7 +419,7 @@ Personaleinsatz im weiteren Sinne ist die **wechselseitige Anpassung** von Perso
 
 ### Fünf Ansatzpunkte der Arbeitsplatzgestaltung
 
-Die Arbeitsplatzgestaltung setzt an <Exam>fünf gleichrangigen Ansatzpunkten</Exam> an — jeder mit eigenen Gestaltungsfeldern:
+<Exam>Fünf gleichrangige Ansatzpunkte</Exam>:
 
 <DataTable
   caption="Ansatzpunkte mit Beispielen (Folie 30)"
@@ -452,7 +438,7 @@ Die Arbeitsplatzgestaltung setzt an <Exam>fünf gleichrangigen Ansatzpunkten</Ex
 
 ### Menschengerechte Gestaltung
 
-Menschengerechte Arbeitsplatzgestaltung bedeutet die **Anpassung der Arbeitsbedingungen an die physischen und psychischen Bedürfnisse** der Beschäftigten.
+Menschengerechte Gestaltung: Arbeitsbedingungen an **physische und psychische Bedürfnisse** anpassen.
 
 <Columns count={2}>
 <Card title="Ziele" tone="teal" compact>
@@ -471,7 +457,7 @@ Menschengerechte Arbeitsplatzgestaltung bedeutet die **Anpassung der Arbeitsbedi
 
 ### Arbeitsinhalte: Dimensionen, Ziel und Kriterien
 
-Arbeitsinhalte lassen sich über **sieben Gegensatzpaare** beschreiben. Ziel ihrer Gestaltung ist die Minimierung der Belastungen, gemessen an fünf Kriterien.
+Arbeitsinhalte: **sieben Gegensatzpaare**, Ziel: Belastungsminimierung nach fünf Kriterien.
 
 <Columns count={2}>
 <Card title="Dimensionen der Arbeitsinhalte" tone="neutral">

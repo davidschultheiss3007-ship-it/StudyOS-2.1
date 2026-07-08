@@ -72,7 +72,7 @@ Vergleich mit Wettbewerbern und **Kundenwerbung**.
 
 ## Systematik der Performancemaße
 
-Alle Performancemaße verzweigen in zwei Äste: **reine Renditemaße** und **risikoadjustierte Maße**. Letztere unterscheiden sich nur im verwendeten Risikomaß.
+Lesart: **reine Renditemaße** trennen sich von **risikoadjustierten Maßen**; deren Prüfungsunterschied ist das jeweilige Risikomaß.
 
 <DecisionTree nodes={[
   { label: 'Performancemaße', detail: 'Systematik der Kennzahlen zur Erfolgsmessung (Folien 6 & 12)', children: [
@@ -87,10 +87,6 @@ Alle Performancemaße verzweigen in zwei Äste: **reine Renditemaße** und **ris
     ] },
   ] },
 ]} />
-
-<Callout type="examfocus" title="Klausurpunkt">
-Die drei risikoadjustierten Maße unterscheiden sich allein im **Risikomaß**: <Exam>Sharpe = Gesamtrisiko (σ)</Exam>, <Exam>Treynor = systematisches Risiko (β)</Exam>, Jensen = Renditedifferenz zur betaadjustierten Benchmark.
-</Callout>
 
 <SourceNote>Asset Management · Kapitel 7 · Folien 236 & 242</SourceNote>
 </section>
@@ -129,8 +125,6 @@ Bei t=1 setzt sich der Bestand von 500 € aus zwei Quellen zusammen:
   ]}
 />
 
-### Die zwei Zahlungsströme im Vergleich
-
 <Columns count={2}>
 <Card title="Marktsicht (TWR)" tone="teal" compact>
 - +100 % im ersten Jahr
@@ -144,7 +138,7 @@ Bei t=1 setzt sich der Bestand von 500 € aus zwei Quellen zusammen:
 </Card>
 </Columns>
 
-### Zeitgewichtete Rendite (TWR) — nur das Marktgeschehen
+### TWR und MWR berechnen
 
 <Formula
   title="Zeitgewichtete Rendite (geometrisches Mittel der Periodenrenditen)"
@@ -154,10 +148,6 @@ Bei t=1 setzt sich der Bestand von 500 € aus zwei Quellen zusammen:
     { sym: 'r_2', desc: 'Periodenrendite Jahr 2 = −50 %' },
   ]}
 />
-
-Die TWR ignoriert Höhe und Timing der Einzahlung und ergibt **0 %** — das Marktgeschehen war im Saldo neutral.
-
-### Geldgewichtete Rendite (MWR) — Timing + Marktgeschehen
 
 <Formula
   title="Geldgewichtete Rendite = interner Zinsfuß des Zahlungsstroms"
@@ -189,7 +179,7 @@ Die Folie betitelt die geldgewichtete Rendite irrtümlich mit „TWR" — gemein
 ]} />
 
 <Callout type="merksatz" title="Fazit: MWR vs. TWR als Timing-Test">
-Die MWR drückt **zwei Effekte in einer Kennzahl** aus (Timing + Markt), die TWR **nur das Marktgeschehen**. Daher gilt: <Exam>MWR kleiner als TWR = ungünstiges Timing</Exam>, MWR größer als TWR = günstiges Timing der Inflows und Outflows.
+MWR = Timing + Markt, TWR = nur Marktgeschehen. <Exam>MWR kleiner als TWR = ungünstiges Timing</Exam>; MWR größer als TWR = günstiges Timing der Inflows und Outflows.
 </Callout>
 
 <SourceNote>Asset Management · Kapitel 7 · Folien 237–241</SourceNote>
@@ -216,7 +206,7 @@ Alle Größen müssen sich auf **denselben Zeitraum** beziehen (z. B. annualisie
 
 ### Beispiel: zwei Portfolios gegen die Benchmark (Spremann 2003)
 
-Drei Anlagen über ein Jahr, risikoloser Zinssatz r_f = 4 %. Portfolio A schwankt am stärksten, B am ruhigsten; am Jahresende liegen alle über dem Startwert 100.
+Drei Anlagen über ein Jahr; r_f = 4 %.
 
 <DataChart
   type="line"
@@ -268,7 +258,7 @@ Drei Anlagen über ein Jahr, risikoloser Zinssatz r_f = 4 %. Portfolio A schwank
 />
 
 <Callout type="examfocus" title="Ergebnis des Beispiels">
-Nach der Sharpe-Ratio gewinnt **Portfolio B (0,91)** vor der Benchmark (0,86) und Portfolio A (0,71). <Exam>Trotz höchster Rendite ist A wegen seines hohen Gesamtrisikos abgeschlagen.</Exam> (Folie 16 beschriftet die Benchmark-Formel irrtümlich „SR_A" statt „SR_BM".)
+<Exam>Trotz höchster Rendite ist A wegen seines hohen Gesamtrisikos abgeschlagen.</Exam> Folie 16 beschriftet die Benchmark-Formel irrtümlich „SR_A" statt „SR_BM".
 </Callout>
 
 ### Regeln, Voraussetzungen und Grenzen
@@ -342,7 +332,7 @@ Aus 10 Periodenrenditen für A, B und Index 1 wurden bereits folgende Kennzahlen
   ]}
 />
 
-### Treynor-Ratios der drei Anlagen (r_f = 3 %)
+### Treynor-Ratios (r_f = 3 %)
 
 <KpiGrid
   columns={3}
@@ -354,7 +344,7 @@ Aus 10 Periodenrenditen für A, B und Index 1 wurden bereits folgende Kennzahlen
 />
 
 <Callout type="examfocus" title="Ergebnis & Bewertung">
-Nach der Treynor-Ratio schlägt <Exam>B (0,0131) vor A (0,0117)</Exam>, beide über der Benchmark (0,01) — bezogen auf das **systematische Risiko** performen beide besser als die Benchmark. Treynor ist ein **relatives** Maß für gut diversifizierte Teilportfolios mit ex-ante-Benchmark; das **unsystematische Risiko bleibt unberücksichtigt**.
+<Exam>B (0,0131) liegt vor A (0,0117)</Exam>, beide über Benchmark (0,01). Treynor ist ein **relatives**, benchmarkabhängiges Maß für gut diversifizierte Teilportfolios; **unsystematisches Risiko bleibt unberücksichtigt**.
 </Callout>
 
 <SourceNote>Asset Management · Kapitel 7 · Folien 249–253 · Bruns/Meyer-Bullerdiek (2013)</SourceNote>
@@ -384,8 +374,6 @@ Auf denselben Daten liefern Sharpe und Treynor **widersprüchliche Ranglisten** 
   highlight={(row) => row.kpi.startsWith('Sharpe') || row.kpi.startsWith('Treynor')}
 />
 
-### Die beiden Ranglisten direkt gegenübergestellt
-
 <CompareCard items={[
   { tag: 'σ', title: 'Sharpe-Rangfolge', subtitle: 'gemessen am Gesamtrisiko', accent: 'accent', points: [
     '**1.** Portfolio A — 18,12 %',
@@ -405,10 +393,8 @@ Auf denselben Daten liefern Sharpe und Treynor **widersprüchliche Ranglisten** 
 SR_A größer SR_BM größer SR_B&nbsp;&nbsp;**aber**&nbsp;&nbsp;TR_B größer TR_A größer TR_BM
 </Card>
 
-<Callout type="merksatz" title="Warum widersprechen sich die Rankings?">
-- Bezogen auf das **Gesamtrisiko** (Sharpe) ist A besser als B.
-- B hat gegenüber der Benchmark sogar **underperformt** (Sharpe-Rang 3).
-- Ursache: <Exam>B ist schlechter diversifiziert und trägt mehr unsystematisches Risiko</Exam>. Bei gut diversifiziertem Portfolio fielen beide Rankings zusammen.
+<Callout type="merksatz" title="Prüfungslogik">
+Ursache des Widerspruchs: <Exam>B ist schlechter diversifiziert und trägt mehr unsystematisches Risiko</Exam>. Bei gut diversifiziertem Portfolio fielen beide Rankings zusammen.
 </Callout>
 
 <SourceNote>Asset Management · Kapitel 7 · Folie 252 · Bruns/Meyer-Bullerdiek (2013)</SourceNote>
@@ -433,11 +419,7 @@ SR_A größer SR_BM größer SR_B&nbsp;&nbsp;**aber**&nbsp;&nbsp;TR_B größer T
 
 ### Grafische Deutung: Abstand zur SML
 
-Grafisch ist α der **vertikale Abstand** der tatsächlichen Rendite r_P zur CAPM-/SML-Linie:
-
-- <Exam>Punkt über der Linie → α größer 0 (Outperformance)</Exam>
-- Punkt unter der Linie → α kleiner 0 (Underperformance)
-- Punkt auf der Linie → α = 0 (Rendite genau nach CAPM-Erwartung)
+Lesart: <Exam>Punkt über der Linie → α größer 0</Exam>, darunter → α kleiner 0, auf der Linie → α = 0.
 
 <DataChart
   type="scatter"
@@ -463,7 +445,7 @@ Grafisch ist α der **vertikale Abstand** der tatsächlichen Rendite r_P zur CAP
   ]}
 />
 
-Der orange Punkt ist die CAPM-erwartete Rendite bei β_P, der grüne die tatsächlich erzielte — ihr vertikaler Abstand ist α. Alternativ ist α der **Achsenabschnitt** der Regression von r_P auf r_BM:
+Alternativ ist α der **Achsenabschnitt** der Regression von r_P auf r_BM:
 
 <Formula
   title="Jensen-Alpha als Regressions-Achsenabschnitt"
@@ -487,7 +469,7 @@ Der orange Punkt ist die CAPM-erwartete Rendite bei β_P, der grüne die tatsäc
 </Columns>
 
 <Callout type="examfocus" title="Ergebnis">
-Beide Portfolios haben ein **positives Jensen-Alpha** und schlagen damit die CAPM-Erwartung; <Exam>B weist mit 0,31 % das höhere Alpha auf</Exam> — bezogen auf das systematische Risiko performen A und B besser als die Benchmark.
+Beide Portfolios schlagen die CAPM-Erwartung; <Exam>B weist mit 0,31 % das höhere Alpha auf</Exam>.
 </Callout>
 
 <SourceNote>Asset Management · Kapitel 7 · Folien 254–256 · Bruns/Meyer-Bullerdiek (2013)</SourceNote>
@@ -497,7 +479,7 @@ Beide Portfolios haben ein **positives Jensen-Alpha** und schlagen damit die CAP
 
 ## Bewertung der drei risikoadjustierten Maße
 
-Die drei Maße ergänzen sich, sind aber unterschiedlich einsetzbar — die Wahl hängt von Risikomaß, Benchmark-Abhängigkeit und Ranking-Eignung ab.
+Die drei Maße unterscheiden sich nach Risikomaß, Benchmark-Abhängigkeit und Ranking-Eignung.
 
 <CompareCard items={[
   { tag: 'σ', title: 'Sharpe-Ratio', subtitle: 'Maß für die gesamte Vermögensanlage', accent: 'accent', points: [
@@ -520,10 +502,6 @@ Die drei Maße ergänzen sich, sind aber unterschiedlich einsetzbar — die Wahl
   ] },
 ]} />
 
-<Callout type="pitfall" title="Jensen-Alpha taugt nicht zum Ranking">
-Sharpe und Treynor erlauben ein Ranking, das Jensen-Alpha **nicht**: ein großes Alpha kann mit deutlich mehr Risiko erkauft sein. <Exam>Für den Investor ist relevant, wie viel Risiko zur Alpha-Erzielung zusätzlich in Kauf genommen wurde</Exam> — das bildet das Alpha allein nicht ab.
-</Callout>
-
 <DataTable
   caption="Die drei risikoadjustierten Maße im Überblick"
   columns={[
@@ -538,6 +516,10 @@ Sharpe und Treynor erlauben ein Ranking, das Jensen-Alpha **nicht**: ein großes
     { mass: 'Jensen-Alpha', risiko: 'CAPM-Erwartung (β-adjustiert)', art: 'absolut', rank: 'problematisch' },
   ]}
 />
+
+<Callout type="pitfall" title="Jensen-Alpha taugt nicht zum Ranking">
+Ein großes Alpha kann mit deutlich mehr Risiko erkauft sein. <Exam>Relevant ist, wie viel Risiko zur Alpha-Erzielung zusätzlich in Kauf genommen wurde</Exam> — das bildet Alpha allein nicht ab.
+</Callout>
 
 <SourceNote>Asset Management · Kapitel 7 · Folien 247, 253, 257–258</SourceNote>
 </section>
