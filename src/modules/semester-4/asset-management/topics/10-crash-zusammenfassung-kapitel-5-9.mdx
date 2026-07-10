@@ -1,0 +1,342 @@
+<section id="kapitel-5-portfoliotheorie">
+
+## Kapitel 5 · Portfoliotheorie
+
+<Callout type="examfocus" title="Must-learn">
+Kapitel 5 ist der Rechenkern: Portfoliorendite, Portfoliorisiko, Korrelation, Effizienzkurve, MVP, Tobin-Separation, CML, CAPM/SML und APT müssen sauber voneinander getrennt werden.
+</Callout>
+
+<Columns count={2}>
+<Card title="Markowitz-Basis" exam>
+- Portfoliotheorie kombiniert Anlagealternativen über <Exam>Rendite, Risiko und Korrelation</Exam>.
+- Erwartete Portfoliorendite ist eine gewichtete Summe.
+- Portfoliorisiko hängt zusätzlich von Kovarianzen bzw. Korrelationen ab.
+- Diversifikation entsteht, wenn Wertpapiere nicht perfekt positiv korreliert sind.
+</Card>
+<Card title="Effizienz und Risiko" exam>
+- Effiziente Portfolios dominieren Alternativen durch höhere Rendite, niedrigeres Risiko oder beides.
+- Das Minimum-Varianz-Portfolio ist der Risikominimum-Punkt, aber nicht automatisch jeder effiziente Punkt.
+- Unsystematisches Risiko ist diversifizierbar.
+- Systematisches Risiko bleibt bestehen und wird im CAPM über Beta betrachtet.
+</Card>
+</Columns>
+
+<Formula
+  title="Zwei-Wertpapier-Portfolio"
+  expr="\sigma_P^2=w_A^2\sigma_A^2+w_B^2\sigma_B^2+2w_Aw_B\sigma_A\sigma_B\rho_{AB}"
+  legend={[
+    { sym: '\\rho_{AB}', desc: 'Korrelation der beiden Wertpapiere; je niedriger, desto stärker der Diversifikationseffekt' },
+    { sym: '\\sigma_P^2', desc: 'Portfoliovarianz inklusive Kovarianzterm' },
+  ]}
+/>
+
+<CompareCard
+  items={[
+    {
+      tag: 'CML',
+      title: 'Capital Market Line',
+      subtitle: 'Effiziente Kombinationen aus risikoloser Anlage und Marktportfolio im Rendite-Risiko-Raum.',
+      accent: 'accent',
+      points: ['Achse: Risiko über Standardabweichung', 'Bezieht sich auf effiziente Portfolios', 'Setzt Tobin-Separation und Tangentialportfolio voraus'],
+    },
+    {
+      tag: 'SML',
+      title: 'Security Market Line',
+      subtitle: 'CAPM-Zusammenhang zwischen erwarteter Rendite und systematischem Risiko.',
+      accent: 'neutral',
+      points: ['Achse: Beta als Marktrisiko', 'Bezieht sich auf Wertpapiere und Portfolios', 'Nur systematisches Risiko wird entlohnt'],
+    },
+  ]}
+/>
+
+<Card title="CAPM und APT im Crash-Vergleich" tone="accent">
+- <Exam>CAPM</Exam>: erwartete Rendite als lineare Funktion von Beta; Marktportfolio ist theoretisch zentral, aber praktisch nicht beobachtbar.
+- <Exam>Multifaktormodelle</Exam>: erklären Renditen über mehrere Risikofaktoren statt nur Marktrendite.
+- <Exam>APT</Exam>: benötigt Faktormodell, wohl diversifizierte Portfolios und keine Arbitragemöglichkeiten; ein Marktportfolio ist nicht erforderlich.
+</Card>
+
+<Callout type="pitfall" title="Typische Fallen">
+CML und SML nicht gleichsetzen. CAPM-Risiko ist nicht Gesamtvolatilität, sondern Beta. Ein einzeln ineffizientes Wertpapier kann durch geringe Korrelation im Portfolio sinnvoll sein.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 5 · Folien 153-202</SourceNote>
+</section>
+
+<section id="kapitel-6-portfoliomanagement">
+
+## Kapitel 6 · Portfoliomanagement
+
+<Callout type="examfocus" title="Must-learn">
+Kapitel 6 fragt meist nach Prozesslogik: Investmentziele, IPS, SAA, Portfoliomanagement i.e.S., Finanzcontrolling, Rebalancing, Upgrading und institutionelle Nebenbedingungen.
+</Callout>
+
+<Diagram
+  title="Investmentprozess"
+  chart={`graph LR
+    A["1 Investmentziele"] --> B["2 Strategische Asset Allocation"]
+    B --> C["3 Portfoliomanagement i.e.S."]
+    C --> D["4 Finanzcontrolling"]
+    D --> A
+    B --> E["Asset-Allocation-Prozess"]
+    C --> E`}
+/>
+
+<Columns count={2}>
+<Card title="Investment Policy Statement" exam>
+- Grundlage der Asset Allocation.
+- Fasst Ziele und Beschränkungen aus der Anlegeranalyse zusammen.
+- Renditeziele: Relative Return gegen Benchmark oder Peer Group; Absolute Return unabhängig von der Marktsituation.
+- Zielkonflikt: Rendite, Sicherheit und Liquidität.
+</Card>
+<Card title="SAA vs. TAA" exam>
+- <Exam>SAA</Exam>: Assetklassen, Länder, Währungen; langfristige Struktur.
+- <Exam>TAA</Exam>: Branchen und Einzeltitel; relative Performance-Erwartungen.
+- SAA hat empirisch den größeren Einfluss auf die Performancevarianz.
+- TAA akzeptiert bewusst systematisches Risiko, um Alpha zu erzielen.
+</Card>
+</Columns>
+
+<KpiGrid
+  columns={3}
+  items={[
+    { value: '91,5 %', label: 'Performancevarianz durch Asset Allocation im Brinson-Ergebnis', accent: 'accent' },
+    { value: '80 %', label: 'Rendite-Einfluss laut Holzer-Aussage', accent: 'default' },
+    { value: '95 %', label: 'Risiko-Einfluss laut Holzer-Aussage', accent: 'warning' },
+  ]}
+/>
+
+<CompareCard
+  items={[
+    {
+      tag: 'Rebalancing',
+      title: 'Zurück zur Ausgangsstruktur',
+      subtitle: 'Umschichtung, wenn Gewichte durch Marktbewegungen vom Zielportfolio abweichen.',
+      accent: 'positive',
+      points: ['Stellt die ursprüngliche Struktur wieder her', 'Disziplinierte Rückkehr zur SAA'],
+    },
+    {
+      tag: 'Upgrading',
+      title: 'Bewusste Strukturänderung',
+      subtitle: 'Anpassung der Portfoliostruktur aufgrund neuer Erwartungen oder Restriktionen.',
+      accent: 'warning',
+      points: ['Verändert die alte Struktur bewusst', 'Nicht mit Rebalancing verwechseln'],
+    },
+  ]}
+/>
+
+<Card title="Institutionelle Nebenbedingungen" tone="accent">
+Das reine Markowitz-Modell reicht für institutionelle Investoren nicht aus. Zu berücksichtigen sind Liquidität, Wettbewerbsrenditen, Finanzstärke, gesetzlicher Rahmen sowie Mischung und Streuung.
+</Card>
+
+<Callout type="pitfall" title="Typische Fallen">
+Das Brinson-Ergebnis betrifft die Varianz der Performance, nicht die Renditehöhe. Innerhalb einer Assetklasse bleibt systematisches Risiko bestehen; bloß mehr Einzeltitel beseitigen es nicht vollständig.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 6 · Folien 203-230</SourceNote>
+</section>
+
+<section id="kapitel-7-performanceanalyse">
+
+## Kapitel 7 · Performanceanalyse
+
+<Callout type="examfocus" title="Must-learn">
+Kapitel 7 verlangt die sichere Trennung von Renditemaßen und risikoadjustierten Maßen: MWR/TWR, Sharpe, Treynor und Jensen-Alpha.
+</Callout>
+
+<CompareCard
+  items={[
+    {
+      tag: 'MWR',
+      title: 'Geldgewichtete Rendite',
+      subtitle: 'Interner Zinsfuß des Zahlungsstroms.',
+      accent: 'accent',
+      points: ['Erfasst Timing und Marktgeschehen', 'Geeignet für Investorensicht', 'Im Beispiel führt ungünstiges Timing zu negativer MWR trotz TWR von 0 %'],
+    },
+    {
+      tag: 'TWR',
+      title: 'Zeitgewichtete Rendite',
+      subtitle: 'Geometrische Durchschnittsrendite der Periodenrenditen.',
+      accent: 'neutral',
+      points: ['Misst nur das Marktgeschehen', 'Geeignet für Portfoliomanager-Vergleich', 'GIPS-Standard'],
+    },
+  ]}
+/>
+
+<DataTable
+  caption="Risikoadjustierte Performancemaße"
+  columns={[
+    { key: 'mass', label: 'Maß' },
+    { key: 'logik', label: 'Kernlogik' },
+    { key: 'risiko', label: 'Risikogröße' },
+    { key: 'fall', label: 'Prüfungsfalle' },
+  ]}
+  rows={[
+    { mass: 'Sharpe-Ratio', logik: 'Überschussrendite je Einheit Gesamtrisiko', risiko: 'Standardabweichung', fall: 'Nicht mit Beta verwechseln' },
+    { mass: 'Treynor-Ratio', logik: 'Überschussrendite je Einheit systematisches Risiko', risiko: 'Beta', fall: 'Kann schlecht diversifizierte Portfolios besser aussehen lassen' },
+    { mass: 'Jensen-Alpha', logik: 'Über- oder Unterrendite gegenüber CAPM-Erwartung', risiko: 'CAPM-Bezug über Beta', fall: 'Kein sauberes Ranking, weil Risiko unberücksichtigt bleibt' },
+  ]}
+/>
+
+<Formula
+  title="Sharpe- und Treynor-Grundlogik"
+  expr="SR_P=\frac{\mu_P-r_f}{\sigma_P}\quad\quad TR_P=\frac{\mu_P-r_f}{\beta_P}"
+  legend={[
+    { sym: '\\sigma_P', desc: 'Gesamtrisiko des Portfolios' },
+    { sym: '\\beta_P', desc: 'systematisches Risiko des Portfolios' },
+  ]}
+/>
+
+<Card title="Jensen-Alpha" exam>
+Grafisch ist Jensen-Alpha der vertikale Abstand der tatsächlichen Portfoliorendite zur CAPM-/SML-Linie. Ein positives Alpha bedeutet Outperformance, ein negatives Alpha Underperformance.
+</Card>
+
+<Callout type="pitfall" title="Typische Fallen">
+Sharpe und Treynor können zu verschiedenen Rankings führen. Sharpe nutzt Gesamtrisiko, Treynor nur systematisches Risiko. Jensen-Alpha zeigt Überrendite, erlaubt allein aber kein einwandfreies Ranking.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 7 · Folien 231-258</SourceNote>
+</section>
+
+<section id="kapitel-8-aktiv-passiv-indizes">
+
+## Kapitel 8 · Aktiv vs. Passiv / Indizes
+
+<Callout type="examfocus" title="Must-learn">
+Kapitel 8 verbindet Investmentphilosophie mit Benchmark- und Indexlogik: aktiv, passiv, tilted, Indexdefinition, Gewichtungsmethoden, passive Vehikel, Tracking Error und empirische Evidenz.
+</Callout>
+
+<CompareCard
+  items={[
+    {
+      tag: 'Aktiv',
+      title: 'Nicht-effiziente Märkte',
+      subtitle: 'Ziel ist positive risikoadjustierte Überschussrendite.',
+      accent: 'warning',
+      points: ['Prognosen und bewusste Benchmark-Abweichungen', 'Alpha-Ziel', 'Höhere Kosten'],
+    },
+    {
+      tag: 'Passiv',
+      title: 'Effiziente Märkte',
+      subtitle: 'Ziel ist kostenminimale Indexnachbildung.',
+      accent: 'positive',
+      points: ['Benchmark als Zielportfolio', 'Tracking statt Outperformance', 'Empirisch oft vorteilhaft nach Kosten'],
+    },
+    {
+      tag: 'Tilted',
+      title: 'Mischform',
+      subtitle: 'Ausgehend vom passiven Portfolio werden gezielte Faktorabweichungen gesetzt.',
+      accent: 'accent',
+      points: ['Core-Satellite-Logik möglich', 'Zwischen rein aktiv und rein passiv'],
+    },
+  ]}
+/>
+
+<DataTable
+  caption="Indexwissen für die Klausur"
+  columns={[
+    { key: 'thema', label: 'Thema' },
+    { key: 'merken', label: 'Merken' },
+    { key: 'falle', label: 'Falle' },
+  ]}
+  rows={[
+    { thema: 'Indexanforderungen', merken: 'Nachbildbarkeit, Liquidität, Transparenz', falle: 'Index nicht nur als Kursliste verstehen' },
+    { thema: 'Auswahlindex', merken: 'Begrenzte Mitgliederzahl, handelbar', falle: 'Nicht mit breitem Benchmarkindex verwechseln' },
+    { thema: 'Preisgewichtung', merken: 'Kursniveau treibt Gewichtung', falle: 'Downward Bias und hoher Kurs wirken stark' },
+    { thema: 'Kapitalisierungsgewichtung', merken: 'Marktwert treibt Gewichtung', falle: 'Market Cap Bias, z. B. Konzentration im MSCI World' },
+    { thema: 'Kurs- vs. Performanceindex', merken: 'Performanceindex reinvestiert Dividenden', falle: 'DJIA und DAX nicht gleich behandeln' },
+  ]}
+/>
+
+<Columns count={3}>
+<Card title="Indexfonds" compact>
+Sondervermögen, bildet Index ab.
+</Card>
+<Card title="ETF" compact exam>
+Börsengehandelter Indexfonds mit niedrigen Gebühren und laufender Handelbarkeit.
+</Card>
+<Card title="Indexzertifikat" compact>
+Schuldverschreibung mit Totalverlustrisiko, kein Sondervermögen.
+</Card>
+</Columns>
+
+<Card title="Empirie und Tracking Error" exam>
+Die Empirie spricht in den vorhandenen Folien für passives Management: Nur eine Minderheit aktiver Fonds schlägt die Benchmark. Der Tracking Error misst die Qualität der Indexnachbildung als Volatilität der Renditedifferenz.
+</Card>
+
+<Callout type="pitfall" title="Typische Fallen">
+Aktiv/passiv nicht über Kosten allein definieren. Indexzertifikate sind kein insolvenzgeschütztes Sondervermögen. Tracking Error ist ein Nachbildungsrisiko, keine aktive Strategie.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 8 · Folien 259-288</SourceNote>
+</section>
+
+<section id="kapitel-9-fintechs-robo-advisors">
+
+## Kapitel 9 · FinTechs / Robo Advisors
+
+<Callout type="examfocus" title="Must-learn">
+Kapitel 9 ist definitions- und prozesslastig: FinTech-Begriff, Klassifikation, Komplexitätsdimensionen, Defizite des traditionellen Asset Managements, Robo-Advisory-Prozess, ETF-Filterkaskade und Angebotstypen.
+</Callout>
+
+<DefinitionBox term="FinTech" source="Kapitel 9">
+FinTech verbindet Financial Services und Technology: innovative Unternehmen erbringen Finanzdienstleistungen mit moderner Technologie. Der moderne FinTech-Begriff kam mit der Finanzkrise 2008 auf.
+</DefinitionBox>
+
+<Diagram
+  title="Robo-Advisory-Prozess"
+  chart={`graph LR
+    A["1 Investor Screening und Onboarding"] --> B["2 Investmentstrategie-Implementierung"]
+    B --> C["3 Monitoring und Rebalancing"]
+    A --> D["Online-Fragebogen"]
+    B --> E["ETF-Filterkaskade"]
+    C --> F["Strategisch oder taktisch"]`}
+/>
+
+<Columns count={2}>
+<Card title="Warum Robo Advisory?" exam>
+- Lösung für intensive und extensive Komplexität im Asset Management.
+- Reaktion auf Defizite wie geringe Financial Literacy, Interessenskonflikte und Abhängigkeit von Fähigkeiten des Portfoliomanagers.
+- Automatisierte Asset- bzw. Wealth-Management-Prozesse zu geringen Gebühren.
+</Card>
+<Card title="Onboarding und Strategie" exam>
+- Online-Multiple-Choice-Fragebogen ist günstig und schnell.
+- Nachteile: Informationsverlust und Response Bias.
+- ETF-Filterkaskade reduziert das Universum auf ca. 3-6 % der ETFs.
+- Monitoring und Rebalancing unterscheiden Angebotstypen.
+</Card>
+</Columns>
+
+<KpiGrid
+  columns={3}
+  items={[
+    { value: '0,15-0,67 %', label: 'Gebührenniveau USA der AuM p. a.', accent: 'accent' },
+    { value: 'ca. 0,8 %', label: 'Durchschnitt Europa der AuM p. a.', accent: 'default' },
+    { value: '3-6 %', label: 'ETF-Universum nach Filterkaskade', accent: 'positive' },
+  ]}
+/>
+
+<CompareCard
+  items={[
+    {
+      tag: 'Einfach',
+      title: 'Strategische Angebote',
+      subtitle: 'Einfachere Angebote nach § 34f GewO.',
+      accent: 'neutral',
+      points: ['Fokus auf strategische Umsetzung', 'Kein aktives taktisches Rebalancing als Kernmerkmal'],
+    },
+    {
+      tag: 'Aufwendig',
+      title: 'Lizenzierte Angebote',
+      subtitle: 'Vermögensverwaltungs-Lizenz mit aktiver taktischer Neugewichtung.',
+      accent: 'accent',
+      points: ['Rebalancing als wichtigstes Unterscheidungskriterium', 'Fortlaufendere Finanzportfolioverwaltung'],
+    },
+  ]}
+/>
+
+<Callout type="pitfall" title="Typische Fallen">
+Robo Advice als einmalige Anlageberatung nicht mit laufender Finanzportfolioverwaltung gleichsetzen. Online-Fragebogen nicht nur positiv sehen: Informationsverlust und Response Bias sind klausurrelevant.
+</Callout>
+
+<SourceNote>Asset Management · Kapitel 9 · Folien 289-305</SourceNote>
+</section>

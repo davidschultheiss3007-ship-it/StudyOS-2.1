@@ -21,6 +21,8 @@ import Content08 from './08-aktives-vs-passives-management.mdx';
 import { meta as meta08 } from './08-aktives-vs-passives-management.js';
 import Content09 from './09-fintechs-im-asset-management.mdx';
 import { meta as meta09 } from './09-fintechs-im-asset-management.js';
+import Content10 from './10-crash-zusammenfassung-kapitel-5-9.mdx';
+import { meta as meta10 } from './10-crash-zusammenfassung-kapitel-5-9.js';
 
 export const topics = [
   { ...meta01, Content: Content01 },
@@ -32,6 +34,7 @@ export const topics = [
   { ...meta07, Content: Content07 },
   { ...meta08, Content: Content08 },
   { ...meta09, Content: Content09 },
+  { ...meta10, Content: Content10 },
 ];
 
 export default topics;

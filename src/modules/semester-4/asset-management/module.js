@@ -87,5 +87,14 @@ export const module = {
         'Asset Management · Kapitel 9 · FinTechs im Asset Management / Robo Advisors · Folien 289–305',
       estimatedMinutes: 50,
     },
+    {
+      id: 'crash-zusammenfassung-kapitel-5-9',
+      title: 'Crash-Zusammenfassung · Kapitel 5-9',
+      status: 'available',
+      hasContent: true,
+      source:
+        'Asset Management · Kapitel 5-9 · Prüfungs-Crash',
+      estimatedMinutes: 45,
+    },
   ],
 };
