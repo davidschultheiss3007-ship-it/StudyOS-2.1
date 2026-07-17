@@ -1,0 +1,363 @@
+{/* Kapitel 10 · Behavioral Corporate Finance. Palette via MDXProvider. */}
+
+<section id="traditionelles-vs-behavioral-corporate-finance">
+
+## Traditionelles vs. Behavioral Corporate Finance
+
+<Callout type="info" title="Leitfrage">
+Wie lassen sich empirisch beobachtbare Finanzierungs- und Investitionsmuster erklären, die sich aus dem Zusammenspiel von Managern und Investoren ergeben?
+</Callout>
+
+<CompareCard items={[
+  { tag: 'Klassisch', title: 'Traditionelle Corporate Finance Theorie', subtitle: 'Überzeugungen und Präferenzen völlig rational', accent: 'neutral', points: [
+    'Investoren können davon ausgehen, dass Manager **rational** auf die von Governance-Mechanismen geprägten Anreize reagieren.',
+    'Manager können **effiziente Märkte** annehmen.',
+  ] },
+  { tag: 'Verhaltensökonomisch', title: 'Behavioral Corporate Finance', subtitle: 'Empirische Evidenz schwer mit Rationalität vereinbar', accent: 'purple', points: [
+    'Manager sind Individuen, die **begrenzt rational** sind.',
+    'Kapitalmärkte sind **nicht vollständig effizient**.',
+  ] },
+]} />
+
+Das gesamte Kapitel untersucht, wie <Exam>begrenzt rationale Manager</Exam> und <Exam>nicht vollständig effiziente Märkte</Exam> zusammen empirisch beobachtbare Finanzierungs- und Investitionsentscheidungen prägen — von Selbstüberschätzung über M&A bis zur Ausschüttungspolitik und IPOs.
+
+<SourceNote>Behavioral Finance · BF10 · Folie 343</SourceNote>
+</section>
+
+<section id="managerial-overconfidence">
+
+## Managerial Overconfidence
+
+### Rahmenbedingungen der Selbstüberschätzung
+
+<Card title="Was die Neigung zur Selbstüberschätzung fördert" tone="warning">
+
+- **Komplexität** von Investitionsentscheidungen: Neigung zur Selbstüberschätzung ist bei Unsicherheit besonders verbreitet.
+- **Individualität** von Investitionsentscheidungen: die Qualität der einmal getroffenen Entscheidung ist i. d. R. erst spät messbar — Lerneffekte bleiben aus.
+- Beförderung erfolgreicher Manager: Gefahr der **Selbstattribution**.
+- Hohe Wahrscheinlichkeit der **Kontrollillusion**, bedingt durch Erfahrung, Ausbildung.
+- Unzureichendes Risikomanagement: Anwendung der **Verfügbarkeitsheuristik** — besonders relevant bei Start-ups (hohe Abhängigkeit von Firmengründern).
+
+</Card>
+
+### Indizien für Selbstüberschätzung
+
+<Card title="Typische Verhaltensweisen als Indiz" tone="neutral">
+
+- (Riskante, fremdfinanzierte) M&A-Transaktionen.
+- Geringe Dividendenausschüttungsquoten; stattdessen verstärkter Rückkauf eigener Aktien.
+- Selbstsichere Außenkommunikation (z. B. in Zeitungsartikeln).
+
+*Vgl. u. a. Baker/Nofsinger, 2010, S. 408ff.*
+
+</Card>
+
+<SourceNote>Behavioral Finance · BF10 · Folien 344–345</SourceNote>
+</section>
+
+<section id="ma-transaktionen">
+
+## M&A-Transaktionen
+
+M&A-Transaktionen scheitern oftmals aus Perspektive der Aktionäre des <Exam>Bieterunternehmens</Exam>:
+
+<DataChart
+  type="line"
+  title="Kumulierte abnormale Rendite (CAR) um die M&A-Ankündigung"
+  source="Asquith (1983), Folie 346 · Tag 0 = Press day"
+  xKey="tag"
+  xLabel="Tage vor/nach Ankündigung"
+  yLabel="CAR"
+  height={300}
+  data={[
+    { tag: -60, targets: 0, acquirer: 0 },
+    { tag: -40, targets: 1, acquirer: 1 },
+    { tag: -20, targets: 3, acquirer: 2 },
+    { tag: -5, targets: 5, acquirer: 3 },
+    { tag: 0, targets: 9, acquirer: 4 },
+    { tag: 10, targets: 15, acquirer: 4.5 },
+    { tag: 20, targets: 16.5, acquirer: 5 },
+    { tag: 40, targets: 16.8, acquirer: 5 },
+    { tag: 60, targets: 17, acquirer: 5 },
+  ]}
+  series={[
+    { key: 'targets', name: 'Targets', color: 'var(--color-module-teal)' },
+    { key: 'acquirer', name: 'Acquirer', color: 'var(--color-module-orange)' },
+  ]}
+/>
+
+<KpiGrid items={[
+  { value: '+28 % / +2 %', label: 'CAR Targets/Acquirer (Bradley et al., JoFE 1988)', accent: 'accent' },
+  { value: '+30,1 % / −2,6 %', label: 'CAR Targets/Bieter (Sirower 1998)', accent: 'warning' },
+]} />
+
+<Columns count={2}>
+<Card title="Reasons for M&A's that make sense" tone="positive">
+
+**Effizienzsteigerung**
+- Ausgangsbasis: Management des Zielunternehmens ist ineffizient → niedrige Marktbewertung.
+- Wertsteigerung durch Restrukturierung, Aufspaltung/Verkauf unrentabler Teile, Umbesetzung von Vorstand/Aufsichtsrat, Änderung des Verschuldungsgrads.
+- **Synergien sind nicht notwendig!** Oftmals Finanzinvestor als Käufer.
+
+**Synergien:** Economies of Scale, Zugang zu neuen Technologien, Prozessoptimierungen, vertikale Integration, finanzielle Synergien (Cash Pooling, Mengeneffekte bei Emissionskosten). Synergien werden oftmals **überschätzt**, Probleme der Post-Merger-Integration **unterschätzt**.
+
+</Card>
+<Card title="Reasons for M&A's that don't make sense" tone="negative">
+
+**Hybris-Hypothese** (verhaltenswissenschaftlich): Sind Märkte informationseffizient, sind alle Informationen zum Zielunternehmen bereits im Kurs verarbeitet. Bei Übernahmeangeboten deutlich über dem ökonomischen Wert ist **Hybris** ein wesentlicher Erklärungsansatz. Folge: **the winner's curse.**
+
+**Agency-Probleme:** M&A als Manifestation von Agency-Problemen. Free Cash Flow Hypothese: Auszahlung an Aktionäre reduziert die Ressourcen (und Macht) der Manager; werden Free Cash Flows stattdessen zur Übernahme genutzt, steigen Macht/Ansehen der Manager.
+
+</Card>
+</Columns>
+
+<SourceNote>Behavioral Finance · BF10 · Folien 346–348</SourceNote>
+</section>
+
+<section id="begrenzung-der-selbstueberschaetzung">
+
+## Begrenzung der Selbstüberschätzung
+
+<Card title="Mögliche Maßnahmen zur Begrenzung der Selbstüberschätzung" tone="accent">
+
+- Beachtung der Selbstüberschätzung: **Schulung der Unternehmenslenker**.
+- Einführung eines **Risikomanagementsystems**.
+- **Anpassung vertraglicher Anreize (incentives)**, z. B. längere Mindesthaltedauern gewährter Aktienoptionen, mögliche Verlustbeteiligungen.
+- Kalkulation künftiger Cash Flows mit **höheren Diskontierungsfaktoren**.
+- **Externe und interne Corporate Governance Mechanismen**, z. B. verstärkte Kontrolle durch Aufsichtsräte (allerdings auch hier Gefahr der Selbstüberschätzung), Großaktionäre oder FK-Geber.
+
+</Card>
+
+### Externe und interne CG-Mechanismen
+
+<DefinitionBox term="Corporate Governance (CG)-Mechanismen" source="Folie 350">
+Maßnahmen zur Kontrolle des Managements zur Reduktion von <Exam>Agency-Kosten</Exam>.
+</DefinitionBox>
+
+<CompareCard items={[
+  { tag: 'Extern', title: 'Typische externe CG-Mechanismen', accent: 'neutral', points: [
+    'Produktmarkt: Wettbewerb reduziert den opportunistischen Spielraum des Managements.',
+    'Markt für Manager.',
+    'Markt für Unternehmenskontrolle: Disziplinarwirkung der Gefahr einer feindlichen Übernahme.',
+  ] },
+  { tag: 'Intern', title: 'Gängige interne CG-Mechanismen', accent: 'accent', points: [
+    'Eigentümerstruktur, u. a. Exit- oder Voice-Strategie der Eigentümer.',
+    'Kapitalstruktur (Kontrolle durch FK-Geber).',
+    'Kontrolle durch Aufsichtsgremien.',
+    'Vergütungssystem.',
+  ] },
+]} />
+
+<Callout type="pitfall" title="Kontrolle durch FK-Geber — nur bedingt wirksam">
+Theoretisch disziplinieren finanzierende Hausbanken die Manager (Skaleneffekte, gute Informationsbasis durch Offenlegungspflichten). **Aber:** Der Anreiz zu verstärkter Kontrolle durch einen Fremdkapitalgeber nimmt erst mit wachsender Gefahr **ökonomischen Misserfolgs** zu. Zudem bestehen **Eigner-Gläubiger-Konflikte** (z. B. bei der Ausschüttungspolitik).
+</Callout>
+
+<SourceNote>Behavioral Finance · BF10 · Folien 349–351</SourceNote>
+</section>
+
+<section id="ausschuettungspolitik">
+
+## Verwendung der Free Cash Flows und Ausschüttungspolitik
+
+<CompareCard items={[
+  { tag: 'Einbehalten', title: 'Thesaurierung', accent: 'neutral', points: [
+    'Investitionen in neue Projekte (Voraussetzung: Wachstumspotenzial).',
+    'Erhöhung der Barreserven (Sicherheitsgedanke).',
+    '(Vorzeitige) Tilgung von Fremdkapital (Optimierung der Kapitalstruktur).',
+  ] },
+  { tag: 'Auszahlen', title: 'Ausschüttung', accent: 'accent', points: [
+    'Dividendenzahlung.',
+    'Aktienrückkauf.',
+  ] },
+]} />
+
+### Ausschüttungspolitik: Befunde US-Markt
+
+<DataChart
+  type="line"
+  title="Anteil der US-Industrieunternehmen mit Auszahlungen an Aktionäre (gesamt)"
+  source="aus: Berk/DeMarzo (2011), S. 626 · Quelle: Compustat · Werte visuell abgelesen"
+  xKey="jahr"
+  yKey="anteil"
+  xLabel="Jahr"
+  yLabel="Anteil der Unternehmen"
+  height={300}
+  yDomain={[0, 80]}
+  data={[
+    { jahr: 1975, anteil: 70 },
+    { jahr: 1978, anteil: 75 },
+    { jahr: 1985, anteil: 58 },
+    { jahr: 1992, anteil: 39 },
+    { jahr: 2000, anteil: 40 },
+    { jahr: 2003, anteil: 37 },
+    { jahr: 2007, anteil: 47 },
+  ]}
+/>
+
+<Callout type="info" title="Verschiebung der Zusammensetzung">
+Der Gesamtanteil ausschüttender Unternehmen ist seit dem Hoch von 1978 (ca. 75 %) strukturell rückläufig. Innerhalb der verbleibenden Ausschüttungen verschiebt sich das Gewicht von **reinen Dividenden** hin zu **Aktienrückkäufen** (allein oder kombiniert mit Dividenden).
+</Callout>
+
+### Dividende vs. Aktienrückkauf
+
+<Card title="Argumente für ein substitutives Verhältnis" tone="neutral">
+
+- Empirisch: steigender Anteil an Emittenten, die Aktien zurückkaufen, bei gleichzeitigem Rückgang des relativen Anteils der Dividendenzahler.
+- Im vollkommenen Markt: perfekte Substitute.
+- Bei Informationsasymmetrien: sowohl positive Signalwirkung der Dividende als auch des Aktienrückkaufs.
+
+**Aber:** Zwischen Dividendenzahlern und Emittenten, die Aktien zurückkaufen, bestehen z. T. systematische Unterschiede — dividendenausschüttende Emittenten sind i. d. R. deutlich größer (Marktkapitalisierung) und weisen stabilere Cash Flows auf. Hintergrund: **Dividendenkontinuität**.
+
+</Card>
+
+### Gründe für Dividendenausschüttungen
+
+<Columns count={2}>
+<Card title="Ökonomische Gründe" tone="accent" compact>
+
+- Dividende als **sichere Renditekomponente** (Kursgewinne unsicher) → theoretischer Rückgang der Eigenkapitalkosten.
+- Indiz für wirtschaftliche Stärke → **Signalfunktion** insb. gegenüber uninformierten Anlegern.
+- Nachfrage nach laufenden Zahlungsmittelzuflüssen → **Präferenz** insb. institutioneller Anleger (z. B. regulatorisch).
+- Ausschüttende Unternehmen wachsen nicht zwingend weniger — trotz weniger Investitionskapital ggf. **"Disziplinierung"** des Managements.
+
+</Card>
+<Card title="Verhaltensorientierte Gründe" tone="purple" compact>
+
+- **Sentiment der Marktteilnehmer:** Nachfrage nach Dividendentiteln steigt in Rezessionsphasen (geringere Risikoneigung, schlechtes Sentiment).
+- **Selbstkontrolle:** Dividendentitel als Schutz vor übereiltem Verkauf.
+- **Mentale Buchführung:** Dividenden im "Konsumkonto", Aktien im "Anlagekonto".
+
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Kernaussage">
+Unternehmen schütten Dividenden aus, um den durch den Anleger **wahrgenommenen Wert** des Wertpapiers zu erhöhen.
+</Callout>
+
+### Dividendenänderungen
+
+<CompareCard items={[
+  { tag: 'Kürzung', title: 'Dividendenkürzungen', subtitle: 'besonders "schmerzvoll"', accent: 'negative', points: [
+    'Kursreaktion fällt i. d. R. **stark negativ** aus.',
+  ] },
+  { tag: 'Erhöhung', title: 'Dividendenerhöhungen', subtitle: 'geringer vergleichbarer Nutzen', accent: 'positive', points: [
+    'Kursreaktion fällt nur **leicht positiv** aus.',
+  ] },
+]} />
+
+<Callout type="examfocus" title="Dividend Smoothing">
+Die asymmetrische Kursreaktion steht im Einklang mit der <Exam>Prospect Theory</Exam>. Manager versuchen daher, Dividendenkürzungen zu vermeiden, und heben Dividenden nur an, wenn künftige Kürzungen unwahrscheinlich sind. Ergebnis: **Dividend Smoothing.**
+</Callout>
+
+<SourceNote>Behavioral Finance · BF10 · Folien 352–357</SourceNote>
+</section>
+
+<section id="besonderheiten-bei-ipos">
+
+## Besonderheiten bei IPOs
+
+Initial Public Offerings zeigen weltweit zwei gegenläufige Phänomene: (1) kurzfristiges **Underpricing** und (2) langfristige **Underperformance**.
+
+<KpiGrid items={[
+  { value: '10–20 %', label: 'Durchschnittliche Emissionsrendite, deutscher Kapitalmarkt', accent: 'default' },
+  { value: '> 40 %', label: 'Extremfall Neuer Markt', accent: 'warning' },
+]} />
+
+<Card title="Erklärungsansätze für Underpricing" tone="neutral" compact>
+
+- Emissionskurse werden unabsichtlich (fehlerhaft) zu niedrig angesetzt — heute weniger realistisch.
+- Kurse am ersten Börsentag über dem wahren Wert, da (1) Emissionsbanken Kurspflege betreiben und/oder (2) einige Anleger IPO-Wertpapiere systematisch zu hoch einschätzen ("optimistisch" gestimmte Anleger).
+- Bewusstes Underpricing aufgrund von Informationsasymmetrien.
+
+</Card>
+
+### Performance von IPOs
+
+<DataChart
+  type="bar"
+  title="Ritter (2014): IPO-Renditen vs. size-/BM-gematchte Vergleichsunternehmen (1970–2012)"
+  source="Ritter (2014)"
+  xKey="periode"
+  xLabel="Zeitraum nach Erstemission"
+  yLabel="Rendite"
+  height={300}
+  data={[
+    { periode: '1. HJ', ipo: 6.5, matched: 3.9 },
+    { periode: '2. HJ', ipo: 1.0, matched: 4.9 },
+    { periode: '1. Jahr', ipo: 7.8, matched: 9.2 },
+    { periode: '2. Jahr', ipo: 6.9, matched: 12.8 },
+    { periode: '3. Jahr', ipo: 12.0, matched: 11.9 },
+    { periode: '4. Jahr', ipo: 18.4, matched: 18.5 },
+    { periode: '5. Jahr', ipo: 11.0, matched: 13.2 },
+    { periode: 'Geom. Mittel 1–5', ipo: 11.1, matched: 13.0 },
+  ]}
+  series={[
+    { key: 'ipo', name: 'IPO firms', color: 'var(--color-module-blue)' },
+    { key: 'matched', name: 'Size & BM-matched', color: 'var(--color-module-purple)' },
+  ]}
+/>
+
+<DataTable
+  caption="Renditedifferenz und Stichprobengröße (Ritter 2014)"
+  columns={[
+    { key: 'periode', label: 'Zeitraum', align: 'left' },
+    { key: 'diff', label: 'Differenz (IPO − Matched)', align: 'right' },
+    { key: 'n', label: 'Anzahl IPOs', align: 'right' },
+  ]}
+  rows={[
+    { periode: 'Erstes Halbjahr', diff: '+2,5 %', n: '8.397' },
+    { periode: 'Zweites Halbjahr', diff: '−3,8 %', n: '8.370' },
+    { periode: 'Erstes Jahr', diff: '−1,3 %', n: '8.397' },
+    { periode: 'Zweites Jahr', diff: '−5,9 %', n: '8.226' },
+    { periode: 'Drittes Jahr', diff: '0,0 %', n: '7.505' },
+    { periode: 'Viertes Jahr', diff: '−0,1 %', n: '6.613' },
+    { periode: 'Fünftes Jahr', diff: '−2,2 %', n: '5.823' },
+    { periode: 'Geometrisches Mittel Jahre 1–5', diff: '−1,9 %', n: '—' },
+  ]}
+  highlight={(row) => row.periode === 'Geometrisches Mittel Jahre 1–5'}
+/>
+
+### IPO-Waves
+
+<DataChart
+  type="bar"
+  title="Zyklizität von Neuemissionen in den USA — Erträge der Neuemissionen"
+  source="Übernommen von Jay Ritter, aus Berk/DeMarzo (2018), S. 725 · Werte visuell abgelesen"
+  xKey="jahr"
+  yKey="ertraege"
+  xLabel="Jahr"
+  yLabel="Erträge (USD Milliarden)"
+  height={300}
+  data={[
+    { jahr: 1975, ertraege: 1 },
+    { jahr: 1981, ertraege: 2 },
+    { jahr: 1986, ertraege: 16 },
+    { jahr: 1990, ertraege: 4 },
+    { jahr: 1993, ertraege: 23 },
+    { jahr: 1996, ertraege: 42 },
+    { jahr: 1999, ertraege: 65 },
+    { jahr: 2000, ertraege: 65 },
+    { jahr: 2002, ertraege: 22 },
+    { jahr: 2008, ertraege: 13 },
+    { jahr: 2014, ertraege: 47 },
+  ]}
+  series={[{ key: 'ertraege', name: 'Erträge (USD Mrd.)', color: 'var(--color-module-orange)' }]}
+/>
+
+<Callout type="info" title="Anzahl der Angebote (ergänzend zum Diagramm)">
+Parallel dazu verläuft die **Anzahl der jährlichen Neuemissionen** hochgradig zyklisch: Höchststand von ca. **690 Angeboten** im Jahr 1996, tiefer Einbruch auf ein Niveau von nur ca. **20–30 Angeboten** während der Finanzkrise 2008/2009, danach langsame Erholung auf ca. 220 Angebote bis 2014.
+</Callout>
+
+### Langfristige Underperformance von IPOs
+
+<Card title="Erklärungsansätze nach Brav/Gompers (JoF 1997)" tone="warning">
+
+Diverse Studien dokumentieren eine negative Performance von IPO-Kandidaten im Zeitraum von 3 bis 5 Jahren nach Erstemission; die Underpricing-Renditen werden innerhalb von ca. 6 Monaten aufgezehrt.
+
+1. Negative Performance tritt speziell bei Unternehmen mit **geringer Marktkapitalisierung** und **geringem Verhältnis Buchwert zu Marktwert** auf — die Preisbildung beim Börsengang wurde durch **zu optimistische Investoren/Analysten** beeinflusst.
+2. Insb. Werte, die in einer **Boom-Phase** an die Börse gegangen sind, verzeichnen eine Underperformance — ggf. Ausnutzung einer **Überbewertung bei IPO**.
+
+</Card>
+
+<SourceNote>Behavioral Finance · BF10 · Folien 358–361</SourceNote>
+</section>

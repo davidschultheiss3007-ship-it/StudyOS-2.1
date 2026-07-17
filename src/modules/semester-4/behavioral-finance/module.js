@@ -81,5 +81,13 @@ export const module = {
       source: 'Behavioral Finance · BF9 – Kapitalanlage und Kapitalmarktanomalien · Folien 294–340',
       estimatedMinutes: 100,
     },
+    {
+      id: 'behavioral-corporate-finance',
+      title: 'Kapitel 10 · Behavioral Corporate Finance',
+      status: 'available',
+      hasContent: true,
+      source: 'Behavioral Finance · BF10 – Behavioral Corporate Finance · Folien 341–361',
+      estimatedMinutes: 90,
+    },
   ],
 };

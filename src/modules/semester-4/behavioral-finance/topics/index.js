@@ -20,6 +20,8 @@ import Content08 from './08-spekulationsblasen-an-finanzmaerkten.mdx';
 import { meta as meta08 } from './08-spekulationsblasen-an-finanzmaerkten.js';
 import Content09 from './09-kapitalanlage-und-kapitalmarktanomalien.mdx';
 import { meta as meta09 } from './09-kapitalanlage-und-kapitalmarktanomalien.js';
+import Content10 from './10-behavioral-corporate-finance.mdx';
+import { meta as meta10 } from './10-behavioral-corporate-finance.js';
 
 export const topics = [
   { ...meta01, Content: Content01 },
@@ -31,6 +33,7 @@ export const topics = [
   { ...meta07, Content: Content07 },
   { ...meta08, Content: Content08 },
   { ...meta09, Content: Content09 },
+  { ...meta10, Content: Content10 },
 ];
 
 export default topics;
