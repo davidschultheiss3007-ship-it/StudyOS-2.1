@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { ListTree, X } from 'lucide-react';
 import { TopicContent } from './ContentSection.jsx';
 import { ExamFocusBox } from './ExamFocusBox.jsx';
@@ -137,17 +137,22 @@ export function FullContentView({ topic }) {
               </button>
             </div>
             <ul className="toc-panel__list">
-              {sections.map(s => (
-                <li key={s.id}>
-                  <button
-                    type="button"
-                    onClick={() => scrollTo(s.id)}
-                    className={cn('toc-panel__link', activeSection === s.id && 'toc-panel__link--active')}
-                  >
-                    <span className="toc-panel__link-title">{s.title}</span>
-                    {s.pages && <span className="toc-panel__link-pages">{s.pages}</span>}
-                  </button>
-                </li>
+              {sections.map((s, i) => (
+                <Fragment key={s.id}>
+                  {s.group && s.group !== sections[i - 1]?.group && (
+                    <li className="toc-panel__group" aria-hidden="true">{s.group}</li>
+                  )}
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => scrollTo(s.id)}
+                      className={cn('toc-panel__link', activeSection === s.id && 'toc-panel__link--active')}
+                    >
+                      <span className="toc-panel__link-title">{s.title}</span>
+                      {s.pages && <span className="toc-panel__link-pages">{s.pages}</span>}
+                    </button>
+                  </li>
+                </Fragment>
               ))}
             </ul>
           </nav>

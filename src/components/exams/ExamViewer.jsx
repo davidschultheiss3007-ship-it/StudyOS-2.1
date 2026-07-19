@@ -61,7 +61,7 @@ export function ExamViewer({ exam, onBack }) {
 
       <div className="flex flex-col gap-8">
         {sectionsWithOffsets.map(({ section, startIndex }) => (
-          <ExamSection key={section.id} section={section} startIndex={startIndex} showSolutions={showSolutions} />
+          <ExamSection key={section.id} section={section} startIndex={startIndex} showSolutions={showSolutions} revealMode={exam.revealMode} />
         ))}
       </div>
     </section>

@@ -10,6 +10,14 @@ export const module = {
   accent: `var(--color-module-purple)`,
   topics: [
     {
+      id: 'gesamtzusammenfassung',
+      title: 'Gesamtzusammenfassung · Alle Kapitel',
+      status: 'available',
+      hasContent: true,
+      source: 'Behavioral Finance · Kapitel 1–10 · Gesamtzusammenfassung',
+      estimatedMinutes: 765,
+    },
+    {
       id: `einfuehrung`,
       title: `Kapitel 1 · Einführung in die Behavioral Finance`,
       status: `available`,

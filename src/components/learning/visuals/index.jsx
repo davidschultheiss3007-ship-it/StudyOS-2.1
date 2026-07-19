@@ -29,11 +29,14 @@ import { Explorable } from './Explorable.jsx';
 import { Card } from './Card.jsx';
 import { Columns } from './Columns.jsx';
 import { Exam } from './Exam.jsx';
+import { ChapterDivider } from './ChapterDivider.jsx';
+import { ExamFocusBox } from '../ExamFocusBox.jsx';
 
 export {
   Formula, DataChart, Diagram, Scene3D, Surface3D, CompareCard, Timeline,
   DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis, ScaleProfile,
   QuadrantMatrix, ProportionBar, SourceNote, Explorable, Card, Columns, Exam,
+  ChapterDivider, ExamFocusBox,
 };
 
 // Components injected into every `.mdx` topic via MDXProvider.
@@ -42,4 +45,5 @@ export const mdxComponents = {
   Formula, DataChart, Diagram, Scene3D, Surface3D, CompareCard, Timeline,
   DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis, ScaleProfile,
   QuadrantMatrix, ProportionBar, SourceNote, Explorable, Card, Columns, Exam,
+  ChapterDivider, ExamFocusBox,
 };

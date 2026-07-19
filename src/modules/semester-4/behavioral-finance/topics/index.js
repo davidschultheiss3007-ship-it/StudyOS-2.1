@@ -2,6 +2,8 @@
 // file) with the compiled MDX body (default export of the `.mdx` file) as
 // `Content`, in ascending chapter order.
 
+import Content00 from './00-gesamtzusammenfassung.mdx';
+import { meta as meta00 } from './00-gesamtzusammenfassung.js';
 import Content01 from './01-einfuehrung.mdx';
 import { meta as meta01 } from './01-einfuehrung.js';
 import Content02 from './02-modell-der-zwei-systeme.mdx';
@@ -24,6 +26,7 @@ import Content10 from './10-behavioral-corporate-finance.mdx';
 import { meta as meta10 } from './10-behavioral-corporate-finance.js';
 
 export const topics = [
+  { ...meta00, Content: Content00 },
   { ...meta01, Content: Content01 },
   { ...meta02, Content: Content02 },
   { ...meta03, Content: Content03 },

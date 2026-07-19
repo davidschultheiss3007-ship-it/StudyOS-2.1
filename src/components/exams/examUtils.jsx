@@ -9,6 +9,7 @@ export const taskTypeLabels = {
   'table-task': 'Tabellenaufgabe',
   transfer: 'Transfer',
   'explain-graphic': 'Grafik erklären',
+  'fill-in-blank': 'Ergänzungstext',
 };
 
 export function renderPoints(points) {
