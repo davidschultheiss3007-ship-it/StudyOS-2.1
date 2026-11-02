@@ -31,7 +31,7 @@ export const proseComponents = {
     <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground" {...props} />
   ),
   pre: props => (
-    <pre className="overflow-auto rounded-lg border border-border bg-muted p-4 font-mono text-sm" {...props} />
+    <pre className="overflow-auto rounded-lg border border-border bg-muted p-4 font-mono text-sm [&>code]:bg-transparent [&>code]:p-0 [&>code]:text-[1em]" {...props} />
   ),
   table: props => (
     <div className="my-2 overflow-x-auto rounded-lg border border-border">

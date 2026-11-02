@@ -13,7 +13,7 @@
 
 | Modul | Topic-Verzeichnis | Fragen | Prüfungen | Status |
 | --- | --- | --- | --- | --- |
-| Analyse von Finanzdaten & Data Science | `src/modules/semester-5/data-science/topics/` | `questions.js` | `exams.js` (leer; Hausarbeit und Präsentation) | Einstieg als Pilot; weitere Kapitel vorbereitet |
+| Analyse von Finanzdaten & Data Science | `src/modules/semester-5/data-science/topics/` | `questions.js` | `exams.js` (leer; Hausarbeit und Präsentation) | Kapitel 1–2 verfügbar; weitere Kapitel in Arbeit |
 
 Quelleninventar und Plan für die weiteren Kapitel: `docs/SEMESTER_5_PREPARATION.md`.
 

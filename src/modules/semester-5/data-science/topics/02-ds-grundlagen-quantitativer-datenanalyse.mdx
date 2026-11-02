@@ -1,0 +1,486 @@
+<section id="ds-messen">
+
+## Messen und Operationalisieren
+
+Kapitel 2 legt die Begriffe fest, mit denen alle späteren Analysen arbeiten: Was wird gemessen, wie gut, auf welchem Skalenniveau und an welcher Stichprobe? Die Agenda auf Folie 23 entspricht der Fassung von Folie 11 (Kapitel 6 „Hypothesentests“, Kapitel 7 „Lineare Regression“).
+
+<DefinitionBox term="Messen" source="Folie 24">
+Beim Messen wird **einer Eigenschaft eines Objektes ein Wert zugewiesen**. Dabei sollte die **Beziehung der Werte der Beziehung der Eigenschaften** der Objekte entsprechen.
+
+Pragmatisch: **Definition des zu Messenden** und gleichzeitig **Beschreibung des Messvorgangs**.
+</DefinitionBox>
+
+<CompareCard items={[
+  { title: 'Manifeste Variablen', accent: 'accent', points: ['Können direkt gemessen werden.', 'Beispiel: Größe.'] },
+  { title: 'Latente Variablen', accent: 'purple', points: ['Können nicht direkt gemessen werden.', 'Müssen erst operationalisiert werden.', 'Beispiel: Intelligenz.'] },
+]} />
+
+<Exercise title="Messen" question="Stimmt die Aussage: Das „Interesse der Studierenden“ ist eine latente Variable? Offene Frage: Was folgt daraus?" options={['Ja.', 'Nein.']} answer={0}>
+
+**Ja.** „Interesse der Studierenden“ ist **keine offenliegende Eigenschaft**. Man muss erst genau definieren – und Messkriterien festlegen (**Operationalisieren!**) –, was man darunter versteht.
+
+</Exercise>
+
+<Exercise title="Messung Relation" question="Am 1.7. war es in München 30 °C warm, am 15.4. 15 °C. Stimmt die Aussage: Am 1.7. war es in München doppelt so warm wie am 15.4.?" options={['Ja.', 'Nein.']} answer={1}>
+
+**Nein.** Dieselben Temperaturen entsprechen in Fahrenheit **59 °F und 86 °F** – keine Verdoppelung. **0 °Celsius ist kein absoluter Nullpunkt.**
+
+Die Relation der Werte (Temperatur) entspricht nicht der Relation der Eigenschaft (Wärme).
+
+</Exercise>
+
+<Formula title="Zur Kontrolle: Umrechnung in Fahrenheit (Ergänzung, nicht auf der Folie)" expr="15 \cdot 1{,}8 + 32 = 59\,^\circ\text{F} \qquad 30 \cdot 1{,}8 + 32 = 86\,^\circ\text{F}" />
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 22–28 · Definition nach Hand, D. J. (2016): Measurement: A Very Short Introduction, Oxford University Press</SourceNote>
+</section>
+
+<section id="ds-guetekriterien">
+
+## Gütekriterien einer Messung
+
+<DataTable caption="Die vier Gütekriterien mit den Beispielen der Folie" columns={[
+  { key: 'kriterium', label: 'Kriterium' },
+  { key: 'bedeutung', label: 'Bedeutung' },
+  { key: 'beispiel', label: 'Beispiel' },
+]} rows={[
+  { kriterium: 'Genauigkeit', bedeutung: 'Exaktheit einer Messung', beispiel: '„Umsatz hoch / niedrig“ oder in Euro' },
+  { kriterium: 'Objektivität', bedeutung: 'Messung unabhängig vom Messenden', beispiel: 'Kreditrating verschiedener Agenturen' },
+  { kriterium: 'Reliabilität', bedeutung: 'Zuverlässigkeit: bei wiederholter / anderer Messung dasselbe Ergebnis', beispiel: 'Kundenzufriedenheit' },
+  { kriterium: 'Validität', bedeutung: 'Es wird das gemessen, was gemessen werden soll', beispiel: 'Unternehmenserfolg oder Bilanz-Kniffe' },
+]} />
+
+### Varianz und Verzerrung
+
+Folie 30 zeigt zwei Zielscheiben. Links streuen die Treffer **weit um die Mitte**, rechts liegen sie **eng beieinander, aber neben der Mitte**.
+
+<Columns count={2}>
+<Card title="Varianz" tone="accent">
+
+- **Hohe Varianz** der Messergebnisse
+- ↓ führt zu **geringer Reliabilität**
+- **Beispiel:** Durchschnittsnote einer Klausur mit wenigen Teilnehmern
+
+</Card>
+<Card title="Verzerrung" tone="purple">
+
+- **Verzerrung / Bias** des Messergebnisses
+- ↓ führt zu **geringer Validität**
+- **Beispiel:** Umfrage zu ökologischem Bewusstsein auf einem Tuner-Treffen
+
+</Card>
+</Columns>
+
+<Exercise title="Gütekriterien Messung" question="Welches Kriterium ist verletzt, wenn die Dozentin statt „Interesse der Studierenden“ „Angst vor der Klausur“ gemessen hat?" options={['Genauigkeit.', 'Objektivität.', 'Reliabilität.', 'Validität.']} answer={3}>
+
+Eine Messung ist **valide**, wenn die erhobenen Werte geeignete Kennzahlen für die zu untersuchende Fragestellung liefern. Es wird gemessen, was gemessen werden soll. Hier nicht, also **d) Validität**.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 29–32</SourceNote>
+</section>
+
+<section id="ds-skalenniveaus">
+
+## Skalenniveaus
+
+<Columns count={2}>
+<Card title="Kategoriale Skala · qualitativ" tone="teal">
+
+- **Nominal:** Merkmalsausprägungen können **unterschieden** werden, bspw. Geschlecht oder Farben.
+- **Ordinal:** Merkmalsausprägungen können unterschieden und **in eine Reihenfolge gebracht** werden, bspw. Bildungsabschlüsse oder olympische Medaillen. Die **Abstände** zwischen den Werten können **nicht direkt verglichen** oder interpretiert werden.
+
+**Nominal- und Ordinalskalen = diskret, kategorial, qualitativ**
+
+</Card>
+<Card title="Numerische / metrische Skala · quantitativ, kardinal" tone="accent">
+
+- Ausprägungen können unterschieden und geordnet werden, **die Abstände sind vergleichbar**.
+- **Intervallskala:** Nullpunkt **gesetzt**, bspw. Zeitrechnung (Jahr 0).
+- **Verhältnisskala:** **(absoluter) Nullpunkt** gegeben, bspw. Gewicht.
+
+**Intervall- und Verhältnisskalen = diskret, stetig, metrisch, quantitativ**
+
+</Card>
+</Columns>
+
+<CompareCard items={[
+  { title: 'Stetig', accent: 'accent', points: ['Beliebige Zwischenwerte im Intervall sind möglich.', 'Beispiel: Größe.'] },
+  { title: 'Diskret', accent: 'neutral', points: ['Höchstens abzählbar viele Werte sind möglich.', 'Beispiel: Anzahl Kinder.'] },
+]} />
+
+### Entscheidungsbaum zur Bestimmung des Skalenniveaus
+
+<DecisionTree nodes={[
+  { label: 'Gibt es eine natürliche Ordnung bzw. Reihenfolge?', children: [
+    { label: 'nein → Nominalskala' },
+    { label: 'ja → Hat die Differenz 1 immer dieselbe Bedeutung?', children: [
+      { label: 'nein → Ordinalskala' },
+      { label: 'ja → Gibt es einen natürlichen Nullpunkt, lassen sich Verhältnisse interpretieren?', children: [
+        { label: 'nein → Intervallskala' },
+        { label: 'ja → Verhältnisskala' },
+      ] },
+    ] },
+  ] },
+]} />
+
+<Exercise title="Skalenniveau I" question="Welches Skalenniveau hat die Variable Stundenlohn?" options={['Kategorial nominal.', 'Kategorial ordinal.', 'Metrisch stetig.', 'Metrisch diskret.']} answer={2}>
+
+**Metrisch stetig**, obwohl die konkrete Auszahlung in der Regel auf zwei Nachkommastellen gerundet erfolgt („quasi-stetig“). Da ein **absoluter Nullpunkt** gegeben ist, ist die Variable **verhältnisskaliert**.
+
+</Exercise>
+
+<Exercise title="Skalenniveau II" question="Welches Skalenniveau hat die Variable Telefonvorwahl?" options={['Kategorial nominal.', 'Kategorial ordinal.', 'Metrisch stetig.', 'Metrisch diskret.']} answer={0}>
+
+**Kategorial nominal.** Die Telefonvorwahl stellt keine Zahl als solche dar; es werden **Zahlen als Codierung** verwendet. Die Interpretation der Telefonvorwahlen als Zahlen, die dann einen Vergleich zulassen, ist sinnlos (auch wenn man vermuten kann, dass höhere Telefonvorwahlen als Zahlen eher im Süden zu orten sind).
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 33–39</SourceNote>
+</section>
+
+<section id="ds-datensatz-und-variation">
+
+## Datensatz und Variation
+
+<DataTable caption="Aufbau eines Datensatzes (Folie 40)" columns={[
+  { key: 'name', label: 'Name' },
+  { key: 'geschlecht', label: 'Geschlecht' },
+  { key: 'groesse', label: 'Größe', align: 'right' },
+]} rows={[
+  { name: 'Adalbert', geschlecht: 'M', groesse: '180' },
+  { name: 'Gabi', geschlecht: 'W', groesse: '170' },
+  { name: 'Max', geschlecht: 'M', groesse: '162' },
+  { name: 'Susi', geschlecht: 'W', groesse: '174' },
+]} />
+
+<Columns count={2}>
+<Card title="Zeilen = Beobachtungen" tone="accent">
+
+Auf welcher **Einheit** liegen die Daten vor? Z. B. einzelne Menschen, Unternehmen, Länder. **Hier: Studierende.**
+
+</Card>
+<Card title="Spalten = Variablen" tone="purple">
+
+Welche **Eigenschaften / Merkmale** liegen je Beobachtung vor? Z. B. Motivation, Umsatz, Lebenserwartung. **Hier:** Geschlecht (kategorial – nominal), Größe (numerisch – verhältnisskaliert).
+
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Regel für den Datensatz">
+Jede **Zeile** sollte genau **eine Beobachtung** beinhalten, jede **Spalte** genau **eine Variable**.
+</Callout>
+
+### Variation
+
+<Formula title="Idee" expr="\text{Daten} = \text{Modell} + \text{Rest}" />
+
+Messwerte einer Variable **variieren / streuen**, u. a.:
+
+- **zufällig**,
+- **aufgrund der Messung**,
+- **aufgrund der Stichprobe**,
+- **systematisch** – das kann evtl. modelliert werden.
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 40–41</SourceNote>
+</section>
+
+<section id="ds-zusammenhaenge">
+
+## Zusammenhänge: Korrelation und Kausalität
+
+<Columns count={3}>
+<Card title="Abhängige Variable (AV) · y" tone="accent" compact>
+
+**Endogen, erklärt.** Ihr Wert hängt von der / den unabhängigen Variable(n) ab.
+
+</Card>
+<Card title="Unabhängige Variable (UV) · x" tone="purple" compact>
+
+**Exogen, erklärend.** Ihr Wert hängt von keiner anderen Variable ab.
+
+</Card>
+<Card title="Kovariable / Störvariable · z" tone="orange" compact>
+
+Wirkt ebenfalls auf die abhängige Variable ein und / oder **beeinflusst den Zusammenhang** zwischen unabhängiger und abhängiger Variable.
+
+</Card>
+</Columns>
+
+<CompareCard items={[
+  { title: 'In der Mathematik: y = f(x)', accent: 'neutral', points: ['Für ein x genau ein y.'] },
+  { title: 'In der Statistik / in R: y ~ x', accent: 'accent', points: ['Für ein x sind mehrere y möglich.', 'x wird zur Modellierung von y verwendet.'] },
+]} />
+
+<Callout type="warn" title="Zusammenhang ist nicht Ursache">
+„$x$ steht in Zusammenhang mit $y$“ heißt **nicht zwangsläufig**, dass $x$ **kausal (ursächlich)** für $y$ sein muss!
+</Callout>
+
+### Korrelation vs. Kausalität
+
+- Der **Zusammenhang zweier Variablen** lässt sich mittels **Korrelation** mathematisch beschreiben.
+- Zeigen zwei Variablen einen Zusammenhang, so **variieren sie systematisch miteinander**,
+- d. h. die Ausprägung des einen Merkmals gibt in gewissem Maße Auskunft über die Ausprägung des zweiten Merkmals.
+
+Die Folien 44–48 zeigen dazu **„spurious correlations“** – Scheinkorrelationen von tylervigen.com. Die Aufgabe: den Unterschied zwischen Korrelation und Kausalität und ggf. den Begriff der Kovariablen ergründen. „Und jetzt … zurücklehnen und schmunzeln.“
+
+<DataTable caption="Scheinkorrelationen der Folien 44–48: hohe Korrelation, kein plausibler ursächlicher Zusammenhang" columns={[
+  { key: 'folie', label: 'Folie', align: 'right' },
+  { key: 'a', label: 'Größe 1' },
+  { key: 'b', label: 'korreliert mit Größe 2' },
+  { key: 'zeit', label: 'Zeitraum' },
+  { key: 'r', label: 'r', align: 'right' },
+]} rows={[
+  { folie: '44', a: 'US-Ausgaben für Wissenschaft, Raumfahrt und Technologie', b: 'Suizide durch Erhängen, Strangulation und Ersticken', zeit: '1999–2009', r: '0,998' },
+  { folie: '45', a: 'US-Rohölimporte aus Norwegen', b: 'Autofahrer, die bei Kollisionen mit Zügen starben', zeit: '1999–2009', r: '0,955' },
+  { folie: '46', a: 'Buchstaben im Siegerwort des Scripps National Spelling Bee', b: 'Todesfälle durch Giftspinnen', zeit: '1999–2009', r: '0,806' },
+  { folie: '47', a: 'Personen, die durch Sturz in einen Pool ertranken', b: 'Filme mit Nicolas Cage', zeit: '1999–2009', r: '0,666' },
+  { folie: '48', a: 'Scheidungsrate in Maine', b: 'Pro-Kopf-Verbrauch von Margarine', zeit: '2000–2009', r: '0,993' },
+]} />
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 42–48 · Diagramme: tylervigen.com/spurious-correlations, abgerufen am 12. März 2022; Bezeichnungen übersetzt, r auf drei Stellen gerundet</SourceNote>
+</section>
+
+<section id="ds-simpson-paradoxon">
+
+## Kovariablen und das Simpson-Paradoxon
+
+<DefinitionBox term="Simpson-Paradoxon" source="Folie 49">
+Ein Paradoxon aus der Statistik (Edward Hugh Simpson): Die **Bewertung verschiedener Gruppen** fällt unterschiedlich aus, **je nachdem, ob man die Ergebnisse der Gruppen kombiniert oder nicht**.
+</DefinitionBox>
+
+### Diskriminierungsklage gegen die Universität Berkeley
+
+Einer der bekanntesten Fälle: Zulassungen zu den Graduate Schools der University of California, Berkeley, im **Herbst 1973**. Die Differenz war so groß, dass sie **nicht mehr durch Zufall zu erklären** war (Signifikanztest).
+
+<KpiGrid items={[
+  { value: '44 %', label: 'Zulassungsquote Männer', accent: 'accent' },
+  { value: '35 %', label: 'Zulassungsquote Frauen' },
+]} />
+
+Folie 50 stellt die Zulassungen als **Mosaikdiagramm** dar: Bei den Nicht-Zugelassenen ist der **Frauenanteil höher** als bei den Zugelassenen (Höhe der Rechtecke). **Diskriminierung?** Folie 51 teilt dieselben Daten nach **Department A–F** auf. Die beiden folgenden Diagramme zeigen die Information dieser Mosaikplots als Quoten und Bewerbungszahlen.
+
+<DataChart type="bar" title="Zulassungsquote je Department nach Geschlecht" source="Folie 51 · Werte des R-Datensatzes UCBAdmissions, auf dem die Mosaikplots beruhen" height={300} xKey="dept" yLabel="Zulassungsquote in %" yDomain={[0, 100]} data={[
+  { dept: 'A', maenner: 62, frauen: 82 },
+  { dept: 'B', maenner: 63, frauen: 68 },
+  { dept: 'C', maenner: 37, frauen: 34 },
+  { dept: 'D', maenner: 33, frauen: 35 },
+  { dept: 'E', maenner: 28, frauen: 24 },
+  { dept: 'F', maenner: 6, frauen: 7 },
+]} series={[
+  { key: 'maenner', name: 'Männer', color: 'var(--color-module-blue)' },
+  { key: 'frauen', name: 'Frauen', color: 'var(--color-module-orange)' },
+]} />
+
+<DataChart type="bar" title="Bewerbungen je Department nach Geschlecht" source="Folie 51 · Breite der Rechtecke; Werte des R-Datensatzes UCBAdmissions" height={300} xKey="dept" yLabel="Bewerbungen" data={[
+  { dept: 'A', maenner: 825, frauen: 108 },
+  { dept: 'B', maenner: 560, frauen: 25 },
+  { dept: 'C', maenner: 325, frauen: 593 },
+  { dept: 'D', maenner: 417, frauen: 375 },
+  { dept: 'E', maenner: 191, frauen: 393 },
+  { dept: 'F', maenner: 373, frauen: 341 },
+]} series={[
+  { key: 'maenner', name: 'Männer', color: 'var(--color-module-blue)' },
+  { key: 'frauen', name: 'Frauen', color: 'var(--color-module-orange)' },
+]} />
+
+<Card title="Erklärung des Beispiels Zulassung" tone="accent">
+
+- **Insgesamt** höhere Zulassungsquote der **Männer**.
+- Aber **pro Studiengang zumeist höhere Zulassung der Frauen** (in den Daten: A, B, D und F).
+- Frauen bewerben sich eher auf Studienfächer mit weniger Studienplätzen → die Zulassungsquote ist dort **unabhängig vom Geschlecht niedriger**, da es pro Platz mehr Bewerber gibt → Männer bewerben sich eher auf Studiengänge mit mehr Studienplätzen.
+- Das Resultat der **Grundgesamtheit** steht somit (teilweise) **im Widerspruch** zum Resultat der **Teilmenge**.
+
+</Card>
+
+<Callout type="merksatz" title="Das Department ist die Kovariable">
+**Das Ignorieren von Kovariablen kann zu verzerrten Ergebnissen führen.** Auch wenn die Berkeley-Studie schon geraume Zeit her ist – solche Fehler passieren immer wieder!
+</Callout>
+
+<p className="text-xs text-muted-foreground">Hinweis zu den Zahlen: Die Quoten 44 % und 35 % auf Folie 49 beziehen sich auf alle Bewerbungen der Studie. Die Mosaikplots auf Folie 50 und 51 zeigen die sechs größten Departments (R-Datensatz UCBAdmissions, in R mit <code>mosaicplot(UCBAdmissions)</code> reproduzierbar). Dort liegen die Gesamtquoten bei rund 45 % (Männer) und 30 % (Frauen); das Paradoxon ist dasselbe.</p>
+
+Hausaufgabe laut Folie 52: den Spiegel-Artikel „Simpsons Paradoxon: Diese Statistik kann nicht stimmen – oder doch?“ lesen ([spiegel.de](https://www.spiegel.de/wissenschaft/mensch/simpsons-paradoxon-diese-statistik-kann-nicht-stimmen-oder-doch-a-1068204.html)).
+
+<Exercise title="Zusammenhang" question="Eine Dozentin stellt bei einer Untersuchung fest, dass die Motivation der Studierenden mit der Uhrzeit zusammenhängt, und zwar unterschiedlich für Frauen und Männer. Welche Aussage stimmt?" options={[
+  'Es gibt eine abhängige Variable (Motivation), eine unabhängige Variable (Uhrzeit) und eine Kovariable (Geschlecht).',
+  'Es gibt eine abhängige Variable (Uhrzeit), eine unabhängige Variable (Motivation) und eine Kovariable (Geschlecht).',
+  'Es gibt zwei abhängige Variablen (Motivation und Geschlecht) und eine unabhängige Variable (Uhrzeit).',
+  'Es gibt eine abhängige Variable (Geschlecht) und zwei unabhängige Variablen (Motivation und Uhrzeit).',
+]} answer={0}>
+
+**Motivation** ist die abhängige Variable $y$, die evtl. von der unabhängigen Variable **Uhrzeit** $x$ abhängt. Das Merkmal **Geschlecht** beeinflusst die abhängige Variable bzw. den Zusammenhang und ist dadurch hier eine **Kovariable** $z$, also **a)**.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 49–54 · Bickel, P. J., Hammel, E. A. & O’Connell, J. W. (1975): Sex bias in graduate admissions: Data from Berkeley. Science, 187, 398–403</SourceNote>
+</section>
+
+<section id="ds-stichproben">
+
+## Datenerhebung mit Stichproben
+
+**Stichproben** sind eine **Teilmenge der Population / Grundgesamtheit** – die Beobachtungen bzw. Daten. In der Regel will man das Ergebnis einer Stichprobe **verallgemeinern, generalisieren**: **vom Geschmack des Suppenlöffels auf die ganze Suppe.**
+
+<DataTable caption="Stichproben: Begriffe und das Suppenbild der Folie" columns={[
+  { key: 'begriff', label: 'Begriff' },
+  { key: 'bedeutung', label: 'Bedeutung' },
+  { key: 'suppe', label: 'Im Suppenbild' },
+]} rows={[
+  { begriff: 'Population', bedeutung: 'Die Menge, über die eine Aussage getroffen werden soll', suppe: 'Die ganze Suppe im Suppentopf' },
+  { begriff: 'Stichprobe', bedeutung: 'Teilmenge der Population, die zur Analyse ausgewählt wurde', suppe: 'Der Löffel voll Suppe' },
+  { begriff: 'Stichprobenverfahren', bedeutung: 'Der Prozess, mit dem die Teilmenge ausgewählt wurde, z. B. zufällig', suppe: 'Wo und wie der Löffel aus dem Topf gefüllt wurde' },
+  { begriff: 'Repräsentative Stichprobe', bedeutung: 'Die Verteilung der Eigenschaften der Stichprobe ähnelt der der Population', suppe: 'Schmeckt der Löffel anders als die Suppe, war er nicht repräsentativ' },
+  { begriff: 'Bias / Verzerrung', bedeutung: 'Ein Teil der Population wird bevorzugt', suppe: 'Nur Fleischbällchen auf dem Löffel' },
+  { begriff: 'Generalisierbarkeit', bedeutung: 'Inwieweit von der Stichprobe auf die Grundgesamtheit geschlossen werden kann', suppe: 'Gut umgerührt: Gewürze auf dem Löffel wie im Topf verteilt' },
+]} />
+
+### Vergleich verschiedener Stichprobenverfahren
+
+Folie 57 zeigt vier gleich große Populationen (Personen-Piktogramme); hervorgehoben sind jeweils die ausgewählten Personen.
+
+<CompareCard items={[
+  { title: 'Zufallsstichprobe', accent: 'accent', points: ['Ausgewählte Personen liegen verstreut über die ganze Population.', 'Jede Person kann gezogen werden.'] },
+  { title: 'Gelegenheitsstichprobe', accent: 'neutral', points: ['Ausgewählt sind immer dieselben, leicht erreichbaren Personen (die ersten beiden Spalten).', 'Der Rest der Population kommt nicht vor.'] },
+  { title: 'Geschichtete Zufallsstichprobe', accent: 'purple', points: ['Die Population ist in Schichten geteilt (Frauen | Männer, gestrichelte Linie).', 'Innerhalb jeder Schicht wird zufällig ausgewählt.'] },
+  { title: 'Vollerhebung', accent: 'neutral', points: ['Alle Personen der Population werden erfasst.'] },
+]} />
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 55–57 · Bild der Folie 55: pixabay.com, lizenzfrei</SourceNote>
+</section>
+
+<section id="ds-griechische-buchstaben">
+
+## Griechische Buchstaben im Skript
+
+<DataTable caption="Griechische Buchstaben und ihre übliche Bedeutung im Skript" columns={[
+  { key: 'zeichen', label: 'Buchstabe', align: 'center' },
+  { key: 'aussprache', label: 'Aussprache' },
+  { key: 'bedeutung', label: 'Bedeutung (üblicherweise)' },
+]} rows={[
+  { zeichen: 'α', aussprache: 'alpha', bedeutung: 'Signifikanzniveau eines Tests (auch Zeichen für Fehler 1. Art)' },
+  { zeichen: 'β', aussprache: 'beta', bedeutung: 'Regressionskoeffizienten (Zeichen für Fehler 2. Art)' },
+  { zeichen: 'δ', aussprache: 'delta', bedeutung: 'Allgemeine zusammenfassende Statistik (Kennzahl)' },
+  { zeichen: 'ε', aussprache: 'epsilon', bedeutung: 'Residuum' },
+  { zeichen: 'μ', aussprache: 'my', bedeutung: 'Populationsmittelwert' },
+  { zeichen: 'σ', aussprache: 'sigma', bedeutung: 'Populationsstandardabweichung' },
+  { zeichen: 'π', aussprache: 'pi', bedeutung: 'Populationsanteil' },
+  { zeichen: 'ρ', aussprache: 'rho', bedeutung: 'Populationskorrelation' },
+  { zeichen: 'χ', aussprache: 'chi', bedeutung: 'Zusammenfassende Statistik im χ²-Test' },
+]} />
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folie 58</SourceNote>
+</section>
+
+<section id="ds-ppdac">
+
+## Der Forschungsprozess PPDAC
+
+<Timeline events={[
+  { label: 'P', title: 'Problem', text: 'Problemdefinition, Forschungsfrage: Was soll untersucht werden?' },
+  { label: 'P', title: 'Plan', text: 'Planung der Analyse, z. B. Operationalisierung / Variablenauswahl. Wahl des Stichprobenverfahrens / Versuchsplanung.' },
+  { label: 'D', title: 'Data', text: 'Datenerhebung, Datenmanagement, Datenbereinigung.' },
+  { label: 'A', title: 'Analysis', text: 'Explorative Datenanalyse, Modellierung, Hypothesenprüfung.' },
+  { label: 'C', title: 'Conclusion', text: 'Schlussfolgerungen, Interpretation, Kommunikation.' },
+]} />
+
+<Callout type="info" title="Ein Kreislauf">
+Folie 59 zeichnet PPDAC als **Kreis**: Auf die Conclusion folgt wieder ein Problem – Schlussfolgerungen werfen neue Forschungsfragen auf.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folie 59</SourceNote>
+</section>
+
+<section id="ds-installation-r">
+
+## Installation von R und RStudio
+
+Die Folien 60–66 sind als **Hausaufgabe** markiert. Die Angaben geben den **Stand des Skripts** wieder; Download-Seiten und Systemanforderungen können sich inzwischen geändert haben.
+
+<Callout type="info" title="Vorbereitung">
+Während der gesamten Installation eine **stabile Internetverbindung**; Laptops (insbesondere MacBooks) **am Stromnetz**. Etwas Zeit einplanen – der Aufwand ist aber **nur einmalig** nötig.
+</Callout>
+
+<Columns count={3}>
+<Card title="R" tone="accent" compact>
+
+Das **Basisprogramm** ([r-project.org](https://www.r-project.org/)).
+
+</Card>
+<Card title="RStudio" tone="purple" compact>
+
+Komfortable **Entwicklungsumgebung** für R mit zusätzlichen Tools, z. B. Dokumentenerstellung ([posit.co](https://posit.co/products/open-source/rstudio/)).
+
+</Card>
+<Card title="Zusatzpakete" tone="teal" compact>
+
+Z. B. **mosaic**, **quantmod**: weitere Funktionalitäten in Ergänzung zur Basisinstallation.
+
+</Card>
+</Columns>
+
+### Systembesonderheiten laut Skript
+
+- **Windows:** Keine Administratorrechte nötig (bei Windows 10 teilweise Ausnahmen). Installation auch ins lokale Verzeichnis oder z. B. auf einen USB-Stick.
+- **Linux:** Keine besonderen Vorbereitungen nötig.
+- **macOS:** Neuere R-Versionen nur ab OS X 10.11 (El Capitan). Einige Zusatzpakete benötigen das X11-System: vorab **XQuartz** ([xquartz.org](http://www.xquartz.org/)) installieren, **Computer neu starten**, dann R und RStudio installieren. Wird nach **Xcode (Command Line Tools)** gefragt: installieren.
+
+### Installation und erster Start
+
+<Timeline events={[
+  { title: 'Zuerst R installieren', text: 'Aktuelle Version für das eigene System von r-project.org (Windows: cran.rstudio.com/bin/windows/base/, macOS: cran.rstudio.com/bin/macosx/). Standardeinstellungen genügen in der Regel.' },
+  { title: 'Dann RStudio Desktop installieren', text: 'Download passend zum Betriebssystem über docs.posit.co/ide/user/#direct-downloads-open-source.' },
+  { title: 'RStudio starten', text: 'RStudio erkennt R in der Regel automatisch. Die ausführbare Datei liegt im Ordner bin des RStudio-Verzeichnisses; wer nur R starten möchte, nutzt das Icon mit dem R-Logo.' },
+]} />
+
+Nach dem Start zeigt RStudio (Folie 63) mehrere Bereiche: die **Console** mit der R-Startmeldung, oben rechts **Environment / History**, unten rechts **Files / Plots / Packages / Help**.
+
+### Zusatzpaket mosaic installieren und laden
+
+```r
+install.packages("mosaic", dependencies = TRUE)
+```
+
+- In der **R-Console** eingeben und `Enter` bzw. `Return` drücken; eine **Internetverbindung** ist nötig. Abhängige Zusatzpakete werden mitinstalliert – das kann dauern.
+- **Installieren nur einmal**, **laden in jeder Sitzung neu** mit `library()`:
+
+```r
+library(mosaic)
+```
+
+<Callout type="tip" title="Rote Meldungen sind nicht automatisch Fehler">
+Beim Laden von mosaic erscheinen Hinweise wie *„Registered S3 method overwritten by 'mosaic'“* oder *„Die folgenden Objekte sind maskiert von ‘package:base’: max, mean, min, prod, range, sample, sum“*. Das sind **keine Fehler**, auch wenn sie (evtl.) in roter Schrift erscheinen. Ein **echter Fehler** beginnt im Normalfall mit **„Error“** bzw. **„Fehler“**.
+</Callout>
+
+### Installationstest
+
+**Achtung:** R unterscheidet zwischen **Groß- und Kleinbuchstaben**:
+
+```r
+library(Mosaic)
+# Fehler in library(Mosaic) : es gibt kein Paket namens ‘Mosaic’
+```
+
+Mit geladenem mosaic in der Konsole testen:
+
+```r
+data(mtcars)
+favstats(~drat, data = mtcars)
+```
+
+<DataTable caption="Erwartete Ausgabe von favstats(~drat, data = mtcars)" columns={[
+  { key: 'min', label: 'min', align: 'right' },
+  { key: 'q1', label: 'Q1', align: 'right' },
+  { key: 'median', label: 'median', align: 'right' },
+  { key: 'q3', label: 'Q3', align: 'right' },
+  { key: 'max', label: 'max', align: 'right' },
+  { key: 'mean', label: 'mean', align: 'right' },
+  { key: 'sd', label: 'sd', align: 'right' },
+  { key: 'n', label: 'n', align: 'right' },
+  { key: 'missing', label: 'missing', align: 'right' },
+]} rows={[
+  { min: '2.76', q1: '3.08', median: '3.695', q3: '3.92', max: '4.93', mean: '3.596563', sd: '0.5346787', n: '32', missing: '0' },
+]} />
+
+Erscheint diese Ausgabe: **Gratuliere! R und RStudio sind erfolgreich installiert.**
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 2 · Folien 60–66 · Hausaufgabe; Zahlen der R-Ausgabe im Originalformat mit Dezimalpunkt</SourceNote>
+</section>
