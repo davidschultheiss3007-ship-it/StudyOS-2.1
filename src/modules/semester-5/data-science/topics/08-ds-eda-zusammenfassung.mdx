@@ -1,0 +1,85 @@
+<section id="ds-eda-sum-tipps">
+
+## Tipps für Visualisierungen
+
+<Columns count={3}>
+<Card title="Inhalt" tone="accent" compact>
+
+- **Vermittle viele Zahlen**, sonst brauchst du keine Grafik.
+- **Vermeide Ablenkung** von der Hauptbotschaft.
+
+</Card>
+<Card title="Vergleich" tone="purple" compact>
+
+- **Fördere visuellen Vergleich.**
+- **Unterschiedliche Farben nur**, wenn es den Vergleich unterstützt.
+
+</Card>
+<Card title="Darstellung" tone="teal" compact>
+
+- **Vermeide 3D.**
+- **Achte auf die Achsenskalierung.**
+
+</Card>
+</Columns>
+
+<Callout type="info" title="Aus den vorherigen Teilen">
+Beispiele dafür in Kapitel 4: Das Kreisdiagramm ist auf Folie 113 durchgestrichen; die Mittelwerte der Rechnungshöhe je Geschlecht (Folie 191) wirken mit einer y-Achse ab 17 deutlich unterschiedlicher als mit einer Achse ab 0.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.5 · Folien 226–227</SourceNote>
+</section>
+
+<section id="ds-eda-sum-grafiken">
+
+## Grafische Verfahren der Datenanalyse
+
+<DataTable caption="Grafische Verfahren und mosaic-Befehle (Folie 228)" columns={[
+  { key: 'grafik', label: 'Grafik' },
+  { key: 'zweck', label: 'Zweck' },
+  { key: 'skala', label: 'Skalenniveau' },
+  { key: 'befehl', label: 'Befehl' },
+]} rows={[
+  { grafik: 'Säulen- / Balkendiagramm', zweck: 'Häufigkeit von Merkmalsausprägungen', skala: 'nominal, ordinal, metrisch diskret', befehl: 'gf_bar(), gf_barh()' },
+  { grafik: 'Histogramm', zweck: 'Häufigkeit von gruppierten Merkmalsausprägungen', skala: 'metrisch', befehl: 'gf_histogram()' },
+  { grafik: 'Boxplot', zweck: 'Median, oberes und unteres Quartil, Minimum und Maximum, Ausreißer', skala: 'metrisch', befehl: 'gf_boxplot()' },
+  { grafik: 'Violinplot', zweck: 'Dichtefunktion der Verteilung', skala: 'metrisch', befehl: 'gf_violin()' },
+  { grafik: 'Streudiagramm / Scatterplot', zweck: 'Merkmalsausprägungen zweier i. d. R. metrischer Merkmale als Punkte', skala: 'zwei metrische (sonst ggf. jitter)', befehl: 'gf_point()' },
+  { grafik: 'Mosaikplot', zweck: 'Merkmalsausprägungen zweier nominaler Merkmale', skala: 'zwei nominale', befehl: 'mosaicplot()' },
+  { grafik: 'Liniendiagramm', zweck: 'Verlauf der Merkmalsausprägung eines Merkmals', skala: 'metrisch (z. B. Zeitreihe)', befehl: 'gf_line()' },
+]} />
+
+<Callout type="tip" title="Neu in der Übersicht: Violinplot">
+Der **Violinplot** (`gf_violin()`) kommt in den Kapiteln 4.1 bis 4.4 nicht vor. Er zeigt die **Dichtefunktion** einer metrischen Verteilung – ähnlich der Dichteschätzung `gf_dens()` bei den Apple-Renditen.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.5 · Folie 228</SourceNote>
+</section>
+
+<section id="ds-eda-sum-kennzahlen">
+
+## Übersicht deskriptive Kennzahlen
+
+<DataTable caption="Deskriptive Kennzahlen und mosaic-Befehle (Folie 229)" columns={[
+  { key: 'befehl', label: 'Befehl' },
+  { key: 'kennzahl', label: 'Kennzahl' },
+  { key: 'skala', label: 'Skalenniveau' },
+]} rows={[
+  { befehl: 'favstats()', kennzahl: 'Zusammenfassung der Kennzahlen numerischer Variablen', skala: 'metrisch' },
+  { befehl: 'mean()', kennzahl: 'Mittelwert', skala: 'metrisch' },
+  { befehl: 'median()', kennzahl: 'Median', skala: 'ordinal, metrisch' },
+  { befehl: 'iqr()', kennzahl: 'Interquartilsabstand', skala: '(ordinal), metrisch' },
+  { befehl: 'sd()', kennzahl: 'Standardabweichung', skala: 'metrisch' },
+  { befehl: 'cor()', kennzahl: 'Korrelationskoeffizient; für ordinale Merkmale Rangkorrelation mit method = "spearman"', skala: 'zwei metrische (ordinal: Spearman)' },
+  { befehl: 'prop()', kennzahl: 'Anteil – relative Häufigkeit einer Ausprägung', skala: 'nominal, ordinal, metrisch diskret' },
+  { befehl: 'tally()', kennzahl: '(Kreuz-)Tabellierung – absolute oder relative Häufigkeiten aller Ausprägungen', skala: 'nominal, ordinal, metrisch diskret' },
+]} />
+
+<Exercise title="Werkzeugwahl (Transfer)" question="Sie wollen prüfen, ob die Tagesrenditen einer Aktie an Montagen anders verteilt sind als an anderen Tagen. Welche Kombination aus Grafik und Kennzahlen passt zur Übersicht?" options={['mosaicplot() und prop()', 'gf_boxplot(rendite ~ wochentag) und favstats(rendite ~ wochentag)', 'gf_bar( ~ rendite) und tally( ~ rendite)', 'gf_point(rendite ~ wochentag) und cor()']} answer={1}>
+
+Die Rendite ist **metrisch**, der Wochentag **kategorial** und dient als Gruppierung. Für den Vergleich metrischer Verteilungen zwischen Gruppen passen **Boxplot** und **favstats** je Gruppe – wie bei der Rechnungshöhe nach Geschlecht oder Raucherstatus. Diese Übung ist eine Ergänzung zur Folie.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.5 · Folie 229</SourceNote>
+</section>

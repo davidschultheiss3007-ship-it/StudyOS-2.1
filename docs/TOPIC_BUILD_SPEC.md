@@ -256,6 +256,8 @@ Use the `ds-` topic-ID prefix to keep progress IDs distinct across modules.
 | 04 | `ds-eda-datenimport` | `MD/4_Data Science_Explorative Datenanalyse.md` + PDF, slides 102–110 | Built |
 | 05 | `ds-eda-kategoriale-daten` | same source, slides 111–139 | Built |
 | 06 | `ds-eda-numerische-daten` | same source, slides 140–194 | Built |
+| 07 | `ds-eda-zusammenhaenge` | same source, slides 195–225 | Built |
+| 08 | `ds-eda-zusammenfassung` | same source, slides 226–229 | Built |
 
 Read `docs/SEMESTER_5_PREPARATION.md` for the verified source inventory and proposed remaining
 topic mapping. PDFs are authoritative for broken OCR, figures and exact numbers. The module

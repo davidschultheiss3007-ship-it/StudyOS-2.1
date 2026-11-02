@@ -1,13 +1,23 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import { VisualFrame } from './VisualFrame.jsx';
 
 // Horizontal box plot drawn as plain SVG so it themes through tokens.css.
 // groups = [{ label, low, q1, median, q3, high, outliers?: number[] }]
 // low / high are the whisker ends (not necessarily min / max).
-const W = 640;
+// The drawing width follows the rendered width so labels stay 12px on phones.
 const ROW = 64;
-const PAD = { top: 12, right: 24, bottom: 44, left: 76 };
+const PAD = { top: 12, right: 16, bottom: 44, left: 64 };
 
 export function BoxPlot({ title, source, groups = [], domain, ticks = [], xLabel, decimal = ',' }) {
+  const wrapRef = useRef(null);
+  const [W, setW] = useState(640);
+  useLayoutEffect(() => {
+    const el = wrapRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return undefined;
+    const ro = new ResizeObserver(([entry]) => setW(Math.max(280, Math.round(entry.contentRect.width))));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   const [min, max] = domain;
   const plotW = W - PAD.left - PAD.right;
   const height = PAD.top + groups.length * ROW + PAD.bottom;
@@ -17,6 +27,7 @@ export function BoxPlot({ title, source, groups = [], domain, ticks = [], xLabel
 
   return (
     <VisualFrame title={title} source={source}>
+      <div ref={wrapRef}>
       <svg
         viewBox={`0 0 ${W} ${height}`}
         width="100%"
@@ -54,6 +65,7 @@ export function BoxPlot({ title, source, groups = [], domain, ticks = [], xLabel
           );
         })}
       </svg>
+      </div>
       <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
         <span>Box: Q1 bis Q3</span>
         <span>dicke Linie: Median</span>

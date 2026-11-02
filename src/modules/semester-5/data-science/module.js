@@ -8,13 +8,15 @@ import { meta as einfuehrungR } from './topics/03-ds-einfuehrung-in-r.js';
 import { meta as edaImport } from './topics/04-ds-eda-datenimport.js';
 import { meta as edaKategorial } from './topics/05-ds-eda-kategoriale-daten.js';
 import { meta as edaNumerisch } from './topics/06-ds-eda-numerische-daten.js';
+import { meta as edaZusammenhang } from './topics/07-ds-eda-zusammenhaenge.js';
+import { meta as edaZusammenfassung } from './topics/08-ds-eda-zusammenfassung.js';
 
 export const module = {
   id: 'data-science',
   semesterId: 'semester-5',
   title: 'Analyse von Finanzdaten & Data Science',
   shortTitle: 'Data Science',
-  description: 'Quantitative Datenanalyse mit R: Methoden verstehen, Ergebnisse interpretieren und Finanzdaten wissenschaftlich untersuchen. Kapitel 1–3 und die ersten Teile von Kapitel 4 sind verfügbar; weitere Kapitel folgen.',
+  description: 'Quantitative Datenanalyse mit R: Methoden verstehen, Ergebnisse interpretieren und Finanzdaten wissenschaftlich untersuchen. Kapitel 1–4 sind verfügbar; die Kapitel 5–8 folgen, sobald die Skripte vorliegen.',
   status: 'in-progress',
   examDate: null,
   accent: 'var(--color-module-orange)',
@@ -35,5 +37,7 @@ export const module = {
     { ...edaImport, status: 'available', hasContent: true },
     { ...edaKategorial, status: 'available', hasContent: true },
     { ...edaNumerisch, status: 'available', hasContent: true },
+    { ...edaZusammenhang, status: 'available', hasContent: true },
+    { ...edaZusammenfassung, status: 'available', hasContent: true },
   ],
 };

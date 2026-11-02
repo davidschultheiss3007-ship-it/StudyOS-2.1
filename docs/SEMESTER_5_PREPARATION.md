@@ -1,7 +1,7 @@
 # Semester 5: Vorbereitung Data Science
 
-Stand: 2026-10-28. Analyse und Einbindungsplan; der Einstieg ist inzwischen als Pilot registriert.
-Die verbleibenden sieben Topics sind weiterhin geplant und werden noch nicht als Lerninhalt angeboten.
+Stand: 2026-11-02. Alle acht Topics der vorliegenden Skripte (Kapitel 1–4, Folien 1–229) sind gebaut und registriert.
+Für die Kapitel 5–8 (Normalverteilung, Hypothesentests, Lineare Regression, Hausarbeit) liegen noch keine Skripte vor.
 
 ## Bewertung
 

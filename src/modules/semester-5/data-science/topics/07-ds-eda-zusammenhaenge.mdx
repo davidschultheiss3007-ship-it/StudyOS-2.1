@@ -1,0 +1,334 @@
+<section id="ds-eda-zus-streudiagramm">
+
+## Streudiagramm und Overplotting
+
+Ein **Streudiagramm** visualisiert die **gemeinsame Verteilung** von zwei i. d. R. numerischen Variablen durch Punkte.
+
+```r
+plot1 <- gf_point(tip ~ total_bill, data = tips)  # zwei stetige Variablen
+plot2 <- gf_point(tip ~ size, data = tips)        # eine stetige, eine diskrete
+grid.arrange(plot1, plot2, nrow = 1)
+```
+
+Mit `grid.arrange` werden mehrere Grafiken neben- oder übereinander angeordnet. Der Befehl stammt aus dem Paket **gridExtra** (`install.packages("gridExtra")`, `library(gridExtra)`).
+
+Folie 196 zeigt links eine Punktwolke, die von links unten nach rechts oben verläuft (`tip ~ total_bill`), rechts **senkrechte Punktsäulen** bei den ganzzahligen Werten von `size`.
+
+<Callout type="info" title="Overplotting und jitter">
+Bei **diskreten** Merkmalen können sich einzelne Datenpunkte **überlagern** („**Overplotting**“). Mit `jitter` werden die Punkte **zufällig verwackelt**:
+
+```r
+plot1 <- gf_point(tip ~ size, data = tips)
+plot2 <- gf_point(tip ~ jitter(size), data = tips)  # jitter (engl.) = wackeln
+grid.arrange(plot1, plot2, nrow = 1)
+```
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.4 · Folien 195–197</SourceNote>
+</section>
+
+<section id="ds-eda-zus-korrelation">
+
+## Kovarianz und Korrelation
+
+<Formula title="Kovarianz" expr="s_{xy} = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})" />
+
+Die Werte **beider Variablen** einer Beobachtung werden mit dem **jeweiligen Mittelwert** verglichen; vom **Produkt der gemeinsamen Abweichungen** wird der Mittelwert berechnet.
+
+<Formula title="Korrelationskoeffizient nach Pearson (Alternative: Spearman)" expr="r = \frac{s_{xy}}{sd_x \cdot sd_y}" />
+
+- $r$ normiert die Kovarianz auf den Wertebereich **−1 bis +1** – durch Division durch das Produkt der Standardabweichungen.
+- $r > 0$: **positiver** linearer Zusammenhang; $r < 0$: **negativer**. Je größer $|r|$, desto größer der lineare Zusammenhang.
+
+<Columns count={2}>
+<Card title="Positiv: Einkommen x und Ausgaben y" tone="accent">
+
+- Überdurchschnittliches Einkommen ($x_i - \bar{x} > 0$) geht häufig mit überdurchschnittlichen Ausgaben ($y_i - \bar{y} > 0$) einher,
+- unterdurchschnittliches mit unterdurchschnittlichen.
+- In beiden Fällen: $(x_i - \bar{x})(y_i - \bar{y}) > 0$.
+
+</Card>
+<Card title="Negativ: Preis x und Absatz y" tone="purple">
+
+- Überdurchschnittlicher Preis ($x_i - \bar{x} > 0$) geht häufig mit unterdurchschnittlichem Absatz ($y_i - \bar{y} < 0$) einher,
+- unterdurchschnittlicher Preis mit überdurchschnittlichem Absatz.
+- In beiden Fällen: $(x_i - \bar{x})(y_i - \bar{y}) < 0$.
+
+</Card>
+</Columns>
+
+Folie 200 zeigt neun Punktwolken mit $r = -1$, $-0{,}9$, $-0{,}75$, $-0{,}3$, $0$, $0{,}3$, $0{,}75$, $0{,}9$ und $1$: Je näher $|r|$ an 1, desto **enger** liegen die Punkte an einer **Geraden**; bei $r = 0$ ist keine Richtung erkennbar.
+
+<Callout type="warn" title="Vorsicht">
+**Korrelation heißt nicht zwangsläufig Kausalität** – und **keine Korrelation heißt nicht zwangsläufig kein Zusammenhang** oder keine Kausalität (Scheinkorrelationen: tylervigen.com/spurious-correlations).
+</Callout>
+
+<DataChart type="scatter" title="Nicht linearer Zusammenhang: y = x²" source="Folien 201–202 · 41 Punkte für x = −2 bis 2, wie auf der Folie" height={280} tooltip={false} data={Array.from({ length: 41 }, (_, i) => { const x = Math.round((-2 + i * 0.1) * 10) / 10; return { x, y: Math.round(x * x * 100) / 100 }; })} series={[{ key: 'y', name: 'y', color: 'var(--color-module-blue)' }]} xDomain={[-2, 2]} yDomain={[0, 4]} xLabel="x" yLabel="y" />
+
+<Exercise title="Nicht lineare Zusammenhänge" question="Wie groß ist hier der Korrelationskoeffizient?" options={['r ≈ −1', 'r ≈ 0', 'r ≈ +1', 'r kann nicht bestimmt werden.']} answer={1}>
+
+**b)** Der Korrelationskoeffizient misst nur **lineare** (d. h. insbesondere monotone) Zusammenhänge. Hier gilt $y = x^2$, trotzdem ist $r \approx 0$: **Erst visualisieren, dann korrelieren.**
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.4 · Folien 198–202 · Wiederholung Statistik</SourceNote>
+</section>
+
+<section id="ds-eda-zus-anscombe">
+
+## Erst visualisieren, dann korrelieren
+
+### Anscombe-Quartett
+
+<Columns count={2}>
+<DataChart type="scatter" title="Datensatz 1" source="Folie 203 · R-Datensatz anscombe" height={220} tooltip={false} data={[[10,8.04],[8,6.95],[13,7.58],[9,8.81],[11,8.33],[14,9.96],[6,7.24],[4,4.26],[12,10.84],[7,4.82],[5,5.68]].map(([x, y]) => ({ x, y }))} series={[{ key: 'y', name: 'y1', color: 'var(--color-module-blue)' }]} xDomain={[3, 20]} yDomain={[2, 14]} xLabel="x1" yLabel="y1" />
+<DataChart type="scatter" title="Datensatz 2" source="Folie 203 · R-Datensatz anscombe" height={220} tooltip={false} data={[[10,9.14],[8,8.14],[13,8.74],[9,8.77],[11,9.26],[14,8.10],[6,6.13],[4,3.10],[12,9.13],[7,7.26],[5,4.74]].map(([x, y]) => ({ x, y }))} series={[{ key: 'y', name: 'y2', color: 'var(--color-module-blue)' }]} xDomain={[3, 20]} yDomain={[2, 14]} xLabel="x2" yLabel="y2" />
+</Columns>
+
+<Columns count={2}>
+<DataChart type="scatter" title="Datensatz 3" source="Folie 203 · R-Datensatz anscombe" height={220} tooltip={false} data={[[10,7.46],[8,6.77],[13,12.74],[9,7.11],[11,7.81],[14,8.84],[6,6.08],[4,5.39],[12,8.15],[7,6.42],[5,5.73]].map(([x, y]) => ({ x, y }))} series={[{ key: 'y', name: 'y3', color: 'var(--color-module-blue)' }]} xDomain={[3, 20]} yDomain={[2, 14]} xLabel="x3" yLabel="y3" />
+<DataChart type="scatter" title="Datensatz 4" source="Folie 203 · R-Datensatz anscombe" height={220} tooltip={false} data={[[8,6.58],[8,5.76],[8,7.71],[8,8.84],[8,8.47],[8,7.04],[8,5.25],[19,12.50],[8,5.56],[8,7.91],[8,6.89]].map(([x, y]) => ({ x, y }))} series={[{ key: 'y', name: 'y4', color: 'var(--color-module-blue)' }]} xDomain={[3, 20]} yDomain={[2, 14]} xLabel="x4" yLabel="y4" />
+</Columns>
+
+Die Verteilungen von $x$ und $y$ unterscheiden sich **sichtbar** – linear, gebogen, linear mit einem Ausreißer, senkrechte Säule mit einem einzelnen Punkt. Die deskriptiven Kennzahlen sind dagegen in allen vier Fällen **nahezu identisch**:
+
+<KpiGrid items={[
+  { value: 'x̄ = 9', label: 'Mittelwert x' },
+  { value: 'ȳ = 7,5', label: 'Mittelwert y' },
+  { value: '3,31 / 2,03', label: 'sd_x / sd_y (gerundet)' },
+  { value: 'r ≈ 0,82', label: 'Korrelation', accent: 'accent' },
+]} />
+
+<Callout type="merksatz" title="Erst visualisieren, dann korrelieren!">
+Gleiche Kennzahlen bedeuten **nicht** gleiche Daten.
+</Callout>
+
+### The Datasaurus Dozen
+
+Folie 205 zeigt ein weiteres Beispiel von Autodesk Research: **dreizehn Datensätze** (u. a. ein Dinosaurier, Sterne, Kreise, Linien) mit **denselben** Kennzahlen: x-Mittelwert 54,26, y-Mittelwert 47,83, sd_x 16,76, sd_y 26,93 und Korrelation −0,06 ([autodeskresearch.com/publications/samestats](https://www.autodeskresearch.com/publications/samestats)).
+
+<Exercise title="Korrelationskoeffizient" question="Stimmt die Aussage: Der Korrelationskoeffizient ist robust gegen Ausreißer!" options={['Ja.', 'Nein.']} answer={1}>
+
+**Nein.** Wie Grafik 4 des Anscombe-Quartetts zeigt, gibt es dort eigentlich **gar keinen linearen Zusammenhang** – er wird nur durch **den einen Ausreißer** vorgetäuscht ($r \approx 0{,}82$). Die **Kovarianz**, auf der der Korrelationskoeffizient beruht, ist wie die Varianz **empfindlich gegen Ausreißer**.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.4 · Folien 203–207 · Werte: R-Datensatz anscombe (Anscombe 1973), auf dem die Grafik der Folie beruht</SourceNote>
+</section>
+
+<section id="ds-eda-zus-trinkgeld">
+
+## Rechnungshöhe und Trinkgeld
+
+```r
+gf_point(tip ~ total_bill, data = tips)
+```
+
+<Exercise title="Zusammenhang Rechnungshöhe und Trinkgeld" question="Folie 208 zeigt das Streudiagramm tip ~ total_bill. Welche Aussage ist korrekt?" options={['Es scheint keinen Zusammenhang zwischen Rechnungshöhe und Trinkgeld zu geben.', 'Es scheint einen negativen Zusammenhang zwischen Rechnungshöhe und Trinkgeld zu geben.', 'Es scheint einen positiven Zusammenhang zwischen Rechnungshöhe und Trinkgeld zu geben.']} answer={2}>
+
+Die **Punktewolke erstreckt sich von links unten nach rechts oben**: Im Mittel werden bei **größeren Rechnungsbeträgen** auch die **Trinkgelder höher**. Antwort **c)** ist korrekt.
+
+</Exercise>
+
+```r
+cor(tip ~ total_bill, data = tips)
+```
+
+```text
+[1] 0.6757341
+```
+
+<KpiGrid items={[{ value: 'r = 0,68', label: 'Korrelation Trinkgeld und Rechnungshöhe: positiver linearer Zusammenhang', accent: 'accent' }]} />
+
+### Offene Übung: Rechnungshöhe für Raucher bzw. Nichtraucher
+
+<Exercise title="Offene Übung" question="Was können Sie über die Verteilung der Rechnungshöhe für Raucher bzw. Nichtraucher aussagen?">
+
+Mit diesen Befehlen lässt sich eine explorative Datenanalyse vornehmen:
+
+```r
+gf_histogram(~ total_bill | smoker, data = tips)
+gf_boxplot(total_bill ~ smoker, data = tips)
+favstats(total_bill ~ smoker, data = tips)
+iqr(total_bill ~ smoker, data = tips)
+```
+
+```text
+  smoker  min     Q1 median     Q3   max     mean       sd   n missing
+1     No 7.25 13.325  17.59 22.755 48.33 19.18828 8.255582 151       0
+2    Yes 3.07 13.420  17.92 26.860 50.81 20.75634 9.832154  93       0
+
+   No   Yes
+ 9.43 13.44
+```
+
+- **Beide** Verteilungen sind **rechtsschief** (gf_histogram); bei den **Nichtrauchern** scheint es **mehr Ausreißer** zu geben (gf_boxplot).
+- **Im Mittel** haben die **Raucher** eine etwas **höhere** Rechnungshöhe (favstats).
+- Die **Standardabweichung** und der **Interquartilsabstand** (iqr) sind bei den **Rauchern höher**.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.4 · Folien 208–213</SourceNote>
+</section>
+
+<section id="ds-eda-zus-aktienkurse">
+
+## Übung: Analyse von Aktienkursen
+
+<Callout type="info" title="Stand der Folien">
+Die Übung lädt **Apple-Aktienkurse (AAPL) von 2007 bis 2021** aus Yahoo Finance. Der Abruf braucht eine Internetverbindung; Ergebnisse späterer Abrufe können von den Werten der Folien abweichen (z. B. durch nachträglich angepasste Kurse).
+</Callout>
+
+### Kurse laden mit quantmod
+
+Falls noch nicht geschehen, das Paket einmalig installieren: `install.packages("quantmod", dependencies = TRUE)`. Laden in jeder neuen R-Sitzung – das gilt für alle verwendeten Pakete. Andere Quellen: siehe `?getSymbols`.
+
+```r
+library(quantmod)
+# Apple-Aktienkurse der letzten 15 Jahre aus Yahoo Finance laden
+getSymbols("AAPL", from = "2007-01-01", to = "2021-12-31")
+
+str(AAPL)
+dim(AAPL)
+```
+
+```text
+An 'xts' object on 2007-01-03/2021-12-30 containing:
+  Data: num [1:3776, 1:6] 3.08 3 3.06 3.07 3.09 ...
+ - attr(*, "dimnames")=List of 2
+  ..$ : chr [1:6] "AAPL.Open" "AAPL.High" "AAPL.Low" "AAPL.Close" ...
+  Indexed by objects of class: [Date] TZ: UTC
+[1] 3776    6
+```
+
+Es handelt sich um ein **Zeitreihen-Objekt**, ein sog. **xts-Objekt**, mit **3776 Beobachtungen und 6 Variablen**: `AAPL.Open`, `AAPL.High`, `AAPL.Low`, `AAPL.Close`, `AAPL.Volume`, `AAPL.Adjusted`.
+
+Von Interesse ist nur der **um Dividenden und Aktiensplits bereinigte Schlusskurs**:
+
+```r
+names(AAPL)
+AAPL <- AAPL$AAPL.Adjusted     # Beschränkung auf die adjustierten Schlusskurse
+names(AAPL)[1] <- "price"      # Namensänderung auf price
+head(AAPL)                     # erste 6 Datenpunkte; head(AAPL, n = …) für eine andere Anzahl
+tail(AAPL)                     # letzte 6 Datenpunkte
+```
+
+<DataTable caption="Adjustierte Schlusskurse am Anfang und Ende des Zeitraums (Folie 217)" columns={[
+  { key: 'datum', label: 'Datum' },
+  { key: 'price', label: 'price', align: 'right' },
+]} rows={[
+  { datum: '2007-01-03', price: '2.562706' },
+  { datum: '2007-01-04', price: '2.619588' },
+  { datum: '2007-01-05', price: '2.600933' },
+  { datum: '…', price: '…' },
+  { datum: '2021-12-29', price: '179.1517' },
+  { datum: '2021-12-30', price: '177.9733' },
+]} />
+
+### Renditen
+
+<Columns count={2}>
+<Formula title="Diskrete Rendite" expr="r_{t,\text{diskret}} = \frac{P_t}{P_{t-1}} - 1" />
+<Formula title="Stetige Rendite" expr="r_{t,\text{stetig}} = \ln\frac{P_t}{P_{t-1}} = \ln P_t - \ln P_{t-1}" />
+</Columns>
+
+mit dem Aktienkurs $P_t$ zum Zeitpunkt $t$. **Zumeist** finden **stetige (logarithmierte)** Renditen Verwendung – sie lassen sich einfach über die **Differenz des Logarithmus** berechnen:
+
+```r
+AAPL$return <- log(AAPL$price) %>% diff()
+# Alternative: AAPL$return <- diff(log(AAPL$price))
+head(AAPL)
+```
+
+```text
+              price       return
+2007-01-03 2.562706           NA
+2007-01-04 2.619588  0.021953322
+2007-01-05 2.600933 -0.007146827
+2007-01-08 2.613777  0.004926075
+2007-01-09 2.830903  0.079799440
+2007-01-10 2.966379  0.046746275
+```
+
+Für den **ersten Zeitpunkt** gibt es keinen Vortag – der Wert wird automatisch **NA (Not Available)**.
+
+### Kurse und Renditen grafisch
+
+```r
+library(ggformula)
+library(gridExtra)
+library(ggfortify)
+
+# Als data.frame abspeichern und zusätzlich Variable date anlegen
+AAPLdf <- as.data.frame(AAPL)
+AAPLdf$date <- as.Date(row.names(AAPLdf))
+# für price und return jeweils eine Grafik erzeugen
+p1 <- gf_line(price ~ date, data = AAPLdf)
+p2 <- gf_line(return ~ date, data = AAPLdf)
+grid.arrange(p1, p2, ncol = 1)   # untereinander anordnen
+
+# Alternative mit ggfortify
+p1 <- autoplot(AAPL$price)
+p2 <- autoplot(AAPL$return)
+grid.arrange(p1, p2, ncol = 1)
+```
+
+<p className="text-xs text-muted-foreground">Hinweis zu Folie 221: In der ersten Alternative steht dort autoplot(price data = AAPL) – zwischen price und data fehlt das Komma. Folie 220 zeigt außerdem typografische Anführungszeichen in install.packages(“xxx"); in R sind gerade Anführungszeichen nötig.</p>
+
+Folie 222 zeigt das Ergebnis: Der **Kurs** steigt über den Zeitraum stark an (von rund 2,56 auf rund 178), die **Renditen** schwanken um **null** – in einzelnen Phasen deutlich stärker als in anderen.
+
+### Deskriptive Kennzahlen der Renditen
+
+Vorab werden die Renditen als „normales“ Zeitreihenobjekt (`ts`) gespeichert und die fehlenden Werte entfernt, damit die Kennzahlen berechnet werden können:
+
+```r
+AAPL.return <- as.ts(na.omit(AAPL$return))
+median(AAPL.return)
+mean(AAPL.return)
+sd(AAPL.return)
+var(AAPL.return)
+```
+
+<KpiGrid items={[
+  { value: '0,00112', label: 'Median', accent: 'accent' },
+  { value: '0,00112', label: 'Mittelwert (0,00112333)' },
+  { value: '0,0203', label: 'Standardabweichung (0,02026788)' },
+  { value: '0,00041', label: 'Varianz (0,000410787)' },
+]} />
+
+Alternativ mit **favstats** aus mosaic:
+
+```r
+library(mosaic)   # falls noch nicht erfolgt
+favstats(AAPL.return)
+```
+
+```text
+        min          Q1      median         Q3       max       mean
+ -0.1974696 -0.00780183 0.001117578 0.01154456 0.1301941 0.00112333
+         sd    n missing
+ 0.02026788 3775       0
+```
+
+<Card title="Lesart" tone="accent">
+
+- Eine durchschnittliche stetige **Tagesrendite** von rund **0,11 %** bei einer **Standardabweichung** von rund **2,0 %**.
+- Die extremsten Tage: **−19,7 %** (min) und **+13,0 %** (max) – weit außerhalb der mittleren 50 % (−0,78 % bis +1,15 %).
+- **3775** Renditen aus 3776 Kursen: Der erste Wert (NA) ist entfernt.
+
+</Card>
+
+### Histogramm und Dichteschätzung
+
+```r
+p1 <- gf_histogram(~ AAPL.return)
+p2 <- gf_dens(~ AAPL.return)
+grid.arrange(p1, p2, nrow = 1)
+# Alternativ in einem Plot
+gf_dhistogram(~ AAPL.return) %>% gf_dens(col = "blue")
+```
+
+Folie 225 zeigt eine **eingipflige, um null zentrierte** Verteilung der Renditen mit **schmaler Spitze** und einzelnen **weit entfernten Werten** an beiden Rändern.
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.4 · Folien 214–225 · Kursdaten: Yahoo Finance über quantmod, Stand der Folien (aktualisiert 2022-05-02)</SourceNote>
+</section>
