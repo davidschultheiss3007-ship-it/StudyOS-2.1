@@ -8,6 +8,8 @@ import { meta as edaImport } from './04-ds-eda-datenimport.js';
 import EdaImportContent from './04-ds-eda-datenimport.mdx';
 import { meta as edaKategorial } from './05-ds-eda-kategoriale-daten.js';
 import EdaKategorialContent from './05-ds-eda-kategoriale-daten.mdx';
+import { meta as edaNumerisch } from './06-ds-eda-numerische-daten.js';
+import EdaNumerischContent from './06-ds-eda-numerische-daten.mdx';
 
 export const topics = [
   { ...einfuehrung, Content: EinfuehrungContent },
@@ -15,4 +17,5 @@ export const topics = [
   { ...einfuehrungR, Content: EinfuehrungRContent },
   { ...edaImport, Content: EdaImportContent },
   { ...edaKategorial, Content: EdaKategorialContent },
+  { ...edaNumerisch, Content: EdaNumerischContent },
 ];

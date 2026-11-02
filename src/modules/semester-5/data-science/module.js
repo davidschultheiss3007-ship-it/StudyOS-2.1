@@ -7,6 +7,7 @@ import { meta as grundlagen } from './topics/02-ds-grundlagen-quantitativer-date
 import { meta as einfuehrungR } from './topics/03-ds-einfuehrung-in-r.js';
 import { meta as edaImport } from './topics/04-ds-eda-datenimport.js';
 import { meta as edaKategorial } from './topics/05-ds-eda-kategoriale-daten.js';
+import { meta as edaNumerisch } from './topics/06-ds-eda-numerische-daten.js';
 
 export const module = {
   id: 'data-science',
@@ -33,5 +34,6 @@ export const module = {
     { ...einfuehrungR, status: 'available', hasContent: true },
     { ...edaImport, status: 'available', hasContent: true },
     { ...edaKategorial, status: 'available', hasContent: true },
+    { ...edaNumerisch, status: 'available', hasContent: true },
   ],
 };

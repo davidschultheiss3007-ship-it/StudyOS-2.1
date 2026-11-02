@@ -57,7 +57,7 @@ function renderReferenceLines(lines) {
 export default function DataChartImpl({
   type = 'line', data = [], series = [], xKey = 'x', yKey = 'y',
   xLabel, yLabel, height = 320, markers = [], xDomain, yDomain,
-  referenceLines = [], xTicks, stacked = false, barCategoryGap, tooltip = true,
+  referenceLines = [], xTicks, yTicks, stacked = false, barCategoryGap, tooltip = true,
 }) {
   // Recharts enter-animations are JS-driven, so the global CSS reduced-motion
   // rule does not reach them — gate them explicitly.
@@ -68,6 +68,9 @@ export default function DataChartImpl({
   const tickProps = xTicks
     ? { ticks: xTicks.map(t => t.value), tickFormatter: v => xTicks.find(t => t.value === v)?.label ?? v, allowDecimals: true }
     : {};
+  const yTickProps = yTicks
+    ? { ticks: yTicks.map(t => t.value), tickFormatter: v => yTicks.find(t => t.value === v)?.label ?? v, allowDecimals: true }
+    : {};
 
   if (type === 'scatter') {
     const groups = series.length > 0 ? series : [{ key: yKey, name: yLabel ?? 'Serie', color: PALETTE[0] }];
@@ -76,7 +79,7 @@ export default function DataChartImpl({
         <ScatterChart margin={{ top: 16, right: 24, bottom: 24, left: 12 }}>
           {common}
           <XAxis type="number" dataKey={xKey} domain={xDomain} {...tickProps} {...axisProps(xLabel, 'x')} />
-          <YAxis type="number" dataKey={yKey} domain={yDomain} {...axisProps(yLabel, 'y')} />
+          <YAxis type="number" dataKey={yKey} domain={yDomain} {...yTickProps} {...axisProps(yLabel, 'y')} />
           {tooltip && <Tooltip {...tooltipStyle} cursor={{ strokeDasharray: '3 3' }} />}
           {groups.length > 1 && <Legend {...legendProps(xLabel)} />}
           {groups.map((s, i) => (

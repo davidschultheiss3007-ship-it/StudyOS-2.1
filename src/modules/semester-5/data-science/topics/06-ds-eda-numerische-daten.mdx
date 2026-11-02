@@ -1,0 +1,606 @@
+<section id="ds-eda-num-ueberblick">
+
+## Grafiken und Kennzahlen im Überblick; Dotplot
+
+<Columns count={2}>
+<Card title="Grafiken" tone="accent">
+
+- **Säulen- / Balkendiagramm:** Häufigkeiten von Merkmalsausprägungen (nominal, ordinal, metrisch diskret).
+- **Dotplot:** Häufigkeiten von Merkmalsausprägungen (nominal, ordinal, metrisch).
+- **Histogramm:** Häufigkeit von **gruppierten** Merkmalsausprägungen (metrisch).
+- **Boxplot:** Median, oberes und unteres Quartil, Minimum und Maximum, Ausreißer (metrisch).
+- **Streudiagramm / Scatterplot:** zwei i. d. R. metrische Merkmale als Punkte (bei kategorialen oder metrisch diskreten Merkmalen ggf. verwackeln, engl. *jitter*).
+- **Liniendiagramm:** Verlauf der Merkmalsausprägung eines Merkmals.
+
+</Card>
+<Card title="Kennzahlen" tone="purple">
+
+- **Lagemaß:** beschreibt u. a. die **zentrale Tendenz** einer Verteilung.
+- **Streumaß:** beschreibt die Verteilung der Daten (häufig **um das Lagemaß**).
+- **Schiefe:** beschreibt die **Form** der Verteilung.
+
+</Card>
+</Columns>
+
+### Dotplot
+
+Ein **Dotplot** zeigt die Häufigkeiten der einzelnen Ausprägungen an – je Beobachtung ein Punkt.
+
+```r
+gf_dotplot( ~ size, data = tips)
+```
+
+Die Skalierung an der y-Achse ist dabei **nicht sinnvoll**; sie lässt sich verbergen:
+
+```r
+gf_dotplot( ~ size, data = tips) %>%
+  gf_theme(scale_y_continuous(NULL, breaks = NULL))
+```
+
+Für **stetige** Merkmale werden Bereiche in **Intervalle (Klassen)** zusammengefasst; die Breite legt `binwidth =` fest:
+
+```r
+gf_dotplot( ~ total_bill, data = tips, binwidth = 2) %>%
+  gf_theme(scale_y_continuous(NULL, breaks = NULL))
+```
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 140–143</SourceNote>
+</section>
+
+<section id="ds-eda-num-histogramm">
+
+## Histogramm
+
+Ein **Histogramm** visualisiert die **gruppierte Verteilung** einer numerischen Variable. Der **Flächeninhalt** der Rechtecke entspricht der **relativen Häufigkeit** der Beobachtungen im Intervall (Klasse).
+
+```r
+gf_histogram( ~ total_bill, data = tips, binwidth = 10, center = 5)
+```
+
+<DataChart type="bar" title="Histogramm der Rechnungshöhe total_bill, Klassenbreite 10 $" source="Folie 144 · Säulenhöhen aus dem Diagramm abgelesen (Summe 244; Klasse bis 10 $ bestätigt durch F_n(10) = 0,0697 auf Folie 161)" height={280} barCategoryGap={1} xKey="klasse" xLabel="total_bill in $" yLabel="count" data={[
+  { klasse: '0–10', count: 17 },
+  { klasse: '10–20', count: 130 },
+  { klasse: '20–30', count: 65 },
+  { klasse: '30–40', count: 22 },
+  { klasse: '40–50', count: 9 },
+  { klasse: '50–60', count: 1 },
+]} series={[{ key: 'count', name: 'Anzahl', color: 'var(--color-module-blue)' }]} />
+
+<Exercise title="Histogramm" question="Welche Aussage stimmt?" options={['Die meisten Werte sind ≤ 10.', 'Die meisten Werte sind > 10 und ≤ 20.', 'Die meisten Werte sind > 20 und ≤ 30.', 'Die meisten Werte sind > 30 und ≤ 40.', 'Die meisten Werte sind > 40 und ≤ 50.', 'Die meisten Werte sind > 50.']} answer={1}>
+
+**b)** ist korrekt, da der Balken am höchsten ist – bei **gleicher Balkenbreite** liegen somit in dieser Klasse prozentual die meisten Beobachtungen.
+
+</Exercise>
+
+### Klassen festlegen: binwidth, center, bins
+
+<Columns count={2}>
+<Card title="Mit center: Klassen 0–5, 5–10, …" tone="accent">
+
+```r
+gf_histogram( ~ total_bill, data = tips,
+  binwidth = 5,   # Breite einer Säule entspricht 5 $
+  center = 2.5)   # Klassen 0–5, 5–10, …
+```
+
+</Card>
+<Card title="Ohne center: Klassenmitten 5, 10, 15, …" tone="purple">
+
+```r
+gf_histogram( ~ total_bill, data = tips,
+  binwidth = 5)   # Breite einer Säule entspricht 5 $
+```
+
+</Card>
+</Columns>
+
+Mit `bins =` wird stattdessen die **Anzahl der Klassen** festgelegt. Folie 148 vergleicht `bins = 2`, `10`, `20` und `50`: Mit **2 Klassen** geht die Form verloren, mit **50 Klassen** wird das Bild zerklüftet; 10 bis 20 Klassen zeigen die rechtsschiefe Form gut.
+
+<Exercise title="Verteilung Trinkgeld" question="Erstellen Sie ein Histogramm für die Variable tip. Wählen Sie geeignete Klassenbreiten.">
+
+Eine mögliche Lösung:
+
+```r
+gf_histogram( ~ tip, binwidth = 0.5, center = 0.25, data = tips)
+```
+
+Das Ergebnis auf Folie 150: höchste Säule bei 2 bis 2,50 \$, danach fallen die Säulen nach rechts flach ab; einzelne Trinkgelder reichen bis 10 \$.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 144–150</SourceNote>
+</section>
+
+<section id="ds-eda-num-verteilungsformen">
+
+## Verteilungsformen und Transformation
+
+Die **Verteilung** gibt an, wie häufig bzw. wahrscheinlich bestimmte Werte oder Wertebereiche sind.
+
+<CompareCard items={[
+  { title: 'Symmetrisch (Normal)', accent: 'accent', points: ['Die Daten verteilen sich symmetrisch um eine zentrale Lage.'] },
+  { title: 'Rechtsschief (linkssteil)', accent: 'purple', points: ['Mehr Werte im unteren Wertebereich; nach rechts ein langer, flacher Ausläufer.'] },
+  { title: 'Linksschief (rechtssteil)', accent: 'neutral', points: ['Mehr Werte im oberen Wertebereich; nach links ein langer Ausläufer.'] },
+  { title: 'Bimodal / multimodal', accent: 'neutral', points: ['Mehrgipflig: mehr als ein Zentrum, um das die Werte streuen.'] },
+  { title: 'Gleichverteilung', accent: 'neutral', points: ['Alle Säulen sind etwa gleich hoch.'] },
+]} />
+
+<Exercise title="Verteilungsform" question="Welche Aussage stimmt vermutlich für die Verteilung des Einkommens?" options={['Das Einkommen ist gleichverteilt.', 'Das Einkommen ist multimodal.', 'Das Einkommen ist normalverteilt.', 'Das Einkommen ist linksschief.', 'Das Einkommen ist rechtsschief.']} answer={4}>
+
+Da, grob gesagt, nur **wenige viel und sehr viel** verdienen, **viele ein mittleres** Einkommen haben und etwas weniger ein geringes, wird die Verteilung **rechtsschief** sein: **e)**. Hausaufgabe laut Folie: die Einkommensverteilung in Deutschland recherchieren.
+
+</Exercise>
+
+<Exercise title="Rechnungshöhe I" question="Was gilt für die Variable Rechnungshöhe total_bill?" options={['Es ist eine latente verhältnisskalierte Variable.', 'Es ist eine manifeste verhältnisskalierte Variable.', 'Es ist eine latente intervallskalierte Variable.', 'Es ist eine manifeste intervallskalierte Variable.']} answer={1}>
+
+Die Rechnungshöhe lässt sich **direkt messen**, also ist sie **manifest**. Da es einen **absoluten Nullpunkt** gibt, ist sie **verhältnisskaliert**: **b)**.
+
+</Exercise>
+
+<Exercise title="Rechnungshöhe II" question="Welche Aussage stimmt für die Rechnungshöhe (Histogramm mit Klassenbreite 5 $ auf Folie 157)?" options={['Die Rechnungshöhe ist gleichverteilt.', 'Die Rechnungshöhe ist multimodal.', 'Die Rechnungshöhe ist normalverteilt.', 'Die Rechnungshöhe ist linksschief.', 'Die Rechnungshöhe ist rechtsschief.']} answer={4}>
+
+Die Rechnungshöhe hat **eine Spitze**, ist also **unimodal**. Sie **fällt nach rechts flacher ab**, als sie links steigt – somit ist sie **rechtsschief (e)**. Bei (annähernder) Gleichverteilung wären alle Balken etwa gleich hoch; die Normalverteilung ist symmetrisch.
+
+</Exercise>
+
+### Variablentransformation
+
+Ggf. können Variablen durch **Transformationen** (z. B. $\sqrt{\;}$, $\ln$) in Richtung einer **symmetrischen Normalverteilung** transformiert werden. In R: $\sqrt{\;}$ mit `sqrt()`, $\ln$ mit `log()`.
+
+```r
+gf_histogram( ~ sqrt(total_bill),  # Quadratwurzel der Variable
+              bins = 10,           # Anzahl Säulen
+              data = tips)
+
+# Alternative: neue Variable im Datensatz anlegen
+tips$wurzel_bill <- sqrt(tips$total_bill)
+gf_histogram( ~ wurzel_bill, bins = 10, data = tips)
+```
+
+Das Histogramm von `sqrt(total_bill)` auf Folie 159 ist **deutlich symmetrischer** als das der ursprünglichen Rechnungshöhe.
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 151–159</SourceNote>
+</section>
+
+<section id="ds-eda-num-verteilungsfunktion">
+
+## Empirische Verteilungsfunktion
+
+<Formula title="Empirische Verteilungsfunktion" expr="F_n(x) = \frac{\text{Anzahl Beobachtungen} \le x}{n}" />
+
+$F_n(x)$ gibt an, **wie viele der $n$ Beobachtungen kleiner oder gleich $x$** sind. Neben der empirischen gibt es auch eine **theoretische** Verteilungsfunktion $F(x)$.
+
+<Columns count={2}>
+<Card title="Diskrete Verteilung" tone="accent">
+
+Beispiel der Folie: **10-facher Münzwurf** (Anzahl Kopf). Die Verteilungsfunktion ist eine **Treppenfunktion**: Sie springt an jeder möglichen Ausprägung und steigt von 0 auf 1.
+
+</Card>
+<Card title="Stetige Verteilung" tone="purple">
+
+Beispiel der Folie: **Verteilungsfunktion der Rechnungshöhe**. Sie steigt als **glatte S-Kurve** von 0 auf 1; am steilsten dort, wo viele Beobachtungen liegen (zwischen etwa 10 und 25 \$).
+
+</Card>
+</Columns>
+
+```r
+pdata( ~ total_bill, q = 10, data = tips)
+```
+
+```text
+[1] 0.06967213
+```
+
+<Exercise title="Verteilungsfunktion" question="Für die Rechnungshöhe gilt F_n(10) = 0,07. Welche Aussage stimmt?" options={['Die relative Häufigkeit einer Rechnungshöhe von 10 $ liegt bei 0,07.', 'Die relative Häufigkeit einer Rechnungshöhe von mindestens 10 $ liegt bei 0,07.', 'Die relative Häufigkeit einer Rechnungshöhe von höchstens 10 $ liegt bei 0,07.']} answer={2}>
+
+Die (empirische) Verteilungsfunktion sagt aus, wie groß der Anteil der Beobachtungen ist, die **≤ x** sind, also **c)**. Damit liegt die relative Häufigkeit einer Rechnungshöhe **über** 10 \$ bei $1 - F_n(10) = 0{,}93$.
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 160–162 · Wiederholung Statistik</SourceNote>
+</section>
+
+<section id="ds-eda-num-lagemasse">
+
+## Lagemaße und der Mittelwert als Modell
+
+Lagemaße sollen u. a. die **zentrale Tendenz** der Daten beschreiben.
+
+<DataTable caption="Lagemaße (Folie 163, Wiederholung Statistik)" columns={[
+  { key: 'mass', label: 'Lagemaß' },
+  { key: 'def', label: 'Definition' },
+]} rows={[
+  { mass: 'Minimum / Maximum', def: 'Kleinste bzw. größte Merkmalsausprägung' },
+  { mass: 'Modus / Modalwert', def: 'Häufigste Merkmalsausprägung' },
+  { mass: 'Median / Zentralwert', def: 'Merkmalsausprägung, die bei aufsteigend sortierten Beobachtungen in der Mitte liegt' },
+  { mass: 'Arithmetischer Mittelwert (mean)', def: 'Summe aller Werte geteilt durch die Anzahl (daneben gibt es geometrischen und harmonischen Mittelwert)' },
+  { mass: 'p-Quantil', def: 'Wert, der von p Prozent der Werte nicht überschritten wird' },
+  { mass: 'Quartile', def: 'Q1 = 25 %-Quantil, Q2 = 50 %-Quantil, Q3 = 75 %-Quantil' },
+]} />
+
+<Formula title="Arithmetischer Mittelwert" expr="\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i" />
+
+### Beispielrechnung
+
+**Daten:** 20; 18; 24; 40; 24; 22; 21; 23; 20; 28 ($n = 10$). Sortiert: 18; 20; 20; 21; **22; 23**; 24; 24; 28; 40.
+
+<KpiGrid items={[
+  { value: '18 / 40', label: 'Minimum / Maximum' },
+  { value: '20 und 24', label: 'Modus (beide kommen zweimal vor)' },
+  { value: '22,5', label: 'Median: (22 + 23) / 2', accent: 'accent' },
+  { value: '24', label: 'Mittelwert: 240 / 10', accent: 'accent' },
+  { value: '20', label: '25 %-Quantil' },
+]} />
+
+### Quantil mit R
+
+```r
+qdata( ~ total_bill, p = 0.9, data = tips)
+```
+
+```text
+   90%
+32.235
+```
+
+- **90 %** der Rechnungen sind **kleiner oder gleich 32,24 \$**.
+- $1 - 90\,\% = 10\,\%$ der Rechnungen sind **größer oder gleich** 32,24 \$.
+
+<Exercise title="Lagemaße" question="Stimmt die Aussage: Es gilt immer F_n(x̄) = 0,5?" options={['Ja.', 'Nein.']} answer={1}>
+
+**Nein.** Für den **Median** gilt nach Definition $F_n(x_{0{,}5}) = 0{,}5$. Für den **Mittelwert** gilt das beispielsweise bei **symmetrischen** Verteilungen, aber nicht z. B. bei **schiefen** Verteilungen.
+
+</Exercise>
+
+### Der Mittelwert als „Modell“
+
+<Formula title="Idee: Daten = Modell + Rest" expr="x_i = \bar{x} + (x_i - \bar{x})" />
+
+```r
+mean( ~ total_bill, data = tips)
+```
+
+```text
+[1] 19.78594
+```
+
+Der **„Rest“ (Residuum)** $x_i - \bar{x}$ zeigt die Abweichung der Beobachtung zum Mittelwert $\bar{x}$ – hier dem „Modell“.
+
+<DataChart type="scatter" title="Abweichungen vom Mittelwert: vier Noten, MW = 2,33" source="Folien 169 und 172 · Werte aus den Abweichungsquadraten der Folie 172 rekonstruiert" height={280} tooltip={false} data={[
+  { x: 1, y: 2.0 }, { x: 2, y: 2.7 }, { x: 3, y: 3.1 }, { x: 4, y: 1.5 },
+]} series={[{ key: 'noten', name: 'Note', color: 'var(--color-text-primary)' }]} xTicks={[{ value: 1, label: '1' }, { value: 2, label: '2' }, { value: 3, label: '3' }, { value: 4, label: '4' }]} xDomain={[0.5, 4.5]} yDomain={[1, 4]} xLabel="Beobachtung" yLabel="Note" referenceLines={[
+  { y: 2.33, label: 'MW = 2,33', labelPosition: 'insideTopLeft', color: 'var(--color-text-secondary)', strokeWidth: 1.5 },
+  { segment: [{ x: 1, y: 2.0 }, { x: 1, y: 2.33 }], color: 'var(--color-module-blue)', dashed: false },
+  { segment: [{ x: 2, y: 2.7 }, { x: 2, y: 2.33 }], color: 'var(--color-module-orange)' },
+  { segment: [{ x: 3, y: 3.1 }, { x: 3, y: 2.33 }], color: 'var(--color-module-orange)' },
+  { segment: [{ x: 4, y: 1.5 }, { x: 4, y: 2.33 }], color: 'var(--color-module-blue)', dashed: false },
+]} />
+
+<Formula title="Die Abweichungen vom Mittelwert summieren sich zu null" expr="\sum_{i=1}^{n}(x_i - \bar{x}) = \sum_{i=1}^{n} x_i - \sum_{i=1}^{n}\bar{x} = n\cdot\bar{x} - n\cdot\bar{x} = 0" />
+
+Durchgezogen: **negative** Abweichung (unter dem Mittelwert); gestrichelt: **positive** Abweichung.
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 163–169 · Wiederholung Statistik</SourceNote>
+</section>
+
+<section id="ds-eda-num-streuungsmasse">
+
+## Streuungsmaße und z-Transformation
+
+Streuungsmaße sollen die **Streuung / Variation** der Daten beschreiben.
+
+<Columns count={2}>
+<Card title="Varianz" tone="accent">
+
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+
+Durchschnittliche **quadratische** Abweichung zum Mittelwert. **Andere Einheit** als die Daten (Daten in €, Varianz in €²). Durch das Quadrieren werden Abweichungen nach oben und unten **gleich behandelt** und **größere Abweichungen stärker gewichtet**.
+
+</Card>
+<Card title="Standardabweichung, IQR, Spannweite" tone="purple">
+
+- **Standardabweichung** (sd): $sd = s = \sqrt{s^2}$
+- **Interquartilsabstand** (IQR): Q3 − Q1
+- **Spannweite** (range): Maximum − Minimum
+
+</Card>
+</Columns>
+
+<p className="text-xs text-muted-foreground">Zum Nenner (Fußnote Folie 170): 1/n ist nicht im eigentlichen Sinne falsch. 1/(n − 1) ist besser, wenn von einer Stichprobe auf die Varianz der Population (σ²) verallgemeinert werden soll; bei großem n ist der Unterschied klein.</p>
+
+### Beispielrechnung
+
+**Daten:** 20; 18; 24; 40; 24; 22; 21; 23; 20; 28 ($n = 10$, $\bar{x} = 24$)
+
+<Formula title="Varianz" expr="s^2 = \frac{1}{10-1}\big((20-24)^2 + (18-24)^2 + \dots + (28-24)^2\big) = \frac{354}{9} \approx 39{,}33" />
+
+<KpiGrid items={[
+  { value: '6,27', label: 'Standardabweichung: √39,33', accent: 'accent' },
+  { value: '4', label: 'IQR: 24 − 20' },
+  { value: '22', label: 'Spannweite: 40 − 18' },
+]} />
+
+### Varianz und sd als „Abweichungsquadrate“
+
+<DataTable caption="Die vier Noten aus dem Beispiel oben: Abweichungsquadrate (Folie 172)" columns={[
+  { key: 'i', label: 'Beobachtung', align: 'right' },
+  { key: 'richtung', label: 'Richtung' },
+  { key: 'q', label: '(x_i − x̄)²', align: 'right' },
+]} rows={[
+  { i: '1', richtung: 'negativ', q: '0,106' },
+  { i: '2', richtung: 'positiv', q: '0,141' },
+  { i: '3', richtung: 'positiv', q: '0,601' },
+  { i: '4', richtung: 'negativ', q: '0,681' },
+]} />
+
+<Formula title="Varianz der vier Noten" expr="s^2 \approx \frac{1}{4-1}\cdot(0{,}106 + 0{,}141 + 0{,}601 + 0{,}681) = 0{,}509" />
+
+<Formula title="Quadratsumme des Restes" expr="\sum_{i=1}^{n}(x_i - \bar{x})^2 = (n-1)\cdot s^2 = (n-1)\cdot sd^2" />
+
+<p className="text-xs text-muted-foreground">Hinweis zu Folie 172: Im Diagramm ist das zweite Abweichungsquadrat mit 0,414 beschriftet, in der Formel darunter mit 0,141. Nur 0,141 ergibt die Varianz 0,509 und passt zu den übrigen Werten.</p>
+
+### Beispiel: Abwanderungserkennung
+
+<DataChart type="scatter" title="Einkaufszeitpunkte von Max und Moni" source="Folie 173 · Punktpositionen aus der Folie übernommen" height={220} tooltip={false} series={[
+  { key: 'max', name: 'Max', color: 'var(--color-module-blue)', data: [{ x: 13, y: 2 }, { x: 28, y: 2 }, { x: 42, y: 2 }, { x: 56, y: 2 }, { x: 72, y: 2 }, { x: 87, y: 2 }, { x: 102, y: 2 }, { x: 117, y: 2 }, { x: 133, y: 2 }, { x: 149, y: 2 }] },
+  { key: 'moni', name: 'Moni', color: 'var(--color-module-orange)', data: [{ x: 5, y: 1 }, { x: 30, y: 1 }, { x: 32, y: 1 }, { x: 35, y: 1 }, { x: 65, y: 1 }, { x: 80, y: 1 }, { x: 85, y: 1 }, { x: 104, y: 1 }, { x: 139, y: 1 }, { x: 149, y: 1 }] },
+]} yTicks={[{ value: 1, label: 'Moni' }, { value: 2, label: 'Max' }]} xDomain={[0, 155]} yDomain={[0.5, 2.5]} xLabel="Zeitpunkte" />
+
+- Max kauft **sehr regelmäßig** ein (kleine Streuung), Moni **genauso oft, aber unregelmäßiger**.
+- Beide waren **seit 30 Tagen** nicht mehr einkaufen: Aufgrund der **größeren Streuung** ihrer Kaufintervalle ist das bei **Moni üblicher** als bei Max.
+
+### z-Transformation
+
+<Formula title="z-Transformation (Studentisierung): Verteilung mit z̄ = 0 und sd_z = 1" expr="z_i = \frac{x_i - \bar{x}}{sd_x}" />
+
+<Exercise title="z-Wert" question="Kunde A hat bei 30 Tagen nicht einkaufen einen z-Wert von 1, Kunde B einen von 2. Welcher Kunde ist abwanderungsgefährdeter?" options={['A.', 'B.', 'Kann mit der gegebenen Information nicht entschieden werden.']} answer={1}>
+
+**b)** Der Zähler $x_i - \bar{x}$ gibt an, ob der Wert über oder unter dem (jeweiligen) Mittelwert liegt. Durch die **Division durch die jeweilige** $sd_x$ wird die Abweichung **relativiert**. Bei A liegt die Dauer der Abwesenheit **eine** Standardabweichung über seinem Mittelwert, bei B **zwei** – die Abweichung ist bei B relativ größer. In R z. B. mit `zscore()`.
+
+</Exercise>
+
+### Vergleich der Streuung
+
+Folie 176 zeigt drei Histogramme mit **unterschiedlich skalierten x-Achsen**:
+
+<DataChart type="bar" title="Abbildung A" source="Folie 176 · aus der Vektorgrafik der Folie abgelesen" height={180} barCategoryGap={0} xKey="x" yLabel="count" data={[
+  { x: '−2,2', n: 7 }, { x: '−1,9', n: 12 }, { x: '−1,7', n: 21 }, { x: '−1,4', n: 30 }, { x: '−1,2', n: 63 }, { x: '−1,0', n: 55 }, { x: '−0,7', n: 77 }, { x: '−0,5', n: 83 }, { x: '−0,3', n: 106 }, { x: '0,0', n: 112 }, { x: '0,2', n: 106 }, { x: '0,5', n: 78 }, { x: '0,7', n: 64 }, { x: '1,0', n: 63 }, { x: '1,2', n: 38 }, { x: '1,4', n: 30 }, { x: '1,6', n: 17 }, { x: '1,9', n: 13 }, { x: '2,1', n: 10 }, { x: '2,4', n: 7 }, { x: '2,6', n: 10 },
+]} series={[{ key: 'n', name: 'Anzahl', color: 'var(--color-module-blue)' }]} />
+
+<DataChart type="bar" title="Abbildung B" source="Folie 176 · aus der Vektorgrafik der Folie abgelesen" height={180} barCategoryGap={0} xKey="x" yLabel="count" data={[
+  { x: '−4,3', n: 7 }, { x: '−3,8', n: 13 }, { x: '−3,4', n: 19 }, { x: '−2,9', n: 42 }, { x: '−2,4', n: 40 }, { x: '−1,9', n: 69 }, { x: '−1,4', n: 96 }, { x: '−0,9', n: 92 }, { x: '−0,5', n: 104 }, { x: '0,0', n: 96 }, { x: '0,5', n: 69 }, { x: '1,0', n: 82 }, { x: '1,5', n: 75 }, { x: '2,0', n: 63 }, { x: '2,4', n: 46 }, { x: '2,9', n: 31 }, { x: '3,4', n: 28 }, { x: '3,9', n: 17 }, { x: '4,3', n: 7 }, { x: '4,8', n: 9 }, { x: '5,3', n: 7 },
+]} series={[{ key: 'n', name: 'Anzahl', color: 'var(--color-module-blue)' }]} />
+
+<DataChart type="bar" title="Abbildung C" source="Folie 176 · aus der Vektorgrafik der Folie abgelesen" height={180} barCategoryGap={0} xKey="x" yLabel="count" data={[
+  { x: '−5,8', n: 26 }, { x: '−5,4', n: 41 }, { x: '−4,9', n: 37 }, { x: '−4,4', n: 40 }, { x: '−3,9', n: 40 }, { x: '−3,4', n: 53 }, { x: '−2,9', n: 32 }, { x: '−2,4', n: 41 }, { x: '−2,0', n: 47 }, { x: '−1,5', n: 42 }, { x: '−1,0', n: 37 }, { x: '−0,5', n: 40 }, { x: '0,0', n: 32 }, { x: '0,5', n: 40 }, { x: '1,0', n: 35 }, { x: '1,5', n: 40 }, { x: '2,0', n: 38 }, { x: '2,4', n: 47 }, { x: '2,9', n: 56 }, { x: '3,4', n: 32 }, { x: '3,9', n: 49 }, { x: '4,4', n: 49 }, { x: '4,9', n: 38 }, { x: '5,4', n: 44 }, { x: '5,9', n: 26 },
+]} series={[{ key: 'n', name: 'Anzahl', color: 'var(--color-module-blue)' }]} />
+
+<Exercise title="Vergleich Streuung" question="Bei welcher Abbildung ist die Standardabweichung sd wohl am größten?" options={['Abbildung A.', 'Abbildung B.', 'Abbildung C.']} answer={2}>
+
+**c)** – hier liegen **mehr Beobachtungen weiter vom Mittelwert entfernt** als bei B. (Die Beobachtungen in B streuen auch mehr als die Werte in A.) **Relevant ist die Variation der Werte (x-Achse), nicht die Häufigkeit (y-Achse).**
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 170–177 · Abwanderungsbeispiel vgl. Papenhoff, H. & Lübke, K. (2017): Churn Management, in: Helmke, S. et al. (Hg.): Effektives Customer Relationship Management, S. 161–170</SourceNote>
+</section>
+
+<section id="ds-eda-num-kennzahlen-boxplot">
+
+## Kennzahlen mit R und Boxplot
+
+`inspect()` **inspiziert** den Datensatz und gibt eine Übersicht über wesentliche Kennzahlen:
+
+```r
+inspect(tips)
+```
+
+```text
+categorical variables:
+    name     class levels   n missing                                distribution
+1    sex character      2 244       0 Male (64.3%), Female (35.7%)
+2 smoker character      2 244       0 No (61.9%), Yes (38.1%)
+3    day character      4 244       0 Sat (35.7%), Sun (31.1%), Thur (25.4%) ...
+4   time character      2 244       0 Dinner (72.1%), Lunch (27.9%)
+
+quantitative variables:
+        name   class  min      Q1 median      Q3   max      mean        sd   n missing
+1 total_bill numeric 3.07 13.3475 17.795 24.1275 50.81 19.785943 8.9024120 244       0
+2        tip numeric 1.00  2.0000  2.900  3.5625 10.00  2.998279 1.3836382 244       0
+3       size integer 1.00  2.0000  2.000  3.0000  6.00  2.569672 0.9510998 244       0
+```
+
+<Exercise title="Metrische Variablen" question="Wie viele metrische Variablen liegen vor?" options={['2', '3', '4', '7', '244']} answer={1}>
+
+Es liegen **3** metrische (numerische) Variablen vor (`total_bill`, `tip`, `size`); die anderen sind kategoriale (bzw. nominalskalierte) Variablen. **7** ist die Gesamtzahl an Variablen, **244** die Anzahl der Beobachtungen.
+
+</Exercise>
+
+### Kennzahlen der Rechnungshöhe
+
+```r
+favstats( ~ total_bill, data = tips)
+```
+
+```text
+ min      Q1 median      Q3   max     mean       sd   n missing
+3.07 13.3475 17.795 24.1275 50.81 19.78594 8.902412 244       0
+```
+
+<Exercise title="Kennzahlen" question="In welchem Bereich liegen 50 % der Beobachtungen der Rechnungshöhe?">
+
+Die **mittleren 50 %** liegen im Bereich **Q1 bis Q3** (13,35 \$ bis 24,13 \$) – das sind die Werte innerhalb des **Interquartilsabstands (IQR)**. Aber auch zwischen **min und median** bzw. zwischen **median und max** (jeweils einschließlich) liegen 50 % der Beobachtungen.
+
+</Exercise>
+
+### Boxplot
+
+Der **Boxplot** visualisiert die Verteilung von deskriptiven Kennzahlen und mögliche **Ausreißer** einer numerischen Variable.
+
+```r
+gf_boxplot(tip ~ 1, data = tips)   # vertikaler Boxplot
+gf_boxplot(~ tip, data = tips)     # horizontaler Boxplot
+```
+
+<Card title="Struktur eines Boxplots" tone="accent">
+
+- Die **untere Linie** der Box ist das **untere Quartil** (25 %-Quantil, Q1), die **obere Linie** das **obere Quartil** (75 %-Quantil, Q3).
+- Die **Linie in der Box** (gelegentlich auch ein Punkt) ist der **Median**.
+- **Maximale Reichweite der Antennen:** bis zu der Beobachtung, die **maximal 1,5 · IQR** vom oberen bzw. unteren Quartil entfernt liegt. Ist das Maximum der Daten kleiner bzw. das Minimum größer, wird dieses genommen (Definition nicht immer einheitlich).
+- **Punkte außerhalb der Antennen** sind **mögliche Ausreißer**.
+
+</Card>
+
+<BoxPlot title="Übungs-Boxplot einer Variable x (n = 100)" source="Folien 186–187 · Kennzahlen laut Folie; Antennenende und Ausreißer aus der Vektorgrafik abgelesen (ca.)" domain={[0, 13]} ticks={[0, 2.5, 5, 7.5, 10, 12.5]} xLabel="x" groups={[
+  { label: 'x', low: 0.11, q1: 1.3, median: 2.36, q3: 3.4, high: 6.3, outliers: [6.7, 7.4, 8.1, 8.3, 8.5, 9.8, 10.4, 12.0, 12.63] },
+]} />
+
+```text
+ min  Q1 median  Q3   max mean   sd   n missing
+0.11 1.3   2.36 3.4 12.63 2.96 2.65 100       0
+```
+
+<Exercise title="Boxplot: Ausreißer" question="Verknüpfe Abbildung und Kennzahlen. Ab wann ist eine Beobachtung ein potenzieller Ausreißer nach oben?">
+
+- Es ist $IQR = 3{,}4 - 1{,}3 = 2{,}1$ und $1{,}5 \cdot IQR = 3{,}15$.
+- Die obere Antenne reicht daher höchstens bis $3{,}4 + 3{,}15 = 6{,}55$.
+- Also können Werte **größer als 6,55** als Ausreißer nach oben gelten.
+
+</Exercise>
+
+### Rechnungshöhe abhängig vom Geschlecht
+
+```r
+gf_boxplot(total_bill ~  # abhängige Variable
+           sex,          # unabhängige Variable
+           data = tips)
+```
+
+<BoxPlot title="Boxplot der Rechnungshöhe nach Geschlecht" source="Folie 188 · Quartile und Median laut favstats (Folie 191); Antennenenden und Ausreißer aus dem Diagramm abgelesen (ca.)" domain={[0, 55]} ticks={[0, 10, 20, 30, 40, 50]} xLabel="total_bill in $" groups={[
+  { label: 'Female', low: 3.07, q1: 12.75, median: 16.4, q3: 21.52, high: 30.0, outliers: [34.8, 35.8, 43.1, 44.3] },
+  { label: 'Male', low: 7.25, q1: 14.0, median: 18.35, q3: 24.71, high: 40.4, outliers: [41.1, 45.3, 48.1, 50.81] },
+]} />
+
+<p className="text-xs text-muted-foreground">Die Folie zeigt die Boxplots vertikal (total_bill auf der y-Achse); hier sind sie zur besseren Lesbarkeit liegend gezeichnet.</p>
+
+<Exercise title="Boxplot" question="Welche Aussage stimmt nach der Abbildung?" options={['Der Mittelwert der Rechnungshöhe ist bei den Männern unter 20 $.', 'Der Mittelwert der Rechnungshöhe ist bei den Männern über 20 $.', 'Der Median der Rechnungshöhe ist bei den Männern unter 20 $.', 'Der Median der Rechnungshöhe ist bei den Männern über 20 $.']} answer={2}>
+
+Die **Mittelwerte werden in diesen Boxplots nicht ausgegeben**, daher können a) und b) **nicht beurteilt** werden. Der **Median** (die Linie in der Box) liegt bei den Männern noch **knapp unter 20 \$** (18,35 \$), somit ist **c)** korrekt.
+
+</Exercise>
+
+### Kennzahlen und Diagramm gruppiert nach Geschlecht
+
+```r
+favstats(total_bill ~ sex, data = tips)
+```
+
+```text
+     sex  min    Q1 median    Q3   max     mean       sd   n missing
+1 Female 3.07 12.75  16.40 21.52 44.30 18.05690 8.009209  87       0
+2   Male 7.25 14.00  18.35 24.71 50.81 20.74408 9.246469 157       0
+```
+
+```r
+gf_point(total_bill ~ sex, stat = "summary", size = 5, data = tips)
+# mit color = "blue" wird es bunt
+```
+
+<DataChart type="bar" title="Mittelwert der Rechnungshöhe je Geschlecht" source="Folie 191 · Werte laut favstats; die Folie zeigt sie mit gf_point als Punkte (y-Achse 17 bis 21)" height={240} xKey="sex" yLabel="mean total_bill in $" yDomain={[0, 25]} data={[
+  { sex: 'Female', mean: 18.06 },
+  { sex: 'Male', mean: 20.74 },
+]} series={[{ key: 'mean', name: 'Mittelwert', color: 'var(--color-module-blue)' }]} />
+
+<Callout type="warn" title="Achsenausschnitt beachten">
+Auf Folie 191 beginnt die y-Achse bei 17 – der Unterschied der Mittelwerte (18,06 \$ vs. 20,74 \$) wirkt dort groß. Mit y-Achse ab 0 (oben) erscheint er kleiner. Der Boxplot zeigt zusätzlich: Die Verteilungen beider Gruppen **überlappen stark**.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 178–191</SourceNote>
+</section>
+
+<section id="ds-eda-num-modellierung">
+
+## Modellierung: Daten = Modell + Rest
+
+<Columns count={2}>
+<Card title="Modell 1: Gesamtmittelwert · total_bill ~ 1" tone="accent">
+
+Keine Variable modelliert die Rechnungshöhe – das Modell ist der **Gesamtmittelwert** $\bar{x}$.
+
+```r
+favstats(total_bill ~ 1, data = tips)
+```
+
+$$\sum_{i=1}^{n}(x_i - \bar{x})^2 = (244-1)\cdot 8{,}902412^2 = 19258{,}46$$
+
+</Card>
+<Card title="Modell 2: Mittelwert je Anzahl Personen · total_bill ~ size" tone="purple">
+
+Die Rechnungshöhe wird durch die **Anzahl Personen** $j = 1, \dots, 6$ modelliert – Modell ist der **Gruppenmittelwert** $\bar{x}_j$.
+
+```r
+favstats(total_bill ~ size, data = tips)
+```
+
+$$\sum_{j=1}^{K}\sum_{i=1}^{n_j}(x_{i,j} - \bar{x}_j)^2 = \sum_{j=1}^{K}(n_j - 1)\cdot sd_j^2 = 12110{,}54$$
+
+</Card>
+</Columns>
+
+<DataTable caption="favstats(total_bill ~ size, data = tips) (Folie 193)" columns={[
+  { key: 'size', label: 'size', align: 'right' },
+  { key: 'min', label: 'min', align: 'right' },
+  { key: 'median', label: 'median', align: 'right' },
+  { key: 'max', label: 'max', align: 'right' },
+  { key: 'mean', label: 'mean', align: 'right' },
+  { key: 'sd', label: 'sd', align: 'right' },
+  { key: 'n', label: 'n', align: 'right' },
+]} rows={[
+  { size: '1', min: '3.07', median: '7.915', max: '10.07', mean: '7.24250', sd: '3.010729', n: '4' },
+  { size: '2', min: '5.75', median: '15.370', max: '40.55', mean: '16.44801', sd: '6.043729', n: '156' },
+  { size: '3', min: '10.33', median: '20.365', max: '50.81', mean: '23.27763', sd: '9.407065', n: '38' },
+  { size: '4', min: '16.49', median: '25.890', max: '48.33', mean: '28.61351', sd: '8.608603', n: '37' },
+  { size: '5', min: '20.69', median: '29.850', max: '41.19', mean: '30.06800', sd: '7.340396', n: '5' },
+  { size: '6', min: '27.05', median: '32.050', max: '48.17', mean: '34.83000', sd: '9.382000', n: '4' },
+]} />
+
+<Callout type="merksatz" title="Weniger Rest, aber weniger Freiheitsgrade">
+Bei der Analyse `total_bill ~ size` ist der **Rest kleiner** als bei `total_bill ~ 1` (12110,54 statt 19258,46). Dafür wird ein **Preis** gezahlt: In den einzelnen Gruppen sind **weniger Beobachtungen** – weniger **Freiheitsgrade** (engl. *degrees of freedom*, df).
+</Callout>
+
+Folie 194 veranschaulicht das am **reduzierten Datensatz** mit nur 1 oder 6 Personen am Tisch (je vier Rechnungen):
+
+<Columns count={2}>
+<DataChart type="scatter" title="total_bill ~ 1: relativ viel Residualstreuung" source="Folie 194 · Werte aus favstats (Folie 193) rekonstruiert" height={280} tooltip={false} series={[
+  { key: 'alle', name: 'Rechnung', color: 'var(--color-module-blue)', data: [{ x: 1, y: 3.07 }, { x: 2, y: 10.07 }, { x: 3, y: 7.25 }, { x: 4, y: 29.8 }, { x: 5, y: 34.3 }, { x: 6, y: 27.05 }, { x: 7, y: 48.17 }, { x: 8, y: 8.58 }] },
+]} xDomain={[0.5, 8.5]} yDomain={[0, 50]} xLabel="Rechnung" yLabel="total_bill" xTicks={[1, 2, 3, 4, 5, 6, 7, 8].map(v => ({ value: v, label: String(v) }))} referenceLines={[
+  { y: 21.04, label: 'Ø 21,04', labelPosition: 'insideTopRight', color: 'var(--color-module-blue)', dashed: false },
+  { segment: [{ x: 1, y: 3.07 }, { x: 1, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 2, y: 10.07 }, { x: 2, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 3, y: 7.25 }, { x: 3, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 4, y: 29.8 }, { x: 4, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 5, y: 34.3 }, { x: 5, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 6, y: 27.05 }, { x: 6, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 7, y: 48.17 }, { x: 7, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 8, y: 8.58 }, { x: 8, y: 21.04 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+]} />
+<DataChart type="scatter" title="total_bill ~ size: relativ wenig(er) Residualstreuung" source="Folie 194 · Werte aus favstats (Folie 193) rekonstruiert" height={280} tooltip={false} series={[
+  { key: 's1', name: 'size = 1', color: 'var(--color-module-orange)', data: [{ x: 1, y: 3.07 }, { x: 2, y: 10.07 }, { x: 3, y: 7.25 }, { x: 8, y: 8.58 }] },
+  { key: 's6', name: 'size = 6', color: 'var(--color-module-blue)', data: [{ x: 4, y: 29.8 }, { x: 5, y: 34.3 }, { x: 6, y: 27.05 }, { x: 7, y: 48.17 }] },
+]} xDomain={[0.5, 8.5]} yDomain={[0, 50]} xLabel="Rechnung" yLabel="total_bill" xTicks={[1, 2, 3, 4, 5, 6, 7, 8].map(v => ({ value: v, label: String(v) }))} referenceLines={[
+  { y: 7.24, label: 'Ø 7,24', labelPosition: 'insideTopRight', color: 'var(--color-module-orange)', dashed: false },
+  { y: 34.83, label: 'Ø 34,83', labelPosition: 'insideTopRight', color: 'var(--color-module-blue)', dashed: false },
+  { segment: [{ x: 1, y: 3.07 }, { x: 1, y: 7.24 }], color: 'var(--color-module-orange)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 2, y: 10.07 }, { x: 2, y: 7.24 }], color: 'var(--color-module-orange)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 3, y: 7.25 }, { x: 3, y: 7.24 }], color: 'var(--color-module-orange)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 8, y: 8.58 }, { x: 8, y: 7.24 }], color: 'var(--color-module-orange)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 4, y: 29.8 }, { x: 4, y: 34.83 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 5, y: 34.3 }, { x: 5, y: 34.83 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 6, y: 27.05 }, { x: 6, y: 34.83 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+  { segment: [{ x: 7, y: 48.17 }, { x: 7, y: 34.83 }], color: 'var(--color-module-blue)', dashed: false, strokeWidth: 1 },
+]} />
+</Columns>
+
+<p className="text-xs text-muted-foreground">Rekonstruktion (Ergänzung): Aus min, Q1, median, Q3 und max der Folie 193 ergeben sich für je vier Werte eindeutig size = 1: 3,07 / 7,25 / 8,58 / 10,07 und size = 6: 27,05 / 29,80 / 34,30 / 48,17. Die Mittelwerte 7,2425 und 34,83 stimmen mit der Folie überein.</p>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.3 · Folien 192–194</SourceNote>
+</section>
