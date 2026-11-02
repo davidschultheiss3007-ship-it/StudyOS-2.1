@@ -1,0 +1,126 @@
+<section id="ds-eda-tips-einlesen">
+
+## Den Trinkgeld-Datensatz einlesen
+
+Kapitel 4 behandelt die **explorative Datenanalyse** in fünf Teilen: 4.1 Daten einlesen, 4.2 kategoriale Daten, 4.3 numerische Daten, 4.4 Zusammenhänge, 4.5 Zusammenfassung. Durchgehendes Beispiel ist der **Trinkgeld-Datensatz** (Tipping-Daten nach Bryant & Smith 1995).
+
+```r
+# tips.csv ist aus Moodle heruntergeladen
+# und im Arbeitsverzeichnis abgelegt
+# Einlesen in R
+tips <- read.csv2("tips.csv")
+
+# Alternativ – heruntergeladene Datei einlesen
+# und das Verzeichnis auswählen:
+tips <- read.csv2(file.choose())
+```
+
+<Callout type="tip" title="Arbeitsverzeichnis">
+Über `getwd()` wird das aktuelle Verzeichnis ausgegeben, mit `setwd(…)` wird es festgelegt.
+</Callout>
+
+<Callout type="info" title="Datei nicht in StudyOS enthalten">
+`tips.csv` stellt die Lehrveranstaltung über **Moodle** bereit. Die Ergebnisse auf den folgenden Seiten stammen aus den Folien.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.1 · Folien 102–105 · Bryant, P. G. & Smith, M. (1995): Practical Data Analysis: Case Studies in Business Statistics. Homewood, IL: Richard D. Irwin Publishing</SourceNote>
+</section>
+
+<section id="ds-eda-csv-datei">
+
+## Aufbau der csv-Datei
+
+Eine solche csv-Datei kann z. B. durch **Export aus Tabellenkalkulationsprogrammen** erzeugt werden. Die ersten Zeilen von `tips.csv`:
+
+```text
+"total_bill";"tip";"sex";"smoker";"day";"time";"size"
+16,99;1,01;"Female";"No";"Sun";"Dinner";2
+10,34;1,66;"Male";"No";"Sun";"Dinner";3
+21,01;3,5;"Male";"No";"Sun";"Dinner";3
+23,68;3,31;"Male";"No";"Sun";"Dinner";2
+...
+```
+
+<DataTable caption="Dateiaufbau von tips.csv und die passende Einstellung (Folie 106)" columns={[
+  { key: 'merkmal', label: 'Merkmal' },
+  { key: 'tips', label: 'In tips.csv' },
+  { key: 'us', label: 'Amerikanische csv-Datei' },
+]} rows={[
+  { merkmal: 'Erste Zeile', tips: 'Variablennamen', us: 'Variablennamen' },
+  { merkmal: 'Datenfeldtrennzeichen', tips: '; (Semikolon)', us: ', (Komma) – daher „Comma Separated Values“' },
+  { merkmal: 'Dezimaltrennzeichen', tips: ', (Komma)', us: '. (Punkt)' },
+  { merkmal: 'Textkennzeichen', tips: '" (Anführungszeichen)', us: '" (Anführungszeichen)' },
+  { merkmal: 'Einlesebefehl', tips: 'read.csv2()', us: 'read.csv()' },
+]} />
+
+<Callout type="merksatz" title="Das Dateiformat bestimmt den Befehl">
+Der Einlesebefehl in R **hängt vom Dateiformat** der Datei ab. Siehe z. B. `?read.table` oder die Pakete **readr** und **readxl**.
+</Callout>
+
+<Callout type="tip" title="Gute Variablennamen">
+Mit **Buchstaben beginnen**, **keine Leer- oder Sonderzeichen** verwenden, **Umlaute vermeiden**.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.1 · Folie 106</SourceNote>
+</section>
+
+<section id="ds-eda-variablen-tips">
+
+## Die Variablen des Datensatzes
+
+Ein **Kellner** sammelte über mehrere Monate Daten über sein Trinkgeld:
+
+<DataTable caption="Variablen des Trinkgeld-Datensatzes (Folie 107)" columns={[
+  { key: 'variable', label: 'Variable' },
+  { key: 'bedeutung', label: 'Bedeutung' },
+  { key: 'typ', label: 'Typ laut str()' },
+]} rows={[
+  { variable: 'total_bill', bedeutung: 'Rechnungshöhe in Dollar', typ: 'num' },
+  { variable: 'tip', bedeutung: 'Trinkgeld in Dollar', typ: 'num' },
+  { variable: 'sex', bedeutung: 'Geschlecht des Rechnungszahlenden', typ: 'chr' },
+  { variable: 'smoker', bedeutung: 'Gab es Raucher*innen am Tisch?', typ: 'chr' },
+  { variable: 'day', bedeutung: 'Wochentag', typ: 'chr' },
+  { variable: 'time', bedeutung: 'Tageszeit / Mahlzeit', typ: 'chr' },
+  { variable: 'size', bedeutung: 'Anzahl Personen am Tisch', typ: 'int' },
+]} />
+
+```r
+str(tips) # gibt Informationen zur Struktur des Datensatzes
+```
+
+```text
+'data.frame':  244 obs. of  7 variables:
+ $ total_bill: num  17 10.3 21 23.7 24.6 ...
+ $ tip       : num  1.01 1.66 3.5 3.31 3.61 4.71 2 3.12 1.96 3.23 ...
+ $ sex       : chr  "Female" "Male" "Male" "Male" ...
+ $ smoker    : chr  "No" "No" "No" "No" ...
+ $ day       : chr  "Sun" "Sun" "Sun" "Sun" ...
+ $ time      : chr  "Dinner" "Dinner" "Dinner" "Dinner" ...
+ $ size      : int  2 3 3 2 4 4 2 4 2 2 ...
+```
+
+Zur Erinnerung (Folie 108): mosaic ggf. einmalig installieren und **bei jedem Start** von R bzw. RStudio laden.
+
+```r
+install.packages("mosaic")   # ggf. einmalig vorab
+library(mosaic)              # bei jedem Start
+```
+
+<Exercise title="Aufbau Datensatz" question="Wie viele kategoriale Variablen liegen vor?" options={['1', '2', '4', '7', '244']} answer={2}>
+
+Es liegen **4** kategoriale Variablen vor (`sex`, `smoker`, `day`, `time`). Die anderen sind **metrische** Variablen: **1 diskret** (`size` – integer), **2 stetig** (`total_bill`, `tip` – numeric).
+
+**7** ist die Gesamtzahl an Variablen und **244** die Anzahl der Beobachtungen.
+
+</Exercise>
+
+<p className="text-xs text-muted-foreground">Hinweis zu Folie 110: Die Lösung nennt die kategorialen Variablen „als Factor gespeichert“. Die str()-Ausgabe auf Folie 107 zeigt sie als <code>chr</code> (character): Seit R 4.0 liest read.csv2() Text standardmäßig als character ein (Ergänzung). Für die Analysen mit mosaic macht das hier keinen Unterschied.</p>
+
+<Card title="Die Leitfrage der explorativen Datenanalyse" tone="accent">
+
+Welche Fragen fallen Ihnen ein bzw. was würden Sie gerne wissen, wenn Sie die oben genannten Variablen lesen? – **„Exploratory data analysis is detective work“** (Tukey 1977, Begründer der explorativen Datenanalyse).
+
+</Card>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.1 · Folien 107–110 und 112</SourceNote>
+</section>

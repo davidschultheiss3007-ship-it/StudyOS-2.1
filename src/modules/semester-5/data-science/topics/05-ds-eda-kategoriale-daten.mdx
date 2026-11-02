@@ -1,0 +1,340 @@
+<section id="ds-eda-kat-werkzeuge">
+
+## Grafiken und Häufigkeiten im Überblick
+
+<Columns count={2}>
+<Card title="Grafiken" tone="accent">
+
+- **Säulendiagramm / Balkendiagramm:** Häufigkeit von Merkmalsausprägungen (nominal, ordinal, metrisch diskret). Vertikal: **Säulendiagramm**; horizontal: **Balkendiagramm**.
+- **Mosaikplot:** Darstellung der Merkmalsausprägungen **zweier nominaler Merkmale**.
+- ~~Kreisdiagramm~~ – auf der Folie durchgestrichen (vgl. Regel 20 bei Rob Hyndman).
+
+</Card>
+<Card title="Häufigkeiten" tone="purple">
+
+- **Anteile:** relative Anteile der verschiedenen Merkmalsausprägungen kategorialer Merkmale (nominal, ordinal).
+- **Kreuztabelle:** Tabelle der Merkmalsausprägungen kategorialer Merkmale, entweder in **absoluten oder relativen** Häufigkeiten.
+
+</Card>
+</Columns>
+
+### Säulendiagramm
+
+Ein Säulendiagramm visualisiert die **absoluten oder relativen Häufigkeiten** von Beobachtungen kategorialer (oder metrisch diskreter) Variablen **durch die Höhe der Säulen**. Es wird häufig auch Balkendiagramm genannt – korrekterweise hat ein Balkendiagramm aber **querliegende Balken**.
+
+<Columns count={2}>
+<DataChart type="bar" title="Kategoriale Variable: sex" source="Folie 114 · Werte laut tally() auf Folie 118" height={240} xKey="sex" yLabel="count" data={[
+  { sex: 'Female', count: 87 },
+  { sex: 'Male', count: 157 },
+]} series={[{ key: 'count', name: 'Anzahl', color: 'var(--color-module-blue)' }]} />
+<DataChart type="bar" title="Metrisch diskrete Variable: size" source="Folie 114 · aus dem Diagramm abgelesen (Summe 244)" height={240} xKey="size" yLabel="count" data={[
+  { size: '1', count: 4 },
+  { size: '2', count: 156 },
+  { size: '3', count: 38 },
+  { size: '4', count: 37 },
+  { size: '5', count: 5 },
+  { size: '6', count: 4 },
+]} series={[{ key: 'count', name: 'Anzahl', color: 'var(--color-module-blue)' }]} />
+</Columns>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.2 · Folien 111–114 · Rob Hyndman: robjhyndman.com/hyndsight/graphics, abgerufen am 4. März 2022</SourceNote>
+</section>
+
+<section id="ds-eda-kat-eine-variable">
+
+## Eine Variable: Säulendiagramm, Anteil, Tabelle
+
+Wer zahlt die Rechnung? Drei Wege, dieselbe Variable `sex` zu analysieren:
+
+```r
+gf_bar( ~ sex,       # (unabhängige) Variable, die analysiert wird
+        data = tips) # Datensatz
+```
+
+<Exercise title="Geschlecht RechnungszahlerIn" question="Analysiert über das Säulendiagramm oben: Welche Aussage stimmt?" options={['Bei einer Mehrheit der Stichprobe zahlt eine Frau.', 'Bei einer Mehrheit der Stichprobe zahlt ein Mann.', 'Weiß nicht.']} answer={1}>
+
+Die Säule für **Male** ist deutlich höher. Die Tabellierung auf Folie 118 bestätigt das: **157 Männer** gegenüber **87 Frauen**, also rund **64 %** Männer.
+
+</Exercise>
+
+### Säulen- oder Balkendiagramm
+
+```r
+# Zwei Plots erzeugen
+plot1 <- gf_bar( ~ sex, data = tips)
+plot2 <- gf_barh( ~ sex, data = tips)
+# Nebeneinander anzeigen
+grid.arrange(plot1, plot2, nrow = 1)
+```
+
+Folie 116 zeigt beide Plots nebeneinander: links **vertikale Säulen** (`gf_bar`), rechts **horizontale Balken** (`gf_barh`) mit `count` auf der x-Achse.
+
+### Anteil p
+
+```r
+prop( ~ sex,               # (unabhängige) Variable, die analysiert wird
+      success = "Female",  # wovon den Anteil bestimmen
+      data = tips)         # Datensatz
+```
+
+```text
+prop_Female
+  0.3565574
+```
+
+### Tabellierung
+
+<Formula title="Relative Häufigkeit" expr="f_i = \frac{h_i}{n}" />
+
+<Columns count={2}>
+<Card title="Absolute Häufigkeit h_i" tone="accent">
+
+```r
+tally( ~ sex, data = tips)
+```
+
+```text
+sex
+Female   Male
+    87    157
+```
+
+</Card>
+<Card title="Relative Häufigkeit f_i" tone="purple">
+
+```r
+tally( ~ sex,
+       format = "proportion",
+       data = tips)
+```
+
+```text
+sex
+   Female      Male
+0.3565574 0.6434426
+```
+
+</Card>
+</Columns>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.2 · Folien 115–118</SourceNote>
+</section>
+
+<section id="ds-eda-kat-bedingt">
+
+## Bedingte Analyse: Geschlecht nach Tageszeit
+
+<Exercise title="Modellierung Geschlecht" question="Das Geschlecht des Rechnungszahlenden (sex) variiert: Mal zahlt ein Mann, mal zahlt eine Frau. Welche der anderen Variablen könnte einen Teil dieser Variation modellieren, d. h., womit könnte dies zusammenhängen?">
+
+Hier ist **vieles möglich** – im Folgenden wird es mit der **Tageszeit** `time` versucht → Geschlecht des Rechnungszahlenden **je Tageszeit**.
+
+</Exercise>
+
+```r
+gf_bar( ~ sex     # Variable, die analysiert wird
+        | time,   # Variable, nach der bedingt wird
+        data = tips)
+```
+
+<DataChart type="bar" title="Gruppiertes Säulendiagramm: Geschlecht je Tageszeit" source="Folie 121 · Werte laut Kreuztabelle auf Folie 126" height={280} xKey="time" yLabel="count" data={[
+  { time: 'Dinner', female: 52, male: 124 },
+  { time: 'Lunch', female: 35, male: 33 },
+]} series={[
+  { key: 'female', name: 'Female', color: 'var(--color-module-orange)' },
+  { key: 'male', name: 'Male', color: 'var(--color-module-blue)' },
+]} />
+
+<Card title="Exkurs: Farben mit fill" tone="neutral">
+
+```r
+gf_bar( ~ sex | time, fill = ~sex, data = tips)     # Farbe je Geschlecht
+gf_bar( ~ sex | time, fill = ~smoker, data = tips)  # Farbe nach Raucherstatus
+```
+
+Die Farbgebung kann sich auch auf eine **weitere Variable** beziehen: Mit `fill = ~smoker` zeigen die Säulen auf Folie 123 zusätzlich den **Raucheranteil** (gestapelte Farbsegmente No / Yes).
+
+</Card>
+
+<Exercise title="Geschlecht nach Tageszeit" question="Welche Aussage stimmt?" options={['Beim Lunch zahlen mehr Frauen als Männer.', 'Beim Lunch zahlen weniger Frauen als Männer.', 'Beim Lunch zahlen gleich viele Frauen wie Männer.']} answer={0}>
+
+**a)** ist korrekt: Im Bereich `Lunch` ist die Säule für `Female` **etwas höher** als die für `Male`. Man sieht aber auch, dass der **Unterschied klein** ist. Die Kreuztabellierung zeigt das in absoluten Zahlen und Anteilen.
+
+</Exercise>
+
+### Kreuztabellierung Geschlecht nach Tageszeit
+
+<Columns count={2}>
+<Card title="Absolute Häufigkeit je Mahlzeit" tone="accent">
+
+```r
+tally( ~ sex | time, data = tips)
+```
+
+```text
+        time
+sex      Dinner Lunch
+  Female     52    35
+  Male      124    33
+```
+
+</Card>
+<Card title="Relative Häufigkeit je Mahlzeit" tone="purple">
+
+```r
+tally( ~ sex | time,
+       format = "proportion",
+       data = tips)
+```
+
+```text
+         time
+sex         Dinner     Lunch
+  Female 0.2954545 0.5147059
+  Male   0.7045455 0.4852941
+```
+
+</Card>
+</Columns>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.2 · Folien 119–126</SourceNote>
+</section>
+
+<section id="ds-eda-kat-relative-haeufigkeiten">
+
+## Kreuztabellen richtig lesen
+
+<Exercise title="Raucher je Wochentag" question="Welcher Befehl führt eine Kreuztabellierung der Anteile der Raucher je Wochentag durch?" options={['tally( ~ smoker | day, format = "proportion", data = tips)', 'tally( ~ day | smoker, format = "proportion", data = tips)']} answer={0}>
+
+**a)** ist korrekt. In dieser Reihenfolge werden **zeilenweise** die Ausprägungen von `smoker` und **spaltenweise** die Ausprägungen von `day` dargestellt – grundsätzliche Formeleingabe $y \sim x \mid z$, hier `smoker` gruppiert nach `day`. Mit `format = "proportion"` werden die Anteile **bezogen auf die jeweilige Spalte** berechnet.
+
+</Exercise>
+
+<Columns count={2}>
+<Card title="tally( ~ smoker | day, …)" tone="accent">
+
+```text
+      day
+smoker       Fri       Sat       Sun      Thur
+   No  0.2105263 0.5172414 0.7500000 0.7258065
+   Yes 0.7894737 0.4827586 0.2500000 0.2741935
+```
+
+Je **Tag** summieren sich die Anteile zu 1: Wie viele Tische **an diesem Tag** sind Rauchertische?
+
+</Card>
+<Card title="tally( ~ day | smoker, …)" tone="purple">
+
+```text
+      smoker
+day            No        Yes
+  Fri  0.02649007 0.16129032
+  Sat  0.29801325 0.45161290
+  Sun  0.37748344 0.20430108
+  Thur 0.29801325 0.18279570
+```
+
+Je **Raucherstatus** summieren sich die Anteile zu 1: Auf welche Tage **verteilen sich** die Rauchertische?
+
+</Card>
+</Columns>
+
+<DataChart type="bar" title="Anteil der Rauchertische je Wochentag" source={'Folie 129 · tally( ~ smoker | day, format = "proportion"), in Prozent'} height={280} stacked xKey="day" yLabel="Anteil in %" yDomain={[0, 100]} data={[
+  { day: 'Fri', yes: 78.9, no: 21.1 },
+  { day: 'Sat', yes: 48.3, no: 51.7 },
+  { day: 'Sun', yes: 25.0, no: 75.0 },
+  { day: 'Thur', yes: 27.4, no: 72.6 },
+]} series={[
+  { key: 'yes', name: 'smoker = Yes', color: 'var(--color-module-orange)' },
+  { key: 'no', name: 'smoker = No', color: 'var(--color-module-blue)' },
+]} />
+
+<Callout type="pitfall" title="Confusion of the inverse">
+**Wovon wird die relative Häufigkeit angegeben?**
+
+- Der relative **Anteil der Raucher am Freitag** (0,79) entspricht **nicht** dem relativen **Anteil des Freitags an den Rauchern** (0,16).
+- Der Papst ist ein Mann, aber nur die allerwenigsten Männer sind Papst.
+- Die Wahrscheinlichkeit, **krank** zu sein, wenn das **Testergebnis positiv** ist, ist nicht dasselbe wie die Wahrscheinlichkeit, dass das **Testergebnis positiv** ist, wenn man **krank** ist.
+</Callout>
+
+<p className="text-xs text-muted-foreground">Rückgerechnet aus den beiden Tabellen (Ergänzung): Freitag 4 Nichtraucher- und 15 Rauchertische (19), Samstag 45 / 42 (87), Sonntag 57 / 19 (76), Donnerstag 45 / 17 (62); insgesamt 151 Nichtraucher- und 93 Rauchertische. Der hohe Raucheranteil am Freitag beruht also auf nur 19 Tischen.</p>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.2 · Folien 127–130</SourceNote>
+</section>
+
+<section id="ds-eda-kat-r-fehler">
+
+## Typische R-Fehler
+
+<Exercise title="R Fehler I" question={'Was ist an diesem Befehl falsch?  tally( ~ x data = daten)'} options={['Es fehlt eine Option.', 'Es fehlt eine bedingende Variable.', 'Es fehlt ein Komma.', 'Gar nichts.']} answer={2}>
+
+**c)** ist korrekt, es fehlt ein Komma. Korrekt ist:
+
+```r
+tally( ~ x, data = daten)
+```
+
+</Exercise>
+
+<Exercise title="R Fehler II" question={'Was ist an diesem Befehl falsch?  Tally( ~ x, data = daten)'}>
+
+R unterscheidet zwischen **Groß- und Kleinschreibung** – `Tally` gibt es nicht. Korrekt muss es heißen:
+
+```r
+tally( ~ x, data = daten)
+```
+
+</Exercise>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.2 · Folien 131–134</SourceNote>
+</section>
+
+<section id="ds-eda-kat-mosaikplot">
+
+## Mosaikplot
+
+Ein Mosaikplot visualisiert die **gemeinsame Verteilung von zwei kategorialen Variablen**. Dabei entsprechen **Höhe und Breite** der Rechtecke der jeweiligen **relativen Häufigkeit**.
+
+Folie 135 zeigt das **Überleben auf der Titanic** nach Klasse (1st, 2nd, 3rd, Crew): Die **Breite** einer Säule steht für den Anteil der Klasse, die **Höhe** der Rechtecke für den Anteil der Überlebenden (Yes) bzw. Nicht-Überlebenden (No) in dieser Klasse.
+
+<DataChart type="bar" title="Überleben auf der Titanic: Anteile je Klasse laut Mosaikplot" source="Folien 135–137 · Flächen aus der Folie abgelesen, gerundet" height={280} stacked xKey="klasse" yLabel="Anteil in %" yDomain={[0, 100]} data={[
+  { klasse: '1st', yes: 65, no: 35 },
+  { klasse: '2nd', yes: 40, no: 60 },
+  { klasse: '3rd', yes: 20, no: 80 },
+  { klasse: 'Crew', yes: 18, no: 82 },
+]} series={[
+  { key: 'yes', name: 'Survived = Yes', color: 'var(--color-module-orange)' },
+  { key: 'no', name: 'Survived = No', color: 'var(--color-module-blue)' },
+]} />
+
+<Exercise title="Mosaikplot" question="Stimmt die Aussage: Der Anteil der Überlebenden ist in der 1. Klasse größer als in den unteren Klassen?" options={['Ja.', 'Nein.']} answer={0}>
+
+**Ja**, da der **Flächenanteil für Yes** in der 1. Klasse **relativ größer** ist als in den anderen Klassen.
+
+</Exercise>
+
+<p className="text-xs text-muted-foreground">Hinweis zur Darstellung: Das Diagramm zeigt nur die Höhen (Anteile innerhalb jeder Klasse). Die Breiten des Mosaikplots – der Anteil jeder Klasse an allen Personen – nehmen auf der Folie von der 1. Klasse bis zur Crew zu; die Crew ist die größte Gruppe.</p>
+
+### Mosaikplot für Raucher und Tage
+
+```r
+mosaicplot(day ~ smoker, data = tips, color = TRUE)
+```
+
+<Callout type="warn" title="Achsen vertauscht">
+Bei `mosaicplot()` werden in der Formel die Achsen vertauscht, also **`x ~ y`** – anders als bei den mosaic-Befehlen (`y ~ x`).
+</Callout>
+
+Folie 138 zeigt das Ergebnis: Je Wochentag eine Säule, deren **Breite** der Zahl der Tische entspricht (Freitag ist am schmalsten) und deren **Höhen** die Anteile No / Yes aus der Kreuztabelle oben zeigen.
+
+<Card title="Exkurs: Farben mit viridis" tone="neutral">
+
+```r
+install.packages("viridis")
+library(viridis)
+mosaicplot(day ~ smoker, data = tips, color = viridis(2, alpha = 0.7))
+```
+
+</Card>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 4.2 · Folien 135–139</SourceNote>
+</section>
