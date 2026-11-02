@@ -252,6 +252,7 @@ Use the `ds-` topic-ID prefix to keep progress IDs distinct across modules.
 | --- | --- | --- | --- |
 | 01 | `ds-einfuehrung` | `MD/1_Data Science_Einstieg.md` + `1_Data Science_Einstieg.pdf`, slides 1–21 | Pilot |
 | 02 | `ds-grundlagen-quantitativer-datenanalyse` | `MD/2_Data Science_Grundlagen quantitativer Datenanalyse.md` + PDF, slides 22–66 | Built |
+| 03 | `ds-einfuehrung-in-r` | `MD/3_Data Science_Einführung R.md` + PDF, slides 67–101 | Built |
 
 Read `docs/SEMESTER_5_PREPARATION.md` for the verified source inventory and proposed remaining
 topic mapping. PDFs are authoritative for broken OCR, figures and exact numbers. The module
