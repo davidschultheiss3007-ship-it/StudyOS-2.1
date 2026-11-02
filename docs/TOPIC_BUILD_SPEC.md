@@ -241,3 +241,18 @@ Read the HR2 and HR3 source headers/agendas and map by *content*, not filename. 
 Keep `status: 'planned'`, `hasContent: false`. No subject content authored.
 
 **Grand total: 8 + 9 + 10 = 27 topics to build** (plus AM-05 already done).
+
+### Semester 5 — Analyse von Finanzdaten & Data Science
+
+App module: `data-science`; sources: `sources/semester-5/Data Science/` (existing folder name).
+The same topic contract applies under `src/modules/semester-5/data-science/`.
+Use the `ds-` topic-ID prefix to keep progress IDs distinct across modules.
+
+| NN | slug | source | status |
+| --- | --- | --- | --- |
+| 01 | `ds-einfuehrung` | `MD/1_Data Science_Einstieg.md` + `1_Data Science_Einstieg.pdf`, slides 1–21 | Pilot |
+
+Read `docs/SEMESTER_5_PREPARATION.md` for the verified source inventory and proposed remaining
+topic mapping. PDFs are authoritative for broken OCR, figures and exact numbers. The module
+assessment is a paper (75%) and presentation (25%), both at least grade 4.0; do not invent a
+written exam. Source slides 8 and 11 contain different agendas: preserve that uncertainty.

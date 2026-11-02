@@ -1,9 +1,19 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from 'react';
 import mermaid from 'mermaid';
 
-let initialized = false;
-function ensureInit() {
-  if (initialized) return;
+function subscribeToTheme(onChange) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  return () => observer.disconnect();
+}
+
+function getThemeSnapshot() {
+  return document.documentElement.dataset.theme ?? 'light';
+}
+
+let initializedTheme;
+function ensureInit(theme) {
+  if (initializedTheme === theme) return;
   // theme: 'base' lets us drive colours from CSS variables resolved at runtime.
   const styles = getComputedStyle(document.documentElement);
   const v = name => styles.getPropertyValue(name).trim();
@@ -22,10 +32,11 @@ function ensureInit() {
       fontSize: '14px',
     },
   });
-  initialized = true;
+  initializedTheme = theme;
 }
 
 export default function DiagramImpl({ chart, code }) {
+  const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot);
   const source = (chart ?? code ?? '').trim();
   const ref = useRef(null);
   const rawId = useId();
@@ -34,13 +45,13 @@ export default function DiagramImpl({ chart, code }) {
 
   useEffect(() => {
     let cancelled = false;
-    ensureInit();
+    ensureInit(theme);
     mermaid
       .render(id, source)
       .then(({ svg }) => { if (!cancelled && ref.current) ref.current.innerHTML = svg; })
       .catch(err => { if (!cancelled) setError(err?.message ?? 'Diagramm konnte nicht gerendert werden.'); });
     return () => { cancelled = true; };
-  }, [id, source]);
+  }, [id, source, theme]);
 
   if (error) {
     return <p className="text-sm text-[var(--color-error)]">Diagrammfehler: {error}</p>;

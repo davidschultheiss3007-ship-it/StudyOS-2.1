@@ -7,7 +7,7 @@ import { TopicCard } from '@/components/cards/TopicCard.jsx';
 import { ExamArea } from '@/components/exams/ExamArea.jsx';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs.jsx';
 import { Badge } from '@/components/ui/Badge.jsx';
-import { Button } from '@/components/ui/Button.jsx';
+import { Button, buttonVariants } from '@/components/ui/Button.jsx';
 import { SegmentedControl } from '@/components/ui/SegmentedControl.jsx';
 import { ProgressBar } from '@/components/ui/ProgressBar.jsx';
 import { PageShell, PageError } from '@/components/layout/PageShell.jsx';
@@ -87,9 +87,9 @@ export function Module() {
           </div>
           <div className="flex shrink-0 flex-wrap gap-2">
             {firstTopic && (
-              <Link to={`/topic/${moduleId}/${firstTopic.id}`}><Button variant="primary" size="sm">Lernen starten</Button></Link>
+              <Link to={`/topic/${moduleId}/${firstTopic.id}`} className={buttonVariants({ variant: 'primary', size: 'sm' })}>Lernen starten</Link>
             )}
-            <Link to={`/quiz/${moduleId}`}><Button variant="secondary" size="sm">Quiz starten</Button></Link>
+            <Link to={`/quiz/${moduleId}`} className={buttonVariants({ variant: 'secondary', size: 'sm' })}>Quiz starten</Link>
             <Button variant="secondary" size="sm" onClick={() => setActiveArea('exams')}>Prüfungen</Button>
           </div>
         </div>
@@ -152,15 +152,31 @@ export function Module() {
 
             <aside className="lg:sticky lg:top-6 lg:self-start">
               <h3 className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Quellen &amp; Skripte</h3>
-              <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border px-4 py-8 text-center">
-                <span className="flex size-10 items-center justify-center rounded-full bg-muted text-muted-foreground" aria-hidden="true">
-                  <FileText className="size-5" />
-                </span>
-                <p className="text-sm font-medium text-foreground">Noch keine Quellen</p>
-                <p className="max-w-[22ch] text-xs leading-relaxed text-muted-foreground">
-                  Skripte und Foliensätze erscheinen hier, sobald sie hinterlegt sind.
-                </p>
-              </div>
+              {mod.sources?.length > 0 ? (
+                <ul className="flex flex-col gap-3">
+                  {mod.sources.map(source => (
+                    <li key={source.href}>
+                      <a href={source.href} target="_blank" rel="noreferrer" className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                        <FileText className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                        <span className="min-w-0">
+                          <span className="block font-semibold text-foreground">{source.title}</span>
+                          <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">{source.detail} · öffnet in neuem Tab</span>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border px-4 py-8 text-center">
+                  <span className="flex size-10 items-center justify-center rounded-full bg-muted text-muted-foreground" aria-hidden="true">
+                    <FileText className="size-5" />
+                  </span>
+                  <p className="text-sm font-medium text-foreground">Noch keine Quellen</p>
+                  <p className="max-w-[22ch] text-xs leading-relaxed text-muted-foreground">
+                    Skripte und Foliensätze erscheinen hier, sobald sie hinterlegt sind.
+                  </p>
+                </div>
+              )}
             </aside>
           </div>
         )}
@@ -176,13 +192,24 @@ export function Module() {
                   <p className="font-semibold text-foreground">Wissenscheck</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{questions.length} Fragen für dieses Modul.</p>
                 </div>
-                <Link to={`/quiz/${moduleId}`}><Button variant="primary">Quiz starten</Button></Link>
+                <Link to={`/quiz/${moduleId}`} className={buttonVariants({ variant: 'primary' })}>Quiz starten</Link>
               </div>
             )}
           </section>
         )}
 
-        {activeArea === 'exams' && <ExamArea exams={exams} moduleId={moduleId} />}
+        {activeArea === 'exams' && (
+          <>
+            {mod.assessment && (
+              <section className="mb-6 max-w-[820px] rounded-xl border border-border bg-card p-5" aria-label="Prüfungsleistung">
+                <h2 className="text-lg font-semibold text-foreground">Prüfungsleistung</h2>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">{mod.assessment.description}</p>
+                <p className="mt-3 text-xs text-muted-foreground">Quelle: {mod.assessment.source}</p>
+              </section>
+            )}
+            {(exams.length > 0 || !mod.assessment) && <ExamArea exams={exams} moduleId={moduleId} />}
+          </>
+        )}
       </div>
     </PageShell>
   );

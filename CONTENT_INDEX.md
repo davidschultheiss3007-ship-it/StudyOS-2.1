@@ -9,6 +9,14 @@
 | Human Resources | `src/modules/semester-4/human-resources/topics/` | `questions.js` | `exams.js` | Inhalte vorhanden |
 | Business English | `src/modules/semester-4/business-english/topics/` | `questions.js` | optional/leer | geplant |
 
+## Semester 5
+
+| Modul | Topic-Verzeichnis | Fragen | Prüfungen | Status |
+| --- | --- | --- | --- | --- |
+| Analyse von Finanzdaten & Data Science | `src/modules/semester-5/data-science/topics/` | `questions.js` | `exams.js` (leer; Hausarbeit und Präsentation) | Einstieg als Pilot; weitere Kapitel vorbereitet |
+
+Quelleninventar und Plan für die weiteren Kapitel: `docs/SEMESTER_5_PREPARATION.md`.
+
 ## Verbindlicher Topic-Vertrag
 
 Jedes inhaltlich ausgearbeitete Topic besteht aus `NN-slug.js` (Metadaten) und `NN-slug.mdx` (Inhalt). Die Zusammenführung erfolgt ausschließlich in `topics/index.js`. Topic-ID, Dateislug und Eintrag in `module.js` müssen identisch sein; Section-IDs in den Metadaten müssen zu den MDX-Section-Ankern passen.

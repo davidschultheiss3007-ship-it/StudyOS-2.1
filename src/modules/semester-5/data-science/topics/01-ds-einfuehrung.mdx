@@ -1,0 +1,253 @@
+<section id="ds-modul-und-lernziele">
+
+## Einordnung und Lernziele
+
+**Analyse von Finanzdaten & Data Science** bei **Prof. Dr. Christian Schmitt** gehört zum Schwerpunkt **Finance & Risk Management**. Das Einstiegsskript trägt den Stand **V26-10-07**.
+
+<Timeline events={[
+  { label: 'S3', title: 'Finanzinstrumente und Risikomanagement' },
+  { label: 'S4', title: 'Asset Management und Behavioral Finance' },
+  { label: 'S5', title: 'Analyse von Finanzdaten & Data Science', text: 'Im gleichen Semester: Corporate Financial Management.' },
+]} />
+
+### Kompetenzen am Ende des Moduls
+
+<Columns count={3}>
+<Card title="Methoden verstehen" tone="accent">
+
+- Grundlagen und Grundbegriffe quantitativer Datenanalyse beschreiben.
+- Deskriptive und induktive Statistik auswählen und anwenden.
+- Ergebnisse statistischer Methoden interpretieren.
+
+</Card>
+<Card title="Finanzdaten analysieren" tone="teal">
+
+- Datensätze für (finanz-)ökonometrische Untersuchungen aufbereiten und transformieren.
+- Regressionen durchführen, diagnostizieren und den Output interpretieren.
+- R zur Analyse von Finanzdaten verwenden.
+
+</Card>
+<Card title="Wissenschaftlich arbeiten">
+
+- Eine empirisch quantitative wissenschaftliche Arbeit durchführen und verfassen.
+- Damit auch eine empirische Bachelorarbeit mit Finanzdaten vorbereiten.
+
+</Card>
+</Columns>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Einstieg · Folien 1–4</SourceNote>
+</section>
+
+<section id="ds-bedeutung-von-daten">
+
+## Daten als Grundlage von Aussagen
+
+Die beiden Bildfolien zur Bedeutung von Data Science stellen **Daten als Grundlage begründeter Aussagen** heraus. Sie schreiben W. Edwards Deming folgende Leitsätze zu:
+
+<CompareCard items={[
+  { title: 'Aussagen mit Daten stützen', subtitle: 'Folie 5', accent: 'accent', points: ['„In god we trust, all others must bring data.“', 'Sinngemäß: Wer eine Aussage vertritt, soll Daten dafür mitbringen.'] },
+  { title: 'Meinung und Daten unterscheiden', subtitle: 'Folie 6', accent: 'purple', points: ['„Without data you’re just another person with an opinion.“', 'Sinngemäß: Eine Meinung allein ersetzt keine Datengrundlage.'] },
+]} />
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Einstieg · Folien 5–6 · Zitate und Zuschreibung gemäß den Bildfolien</SourceNote>
+</section>
+
+<section id="ds-leistungsnachweise">
+
+## Hausarbeit und Präsentation
+
+<ProportionBar caption="Gewichtung der beiden Prüfungsleistungen in der Modulnote" segments={[
+  { label: 'Hausarbeit (Datenanalyse)', value: 75 },
+  { label: 'Präsentation', value: 25 },
+]} />
+
+<Columns count={2}>
+<Card title="Hausarbeit" tone="accent">
+
+- Analyse eines Datensatzes von **Finanzdaten**.
+- Umfang: ca. **1.500–2.500 Wörter**.
+
+</Card>
+<Card title="Präsentation" tone="purple">
+
+- Dauer: **15 Minuten**.
+- Anteil an der Modulnote: **25 %**.
+
+</Card>
+</Columns>
+
+<Callout type="warn" title="Beide Teilleistungen bestehen">
+**Hausarbeit und Präsentation müssen jeweils mindestens mit 4,0 bewertet werden.** Die Gewichtung 75:25 ersetzt diese Anforderung nicht.
+</Callout>
+
+<DataTable caption="Lehrmethoden: Angaben der Folie unter der Spaltenüberschrift SWS" columns={[
+  { key: 'form', label: 'Lehrmethode' },
+  { key: 'umfang', label: 'Angabe im Skript', align: 'right' },
+]} rows={[
+  { form: 'Präsenz', umfang: '52' },
+  { form: 'Selbststudium', umfang: '80' },
+]} />
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Einstieg · Folie 7</SourceNote>
+</section>
+
+<section id="ds-fahrplan-und-literatur">
+
+## Fahrplan und Literatur
+
+Die Einstiegsunterlagen enthalten **zwei unterschiedliche Agenden**. Der Kapiteltrenner auf Folie 10 eröffnet Kapitel 1, „Einführung“.
+
+<DataTable caption="Gemeinsame Kapitel beider Agenden auf Folien 8 und 11" columns={[
+  { key: 'kapitel', label: 'Kapitel', align: 'right' },
+  { key: 'thema', label: 'Thema' },
+]} rows={[
+  { kapitel: '1', thema: 'Einführung' },
+  { kapitel: '2', thema: 'Grundlagen quantitativer Datenanalyse' },
+  { kapitel: '3', thema: 'Einführung in R' },
+  { kapitel: '4', thema: 'Explorative Datenanalyse' },
+  { kapitel: '5', thema: 'Die Normalverteilung' },
+  { kapitel: '8', thema: 'Die Hausarbeit' },
+]} />
+
+<CompareCard items={[
+  { title: 'Agenda auf Folie 8', accent: 'accent', points: ['Kapitel 6: Lineare Regression', 'Kapitel 7: Regressionsdiagnostik'] },
+  { title: 'Agenda auf Folie 11', accent: 'purple', points: ['Kapitel 6: Hypothesentests', 'Kapitel 7: Lineare Regression'] },
+]} />
+
+<Callout type="warn" title="Abweichung im Quellenmaterial">
+**Kapitel 6 und 7 unterscheiden sich zwischen den beiden Agenden.** Aus dem Einstiegsskript allein lässt sich diese Abweichung nicht auflösen.
+</Callout>
+
+### Literaturempfehlungen des Skripts
+
+Die bibliografischen Angaben werden hier **gemäß Folie 9** wiedergegeben:
+
+- **Gehrke, M. (2022):** *Angewandte empirische Methoden in Finance & Accounting – Umsetzung mit R*.
+- **Sauer, S. (2019):** *Moderne Datenanalyse mit R – Daten einlesen, aufbereiten, visualisieren und kommunizieren*.
+- **Wickham, H. & Grolemund, G. (2023):** *R for Data Science*, [r4ds.had.co.nz](https://r4ds.had.co.nz/).
+- **Wickham, H. & Grolemund, G. (2017):** *R für Data Science* (deutsche Übersetzung).
+- **Ismay, C. / Kim, A. (2017):** *ModernDive – An Introduction to Statistical and Data Sciences via R*, [moderndive.com](http://moderndive.com/).
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Einstieg · Folien 8–11</SourceNote>
+</section>
+
+<section id="ds-von-der-vermutung-zur-forschungsfrage">
+
+## Von der Vermutung zur Forschungsfrage
+
+Das Einstiegsbeispiel vergleicht das **Erinnern zuvor eingeprägter Wörter nach einem Nickerchen oder nach einer Koffeintablette**. Entscheidend ist die Unterscheidung zwischen persönlicher Erfahrung und einer allgemeinen Aussage.
+
+<CompareCard items={[
+  { title: 'Einzelne Person', accent: 'neutral', points: ['Ob eine bestimmte Person nach Schlaf oder Koffein mehr Wörter erinnert, kann der Dozent nicht wissen.', 'Eine individuelle Erfahrung ist zunächst eine einzelne Beobachtung oder Anekdote.'] },
+  { title: 'Allgemeiner Zusammenhang', accent: 'accent', points: ['Wissenschaft untersucht, welche Zusammenhänge allgemein gelten, zum Beispiel im Durchschnitt.', 'Systematische Daten sind dafür besser geeignet als einzelne Anekdoten.'] },
+]} />
+
+<Timeline events={[
+  { title: 'Forschungsfrage formulieren', text: 'Untersuchen, wie sich das Erinnerungsvermögen nach Schlaf und nach Koffein im Allgemeinen unterscheidet.' },
+  { title: 'Zuerst Literatur recherchieren', text: 'Vorhandene Forschung zur Frage berücksichtigen.' },
+  { title: 'Daten erheben und analysieren', text: 'Den Zusammenhang mit systematischen Daten untersuchen.' },
+  { title: 'Eine vorläufige Antwort formulieren', text: 'Das Ergebnis kritisch einordnen.' },
+]} />
+
+<Card title="Studie im Einstiegsbeispiel" tone="teal">
+
+Die Folien nennen **Mednick, S. C., Cai, D. J., Kanady, J., & Drummond, S. P. (2008)**: *Comparing the benefits of caffeine, naps and placebo on verbal, motor and perceptual memory*, **Behavioural Brain Research, 193(1), 79–86**.
+
+Die im Skript wiedergegebene Antwort der Studie spricht für das **Nickerchen**. Das folgende Datenbeispiel zeigt, wie eine solche Aussage geprüft und eingeordnet wird.
+
+</Card>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 1 · Folien 12–15</SourceNote>
+</section>
+
+<section id="ds-studie-und-beobachteter-unterschied">
+
+## Was die Daten zeigen
+
+<DataChart type="bar" title="Worterinnerung: Mittelwerte der beiden Gruppen" source="Folien 16–17; Darstellung der angegebenen Mittelwerte" height={280} data={[
+  { gruppe: 'Koffein', woerter: 12.25 },
+  { gruppe: 'Schlaf', woerter: 15.25 },
+]} series={[{ key: 'woerter', name: 'Erinnerte Wörter im Mittel' }]} xKey="gruppe" yLabel="Erinnerte Wörter" yDomain={[0, 20]} />
+
+<DataTable caption="Beobachtete Ergebnisse, unabhängig von der Diagrammdarstellung ablesbar" columns={[
+  { key: 'gruppe', label: 'Behandlung' },
+  { key: 'mittelwert', label: 'Erinnerte Wörter im Mittel', align: 'right' },
+]} rows={[
+  { gruppe: 'Koffeintablette', mittelwert: '12,25' },
+  { gruppe: 'Schlaf', mittelwert: '15,25' },
+]} />
+
+<Formula title="Beobachteter Unterschied: Schlaf minus Koffein" expr="15{,}25 - 12{,}25 = 3\;\text{Wörter}" />
+
+Die Punktdarstellung auf Folie 16 zeigt **unterschiedliche Einzelwerte innerhalb beider Gruppen**. Das Balkendiagramm hier stellt ausschließlich die im Skript angegebenen **Mittelwerte** dar.
+
+<Callout type="pitfall" title="Beobachtung ist kein endgültiger Beweis">
+Die Schlafgruppe erinnert im Durchschnitt **3 Wörter mehr**. Daraus lässt sich die Frage nach einem allgemeinen Vorteil **nicht endgültig entscheiden**. Wissenschaftliche Aussagen werden kritisch überprüft und bleiben vorläufig.
+</Callout>
+
+<Card title="Die Aussage kritisch prüfen">
+
+- Solange nicht versucht wurde, eine Aussage zu widerlegen, kann sie laut Skript keinesfalls als belegt gelten.
+- Ein möglicher Prüfschritt: untersuchen, **welche Unterschiede zufällig auftreten würden, wenn es keinen Unterschied gäbe**.
+
+</Card>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 1 · Folien 16–17</SourceNote>
+</section>
+
+<section id="ds-daten-und-modell">
+
+## Beobachtung mit einem Modell vergleichen
+
+<DefinitionBox term="Modellannahme im Beispiel" source="Folien 17–18">
+Für den Vergleich wird angenommen, dass es **keinen Unterschied** zwischen den Behandlungen gibt. Simulationen zeigen, welche Mittelwertdifferenzen trotzdem zufällig auftreten können.
+</DefinitionBox>
+
+<Diagram title="So werden die beobachteten Daten mit der Modellannahme verglichen" height={330} chart={`flowchart TB
+  A["Modellannahme: kein Unterschied"] --> B["Zufällige Mittelwertdifferenzen simulieren"]
+  B --> C["Beobachteten Unterschied von 3 Wörtern einordnen"]
+`} />
+
+Folie 18 zeigt die **Verteilung der simulierten Mittelwertdifferenzen** und markiert den empirischen Wert bei **3 Wörtern**. Entscheidend ist, wie häufig ein mindestens so großer Unterschied unter der Modellannahme auftritt.
+
+<KpiGrid items={[
+  { value: '3 Wörter', label: 'Beobachtete Mittelwertdifferenz', accent: 'accent' },
+  { value: '0,0474', label: 'Simulationsanteil mit einem Unterschied von mindestens 3 Wörtern' },
+]} />
+
+<Callout type="merksatz" title="Den Anteil unter der Modellannahme lesen">
+**Wenn es keinen Unterschied gibt**, ist ein beobachteter Unterschied von mindestens 3 erinnerten Wörtern im Modell eher selten. Der in den Folien genannte Anteil beträgt **0,0474**.
+</Callout>
+
+<CompareCard items={[
+  { title: 'Zufall bleibt möglich', accent: 'neutral', points: ['Auch ohne tatsächlichen Unterschied kann in einer Stichprobe zufällig ein Unterschied sichtbar werden.', 'Die Modellannahme verlangt nicht, dass jede Stichprobe identische Mittelwerte hat.'] },
+  { title: 'Ergebnis bleibt vorläufig', accent: 'accent', points: ['Das Ergebnis dieser Stichprobe ist unter der Annahme ohne Unterschied eher ungewöhnlich.', 'Es ist trotzdem kein Beweis dafür, dass es einen Unterschied gibt.'] },
+]} />
+
+<Card title="Was die Methoden im Modul leisten">
+
+Das Modul behandelt, **wie Daten erhoben werden**, **welche Aussagen damit möglich sind**, **wie sie ausgewertet werden** und **wie Modelle mit und über Daten erstellt werden**.
+
+</Card>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 1 · Folien 18–20</SourceNote>
+</section>
+
+<section id="ds-wissenschaftliche-einordnung">
+
+## Ergebnisse kritisch einordnen
+
+Eine ursprüngliche Einschätzung kann auf **Erfahrungen und Vorwissen** beruhen. Die Folie beschreibt verschiedene mögliche Reaktionen auf neue Studienergebnisse:
+
+<CompareCard items={[
+  { title: 'Bestätigen', accent: 'accent', points: ['Die Studie kann die bisherige Einschätzung bestätigen.'] },
+  { title: 'Revidieren', accent: 'purple', points: ['Neue Erkenntnisse können Anlass geben, die eigene Einschätzung zu ändern.'] },
+  { title: 'Verwerfen', accent: 'neutral', points: ['Eine Studie kann auch zurückgewiesen werden; die Folie nennt in einer Fußnote „Fake News“.'] },
+]} />
+
+<Callout type="merksatz" title="Literaturrecherche bleibt zwingend erforderlich">
+Der Methodenfokus des Moduls ersetzt die Literaturrecherche nicht. Sie erschließt den **aktuellen Stand der Forschung** und das **methodische Vorgehen anderer**. Beides ist nötig, um das eigene Analyseergebnis einzuordnen.
+</Callout>
+
+<SourceNote>Analyse von Finanzdaten & Data Science · Kapitel 1 · Folie 21</SourceNote>
+</section>

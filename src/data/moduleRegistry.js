@@ -2,12 +2,14 @@ import { bundle as assetManagement } from '../modules/semester-4/asset-managemen
 import { bundle as behavioralFinance } from '../modules/semester-4/behavioral-finance/index.js';
 import { bundle as humanResources } from '../modules/semester-4/human-resources/index.js';
 import { bundle as businessEnglish } from '../modules/semester-4/business-english/index.js';
+import { bundle as dataScience } from '../modules/semester-5/data-science/index.js';
 
 const bundles = [
   assetManagement,
   behavioralFinance,
   humanResources,
   businessEnglish,
+  dataScience,
 ];
 
 export const allModules = bundles.map(b => b.module);

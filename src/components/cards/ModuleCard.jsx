@@ -67,7 +67,7 @@ export function ModuleCard({ module, compact = false }) {
           </div>
 
           {!compact && (
-            <p className="line-clamp-2 min-h-[2.625rem] text-sm leading-relaxed text-muted-foreground">{module.description}</p>
+            <p className="min-h-[2.625rem] text-sm leading-relaxed text-muted-foreground">{module.description}</p>
           )}
         </div>
       </div>

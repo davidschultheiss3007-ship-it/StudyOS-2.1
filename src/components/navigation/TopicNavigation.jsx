@@ -34,7 +34,7 @@ export function TopicNavigation({ moduleId, prevTopic, nextTopic, position = 'bo
           className="flex flex-1 items-center justify-end gap-3 rounded-lg border border-transparent bg-primary p-4 text-sm text-primary-foreground transition-opacity hover:opacity-90"
         >
           <span className="flex flex-col text-right">
-            <span className="text-xs opacity-80">Modul abgeschlossen</span>
+            <span className="text-xs opacity-80">Wissen vertiefen</span>
             <span className="font-medium">Quiz starten</span>
           </span>
           <ArrowRight className="size-4 shrink-0" aria-hidden="true" />

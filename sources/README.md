@@ -12,6 +12,8 @@ sources/
     behavioral-finance/
     business-english/
     human-resources/
+  semester-5/
+    Data Science/       # bestehender Originalordner, App-Modul-Slug: data-science
 ```
 
 ## Benennung

@@ -107,8 +107,10 @@ export function SearchCommand() {
                     className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors hover:bg-accent"
                   >
                     <span className="size-2 shrink-0 rounded-full" style={{ background: r.module.accent }} aria-hidden="true" />
-                    <span className="min-w-0 flex-1 truncate font-medium text-foreground">{r.label}</span>
-                    <span className="shrink-0 text-xs text-muted-foreground">{r.sub}</span>
+                    <span className="flex min-w-0 flex-1 flex-col gap-1">
+                      <span className="font-medium leading-snug text-foreground">{r.label}</span>
+                      <span className="text-xs leading-relaxed text-muted-foreground">{r.sub}</span>
+                    </span>
                   </button>
                 ))
               )}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getSemesterById } from '@/data/semesters.js';
+import { Link, useParams } from 'react-router-dom';
+import { getSemesterById, semesters } from '@/data/semesters.js';
 import { getModulesBySemester } from '@/data/moduleRegistry.js';
 import { ModuleCard } from '@/components/cards/ModuleCard.jsx';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs.jsx';
@@ -29,6 +29,20 @@ export function Semester() {
   return (
     <PageShell>
       <Breadcrumbs items={[{ label: 'Startseite', to: '/' }, { label: semester.title }]} />
+
+      <nav aria-label="Semester wechseln" className="mt-5 flex w-fit flex-wrap gap-1 rounded-xl bg-muted p-1">
+        {semesters.map(item => (
+          <Link
+            key={item.id}
+            to={`/semester/${item.id}`}
+            aria-current={item.id === semesterId ? 'page' : undefined}
+            onClick={() => setFilter('all')}
+            className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${item.id === semesterId ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:bg-accent hover:text-foreground'}`}
+          >
+            {item.title}
+          </Link>
+        ))}
+      </nav>
 
       <div className="mt-4 flex items-start justify-between gap-4">
         <div className="flex items-center gap-4">
