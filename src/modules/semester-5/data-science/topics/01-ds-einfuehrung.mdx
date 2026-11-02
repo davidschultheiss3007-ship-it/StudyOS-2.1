@@ -164,22 +164,27 @@ Die im Skript wiedergegebene Antwort der Studie spricht für das **Nickerchen**.
 
 ## Was die Daten zeigen
 
-<DataChart type="bar" title="Worterinnerung: Mittelwerte der beiden Gruppen" source="Folien 16–17; Darstellung der angegebenen Mittelwerte" height={280} data={[
-  { gruppe: 'Koffein', woerter: 12.25 },
-  { gruppe: 'Schlaf', woerter: 15.25 },
-]} series={[{ key: 'woerter', name: 'Erinnerte Wörter im Mittel' }]} xKey="gruppe" yLabel="Erinnerte Wörter" yDomain={[0, 20]} />
-
-<DataTable caption="Beobachtete Ergebnisse, unabhängig von der Diagrammdarstellung ablesbar" columns={[
-  { key: 'gruppe', label: 'Behandlung' },
-  { key: 'mittelwert', label: 'Erinnerte Wörter im Mittel', align: 'right' },
-]} rows={[
-  { gruppe: 'Koffeintablette', mittelwert: '12,25' },
-  { gruppe: 'Schlaf', mittelwert: '15,25' },
+<DataChart type="scatter" title="Worterinnerung nach Behandlung: Einzelwerte und Mittelwerte" source="Folie 16 · Punktpositionen aus der Folie übernommen, Mittelwertlinien gemäß Folientext" height={320} tooltip={false} data={[
+  { x: 1.09, y: 6.1 }, { x: 1.00, y: 7.3 }, { x: 0.94, y: 9.9 }, { x: 1.03, y: 10.3 }, { x: 0.97, y: 12.1 }, { x: 1.00, y: 12.5 },
+  { x: 1.09, y: 13.5 }, { x: 1.10, y: 14.2 }, { x: 1.04, y: 15.2 }, { x: 1.09, y: 16.3 }, { x: 1.09, y: 18.4 },
+  { x: 1.91, y: 8.9 }, { x: 1.96, y: 11.6 }, { x: 1.89, y: 13.3 }, { x: 1.96, y: 14.1 }, { x: 2.07, y: 14.1 }, { x: 1.93, y: 15.2 },
+  { x: 1.94, y: 16.6 }, { x: 2.00, y: 16.9 }, { x: 2.08, y: 17.1 }, { x: 2.04, y: 18.3 }, { x: 2.07, y: 20.8 },
+]} series={[{ key: 'personen', name: 'Einzelne Versuchsperson', color: 'var(--color-text-muted)' }]} xTicks={[{ value: 1, label: 'Koffein' }, { value: 2, label: 'Schlaf' }]} xDomain={[0.5, 2.5]} yDomain={[5, 22]} xLabel="Behandlung" yLabel="Erinnerte Wörter" referenceLines={[
+  { segment: [{ x: 0.78, y: 12.25 }, { x: 1.22, y: 12.25 }], label: 'Ø 12,25', labelPosition: 'right', color: 'var(--color-module-orange)', dashed: false, strokeWidth: 3 },
+  { segment: [{ x: 1.78, y: 15.25 }, { x: 2.22, y: 15.25 }], label: 'Ø 15,25', labelPosition: 'right', color: 'var(--color-module-orange)', dashed: false, strokeWidth: 3 },
 ]} />
 
-<Formula title="Beobachteter Unterschied: Schlaf minus Koffein" expr="15{,}25 - 12{,}25 = 3\;\text{Wörter}" />
+Jeder Punkt steht für **eine Versuchsperson**, die Linie für den **Gruppenmittelwert**. Im Mittel erinnert die Koffeingruppe **12,25 Wörter**, die Schlafgruppe **15,25 Wörter**. Die Schlafgruppe erinnert also im Mittel **3 Wörter mehr** (15,25 − 12,25).
 
-Die Punktdarstellung auf Folie 16 zeigt **unterschiedliche Einzelwerte innerhalb beider Gruppen**. Das Balkendiagramm hier stellt ausschließlich die im Skript angegebenen **Mittelwerte** dar.
+<Card title="Was die Einzelwerte zusätzlich zeigen" tone="teal">
+
+- **Starke Streuung in beiden Gruppen:** Die Werte reichen etwa von 6 bis 18 Wörtern (Koffein) und von 9 bis 21 Wörtern (Schlaf).
+- **Die Gruppen überlappen deutlich:** Mehrere Personen mit Koffein erinnern mehr Wörter als manche Personen mit Schlaf.
+- Der Mittelwertunterschied beschreibt deshalb die **Gruppen im Durchschnitt**, nicht jede einzelne Person.
+
+</Card>
+
+<p className="text-xs text-muted-foreground">Hinweis zur Darstellung: Die Punkte sind wie auf der Folie leicht gestreut gezeichnet; ihre Positionen sind deshalb keine exakten Wortzahlen. Auf Folie 16 sind je Gruppe 11 Punkte erkennbar. Die angegebenen Mittelwerte 12,25 und 15,25 setzen bei ganzzahligen Wortzahlen mindestens 12 Werte je Gruppe voraus, vermutlich verdecken sich also einzelne Punkte.</p>
 
 <Callout type="pitfall" title="Beobachtung ist kein endgültiger Beweis">
 Die Schlafgruppe erinnert im Durchschnitt **3 Wörter mehr**. Daraus lässt sich die Frage nach einem allgemeinen Vorteil **nicht endgültig entscheiden**. Wissenschaftliche Aussagen werden kritisch überprüft und bleiben vorläufig.
@@ -203,21 +208,37 @@ Die Schlafgruppe erinnert im Durchschnitt **3 Wörter mehr**. Daraus lässt sich
 Für den Vergleich wird angenommen, dass es **keinen Unterschied** zwischen den Behandlungen gibt. Simulationen zeigen, welche Mittelwertdifferenzen trotzdem zufällig auftreten können.
 </DefinitionBox>
 
-<Diagram title="So werden die beobachteten Daten mit der Modellannahme verglichen" height={330} chart={`flowchart TB
-  A["Modellannahme: kein Unterschied"] --> B["Zufällige Mittelwertdifferenzen simulieren"]
-  B --> C["Beobachteten Unterschied von 3 Wörtern einordnen"]
-`} />
-
-Folie 18 zeigt die **Verteilung der simulierten Mittelwertdifferenzen** und markiert den empirischen Wert bei **3 Wörtern**. Entscheidend ist, wie häufig ein mindestens so großer Unterschied unter der Modellannahme auftritt.
-
-<KpiGrid items={[
-  { value: '3 Wörter', label: 'Beobachtete Mittelwertdifferenz', accent: 'accent' },
-  { value: '0,0474', label: 'Simulationsanteil mit einem Unterschied von mindestens 3 Wörtern' },
+<DataChart type="bar" title="Im Modell vorhergesagte Differenzen, wenn es keinen Unterschied gibt" source="Folie 18 · Häufigkeiten aus der Folie abgelesen und auf 10 gerundet" height={370} stacked barCategoryGap={1} xKey="klasse" xLabel="Mittelwertdifferenz in Wörtern" yLabel="Anzahl Simulationen" yDomain={[0, 3000]} data={[
+  { klasse: '−4,3', rand: 30 },
+  { klasse: '−3,4', rand: 250 },
+  { klasse: '−2,6', mitte: 620 },
+  { klasse: '−1,7', mitte: 1380 },
+  { klasse: '−0,9', mitte: 1910 },
+  { klasse: '0', mitte: 2370 },
+  { klasse: '0,9', mitte: 2020 },
+  { klasse: '1,7', mitte: 1380 },
+  { klasse: '2,6', mitte: 620 },
+  { klasse: '3,4', rand: 210 },
+  { klasse: '4,3', rand: 30 },
+]} series={[
+  { key: 'mitte', name: 'Differenz kleiner als 3 Wörter', color: 'var(--color-module-blue)' },
+  { key: 'rand', name: 'Differenz von mindestens 3 Wörtern (beide Richtungen)', color: 'var(--color-module-orange)' },
+]} referenceLines={[
+  { x: '3,4', position: 'start', label: '+3 beobachtet', labelPosition: 'insideTopRight' },
+  { x: '−3,4', position: 'end', label: '−3', labelPosition: 'insideTopLeft' },
 ]} />
 
+So lässt sich das Histogramm lesen:
+
+- Jeder Balken zählt, **wie viele Simulationen** eine Mittelwertdifferenz in dieser Klasse ergeben haben.
+- Die Verteilung liegt **um 0**, denn das Modell nimmt an, dass es keinen Unterschied gibt. Trotzdem treten zufällig Differenzen von mehreren Wörtern auf.
+- Die gestrichelte Linie markiert den **beobachteten Wert von 3 Wörtern**. Die orangefarbenen Ränder enthalten alle Simulationen mit einer Differenz von **mindestens 3 Wörtern**, auf beiden Seiten.
+
 <Callout type="merksatz" title="Den Anteil unter der Modellannahme lesen">
-**Wenn es keinen Unterschied gibt**, ist ein beobachteter Unterschied von mindestens 3 erinnerten Wörtern im Modell eher selten. Der in den Folien genannte Anteil beträgt **0,0474**.
+**Wenn es keinen Unterschied gibt**, haben nur **0,0474** der Simulationen, also knapp 5 %, eine Differenz von mindestens 3 erinnerten Wörtern. Der beobachtete Unterschied ist im Modell deshalb **eher selten**.
 </Callout>
+
+<p className="text-xs text-muted-foreground">Hinweis zur Darstellung: Folie 18 hebt die Ränder auf beiden Seiten ab. Abgelesen enthalten beide Ränder zusammen rund 520 von etwa 10.800 Simulationen (≈ 0,048). Das passt zum genannten Anteil 0,0474; der rechte Rand allein (≈ 0,02) passt nicht. Der Anteil zählt also Differenzen von mindestens 3 Wörtern in beide Richtungen.</p>
 
 <CompareCard items={[
   { title: 'Zufall bleibt möglich', accent: 'neutral', points: ['Auch ohne tatsächlichen Unterschied kann in einer Stichprobe zufällig ein Unterschied sichtbar werden.', 'Die Modellannahme verlangt nicht, dass jede Stichprobe identische Mittelwerte hat.'] },
