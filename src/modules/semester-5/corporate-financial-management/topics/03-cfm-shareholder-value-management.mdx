@@ -1,0 +1,503 @@
+import zieldreieck from '../assets/03-zieldreieck.png';
+import stakeholder from '../assets/03-stakeholder.png';
+import zielkreislauf from '../assets/03-zielkreislauf.png';
+import werttreiber from '../assets/03-werttreiber.png';
+import cashflowBewertung from '../assets/03-cashflow-bewertung.png';
+import dcfQuellenformel from '../assets/03-dcf-quellenformel.png';
+import diversifikation from '../assets/03-diversifikation.png';
+import kapitalmarktlinie from '../assets/03-kapitalmarktlinie.png';
+import branchenbetas from '../assets/03-branchenbetas.png';
+import ciscoRenditen from '../assets/03-cisco-renditen.png';
+import ciscoRegression from '../assets/03-cisco-regression.png';
+import ciscoBetaverlauf from '../assets/03-cisco-betaverlauf.png';
+
+<section id="cfm-finanzielle-ziele">
+
+## Finanzielle Ziele und Shareholder Value
+
+<figure>
+<a href={zieldreieck} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originales Zieldreieck: Liquidität, Sicherheit und Rentabilität sind wechselseitig verbunden; Unabhängigkeit ergänzt die drei Kriterien.">
+<img src={zieldreieck} alt="Originales Zieldreieck: Liquidität, Sicherheit und Rentabilität sind wechselseitig verbunden; Unabhängigkeit ergänzt die drei Kriterien." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 2</SourceNote>
+</figure>
+
+<Columns count={2}>
+<Card title="Sicherheit: Risiken begrenzen" tone="warning">
+
+- Risiko: Gefahr eines möglichen Verlustes durch Abweichung der tatsächlichen von der gewünschten Entwicklung.
+- Bewusst Risiken eingehen, wenn sie entsprechenden Mehrwert schaffen.
+- Risiken unter Beachtung von Rentabilität und Liquidität **optimieren**, nicht unbegrenzt übernehmen.
+- Risikoarten: Gegenparteirisiken, Marktpreisrisiken, Liquiditätsrisiken und operationelle Risiken.
+
+</Card>
+<Card title="Unabhängigkeit: flexibel bleiben" tone="teal">
+
+- Dispositionsfreiheit und Flexibilität erhalten.
+- Kapitalaufnahme schafft neue Mitspracherechte.
+- Beispielsweise Sicherheitsleistungen begrenzen.
+
+</Card>
+</Columns>
+
+<Callout type="merksatz" title="Zielkonflikt">
+Hohe Rentabilität, geringe Liquidität und hohes Risiko stehen im Spannungsfeld. Liquidität und Rentabilität knüpfen an den vorangegangenen Kennzahlenabschnitt an.
+</Callout>
+
+<DefinitionBox term="Shareholder Value" source="Folie 5">
+Der Shareholder Value ist der **Marktwert des Eigenkapitals** und zukunftsorientiert. Er entspricht nicht dessen Buchwert; laut Skript liegt der Marktwert in der Regel über dem Buchwert.
+</DefinitionBox>
+
+<CompareCard items={[
+  { title: 'Börsennotiertes Unternehmen', accent: 'accent', points: ['Marktwert des Eigenkapitals an der Börse ablesbar: Marktkapitalisierung.'] },
+  { title: 'Nicht börsennotiertes Unternehmen', accent: 'neutral', points: ['Möglicher Veräußerungserlös des Unternehmens; in der Regel Schätzung mit einem DCF-Verfahren.'] },
+]} />
+
+<Card title="Leitgedanke der Unternehmensführung" exam>
+
+- Langfristig den Marktwert des Eigenkapitals steigern; Entscheidungen an den Anteilseignern und ihren Renditeansprüchen ausrichten.
+- Im Rahmen der Gesetze handeln; die Quelle verweist auf die Lehren aus Wirecard.
+- **Investition:** Eigen- und Fremdkapital möglichst rentabel verwenden.
+- **Finanzierung:** Eigen- und Fremdkapital möglichst günstig aufnehmen.
+- **Nebenbedingungen:** Liquidität sicherstellen und Flexibilität gewährleisten.
+
+</Card>
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 1–5 · V26-11-02</SourceNote>
+</section>
+
+<section id="cfm-stakeholder">
+
+## Stakeholder und Residualanspruch
+
+<DefinitionBox term="Stakeholder" source="Folie 6">
+Alle Personen, Gruppen oder Organisationen, die von den Aktivitäten eines Unternehmens direkt oder indirekt betroffen sind oder Einfluss darauf ausüben können.
+</DefinitionBox>
+
+<figure>
+<a href={stakeholder} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originale Stakeholderkarte mit Geschäftsführung im Zentrum, internen Stakeholdern und äußerem Kreis externer Stakeholder.">
+<img src={stakeholder} alt="Originale Stakeholderkarte mit Geschäftsführung im Zentrum, internen Stakeholdern und äußerem Kreis externer Stakeholder." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 7</SourceNote>
+</figure>
+
+<Columns count={2}>
+<Card title="Interne Stakeholder">
+
+Geschäftsführung, Anteilseigner/Shareholder, mittleres Management, Mitarbeiter sowie Aufsichtsrat/Beirat.
+
+</Card>
+<Card title="Externe Stakeholder">
+
+Öffentliche Hand, Kreditinstitute, Lieferanten/Kreditversicherer, Kunden, Berater und Investoren/Kapitalmärkte.
+
+</Card>
+</Columns>
+
+<DataTable columns={[
+  { key: 'gruppe', label: 'Gruppe' }, { key: 'anspruch', label: 'Ansprüche' }, { key: 'basis', label: 'Grundlage' },
+]} rows={[
+  { gruppe: 'Gläubiger', anspruch: 'Zins- und Tilgungszahlungen', basis: 'Kreditvertrag' },
+  { gruppe: 'Arbeitnehmer', anspruch: 'Lohn; sicherer Arbeitsplatz', basis: 'Arbeits- und Tarifvertrag' },
+  { gruppe: 'Lieferanten', anspruch: 'Vertragserfüllung; dauerhafte Geschäftsbeziehung', basis: 'Kaufvertrag' },
+  { gruppe: 'Anteilseigner', anspruch: 'Angemessene Rendite; Einflussnahme; Sicherheit des Kapitals', basis: 'Residualanspruch' },
+]} caption="Ansprüche und ihre Grundlage · Folie 8" />
+
+<Callout type="examfocus" title="Kritik und Gegenargument">
+Kritik: Shareholder Value vernachlässige die Interessen anderer Unternehmensbeteiligter. Das Skript hält dagegen: Ihre Ansprüche werden über Verträge vergütet; **Aktionäre tragen das verbleibende Risiko**.
+</Callout>
+
+<figure>
+<a href={zielkreislauf} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originalkreislauf: Orientierung an Anteilseignern führt zum Ziel der Shareholder-Value-Maximierung, erfordert langfristigen Unternehmenserfolg und damit die Erfüllung aller Stakeholderansprüche.">
+<img src={zielkreislauf} alt="Originalkreislauf: Orientierung an Anteilseignern führt zum Ziel der Shareholder-Value-Maximierung, erfordert langfristigen Unternehmenserfolg und damit die Erfüllung aller Stakeholderansprüche." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 9</SourceNote>
+</figure>
+
+<Callout type="merksatz">
+Langfristige Wertsteigerung setzt gesicherten bzw. erhöhten Unternehmenserfolg voraus. Voraussetzung dafür ist die Erfüllung der Ansprüche **aller Stakeholder**.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 6–9</SourceNote>
+</section>
+
+<section id="cfm-werttreiber">
+
+## Werttreiber und Free Cash Flow
+
+<figure>
+<a href={werttreiber} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originales Werttreiberschema: Operating, Investition und Finanzierung beeinflussen Cashflow, risikofreien Zins und Fremdkapital, daraus entstehen Shareholder Value und Eigentümerrendite aus Dividenden und Kursgewinnen.">
+<img src={werttreiber} alt="Originales Werttreiberschema: Operating, Investition und Finanzierung beeinflussen Cashflow, risikofreien Zins und Fremdkapital, daraus entstehen Shareholder Value und Eigentümerrendite aus Dividenden und Kursgewinnen." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 10</SourceNote>
+</figure>
+
+<DataTable columns={[
+ { key: 'bereich', label: 'Entscheidungsbereich' }, { key: 'treiber', label: 'Werttreiber laut Schema' },
+]} rows={[
+ { bereich: 'Operating', treiber: 'Umsatzwachstum, betriebliche Gewinnmarge, Gewinnsteuersatz; Dauer der Wertsteigerung' },
+ { bereich: 'Investition', treiber: 'Investitionen in Umlauf- und Anlagevermögen' },
+ { bereich: 'Finanzierung', treiber: 'Kapitalkosten und Fremdkapital' },
+]} />
+
+<DefinitionBox term="Free Cash Flow an die Unternehmung" source="Folie 11">
+An Eigen- und Fremdkapitalgeber ausschüttungsfähige Einzahlungsüberschüsse. Die Quelle formuliert als Ziel: diese Free Cash Flows maximieren, „Cash is King!“.
+</DefinitionBox>
+
+<Formula title="Free Cash Flow: Schreibweise des Skripts" expr="FCFU^* = OCF^* + CFI" />
+<Formula expr="OCF^* = EBIT\,(1-t) + AFA + \Delta RST - \Delta WC" legend={[
+ { sym: 't', desc: 'Steuersatz' }, { sym: 'CFI', desc: 'Cashflow aus Investitionstätigkeit' },
+ { sym: 'AFA', desc: 'Abschreibungen' }, { sym: '\\Delta RST', desc: 'Veränderung der Rückstellungen' },
+ { sym: '\\Delta WC', desc: 'Veränderung des Working Capital' },
+]} />
+
+<figure>
+<a href={cashflowBewertung} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originales DCF-Schema: Erlöse, operative Auszahlungen und Investitionen führen zu Free Cash Flows; Finanzierungsstruktur, Marktzinsen, Marktrisiko und Unternehmensrisiko zu WACC; beide bestimmen den Barwert.">
+<img src={cashflowBewertung} alt="Originales DCF-Schema: Erlöse, operative Auszahlungen und Investitionen führen zu Free Cash Flows; Finanzierungsstruktur, Marktzinsen, Marktrisiko und Unternehmensrisiko zu WACC; beide bestimmen den Barwert." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 11 · dort: vgl. Bösch, S. 346</SourceNote>
+</figure>
+
+<Formula title="Unternehmenswert als abgezinste Cashflows" expr="UW = \sum_{t=1}^{\infty}\frac{FCFU_t^*}{(1+WACC)^t}" />
+
+<Callout type="info" title="Notation der Quelle erhalten">
+Folie 11 kennzeichnet die Cashflows mit einem Stern und beschriftet operative Auszahlungen sowie den freien Cashflow ausdrücklich mit „inklusive Zinsaufwand“. Diese Beschriftung bleibt im Originalschema sichtbar; sie wird hier nicht stillschweigend in eine andere Cashflow-Konvention übersetzt.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 10–11</SourceNote>
+</section>
+
+<section id="cfm-dcf-wacc">
+
+## Fortführungswert, DCF und WACC
+
+<Timeline events={[
+ { title: 'Explizite Planungsphase', text: 'Free Cash Flows einzeln planen, meist 3–5 Jahre, maximal 10 Jahre laut Skript.' },
+ { title: 'Steady State', text: 'Cashflows nach der Planungsphase mit konstanter jährlicher Wachstumsrate g bis ins Unendliche erfassen.' },
+ { title: 'Bewertung', text: 'Barwert der expliziten Planung und Barwert des Fortführungswerts bilden den Wert des operativen Geschäfts.' },
+]} />
+
+<Formula title="Terminal Value am Ende der Planungsphase" expr="UW_T = \frac{FCFU_{n+1}}{WACC-g} = \frac{FCFU_n(1+g)}{WACC-g},\qquad WACC>g" legend={[
+ { sym: 'n', desc: 'Ende der expliziten Planungsphase' },
+ { sym: 'g', desc: 'Konstante jährliche Wachstumsrate im Steady State' },
+ { sym: 'UW_T', desc: 'Fortführungswert / Terminal Value' },
+]} />
+
+<CompareCard items={[
+ { title: 'Explizite Planung', accent: 'accent', points: ['Barwerte der einzeln geplanten Free Cash Flows.'] },
+ { title: 'Fortführungswert', accent: 'purple', points: ['Barwert der Cashflows nach Ende der expliziten Planung.'] },
+]} />
+
+<Callout type="warn" title="Unklare Gesamtformel auf Folie 13">
+Der Text nennt die Summe aus **Barwert der expliziten Planung und Barwert des Fortführungswerts**. Die gedruckte Formel darunter verwendet jedoch für den zweiten Baustein nochmals einen Nenner „WACC − g“ und den Zähler „FCFₙ + UWₜ“. Das passt nicht eindeutig zur Terminal-Value-Definition auf Folie 12 und zur Barwertbeschriftung. Die Originalstelle ist deshalb erhalten; diese Gesamtformel vor einer Rechenanwendung klären.
+</Callout>
+
+<figure>
+<a href={dcfQuellenformel} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Unklare Originalformel von Folie 13 mit zweitem Bruch aus FCF n plus UW T über WACC minus g, darunter die Beschriftung Barwerte des Fortführungswerts.">
+<img src={dcfQuellenformel} alt="Unklare Originalformel von Folie 13 mit zweitem Bruch aus FCF n plus UW T über WACC minus g, darunter die Beschriftung Barwerte des Fortführungswerts." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originalstelle zur Quellenunklarheit · Folie 13</SourceNote>
+</figure>
+
+<DefinitionBox term="WACC: Weighted Average Cost of Capital" source="Folie 14">
+Der gewichtete Kapitalkostensatz entspricht den Opportunitätskosten aller Kapitalquellen: Eigenkapital und zinstragendes Fremdkapital. Als Werttreiber soll er laut Quelle minimiert werden.
+</DefinitionBox>
+
+<Formula title="Gewichteter Kapitalkostensatz" expr="WACC = r_{EK}\frac{EK}{EK+FK} + i(1-t)\frac{FK}{EK+FK}" legend={[
+ { sym: 'r_{EK}', desc: 'Kosten des Eigenkapitals' },
+ { sym: 'i', desc: 'Kosten des zinstragenden Fremdkapitals' },
+ { sym: 'FK', desc: 'Zinstragendes Fremdkapital' },
+ { sym: 't', desc: 'Steuersatz' },
+]} />
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 12–14</SourceNote>
+</section>
+
+<section id="cfm-capm-grundlagen">
+
+## CAPM: Annahmen, Risiken und Marktportfolio
+
+<DefinitionBox term="Capital Asset Pricing Model (CAPM)" source="Folien 15–16">
+Modell zur Berechnung der Eigenkapitalkosten, also der Renditeforderung der Eigenkapitalgeber. Die erwartete Rendite eines Investments wird als Funktion einer risikolosen Anlagemöglichkeit und eines Marktportfolios dargestellt.
+</DefinitionBox>
+
+<Card title="Theoretische Herkunft">
+
+In den 1960er-Jahren von Sharpe, Lintner und Mossin entwickelt; Grundlage ist Markowitz’ Portfolio-Selection-Theorie. Das Skript verweist auf Sharpe (1966), Lintner (1965), Mossin (1965) und Markowitz (1952).
+
+</Card>
+
+<DataTable columns={[
+ { key: 'annahme', label: 'Modellannahme' }, { key: 'inhalt', label: 'Inhalt laut Folie 17' },
+]} rows={[
+ { annahme: 'Handel und Finanzierung', inhalt: 'Alle Wertpapiere zu Marktpreisen kauf- und verkaufbar; keine Steuern oder Transaktionskosten; Geldanlage und Kreditaufnahme zum risikolosen Zins.' },
+ { annahme: 'Effiziente Portfolios', inhalt: 'Anleger halten nur effiziente Portfolios gehandelter Wertpapiere: maximale erwartete Rendite bei gegebener Volatilität.' },
+ { annahme: 'Homogene Erwartungen', inhalt: 'Gleiche Informationen und Schätzungen von Volatilitäten, Korrelationen und erwarteten Renditen.' },
+ { annahme: 'Kein einzelner Preiseinfluss', inhalt: 'Ein einzelner Investor kann Aktienpreise nicht beeinflussen.' },
+]} />
+
+<figure>
+<a href={diversifikation} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originaler Risikoverlauf: Mit wachsender Anzahl verschiedener Wertpapiere sinkt das unsystematische Risiko, während ein Sockel systematischen Risikos bleibt.">
+<img src={diversifikation} alt="Originaler Risikoverlauf: Mit wachsender Anzahl verschiedener Wertpapiere sinkt das unsystematische Risiko, während ein Sockel systematischen Risikos bleibt." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 18</SourceNote>
+</figure>
+
+<CompareCard items={[
+ { title: 'Systematisches Risiko', accent: 'warning', points: ['Marktrisiko.', 'Nicht durch Diversifikation beseitigbar.', 'Im CAPM ist die erwartete Überrendite direkt proportional zum Beta.'] },
+ { title: 'Unsystematisches Risiko', accent: 'teal', points: ['Unternehmensspezifisches Risiko.', 'Durch Streuung und Hinzunahme weiterer Portfoliowerte reduzierbar bzw. minimierbar.'] },
+]} />
+
+### Marktportfolio und Kapitalmarktlinie
+
+<figure>
+<a href={kapitalmarktlinie} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originales Rendite-Volatilitäts-Diagramm mit Effizienzkurve, risikolosem Zinssatz, Marktportfolio M und tangierender Kapitalmarktlinie; Punkte A, B, C und X bleiben erhalten.">
+<img src={kapitalmarktlinie} alt="Originales Rendite-Volatilitäts-Diagramm mit Effizienzkurve, risikolosem Zinssatz, Marktportfolio M und tangierender Kapitalmarktlinie; Punkte A, B, C und X bleiben erhalten." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 20</SourceNote>
+</figure>
+
+<Card title="Marktportfolio und Anlegerentscheidung" exam>
+
+- Ohne Diversifikationskosten enthält das theoretische Marktportfolio jedes einzelne Asset einer Volkswirtschaft in Relation zu seinem Marktwert.
+- Jeder Investor hält eine Mischung aus risikoloser Anlage und Marktportfolio; die Gewichte hängen von seiner Risikoneigung ab.
+- In der Grafik ist **M** das Marktportfolio im Gleichgewicht; die Kapitalmarktlinie zeigt Risiko-Rendite-Kombinationen bei Einbezug des risikolosen Zinses.
+- In der Praxis approximiert ein möglichst breiter Aktienindex, etwa der CDAX, das Marktportfolio.
+
+</Card>
+
+<Callout type="warn" title="Bezeichnung auf Folie 20 ist widersprüchlich">
+Die Quelle schreibt zur „Kapitalmarktlinie“ zusätzlich „Security Market Line, SML“. Die Originalgrafik trägt jedoch **Risiko σ** auf der horizontalen Achse und zeigt die Tangente an die Effizienzkurve. Die beiden Bezeichnungen sind damit in der Quelle nicht sauber getrennt. Diese σ-Achse nicht als Beta-Achse lesen.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 15–21 · Literaturhinweise auf Folie 16</SourceNote>
+</section>
+
+<section id="cfm-beta">
+
+## CAPM-Gleichung und Interpretation von Beta
+
+<Formula title="Eigenkapitalkosten / erwartete Eigenkapitalrendite" expr="r_e=r_f+\beta(r_m-r_f)" legend={[
+ { sym: 'r_e', desc: 'Erwartete Eigenkapitalrendite des Investors' },
+ { sym: 'r_f', desc: 'Risikoloser Zinssatz' },
+ { sym: 'r_m', desc: 'Rendite des Marktportfolios' },
+ { sym: 'r_m-r_f', desc: 'Risikoprämie des Aktienmarktes gegenüber der risikolosen Anlage' },
+]} />
+
+<Formula title="Beta als systematisches Risiko" expr="\beta=\rho_{em}\frac{\sigma_e}{\sigma_m}" legend={[
+ { sym: '\\rho_{em}', desc: 'Korrelationskoeffizient von Aktie e und Markt m' },
+ { sym: '\\sigma_e', desc: 'Standardabweichung der Aktie bzw. des gewählten Portfolios' },
+ { sym: '\\sigma_m', desc: 'Standardabweichung des Marktportfolios' },
+]} />
+
+<DefinitionBox term="Beta" source="Folie 23">
+Standardisiertes Maß für das **systematische, nicht diversifizierbare Risiko** eines Assets im Gleichgewicht. Es beschreibt dessen Risikobeitrag zum Marktportfolio und seine Sensitivität gegenüber Änderungen des Gesamtmarktes.
+</DefinitionBox>
+
+<DataTable columns={[
+ { key: 'beta', label: 'Beta' }, { key: 'deutung', label: 'Interpretation im Skript' }, { key: 'beispiel', label: 'Approximation' },
+]} rows={[
+ { beta: 'β = 0', deutung: 'Keine Sensitivität gegenüber dem Gesamtmarkt', beispiel: 'AAA-Staatsanleihen, Bargeld' },
+ { beta: 'β = 1', deutung: 'Durchschnittliches Marktrisiko; Rendite des Marktportfolios', beispiel: 'Breiter Aktienindex (CDAX)' },
+ { beta: 'β größer als 1', deutung: 'Überdurchschnittliches Marktrisiko; stärkere Reaktion auf den Markt', beispiel: 'IT-Aktien, Zykliker' },
+ { beta: '0 kleiner als β kleiner als 1', deutung: 'Unterdurchschnittliche Marktreaktion', beispiel: 'Consumer Staples' },
+ { beta: 'β kleiner als 0', deutung: 'Inverse Korrelation: Wertpapierrendite fällt bei steigendem Markt und umgekehrt', beispiel: 'Short-Position' },
+]} caption="Interpretationsschema · Folie 24; Beispiele sind die Approximationen der Quelle." />
+
+<Columns count={2}>
+<Card title="Renditeforderung">
+
+- Je höher Beta im vollkommenen Kapitalmarkt, desto höher die erwartete Rendite und umgekehrt.
+- Das Beta des Marktportfolios beträgt **1**.
+- Laut Skript liegen in Deutschland 80 % der Betas zwischen 0,75 und 1,25.
+
+</Card>
+<Card title="Praktische Schätzung und Kritik" tone="warning">
+
+- Das Modell benötigt zukunftsorientierte Betas; praktisch werden historische Kursdaten verwendet, beispielsweise 250 Tage.
+- Betas schwanken; fraglich bleibt, ob sie langfristige Renditen nachhaltig realistisch abbilden.
+- Auch die Existenz bzw. Beobachtbarkeit des theoretisch unterstellten Marktportfolios ist ein Kritikpunkt.
+
+</Card>
+</Columns>
+
+<figure>
+<a href={branchenbetas} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originalgrafik der durchschnittlichen Branchenbetas aus KPMG 2025, mit Vergleich 2023/2024 und 2024/2025 sowie Familien- und Nichtfamilienunternehmen.">
+<img src={branchenbetas} alt="Originalgrafik der durchschnittlichen Branchenbetas aus KPMG 2025, mit Vergleich 2023/2024 und 2024/2025 sowie Familien- und Nichtfamilienunternehmen." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 24 · KPMG in Germany, 2025</SourceNote>
+</figure>
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 22–24 · Basiszinskurve nach Svensson-Modell als genauerer Ansatz auf Folie 22 genannt</SourceNote>
+</section>
+
+<section id="cfm-beta-schaetzung">
+
+## Beta schätzen und Eigenkapitalkosten berechnen
+
+<CompareCard items={[
+ { title: 'Technologieunternehmen', accent: 'warning', points: ['Hohe Sensitivität zur allgemeinen wirtschaftlichen Entwicklung; laut Skript Betas teilweise nahe 2.'] },
+ { title: 'Körperpflege und Haushalt', accent: 'teal', points: ['Tendenziell niedrige Sensitivität; laut Skript Betas nahe 0,5.'] },
+]} />
+
+### Cisco: von Renditen zur Regression
+
+<figure>
+<a href={ciscoRenditen} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originale monatliche Renditen von Cisco und S und P 500 von 2000 bis 2017; Cisco bewegt sich häufig gleichgerichtet, schwankt aber stärker.">
+<img src={ciscoRenditen} alt="Originale monatliche Renditen von Cisco und S und P 500 von 2000 bis 2017; Cisco bewegt sich häufig gleichgerichtet, schwankt aber stärker." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 25 · Abbildung 12.1</SourceNote>
+</figure>
+
+<Formula title="Lineare Regression der Überschussrenditen" expr="(R_i-r_f)=\alpha_i+\beta_i(r_m-r_f)+\varepsilon_i" legend={[
+ { sym: '\\alpha_i', desc: 'Konstante / Schnittpunktterm der Regression' },
+ { sym: '\\beta_i', desc: 'Sensitivität der Aktie gegenüber dem Marktrisiko' },
+ { sym: '\\varepsilon_i', desc: 'Residualterm: Abweichung von der Regressionsgeraden; Erwartungswert null' },
+]} />
+
+<figure>
+<a href={ciscoRegression} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originales Streudiagramm der monatlichen Überschussrenditen Cisco gegen S und P 500: Regressionsgerade y gleich 1,5647 x minus 0,0029, R Quadrat gleich 0,4295.">
+<img src={ciscoRegression} alt="Originales Streudiagramm der monatlichen Überschussrenditen Cisco gegen S und P 500: Regressionsgerade y gleich 1,5647 x minus 0,0029, R Quadrat gleich 0,4295." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 26 · Abbildung 12.2</SourceNote>
+</figure>
+
+<Callout type="merksatz">
+Im Regressionsbeispiel beträgt Ciscos **Beta 1,56**. Es ist die Steigung der geschätzten Geraden und damit ein Maß der Marktreaktion, nicht der einzelne Residualterm.
+</Callout>
+
+<figure>
+<a href={ciscoBetaverlauf} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originaler Verlauf geschätzter Cisco-Betas 1999 bis 2017: wechselnde Werte mit Spitze um 2,5 im Jahr 2002 und später rund 1,25, keine zeitliche Konstanz.">
+<img src={ciscoBetaverlauf} alt="Originaler Verlauf geschätzter Cisco-Betas 1999 bis 2017: wechselnde Werte mit Spitze um 2,5 im Jahr 2002 und später rund 1,25, keine zeitliche Konstanz." />
+Abbildung vergrößern
+</a>
+<SourceNote>Originaldarstellung · Folie 27 · Abbildung 12A.5</SourceNote>
+</figure>
+
+<Card title="Was der Zeitverlauf zeigt" tone="warning">
+
+Die auf monatlichen Daten und drei Jahren beruhende Schätzung erreicht 2002 ungefähr 2,5 und sinkt später auf durchschnittlich 1,25. Die Bildunterschrift nennt neben Schätzfehlern einen wirtschaftlichen Grund: Dieser Verlauf sei typisch für viele Technologieaktien von Unternehmen, die Wachstum verzeichneten und die Reifephase erreichten.
+
+</Card>
+
+### Rechenbeispiel aus dem Skript
+
+<KpiGrid items={[
+ { value: '4 %', label: 'Rendite zehnjähriger Bundesanleihe am Bewertungsstichtag' },
+ { value: '1,3', label: 'Beta des Unternehmens', accent: 'accent' },
+ { value: '10 %', label: 'Langjährige Durchschnittsrendite des Marktportfolios' },
+ { value: '6 %', label: 'Marktrisikoprämie: 10 % − 4 %' },
+]} />
+
+<Formula title="Eigenkapital-Diskontierungszinssatz" expr="r_e=4\%+1{,}3\,(10\%-4\%)=11{,}80\%" />
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 25–28</SourceNote>
+</section>
+
+<section id="cfm-risikopraemie">
+
+## Risikoprämie, empirische Befunde und Modellgrenzen
+
+<Columns count={2}>
+<Card title="Risikoloser Zins: praktische Approximation">
+
+- Laut den im Skript beschriebenen Befragungen verwenden große Unternehmen und Finanzanalysten meist langfristige Anleihen mit 10 bis 30 Jahren Laufzeit.
+- Für deutsche Unternehmen nennt die Quelle üblicherweise zehnjährige Staatsanleihen.
+- Folie 22 nennt für eine genauere Ermittlung die Basiszinskurve nach dem Svensson-Modell; vereinfacht zehn- bzw. dreißigjährige Bundesanleihen.
+
+</Card>
+<Card title="Equity Risk Premium (ERP)" tone="accent">
+
+- Differenz zwischen erwarteter Rendite des Marktportfolios und quasi-risikoloser Verzinsung.
+- Geforderte Prämie für die Übernahme von Risiko; im Skript als positiv beschrieben.
+- Steigt tendenziell bei höherer durchschnittlicher Risikoaversion oder höherem Risiko eines durchschnittlichen Assets.
+- Erwartete Marktrendite durch einen breit gestreuten Aktienindex, etwa CDAX, approximieren.
+
+</Card>
+</Columns>
+
+<Formula title="Marktrisikoprämie" expr="r_p=E[r_m]-r_f" />
+
+### Historische Risikoprämien gegenüber Anleihen, 1900–2010
+
+<DataTable columns={[
+ { key: 'land', label: 'Land' }, { key: 'arith', label: 'Arithm. Mittel' }, { key: 'geom', label: 'Geom. Mittel' },
+ { key: 'sd', label: 'Standardabw.' }, { key: 'min', label: 'Minimum' }, { key: 'max', label: 'Maximum' },
+]} rows={[
+ { land: 'GER', arith: '9,8 %', geom: '5,9 %', sd: '31,8 %', min: '−45,3 % (2008)', max: '131,4 % (1949)' },
+ { land: 'FRA', arith: '8,7 %', geom: '6,0 %', sd: '24,5 %', min: '−44,8 % (2008)', max: '85,7 % (1941)' },
+ { land: 'ITA', arith: '9,8 %', geom: '5,8 %', sd: '32,0 %', min: '−49,1 % (2008)', max: '150,3 % (1946)' },
+ { land: 'JPN', arith: '9,0 %', geom: '5,9 %', sd: '27,7 %', min: '−48,3 % (1920)', max: '108,6 % (1952)' },
+ { land: 'SUI', arith: '5,1 %', geom: '3,4 %', sd: '18,9 %', min: '−37,0 % (1947)', max: '54,8 % (1985)' },
+ { land: 'GBR', arith: '6,0 %', geom: '4,3 %', sd: '19,9 %', min: '−54,6 % (1974)', max: '121,8 % (1975)' },
+ { land: 'USA', arith: '7,2 %', geom: '5,3 %', sd: '19,8 %', min: '−44,1 % (1931)', max: '56,6 % (1933)' },
+ { land: 'EUR', arith: '5,8 %', geom: '3,8 %', sd: '21,0 %', min: '−47,4 % (2008)', max: '76,3 % (1933)' },
+ { land: 'Welt', arith: '5,9 %', geom: '4,5 %', sd: '17,1 %', min: '−41,3 % (2008)', max: '70,3 % (1933)' },
+]} caption="Folie 31 · Quelle im Skript: Dimson, Marsh und Staunton (2011), Equity Premiums around the World." />
+
+<Callout type="pitfall">
+Die geforderte positive Risikoprämie bedeutet keine stets positive **realisierte** Jahresprämie. Die historischen Minima der Tabelle sind negativ. Zudem unterscheiden sich arithmetische und geometrische Mittel deutlich.
+</Callout>
+
+### KPMG-Abbildung: WACC nach Unternehmenssteuern
+
+<DataChart type="bar" title="WACC nach Unternehmenssteuern, in Prozent" height={340} xKey="jahr" yLabel="WACC (%)" series={[{key: 'wacc', name: 'WACC nach Unternehmenssteuern'}]} data={[
+ {jahr:'2005/06',wacc:8.1},{jahr:'2006/07',wacc:8.1},{jahr:'2007/08',wacc:8.2},{jahr:'2008/09',wacc:8.0},
+ {jahr:'2009/10',wacc:8.2},{jahr:'2010/11',wacc:7.9},{jahr:'2011/12',wacc:7.9},{jahr:'2012/13',wacc:7.7},
+ {jahr:'2013/14',wacc:7.8},{jahr:'2014/15',wacc:7.1},{jahr:'2015/16',wacc:7.1},{jahr:'2016/17',wacc:6.9},
+ {jahr:'2017/18',wacc:7.0},{jahr:'2018/19',wacc:6.9},{jahr:'2019/20',wacc:6.6},{jahr:'2020/21',wacc:6.6},
+ {jahr:'2021/22',wacc:6.8},{jahr:'2022/23',wacc:7.9},{jahr:'2023/24',wacc:8.2},{jahr:'2024/25',wacc:8.5},
+]} source="Folie 32 · KPMG, Cost of Capital Study 2025, Figure 26; Zahlen aus der Originalgrafik." />
+
+<DataTable columns={[
+ { key: 'jahr', label: 'Berichtszeitraum' }, { key: 'wacc', label: 'WACC nach Unternehmenssteuern', align: 'right' },
+]} rows={[
+ {jahr:'2005/2006',wacc:'8,1 %'}, {jahr:'2006/2007',wacc:'8,1 %'},
+ {jahr:'2007/2008',wacc:'8,2 %'}, {jahr:'2008/2009',wacc:'8,0 %'},
+ {jahr:'2009/2010',wacc:'8,2 %'}, {jahr:'2010/2011',wacc:'7,9 %'},
+ {jahr:'2011/2012',wacc:'7,9 %'}, {jahr:'2012/2013',wacc:'7,7 %'},
+ {jahr:'2013/2014',wacc:'7,8 %'}, {jahr:'2014/2015',wacc:'7,1 %'},
+ {jahr:'2015/2016',wacc:'7,1 %'}, {jahr:'2016/2017',wacc:'6,9 %'},
+ {jahr:'2017/2018',wacc:'7,0 %'}, {jahr:'2018/2019',wacc:'6,9 %'},
+ {jahr:'2019/2020',wacc:'6,6 %'}, {jahr:'2020/2021',wacc:'6,6 %'},
+ {jahr:'2021/2022',wacc:'6,8 %'}, {jahr:'2022/2023',wacc:'7,9 %'},
+ {jahr:'2023/2024',wacc:'8,2 %'}, {jahr:'2024/2025',wacc:'8,5 %'},
+]} caption="WACC nach Unternehmenssteuern: alle 20 Berichtszeiträume aus Folie 32 · KPMG, Cost of Capital Study 2025." />
+
+<Card title="Befund der abgebildeten Studie">
+
+- WACC-Ansatz: künftige Cashflows mit einem aus Eigen- und Fremdkapitalkosten gewichteten Satz diskontieren; Gewichte auf Marktwertbasis.
+- Durchschnittlicher WACC steigt von 8,2 % im Vorjahr auf 8,5 % und erreicht laut abgebildetem Bericht den höchsten Stand in 20 Jahren.
+- Viele Befragte stimmen Kapitalkosten bei M&A-Transaktionen und Investitionsentscheidungen nicht aufeinander ab.
+- Die Studie betont methodische Kohärenz verschiedener Bewertungsszenarien.
+
+</Card>
+
+<Callout type="info" title="Abbildungsinhalt und Folientitel unterscheiden">
+Obwohl Folie 32 unter „Risikoprämie“ steht, zeigt ihre KPMG-Grafik **WACC nach Unternehmenssteuern**, keine isolierte Equity Risk Premium. Die Werte deshalb nicht als ERP einsetzen. Quellenstand der Grafik: 2025.
+</Callout>
+
+<CompareCard items={[
+ { title: 'Noise: Schätzrauschen', accent: 'warning', points: ['Auch lange historische Reihen liefern eine unsichere Risikoprämie.', 'Bei 20 % jährlicher Volatilität verbleiben selbst nach 100 Jahren 2 % Standardfehler.'] },
+ { title: 'Repräsentativität', accent: 'neutral', points: ['Vergangenheitsdaten sind nicht sicher repräsentativ für heutige Erwartungen.'] },
+]} />
+
+<Formula title="Standardfehler im Skriptbeispiel" expr="\frac{20\%}{\sqrt{100}}=2\%" />
+
+<Callout type="examfocus" title="CAPM kritisch würdigen">
+Das CAPM beruht auf gewichtigen Annahmen, die Anlegerverhalten nicht vollständig beschreiben. Seine Schlussfolgerungen sind daher nicht vollkommen zutreffend. Gleichwohl wird es laut Skript von Unternehmen und Praktikern als sinnvolle Annäherung zur Schätzung erwarteter Renditen und Kapitalkosten verwendet.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 2.2 · Folien 29–34 · Folie 32: KPMG, Cost of Capital Study 2025</SourceNote>
+</section>

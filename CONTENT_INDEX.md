@@ -14,6 +14,7 @@
 | Modul | Topic-Verzeichnis | Fragen | Prüfungen | Status |
 | --- | --- | --- | --- | --- |
 | Analyse von Finanzdaten & Data Science | `src/modules/semester-5/data-science/topics/` | `questions.js` | `exams.js` (leer; Hausarbeit und Präsentation) | Kapitel 1–4 vollständig (8 Topics); Kapitel 5–8 ohne Quellen |
+| Corporate Financial Management | `src/modules/semester-5/corporate-financial-management/topics/` | `questions.js` (18 Fragen) | `exams.js` (45-Punkte-Training) | Alle drei vorliegenden Skripte: Einführung, 2.1 Finanzberichte, 2.2/2.3 Shareholder Value und Kapitalkosten |
 
 Quelleninventar und Plan für die weiteren Kapitel: `docs/SEMESTER_5_PREPARATION.md`.
 

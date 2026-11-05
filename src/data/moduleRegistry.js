@@ -3,6 +3,7 @@ import { bundle as behavioralFinance } from '../modules/semester-4/behavioral-fi
 import { bundle as humanResources } from '../modules/semester-4/human-resources/index.js';
 import { bundle as businessEnglish } from '../modules/semester-4/business-english/index.js';
 import { bundle as dataScience } from '../modules/semester-5/data-science/index.js';
+import { bundle as corporateFinancialManagement } from '../modules/semester-5/corporate-financial-management/index.js';
 
 const bundles = [
   assetManagement,
@@ -10,6 +11,7 @@ const bundles = [
   humanResources,
   businessEnglish,
   dataScience,
+  corporateFinancialManagement,
 ];
 
 export const allModules = bundles.map(b => b.module);

@@ -175,7 +175,19 @@ keyTakeaways/examFocus/pitfalls populated, no assessment in content, no invented
 
 ## 5. Source → topic mapping (verify in Phase 0 before building)
 
-Primary source per module is the `*_MD+PDF.md` variant (OCR text + per-slide reconstruction briefings);
+### Semester 5 — Corporate Financial Management
+
+For this module the PDFs are the primary source by explicit user instruction; Markdown is only a clarification/cross-check aid. See `docs/CFM_SOURCE_MAP.md` for the full inventory. Module: `corporate-financial-management`, topic-ID prefix: `cfm-`.
+
+| NN | topic ID | PDF | slides |
+| --- | --- | --- | --- |
+| 01 | `cfm-einfuehrung` | `1.CorpFM - Vorlesung 1.pdf` | 1–16 |
+| 02 | `cfm-finanzberichte-und-kennzahlen` | `2-CorpFM - Vorlesung 2 Grundlagen.pdf` | 1–47 |
+| 03 | `cfm-shareholder-value-management` | `3.CorpFM - Vorlesung 2.2 Shareholder Value Management.pdf` | 1–34 (includes chapter 2.3) |
+
+Preserve source figure topology. Complex source figures can use local, cropped original images with descriptive alt text and a text explanation; do not replace an informative chart with an unrelated diagram. Source palette in original images is retained without creating a second UI palette. Quiz and training stay in their dedicated files.
+
+For the following Semester-4 modules, the primary source is the `*_MD+PDF.md` variant (OCR text + per-slide reconstruction briefings);
 fall back to the plain `.md`. PDFs only for targeted screenshots when a Markdown reference is locally
 unclear. **⚠ rows are ambiguous and MUST be confirmed by reading the source header/agenda first.**
 

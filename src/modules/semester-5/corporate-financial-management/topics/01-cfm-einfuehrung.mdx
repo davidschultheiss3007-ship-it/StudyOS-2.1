@@ -1,0 +1,244 @@
+import bilanzbeispiel from '../assets/01-bilanzbeispiel.png';
+import unternehmensziele from '../assets/01-unternehmensziele.png';
+import zieldreieck from '../assets/01-zieldreieck.png';
+import kennzahlenZusammenhang from '../assets/01-kennzahlen-zusammenhang.png';
+
+<section id="cfm-modul-und-orientierung">
+
+## Modul, Ziele und Prüfungsrahmen
+
+**Corporate Financial Management · Dr. Dorothee Franzen · Skriptstand V26-10-13**
+
+<DataTable caption="Einordnung im Schwerpunkt Finance & Risk Management (Folie 3)" columns={[{key:'semester',label:'Semester'},{key:'module',label:'Module'}]} rows={[
+  {semester:'3. Semester',module:'Finanzinstrumente und Risikomanagement'},
+  {semester:'4. Semester',module:'Asset Management · Behavioral Finance'},
+  {semester:'5. Semester',module:'Analyse von Finanzdaten und Data Science · Corporate Financial Management'},
+]} />
+
+<Columns count={2}>
+<Card title="Modulziele: verstehen und analysieren" tone="accent">
+
+- Philosophie und Methodik des Shareholder Value Managements skizzieren und kritisch würdigen.
+- Finanzberichte lesen, Kennzahlen berechnen und interpretieren.
+- Agency-Probleme in der Finanzierung identifizieren und Lösungswege erörtern.
+- Grundlegende Prinzipien der Unternehmensfinanzierung erklären.
+
+</Card>
+<Card title="Modulziele: evaluieren und beurteilen">
+
+- Klassische Instrumente evaluieren: Private Equity, IPO, Anleihen und Mezzanine.
+- Kapitalstruktur- und Dividendenpolitik beurteilen.
+- Risikomanagement von Unternehmen beurteilen.
+
+</Card>
+</Columns>
+
+<Card title="Klausur: 100 % der Modulnote" exam>
+
+- **90 Minuten**, mit vorhandener Formelsammlung.
+- Wissensfragen, praxisbezogene Fragen und Single-Choice-Fragen.
+- Lehrmethoden laut Folie 5, dort unter „SWS“ aufgeführt: **Präsenz 52**, **E-Learning/Selbststudium 80**.
+
+</Card>
+
+### Agenda des Moduls
+
+1. Einführung
+2. Grundlagen der Corporate Finance
+3. Beschaffung von Eigenkapital
+4. Beschaffung von Fremdkapital
+5. Finanzierungspolitik
+6. Risikomanagement
+
+### Literaturempfehlungen des Skripts
+
+<Card title="Literatur · Folie 7" compact>
+
+- Berk, J. / DeMarzo, P. (2021): *Grundlagen der Finanzwirtschaft*, 5. Aufl., München.
+- Brealey, R. A. / Myers, S. C. / Allen, F. (2025): *Principles of Corporate Finance*, 15. Aufl., New York.
+- Copeland, T. E. / Weston, J. F. / Shastri, K. (2014): *Financial Theory*, 4. Aufl., New York.
+- Pape, U. (2023): *Grundlagen der Finanzierung und Investition*, 5. Aufl., Berlin.
+- Perridon, L. / Steiner, M. / Rathgeber, A. W. (2022): *Finanzwirtschaft der Unternehmung*, 18. Aufl., München.
+
+</Card>
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folien 1–9</SourceNote>
+</section>
+
+<section id="cfm-finanzierung-und-investition">
+
+## Finanzierung und Investition
+
+<DefinitionBox term="Finanzwirtschaft">
+Theorien und Techniken der **Kapitalaufbringung (Finanzierung)** und **Kapitalanlage (Investition)**. Sie umfasst finanzielle Maßnahmen zur Planung, Steuerung und Kontrolle der Zahlungsströme im Unternehmen. Nebenfunktion ist die Kapitalverwaltung, also der Zahlungsverkehr.
+</DefinitionBox>
+
+<CompareCard items={[
+  {title:'Finanzierung',subtitle:'Kapitalaufbringung',accent:'accent',points:[
+    'Alle Maßnahmen zur Bereitstellung von Eigen- und Fremdkapital.',
+    'Kapitalvolumen ermitteln und Kapital (EK/FK) akquirieren.',
+    'Geeignete Kapitalstruktur bestimmen und finanzielle Mittel disponieren.',
+    'Kapitalkosten und kostenoptimale Finanzierung bestimmen.',
+  ]},
+  {title:'Investition',subtitle:'Kapitalanlage',accent:'positive',points:[
+    'Umwandlung von Kapital in Vermögen.',
+    'Zu beschaffende Vermögensteile ermitteln.',
+    'Wertmäßigen Umfang bestimmen.',
+    'Kapitalanlagedauer bestimmen.',
+  ]},
+]} />
+
+<Callout type="merksatz">Investition und Finanzierung **bedingen einander**.</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 10</SourceNote>
+</section>
+
+<section id="cfm-bilanzperspektive">
+
+## Die Bilanz: Mittelverwendung und Mittelherkunft
+
+<DataTable caption="Bilanzorientierte Perspektive: links Investition, rechts Finanzierung" columns={[{key:'aktiva',label:'Aktiva · Investition'},{key:'passiva',label:'Passiva · Finanzierung'}]} rows={[
+  {aktiva:'Verwendung der finanziellen Mittel',passiva:'Herkunft der finanziellen Mittel'},
+  {aktiva:'Anlagevermögen',passiva:'Eigenkapital'},
+  {aktiva:'Umlaufvermögen',passiva:'Fremdkapital'},
+]} />
+
+<Columns count={2}>
+<Card title="Vermögen" tone="accent">
+
+- Gesamtheit aller materiellen **und immateriellen** Güter.
+- Anlagevermögen (AV) und Umlaufvermögen (UV).
+
+</Card>
+<Card title="Kapital">
+
+- Alle Geldmittel, die für Investitionszwecke zur Verfügung stehen.
+- Eigenkapital (EK) und Fremdkapital (FK).
+
+</Card>
+</Columns>
+
+### Bilanzbeispiel aus dem Skript
+
+<a href={bilanzbeispiel} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Original-Bilanzbeispiel für 2009 und 2008: Sachanlagen, Umlaufvermögen und Rechnungsabgrenzung auf der Aktivseite stehen Eigenkapital, Sonderposten, Rückstellungen, Verbindlichkeiten und Rechnungsabgrenzung auf der Passivseite gegenüber. Die Bilanzsummen betragen auf beiden Seiten 19.812 beziehungsweise 16.379.">
+<img src={bilanzbeispiel} alt="Original-Bilanzbeispiel für 2009 und 2008: Sachanlagen, Umlaufvermögen und Rechnungsabgrenzung auf der Aktivseite stehen Eigenkapital, Sonderposten, Rückstellungen, Verbindlichkeiten und Rechnungsabgrenzung auf der Passivseite gegenüber. Die Bilanzsummen betragen auf beiden Seiten 19.812 beziehungsweise 16.379." />
+Abbildung vergrößern
+</a>
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 11 · Original-Bilanzbeispiel; Quelle der Folie: Pape (2023), S. 334</SourceNote>
+</section>
+
+<section id="cfm-ziele-und-anspruchsgruppen">
+
+## Unternehmensziele und Anspruchsgruppen
+
+<a href={unternehmensziele} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Original-Zielsystem: Eigentümer, Gläubiger, Management, Arbeitnehmer, Kunden und Lieferanten sowie Gesellschaft sind mit langfristiger Existenz- und Erfolgssicherung verbunden. Darunter stehen Sachziele, Finanzziele und Sozialziele mit ihren Beispielen.">
+<img src={unternehmensziele} alt="Original-Zielsystem: Eigentümer, Gläubiger, Management, Arbeitnehmer, Kunden und Lieferanten sowie Gesellschaft sind mit langfristiger Existenz- und Erfolgssicherung verbunden. Darunter stehen Sachziele, Finanzziele und Sozialziele mit ihren Beispielen." />
+Abbildung vergrößern
+</a>
+
+<Columns count={3}>
+<Card title="Sachziele" compact>
+
+- Qualitativ hochwertige Produkte herstellen.
+- Exklusive Dienstleistungen erbringen.
+
+</Card>
+<Card title="Finanzziele" tone="accent" compact>
+
+- Unternehmenswert steigern.
+- Gewinn erzielen.
+- Zahlungsfähigkeit sichern.
+
+</Card>
+<Card title="Sozialziele" compact>
+
+- Umweltschutzstandards beachten.
+- Mitarbeitende an betrieblichen Entscheidungen beteiligen.
+
+</Card>
+</Columns>
+
+<Callout type="merksatz">Die gemeinsame Orientierung ist die **langfristige Existenz- und Erfolgssicherung**. Das Zielsystem verbindet die sechs Anspruchsgruppen mit allen drei Zielarten.</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 12 · Original-Zielsystem; Quelle der Folie: Pape (2023), S. 17</SourceNote>
+</section>
+
+<section id="cfm-entscheidungskriterien">
+
+## Kriterien der Finanzwirtschaft
+
+<a href={zieldreieck} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Original-Zieldreieck mit Liquidität oben, Sicherheit unten links und Rentabilität unten rechts. Doppelpfeile verbinden die drei Kriterien. Unabhängigkeit ergänzt das Dreieck als viertes Kriterium.">
+<img src={zieldreieck} alt="Original-Zieldreieck mit Liquidität oben, Sicherheit unten links und Rentabilität unten rechts. Doppelpfeile verbinden die drei Kriterien. Unabhängigkeit ergänzt das Dreieck als viertes Kriterium." />
+Abbildung vergrößern
+</a>
+
+<Callout type="examfocus" title="Drei Kriterien, häufig ein viertes">
+**Liquidität, Rentabilität und Sicherheit** bilden die traditionellen finanzwirtschaftlichen Entscheidungskriterien. Häufig kommt **Unabhängigkeit** hinzu. Das Skript stellt ihre Beziehung als Dreieck mit wechselseitigen Pfeilen dar.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 13</SourceNote>
+</section>
+
+<section id="cfm-kennzahlen-und-jahresabschluss">
+
+## Kennzahlen aus dem Jahresabschluss
+
+<a href={kennzahlenZusammenhang} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originalschema der Kennzahlenableitung: Kapitalflussrechnung links mit Einzahlungen, Auszahlungen und Veränderung der liquiden Mittel; Bilanz in der Mitte; Gewinn- und Verlustrechnung rechts mit Erträgen, Aufwendungen und Jahresüberschuss. Pfeile führen die Veränderung liquider Mittel zur Aktivseite und den Jahresüberschuss zur Eigenkapitalseite. Unten sind Liquiditäts- und Rentabilitätskennzahlen zugeordnet.">
+<img src={kennzahlenZusammenhang} alt="Originalschema der Kennzahlenableitung: Kapitalflussrechnung links mit Einzahlungen, Auszahlungen und Veränderung der liquiden Mittel; Bilanz in der Mitte; Gewinn- und Verlustrechnung rechts mit Erträgen, Aufwendungen und Jahresüberschuss. Pfeile führen die Veränderung liquider Mittel zur Aktivseite und den Jahresüberschuss zur Eigenkapitalseite. Unten sind Liquiditäts- und Rentabilitätskennzahlen zugeordnet." />
+Abbildung vergrößern
+</a>
+
+<DataTable caption="Das Schema lesen" columns={[{key:'bericht',label:'Bericht'},{key:'groessen',label:'Dargestellte Größen'},{key:'verbindung',label:'Verbindung zur Bilanz'}]} rows={[
+  {bericht:'Kapitalflussrechnung',groessen:'Einzahlungen · Auszahlungen · Veränderung der liquiden Mittel',verbindung:'Liquide Mittel auf der Aktivseite'},
+  {bericht:'Bilanz',groessen:'Anlage- und Umlaufvermögen · Eigenkapital · Fremdkapital',verbindung:'Verbindet die beiden Erfolgs- und Zahlungsstromperspektiven'},
+  {bericht:'Gewinn- und Verlustrechnung',groessen:'Erträge · Aufwendungen · Jahresüberschuss',verbindung:'Jahresüberschuss auf der Eigenkapitalseite'},
+]} />
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 14 · Originalschema; Quelle der Folie: Pape (2023), S. 295</SourceNote>
+</section>
+
+<section id="cfm-liquiditaet">
+
+## Liquidität und Liquiditätsgrade
+
+<DefinitionBox term="Liquidität">Fähigkeit eines Unternehmens, den laufenden Zahlungsverpflichtungen **fristgerecht und betragsgenau** nachzukommen.</DefinitionBox>
+
+<CompareCard items={[
+  {title:'Unterliquidität',accent:'warning',points:['Vorübergehende, kurzfristige Zahlungsstockung.']},
+  {title:'Illiquidität',accent:'negative',points:['Dauerhafte Zahlungsunfähigkeit / Überschuldung (Bezeichnung des Skripts).']},
+]} />
+
+<Callout type="pitfall" title="Zahlungsfähigkeit ist entscheidend">Das Skript betont: Insolvenzen sind überwiegend **liquiditätsbedingt**, nicht rentabilitätsbedingt.</Callout>
+
+### Liquiditätskennzahlen
+
+Das Skript nennt **Liquiditätsgrade** und **Cashflow-Kennzahlen**. Für die drei Liquiditätsgrade gilt derselbe Nenner; der Zähler wird stufenweise erweitert:
+
+<Formula title="Liquidität 1. Grades · Barliquidität" expr="L_1 = \frac{\text{Liquide Mittel}}{\text{Kurzfristige Verbindlichkeiten}}" />
+
+<Formula title="Liquidität 2. Grades · Kurzfristige Liquidität" expr="L_2 = \frac{\text{Liquide Mittel} + \text{kurzfristige Forderungen}}{\text{Kurzfristige Verbindlichkeiten}}" />
+
+<Formula title="Liquidität 3. Grades · Mittelfristige Liquidität" expr="L_3 = \frac{\text{Liquide Mittel} + \text{kurzfristige Forderungen} + \text{Vorräte}}{\text{Kurzfristige Verbindlichkeiten}}" />
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 15</SourceNote>
+</section>
+
+<section id="cfm-rentabilitaet">
+
+## Rentabilität und ihre Bezugsgrößen
+
+<DefinitionBox term="Rentabilität">Ergebnis einer finanzwirtschaftlichen Maßnahme, etwa Gewinn, Jahresüberschuss oder Cashflow, **im Verhältnis zum eingesetzten Kapital**.</DefinitionBox>
+
+<Formula title="Umsatzrentabilität" expr="\text{Umsatzrentabilität} = \frac{\text{Ordentlicher Betriebserfolg}}{\text{Umsatzerlöse}}" />
+
+<Formula title="Eigenkapitalrentabilität" expr="\text{Eigenkapitalrentabilität} = \frac{\text{Jahresüberschuss}}{\varnothing\,\text{Eigenkapital}}" />
+
+<Formula title="Gesamtkapitalrentabilität" expr="\text{Gesamtkapitalrentabilität} = \frac{\text{Jahresüberschuss} + \text{FK-Zinsen}}{\varnothing\,\text{Gesamtkapital}}" />
+
+<Callout type="examfocus" title="Zähler und Nenner passend wählen">
+Umsatzrentabilität verwendet den **ordentlichen Betriebserfolg** und die Umsatzerlöse. Eigenkapitalrentabilität verwendet den **Jahresüberschuss** und das durchschnittliche Eigenkapital. Für die Gesamtkapitalrentabilität werden zum Jahresüberschuss die **Fremdkapitalzinsen addiert** und durch das durchschnittliche Gesamtkapital geteilt. Das Zeichen **Ø** steht für den Durchschnitt.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Vorlesung 1 · Folie 16</SourceNote>
+</section>

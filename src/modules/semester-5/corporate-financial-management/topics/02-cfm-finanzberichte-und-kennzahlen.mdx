@@ -1,0 +1,515 @@
+import daxKgv from '../assets/02-kgv-dax.png';
+import spKgv from '../assets/02-kgv-sp500.png';
+
+<section id="cfm-berichte-und-bilanz">
+
+## Finanzberichte und Bilanz
+
+Kapitel 2 der Modulagenda behandelt die **Grundlagen der Corporate Finance**. Abschnitt 2.1 verbindet Finanzberichte mit ihrer Kennzahlenanalyse.
+
+<DefinitionBox term="Finanzberichte">
+Rechenschaftsberichte über die **vergangene Performance**. Investoren, Finanzanalysten und externe Parteien wie Gläubiger erhalten damit Informationen zur finanziellen Entwicklung.
+</DefinitionBox>
+
+<Columns count={2}>
+<Card title="Vergleichbarkeit und Prüfung">
+
+- GAAP (USA) und IFRS (international) liefern im Skript allgemeine Regeln und eine Standardform der Berichterstattung.
+- Vereinheitlichung erleichtert Unternehmensvergleiche.
+- Die Jahresfinanzberichte einer Aktiengesellschaft werden von einer neutralen dritten Person, dem Wirtschaftsprüfer, geprüft.
+
+</Card>
+<Card title="Vier Berichte">
+
+- **Bilanz**
+- **Gewinn- und Verlustrechnung (GuV)**
+- **Kapitalflussrechnung**
+- **Eigenkapitalveränderungsrechnung**
+
+</Card>
+</Columns>
+
+### Die zwei Seiten der Bilanz
+
+<CompareCard items={[
+ {title:'Aktiva: Kapitalverwendung',accent:'accent',points:['Was besitzt das Unternehmen und wie investiert es sein Kapital?','Barmittel, Forderungen, Bestände, Sachanlagen und weitere Investitionen.']},
+ {title:'Passiva: Kapitalquellen',accent:'purple',points:['Wie wurde das Kapital beschafft?','Schulden gegenüber Gläubigern und Eigenkapital als Differenz zwischen Vermögen und Schulden.']},
+]} />
+
+<Formula title="Bilanzidentität" expr="\text{Vermögen}=\text{Schulden}+\text{Eigenkapital}" />
+
+Die Bilanz ist eine **Momentaufnahme** der finanziellen Situation. Die folgende Gegenüberstellung bewahrt die zweiseitige Anordnung der Originalbilanz; sämtliche Zahlen in **Mio. EUR**, jeweils 2018 und 2017.
+
+<DataTable columns={[
+ {key:'a',label:'Aktiva'}, {key:'a18',label:'2018',align:'right'}, {key:'a17',label:'2017',align:'right'},
+ {key:'p',label:'Schulden / Eigenkapital'}, {key:'p18',label:'2018',align:'right'}, {key:'p17',label:'2017',align:'right'},
+]} rows={[
+ {a:'Umlaufvermögen',p:'Kurzfristige Verbindlichkeiten'},
+ {a:'Barmittel',a18:'21,2',a17:'19,5',p:'Verbindlichkeiten',p18:'29,2',p17:'24,5'},
+ {a:'Forderungen',a18:'18,5',a17:'13,2',p:'Schuldscheine / kurzfristige Kredite',p18:'3,5',p17:'3,2'},
+ {a:'Bestand',a18:'15,3',a17:'14,3',p:'Aktuelle Fälligkeiten langfristiger Kredite',p18:'13,3',p17:'12,3'},
+ {a:'Sonstiges Umlaufvermögen',a18:'2,0',a17:'1,0',p:'Sonstige kurzfristige Verbindlichkeiten',p18:'2,0',p17:'4,0'},
+ {a:'Umlaufvermögen gesamt',a18:'57,0',a17:'48,0',p:'Kurzfristige Verbindlichkeiten gesamt',p18:'48,0',p17:'44,0'},
+ {a:'Anlagevermögen',p:'Langfristige Verbindlichkeiten'},
+ {a:'Grundstücke',a18:'22,2',a17:'20,7',p:'Langfristige Schulden',p18:'99,9',p17:'76,3'},
+ {a:'Gebäude',a18:'36,5',a17:'30,5',p:'Finanz-Leasingverpflichtungen',p18:'–',p17:'–'},
+ {a:'Ausrüstung',a18:'39,7',a17:'33,2',p:'Schulden gesamt (langfristige Kredite)',p18:'99,9',p17:'76,3'},
+ {a:'Aufgelaufene Abschreibungen',a18:'−18,7',a17:'−17,5',p:'Latente Steuern',p18:'7,6',p17:'7,4'},
+ {a:'Sachanlagen netto',a18:'79,7',a17:'66,9',p:'Sonstige langfristige Verbindlichkeiten',p18:'–',p17:'–'},
+ {a:'Firmenwert und immaterielle Anlagewerte',a18:'20,0',a17:'20,0',p:'Langfristige Verbindlichkeiten gesamt',p18:'107,5',p17:'83,7'},
+ {a:'Sonstiges Anlagevermögen',a18:'21,0',a17:'14,0',p:'Verbindlichkeiten gesamt',p18:'155,5',p17:'127,7'},
+ {a:'Anlagevermögen gesamt',a18:'120,7',a17:'100,9',p:'Eigenkapital',p18:'22,2',p17:'21,2'},
+ {a:'Aktiva gesamt',a18:'177,7',a17:'148,9',p:'Passiva und Eigenkapital gesamt',p18:'177,7',p17:'148,9'},
+]} caption="Global Conglomerate Corporation · Bilanz zum 31. Dezember · Originalstruktur nach Folie 6, Berk/DeMarzo (2021), S. 48/49" />
+
+### Vermögens- und Schuldpositionen verstehen
+
+<Columns count={2}>
+<Card title="Umlaufvermögen" tone="accent">
+
+Innerhalb eines Jahres in Barmittel umwandelbar:
+
+- Barmittel und kurzfristige börsengängige Wertpapiere.
+- Forderungen aus Lieferungen und Leistungen: Kunden schulden dem Unternehmen Geld.
+- Bestände: Rohstoffe, unfertige und fertige Erzeugnisse.
+- Sonstiges Umlaufvermögen, beispielsweise Vorauszahlungen.
+
+</Card>
+<Card title="Anlagevermögen">
+
+- Sachanlagen wie Immobilien und Geräte bringen länger als ein Jahr materiellen Nutzen.
+- Abschreibung erfasst Verschleiß; sie ist **keine aktuelle Barausgabe**. Grundstücke werden in der Folienerklärung ausgenommen.
+- Goodwill und immaterielle Werte aus Übernahmen: Marken, Patente, Kundenbeziehungen und Mitarbeiter.
+- Sonstiges Anlagevermögen: nicht betrieblich genutzte Sachanlagen, Gründungskosten und langfristige Wertpapieranlagen.
+
+</Card>
+<Card title="Kurzfristige Verbindlichkeiten" tone="purple">
+
+Innerhalb eines Jahres zu begleichen:
+
+- Lieferantenverbindlichkeiten für Produkte und Dienstleistungen.
+- Kurzfristige Schulden und im nächsten Jahr fällige Rückzahlungen langfristiger Schulden.
+- Noch nicht gezahlte Löhne und Steuern sowie zurückgestellte beziehungsweise noch nicht verdiente Einnahmen.
+
+</Card>
+<Card title="Langfristige Verbindlichkeiten">
+
+- Kredite und Verpflichtungen mit mehr als einem Jahr Laufzeit.
+- Kapitalleasing: regelmäßige Zahlungen für die Nutzung eines Vermögensgegenstands.
+- Latente Steuern: im Skript als geschuldete, noch nicht bezahlte Steuern beschrieben.
+
+</Card>
+</Columns>
+
+<Formula title="Buchwert eines Vermögensgegenstands" expr="\text{Buchwert}=\text{Beschaffungskosten}-\text{aufgelaufene Abschreibungen}" />
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 1–11 · Bilanz: Berk/DeMarzo (2021), S. 48/49 · Quellenstand V26-10-13</SourceNote>
+</section>
+
+<section id="cfm-buchwert-und-marktwert">
+
+## Buchwert, Marktwert und KBV
+
+<CompareCard items={[
+ {title:'Buchwert des Eigenkapitals',accent:'neutral',points:['Aktiva abzüglich Gesamtverbindlichkeiten.','Historische Kosten und fehlende Bilanzierung etwa von Mitarbeitererfahrung oder Reputation begrenzen die Aussage über den tatsächlichen Unternehmenswert.']},
+ {title:'Marktwert des Eigenkapitals',accent:'accent',points:['Aktienkurs × Anzahl umlaufender Aktien = Marktkapitalisierung.','Orientiert sich an den aus Investorensicht künftig erwirtschafteten Erträgen statt allein an historischen Anschaffungskosten.']},
+ {title:'Liquidationswert',accent:'purple',points:['Was nach Verkauf der Vermögensgegenstände und Zahlung aller Verbindlichkeiten übrig bliebe.','Der Buchwert wird mitunter als Schätzung verwendet; laut Skript ist keineswegs sicher, dass er dafür genauer als der Marktwert ist.']},
+]} />
+
+<Formula title="Marktkapitalisierung" expr="\text{Marktwert des EK}=\text{Aktienkurs}\cdot\text{Anzahl Aktien}" />
+<Formula title="Kurs-Buchwert-Verhältnis (KBV, market-to-book ratio)" expr="KBV=\frac{\text{Marktwert des Eigenkapitals}}{\text{Buchwert des Eigenkapitals}}" />
+
+<Columns count={2}>
+<Card title="Value Stocks">
+
+Niedriges KBV: Der Kurs liegt unter oder nicht viel über dem Buchwert des Eigenkapitals.
+
+</Card>
+<Card title="Growth Stocks" tone="accent">
+
+Deutlich über 1 liegendes KBV oder negativer EK-Buchwert. Wachstumsaussichten, Ideen und nicht bilanzierbares Humankapital prägen die Bewertung. Ein KBV über 1 kann darauf hindeuten, dass die Verwendung der Vermögensgegenstände mehr Wert schafft als ihre historischen Kosten oder ihr Liquidationswert.
+
+</Card>
+</Columns>
+
+### Global: Marktwert und Buchwert nebeneinander
+
+<KpiGrid items={[
+ {value:'3,6 Mio.',label:'Aktien im Umlauf'},
+ {value:'14 EUR',label:'Kurs je Aktie'},
+ {value:'50,4 Mio. EUR',label:'Marktkapitalisierung',accent:'accent'},
+ {value:'22,2 Mio. EUR',label:'Buchwert Eigenkapital'},
+]} />
+<Formula expr="3{,}6\,\text{Mio. Aktien}\cdot14\,\text{EUR/Aktie}=50{,}4\,\text{Mio. EUR}" />
+<Formula expr="KBV=\frac{50{,}4}{22{,}2}=2{,}27" />
+
+Investoren zahlen damit das **2,27-Fache des EK-Buchwerts**. Die Bilanz bleibt auch dann informativ, wenn der Buchwert den Wert des laufenden Unternehmens nicht gut schätzt.
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 12–16 · Global-Beispiel: Berk/DeMarzo (2021), S. 48/49</SourceNote>
+</section>
+
+<section id="cfm-guv-und-liquiditaet">
+
+## GuV, Gewinn pro Aktie und Liquidität
+
+<DefinitionBox term="Gewinn- und Verlustrechnung (GuV)">
+Umsatzerlöse und Aufwendungen **über einen Zeitraum**. Ihr Nettoergebnis misst die Profitabilität dieser Periode. Während die Bilanz einen Stichtag beschreibt, bildet die GuV die zwischen zwei Stichtagen entstandenen Erträge und Aufwendungen ab.
+</DefinitionBox>
+
+### Vom Umsatz zum Nettoergebnis
+
+<DataTable columns={[{key:'p',label:'GuV-Position (Mio. EUR)'},{key:'a',label:'2018',align:'right'},{key:'b',label:'2017',align:'right'}]} rows={[
+ {p:'Gesamtumsatz',a:'186,7',b:'176,1'},
+ {p:'Umsatzkosten',a:'−153,4',b:'−147,3'},
+ {p:'Bruttogewinn',a:'33,3',b:'28,8'},
+ {p:'Vertriebs- und Verwaltungsgemeinkosten',a:'−13,5',b:'−13,0'},
+ {p:'Forschung und Entwicklung',a:'−8,2',b:'−7,6'},
+ {p:'Abschreibung und Amortisation',a:'−1,2',b:'−1,1'},
+ {p:'Betriebsergebnis',a:'10,4',b:'7,1'},
+ {p:'Sonstige Erträge',a:'–',b:'–'},
+ {p:'Gewinn vor Zinsen und Steuern (EBIT)',a:'10,4',b:'7,1'},
+ {p:'Zinsertrag / Zinsaufwand',a:'−7,7',b:'−4,6'},
+ {p:'Ergebnis vor Steuern',a:'2,7',b:'2,5'},
+ {p:'Steuern',a:'−0,7',b:'−0,6'},
+ {p:'Nettoergebnis',a:'2,0',b:'1,9'},
+ {p:'Gewinn pro Aktie (EUR)',a:'0,556',b:'0,528'},
+ {p:'Verwässerter Gewinn pro Aktie (EUR)',a:'0,526',b:'0,500'},
+]} caption="Global · Original-Rechenschema der GuV, Folie 17 · Berk/DeMarzo (2021), S. 54" />
+
+<Columns count={2}>
+<Card title="Bruttogewinn und operativer Aufwand">
+
+- **Bruttogewinn = Umsatz − Umsatzkosten.** Umsatzkosten betreffen die Herstellung der verkauften Waren oder Dienstleistungen.
+- Verwaltung, Forschung und Entwicklung sowie Zinsen gehören nicht zu diesen Umsatzkosten.
+- Operativer Aufwand: Verwaltung, Gemeinkosten, Löhne, Marketing, Forschung und Entwicklung sowie Abschreibung/Amortisation.
+- **Betriebsergebnis = Bruttogewinn − operativer Aufwand.**
+
+</Card>
+<Card title="Betriebsergebnis, EBIT und Nettogewinn" exam>
+
+- Sonstige, nicht zum Kerngeschäft gehörende Ertrags- oder Kostenquellen werden zum Betriebsergebnis hinzugerechnet beziehungsweise davon abgezogen, etwa Erträge aus Finanzinvestitionen: daraus folgt das **EBIT**.
+- EBIT abzüglich Zinsaufwand ergibt das Vorsteuerergebnis.
+- Abzüglich Ertragsteuern folgt das Nettoergebnis: der Gesamtgewinn für die Eigenkapitalhalter.
+- Bei Global sind Betriebsergebnis und EBIT gleich; das ist keine allgemeine Identität.
+
+</Card>
+</Columns>
+
+<Formula title="Gewinn pro Aktie (EPS)" expr="EPS=\frac{\text{Nettoergebnis}}{\text{Aktien im Umlauf}}=\frac{2{,}0\,\text{Mio. EUR}}{3{,}6\,\text{Mio. Aktien}}=0{,}556\,\text{EUR/Aktie}" />
+
+### Liquiditätsgrade: zunehmend weiter gefasste Mittel
+
+<Formula title="Liquidität 1. Grades: Barliquidität" expr="L_1=\frac{\text{liquide Mittel}}{\text{kurzfristige Verbindlichkeiten}}" />
+<Formula title="Liquidität 2. Grades: kurzfristige Liquidität" expr="L_2=\frac{\text{liquide Mittel}+\text{kurzfristige Forderungen}}{\text{kurzfristige Verbindlichkeiten}}" />
+<Formula title="Liquidität 3. Grades: mittelfristige Liquidität" expr="L_3=\frac{\text{liquide Mittel}+\text{kurzfristige Forderungen}+\text{Vorräte}}{\text{kurzfristige Verbindlichkeiten}}" />
+
+Im Fließtext von Folie 21 entspricht der Zähler von L3 dem **Umlaufvermögen**, bei L2 dem **Umlaufvermögen ohne Bestand**. Höhere Liquidität zweiten oder dritten Grades deutet auf ein geringeres Risiko kurzfristiger Mittelknappheit hin.
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 17–21 · GuV/EPS: Berk/DeMarzo (2021), S. 54</SourceNote>
+</section>
+
+<section id="cfm-kapitalflussrechnung">
+
+## Kapitalflussrechnung
+
+<DefinitionBox term="Kapitalflussrechnung">
+Verknüpft Informationen aus GuV und Bilanz: **Welche Barmittel wurden im Zeitraum erwirtschaftet und wie wurden sie eingesetzt?** Die Originaldarstellung gliedert die Rechnung vertikal in operative Tätigkeit, Investition und Finanzierung.
+</DefinitionBox>
+
+<DataTable columns={[{key:'p',label:'Position (Mio. EUR)'},{key:'a',label:'2018',align:'right'},{key:'b',label:'2017',align:'right'}]} rows={[
+ {p:'OPERATIVE GESCHÄFTSTÄTIGKEIT'},
+ {p:'Nettoergebnis',a:'2,0',b:'1,9'},
+ {p:'Abschreibung und Amortisation',a:'1,2',b:'1,1'},
+ {p:'Sonstige unbare Positionen',a:'0,2',b:'1,0'},
+ {p:'Veränderung Forderungen aus Lieferungen und Leistungen',a:'−5,3',b:'−0,3'},
+ {p:'Veränderung Verbindlichkeiten',a:'4,7',b:'−0,5'},
+ {p:'Veränderung Bestand',a:'−1,0',b:'−1,0'},
+ {p:'Anderes Nettobetriebsvermögen',a:'−3,0',b:'−2,0'},
+ {p:'Barmittel aus operativer Geschäftstätigkeit',a:'−1,2',b:'0,2'},
+ {p:'INVESTITIONSTÄTIGKEIT'},
+ {p:'Kapitalaufwendungen',a:'−14,0',b:'−4,0'},
+ {p:'Übernahmen und sonstige Investitionstätigkeiten',a:'−7,0',b:'−2,0'},
+ {p:'Barmittel aus Investitionstätigkeit',a:'−21,0',b:'−6,0'},
+ {p:'FINANZIERUNGSTÄTIGKEIT'},
+ {p:'Gezahlte Dividenden',a:'−1,0',b:'−1,0'},
+ {p:'Verkauf oder Kauf von Aktien',a:'–',b:'–'},
+ {p:'Anstieg der Kredite',a:'24,9',b:'5,5'},
+ {p:'Barmittel aus Finanzierungstätigkeit',a:'23,9',b:'4,5'},
+ {p:'Veränderung Barmittel und barähnliche Mittel',a:'1,7',b:'−1,3'},
+]} caption="Global · Kapitalflussrechnung in der Reihenfolge des Originals, Folie 22 · Berk/DeMarzo (2021), S. 56" />
+
+### Operativer Cashflow: Ergebnis in Zahlungsmittel übersetzen
+
+<DataTable columns={[{key:'p',label:'Korrektur'},{key:'w',label:'Wirkung'},{key:'g',label:'Begründung'}]} rows={[
+ {p:'Abschreibung / Amortisation und andere unbare Aufwendungen',w:'Zum Ergebnis addieren',g:'Kein tatsächlicher Mittelabfluss in der Periode; auch latente Steuern werden als Beispiel genannt.'},
+ {p:'Anstieg Forderungen',w:'Subtrahieren',g:'Umsatz bereits erfasst, Kundenzahlung aber noch nicht eingegangen.'},
+ {p:'Anstieg Lieferantenverbindlichkeiten',w:'Addieren',g:'Lieferanten gewähren Kredit; Geld steht dem Unternehmen noch zur Verfügung.'},
+ {p:'Anstieg Bestand',w:'Subtrahieren',g:'Zugang bindet Barmittel; Aufwand entsteht im Ergebnis erst beim Verkauf.'},
+]} />
+
+<Formula title="Forderungsanstieg bei Global" expr="18{,}5-13{,}2=5{,}3\,\text{Mio. EUR}\quad\Rightarrow\quad-5{,}3\,\text{Mio. EUR im Cashflow}" />
+
+<Callout type="examfocus" title="Gewinn ist nicht Cashflow">
+Trotz **2,0 Mio. EUR Nettoergebnis** beträgt Globals operativer Cashflow **−1,2 Mio. EUR**. Der Forderungsanstieg trägt laut Skript wesentlich dazu bei.
+</Callout>
+
+<Columns count={2}>
+<Card title="Investitionstätigkeit" tone="accent">
+
+- Kauf neuer Sachanlagen: tatsächliche Kapitalaufwendungen abziehen.
+- In der GuV verteilen sich diese Kosten über die Zeit als Abschreibungen; in der Cashflow-Rechnung zählt die aktuelle Zahlung.
+- Auch Übernahmen, sonstige Vermögenskäufe und langfristige Investitionen, etwa Wertpapierkäufe, sind Mittelabflüsse.
+- Global: **−21 Mio. EUR** im Jahr 2018.
+
+</Card>
+<Card title="Finanzierungstätigkeit" tone="purple">
+
+- Dividenden und Aktienrückkäufe sind Mittelabflüsse, Aktienausgaben Mittelzuflüsse.
+- Global: keine Aktienausgabe oder Rückkäufe; Dividende **1 Mio. EUR**.
+- Zunahme kurz- und langfristiger Kredite ist ein Mittelzufluss: **24,9 Mio. EUR**.
+- Finanzierungscashflow insgesamt: **23,9 Mio. EUR**.
+
+</Card>
+</Columns>
+
+<Formula title="Gewinnrücklagen des Jahres" expr="\text{Nettoergebnis}-\text{Dividenden}=2-1=1\,\text{Mio. EUR}\;(50\,\%)" />
+<Formula title="Gesamtveränderung der Barmittel" expr="-1{,}2-21{,}0+23{,}9=+1{,}7\,\text{Mio. EUR}" />
+
+<Callout type="pitfall" title="Steigender Barsaldo kann Probleme verdecken">
+Global finanziert operative Mittelabflüsse und Investitionen durch Kredite. Bei Fortsetzung dieses Musters wäre weitere Kreditaufnahme nötig. Der gestiegene Barsaldo allein gibt daher keine Entwarnung.
+</Callout>
+
+<Callout type="warn" title="Jahreszahl im Original widersprüchlich">
+Folie 27 nennt bei Dividenden und Gewinnrücklagen **2012**; die zugehörige Kapitalflussrechnung auf Folie 22 und die übrige Fallanalyse beziehen sich auf **2018**. Die Beträge sind hier als Fallrechnung wiedergegeben, ohne die abweichende Jahresangabe stillschweigend zu übernehmen.
+</Callout>
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 22–28 · Kapitalflussrechnung: Berk/DeMarzo (2021), S. 56</SourceNote>
+</section>
+
+<section id="cfm-margen-und-betriebskapital">
+
+## Margen, Working Capital Days und EBITDA
+
+Finanzberichte ermöglichen den **Zeitvergleich eines Unternehmens** und den **Vergleich ähnlicher Unternehmen**. Ergebnisgrößen werden dafür auf eine gemeinsame Bezugsgröße gebracht.
+
+### Rentabilitätskennzahlen
+
+<Formula title="Bruttomarge: Verkauf oberhalb der Herstellungskosten" expr="\text{Bruttomarge}=\frac{\text{Bruttogewinn}}{\text{Umsatz}}=\frac{33{,}3}{186{,}7}=17{,}8\,\%" />
+<Formula title="Operative Marge: Rentabilität vor Zinsen und Steuern" expr="\text{operative Marge}=\frac{\text{Betriebsergebnis}}{\text{Umsatz}}" />
+<Formula title="Nettoumsatzrendite: verbleibender Umsatzanteil für Eigenkapitalgeber" expr="\text{Nettoumsatzrendite}=\frac{\text{Nettoergebnis}}{\text{Umsatz}}=\frac{2{,}0}{186{,}7}=1{,}07\,\%" />
+
+<DataChart type="bar" xKey="jahr" data={[{jahr:'2017',marge:4.03},{jahr:'2018',marge:5.57}]} series={[{key:'marge',name:'Operative Marge (%)'}]} xLabel="Global" yLabel="Prozent" height={240} />
+
+Die operative Marge steigt von **7,1 / 176,1 = 4,03 %** auf **10,4 / 186,7 = 5,57 %**. Analog lässt sich die EBIT-Marge als EBIT/Umsatz berechnen. Die Nettoumsatzrendite berücksichtigt zusätzlich Zinsen und Steuern.
+
+### Betriebskapital in Tagen
+
+<Formula title="Debitorenlaufzeit (Days Sales Outstanding, DSO)" expr="DSO=\frac{\text{Forderungen}}{\text{durchschnittlicher Tagesumsatz}}" />
+<Formula title="Global 2018" expr="\frac{186{,}7}{365}=0{,}51\,\text{Mio. EUR/Tag};\qquad DSO=\frac{18{,}5}{0{,}51}\approx36\,\text{Tage}" />
+
+<Columns count={2}>
+<Card title="Debitorenlaufzeit interpretieren" exam>
+
+- Durchschnittliche Zeit bis zur Kundenzahlung: bei Global etwas mehr als ein Monat.
+- Saisonale Schwankungen sind möglich.
+- Ein unerklärter Anstieg kann auf mangelhafte Zahlungseintreibung oder großzügigere Kreditbedingungen zur Umsatzsteigerung hindeuten.
+
+</Card>
+<Card title="Kreditorenlaufzeit und Bestandstage">
+
+- **DPO:** Zeit zwischen Rechnungseingang und Bezahlung. Folie 33 verwendet Verbindlichkeiten / durchschnittlichen Tagesumsatz.
+- Eine Debitorenlaufzeit unterhalb der Kreditorenlaufzeit gilt im Skript als vorteilhaft.
+- **Bestandstage:** Bestand / durchschnittliche tägliche Umsatzkosten.
+- Niedrige Bestandstage können schnellen Verkauf gegen Bargeld und effizientes Arbeiten anzeigen.
+
+</Card>
+</Columns>
+
+<Callout type="warn" title="DPO: zwei Nenner im Skript">
+Folie 33 nennt den **durchschnittlichen Tagesumsatz**, die Übersicht auf Folie 42 die **durchschnittlichen Tagesumsatzkosten**. Die Definition beim Rechnen ausdrücklich angeben; beide Varianten nicht als identische Größe vergleichen.
+</Callout>
+
+### EBITDA
+
+<Formula title="Gewinn vor Zinsen, Steuern, Abschreibung und Amortisation" expr="EBITDA=EBIT+\text{Abschreibung und Amortisation}=10{,}4+1{,}2=11{,}6\,\text{Mio. EUR}" />
+
+Da Abschreibung und Amortisation keine Auszahlungen sind, dient das EBITDA im Skript als **grobe** Bemessung der im Betrieb verdienten Barmittel. Die Betriebskapitalveränderungen der Cashflow-Rechnung sind damit noch nicht berücksichtigt.
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 29–34 · Balkenwerte direkt aus Folie 30</SourceNote>
+</section>
+
+<section id="cfm-verschuldung-und-bewertung">
+
+## Verschuldung, Bewertung und Renditen
+
+### Zinsdeckung und Verschuldung unterscheiden
+
+<Formula title="Zinsdeckungskennzahlen" expr="\frac{\text{Betriebsergebnis}}{\text{Zinsaufwand}},\qquad\frac{EBIT}{\text{Zinsaufwand}},\qquad\frac{EBITDA}{\text{Zinsaufwand}}" />
+
+Ein hoher Zinsdeckungsgrad weist darauf hin, dass die Ergebnisgröße die erforderlichen Zinszahlungen deutlich übersteigt. Er beantwortet eine andere Frage als der **Verschuldungsgrad**, der die Nutzung von Fremdkapital als Finanzierungsquelle beschreibt.
+
+<Formula title="Verschuldungsgrad" expr="\text{Verschuldungsgrad}=\frac{\text{Gesamtverschuldung}}{\text{Eigenkapital}}" />
+
+<DataTable columns={[{key:'k',label:'Global'},{key:'r',label:'Rechnung'},{key:'e',label:'Ergebnis'}]} rows={[
+ {k:'Verzinsliche Schulden 2018 (Mio. EUR)',r:'3,5 + 13,3 + 99,9',e:'116,7'},
+ {k:'Buch-Verschuldungsgrad 2018',r:'116,7 / 22,2',e:'5,3'},
+ {k:'Buch-Verschuldungsgrad 2017',r:'(3,2 + 12,3 + 76,3) / 21,2',e:'4,3'},
+ {k:'Verschuldungsgrad zum EK-Marktwert 2018',r:'116,7 / 50,4',e:'2,3'},
+]} />
+
+Das Beispiel zählt Schuldscheine, aktuelle Fälligkeiten langfristiger Kredite und langfristige Schulden zur Verschuldung. Es verwendet somit **116,7 Mio. EUR**, nicht sämtliche bilanziellen Verbindlichkeiten von 155,5 Mio. EUR. Buch- und Marktwerte von EK/FK sind als Bezugsbasis kenntlich zu machen.
+
+### Kurs-Gewinn-Verhältnis
+
+<Formula title="KGV" expr="KGV=\frac{\text{Marktkapitalisierung}}{\text{Nettoergebnis}}=\frac{\text{Aktienkurs}}{\text{Gewinn je Aktie}}" />
+<Formula title="Global 2018" expr="KGV=\frac{50{,}4}{2{,}0}\approx\frac{14}{0{,}556}=25{,}2" />
+
+Die Folie verwendet das KGV zur Bewertung und zur Einordnung möglicher Über- oder Unterbewertung. Eine isolierte Kennzahl liefert dabei noch keinen eigenständigen Nachweis.
+
+<Columns count={2}>
+<Card title="DAX-KGV im Original">
+<a href={daxKgv} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originalzeitreihe des DAX-KGV von etwa 2007 bis 2026 mit deutlichen Spitzen um 2010 und 2021 sowie starken Rückgängen danach.">
+<img src={daxKgv} alt="Originalzeitreihe des DAX-KGV von etwa 2007 bis 2026 mit deutlichen Spitzen um 2010 und 2021 sowie starken Rückgängen danach." />
+Abbildung vergrößern
+</a>
+
+Quellenstand der Folie: **11.10.2026, 17,10**.
+
+</Card>
+<Card title="S&P-500-KGV im Original">
+<a href={spKgv} target="_blank" rel="noreferrer" title="Originalabbildung in voller Auflösung öffnen" aria-label="Abbildung vergrößern: Originalzeitreihe des S&P-500-KGV von etwa 2007 bis 2026 mit Rückgang 2008, Anstieg bis zur Spitze 2021 und erneutem Anstieg nach 2022.">
+<img src={spKgv} alt="Originalzeitreihe des S&P-500-KGV von etwa 2007 bis 2026 mit Rückgang 2008, Anstieg bis zur Spitze 2021 und erneutem Anstieg nach 2022." />
+Abbildung vergrößern
+</a>
+
+Quellenstand der Folie: **11.10.2026, 26,00**.
+
+</Card>
+</Columns>
+
+Die beiden **Originalausschnitte aus Folie 39** erhalten Achsen, Zeitverläufe und Unterschiede der Märkte. Sie zeigen historische Skriptstände, keine aktuellen Marktdaten. Quelle im Original: BOERSE.DE GROUP AG.
+
+### Investitionsrenditen
+
+<Formula title="Eigenkapitalrendite (Return on Equity, ROE)" expr="ROE=\frac{\text{Nettoergebnis}}{\text{Buchwert des Eigenkapitals}}" />
+
+Der ROE bewertet laut Folie die aus vergangenen Investitionen erwirtschaftete Rendite. Folie 40 beschreibt die Gesamtkapitalrentabilität (ROA) als **Nettoergebnis / Gesamtwert der Vermögensgegenstände**.
+
+<Callout type="warn" title="ROE-Rechenfehler und unterschiedliche ROA-Definitionen">
+
+- Folie 40 schreibt **2,9 / 22,2 = 9,0 %**. Das ist rechnerisch inkonsistent. Die GuV auf Folie 17 und die Nettomarge auf Folie 30 nennen **2,0 Mio. EUR** Nettoergebnis; **2,0 / 22,2 ≈ 9,0 %** passt dazu.
+- Folie 44 verwendet für ROA dagegen **(Nettoergebnis + Zinsaufwand) / Buchwert der Vermögenswerte**. Diese abweichende Definition bleibt in der folgenden Übersicht ausdrücklich gekennzeichnet.
+
+</Callout>
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 35–40 · KGV-Zeitreihen: Originalabbildungen auf Folie 39, BOERSE.DE GROUP AG, Stand 11.10.2026</SourceNote>
+</section>
+
+<section id="cfm-kennzahlenvergleich">
+
+## Kennzahlen großer US-Unternehmen
+
+Die Originaltabellen vergleichen **25-%-Quartil, Median und 75-%-Quartil** für US-Aktien mit einer Marktkapitalisierung über **1 Mrd. USD**, **Frühjahr 2018**. Die drei Werte je Zeile sind Verteilungspositionen, keine Zeitreihe oder allgemeingültigen Zielwerte. Die Gruppierung der vier Originalfolien bleibt erhalten.
+
+### Rentabilität und Liquidität · Folie 41
+
+| Kennzahl | Formel laut Originaltabelle | 25 % / Median / 75 % |
+| --- | --- | --- |
+| Bruttospanne | $\frac{\text{Bruttogewinn}}{\text{Umsatzerlöse}}$ | 28 % / 43 % / 67 % |
+| Betriebsspanne | $\frac{\text{Betriebsergebnis}}{\text{Umsatzerlöse}}$ | 6 % / 12 % / 22 % |
+| EBIT-Spanne | $\frac{EBIT}{\text{Umsatzerlöse}}$ | 5 % / 11 % / 18 % |
+| Nettogewinnspanne | $\frac{\text{Nettogewinn}}{\text{Umsatzerlöse}}$ | 2 % / 7 % / 15 % |
+| Current Ratio, im Original „Liquidität 1. Grades“ | $\frac{\text{kurzfristige Vermögenswerte}}{\text{kurzfristige Schulden}}$ | 1,2× / 1,8× / 2,9× |
+| Liquidität 2. Grades | $\frac{\text{Kasse + kurzfristige Anlagen + Debitoren}}{\text{kurzfristige Schulden}}$ | 0,7× / 1,2× / 2,0× |
+| Barliquidität | $\frac{\text{Barmittel}}{\text{kurzfristige Schulden}}$ | 0,1× / 0,4× / 0,9× |
+
+<Callout type="warn" title="Abweichende Bezeichnung im Original">
+Die erste Liquiditätszeile von Folie 41 ist als **Liquidität 1. Grades** beschriftet, ihr Zähler umfasst aber kurzfristige Vermögenswerte. Auf Folie 21 entspricht diese weit gefasste Größe der **Liquidität 3. Grades**; dort bezeichnet der erste Grad die Barliquidität. Beim Vergleich den Bruch und nicht nur den Namen prüfen.
+</Callout>
+
+### Betriebskapital und Zinsdeckung · Folie 42
+
+| Kennzahl | Formel laut Originaltabelle | 25 % / Median / 75 % |
+| --- | --- | --- |
+| Debitorenlaufzeit | $\frac{\text{Debitoren}}{\text{durchschnittliche Tagesumsätze}}$ | 33 / 51 / 68 Tage |
+| Kreditorenlaufzeit | $\frac{\text{Kreditoren}}{\text{durchschnittliche Tagesumsatzkosten}}$ | 26 / 43 / 65 Tage |
+| Bestandsdauer | $\frac{\text{Bestand}}{\text{durchschnittliche Tagesumsatzkosten}}$ | 28 / 59 / 96 Tage |
+| EBIT-Zinsdeckung | $\frac{EBIT}{\text{Zinsaufwand}}$ | 2,5× / 5,7× / 12,8× |
+| EBITDA-Zinsdeckung | $\frac{EBITDA}{\text{Zinsaufwand}}$ | 4,7× / 8,6× / 17,1× |
+
+### Verschuldung und Bewertung · Folie 43
+
+| Kennzahl | Formel laut Originaltabelle | 25 % / Median / 75 % |
+| --- | --- | --- |
+| Verschuldungsgrad (Buchwert) | $\frac{\text{Gesamtschulden}}{\text{Buchwert EK}}$ | 24 % / 62 % / 124 % |
+| Verschuldungsgrad (Marktwert) | $\frac{\text{Gesamtschulden}}{\text{Marktwert EK}}$ | 6 % / 21 % / 47 % |
+| Gesamtverschuldung | $\frac{\text{Gesamtschulden}}{\text{gesamtes EK + gesamte Schulden}}$ | 20 % / 40 % / 57 % |
+| Schulden/Unternehmenswert | $\frac{\text{Nettoschulden}}{\text{Unternehmenswert}}$ | −3 % / 10 % / 25 % |
+| EK-Multiplikator (Buchwert) | $\frac{\text{gesamte Vermögenswerte}}{\text{Buchwert EK}}$ | 1,8× / 2,5× / 4,3× |
+| EK-Multiplikator (Marktwert) | $\frac{\text{Unternehmenswert}}{\text{Marktwert EK}}$ | 1,0× / 1,1× / 1,4× |
+| Markt/Buchwertverhältnis | $\frac{\text{Marktwert EK}}{\text{Buchwert EK}}$ | 1,8× / 3,1× / 6,1× |
+| Kurs-Gewinn-Verhältnis | $\frac{\text{Aktienkurs}}{\text{Gewinn je Aktie}}$ | 16,1× / 23,7× / 37,9× |
+| Unternehmenswert/Umsatz | $\frac{\text{Unternehmenswert}}{\text{Umsatz}}$ | 1,5× / 2,7× / 5,0× |
+
+### Bewertungsmultiplikatoren und Investitionsrenditen · Folie 44
+
+| Kennzahl | Formel laut Originaltabelle | 25 % / Median / 75 % |
+| --- | --- | --- |
+| Unternehmenswert/EBIT | $\frac{\text{Unternehmenswert}}{EBIT}$ | 13,9× / 18,3× / 26,9× |
+| Unternehmenswert/EBITDA | $\frac{\text{Unternehmenswert}}{EBITDA}$ | 9,9× / 13,0× / 18,3× |
+| Kapitalumschlag | $\frac{\text{Umsatzerlöse}}{\text{gesamte Vermögenswerte}}$ | 0,3× / 0,6× / 1,0× |
+| Eigenkapitalrendite (ROE) | $\frac{\text{Nettoergebnis}}{\text{Buchwert EK}}$ | 3 % / 10 % / 18 % |
+| Gesamtkapitalrendite (ROA), Definition Folie 44 | $\frac{\text{Nettoergebnis + Zinsaufwand}}{\text{Buchwert Vermögenswerte}}$ | −1 % / 3 % / 7 % |
+| Rendite des eingesetzten Kapitals (ROIC) | $\frac{EBIT(1-\text{Steuersatz})}{\text{Buchwert EK + Nettoschulden}}$ | 6 % / 12 % / 20 % |
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 41–44 · Originaltabellen: Berk/DeMarzo (2021), S. 71/72 · Datenstand Frühjahr 2018</SourceNote>
+</section>
+
+<section id="cfm-corporate-governance">
+
+## Berichtspraxis und Corporate Governance
+
+### Schutzmaßnahmen verhindern Missbrauch nicht vollständig
+
+<CompareCard items={[
+ {title:'USA',accent:'accent',points:['Skriptbeispiele: Enron und WorldCom.','Genannte regulatorische Reaktionen: Sarbanes-Oxley Act (SOX), Dodd-Frank Act.']},
+ {title:'Deutschland / Europa',accent:'purple',points:['Skriptbeispiele: Steinhoff und Wirecard.','Europäische Regulierungsbemühungen und „Bilanzpolizei“.']},
+]} />
+
+### Trennung von Eigentum und Kontrolle
+
+In börsennotierten Unternehmen führt in der Regel ein **externes Management** die Geschäfte. Die zentrale Frage ist, wie dessen Handeln an den Interessen von Aktionären und Fremdkapitalgebern ausgerichtet wird.
+
+<Columns count={2}>
+<Card title="Moral Hazard" tone="warning">
+
+- Unzureichende Anstrengungen.
+- Extravagante Investitionen; das Skript nennt Baywa als Beispiel.
+- Persönliche Vergünstigungen wie Privatjet oder Einladungen.
+
+</Card>
+<Card title="Dysfunktionale Corporate Governance" tone="negative">
+
+- Intransparenz.
+- Problematische Vergütungssysteme des Managements.
+- Transaktionen in eigenen Aktien.
+- Bilanzmanipulation.
+
+</Card>
+</Columns>
+
+<DefinitionBox term="Corporate Governance">
+Art und Weise, wie die Geldgeber eines Unternehmens sicherstellen, dass sie eine **angemessene Rendite für ihre Investition** erhalten. Definition nach Shleifer und Vishny (1997), wie auf Folie 47 wiedergegeben.
+</DefinitionBox>
+
+<Card title="Deutscher Corporate Governance Kodex" exam>
+
+- „Standards guter und verantwortungsvoller Unternehmensführung“.
+- Laut Skript jährliche Überprüfung und Aktualisierung durch die Deutsche Corporate Governance Kommission.
+- Enthält gesetzliche Vorschriften zur Leitung und Überwachung deutscher börsennotierter Gesellschaften sowie national und international anerkannte Standards guter Unternehmensführung.
+- Im Original genannte Adresse: [Deutscher Corporate Governance Kodex](https://www.dcgk.de/de/).
+
+</Card>
+
+<SourceNote>Corporate Financial Management · Kapitel 2.1 · Folien 45–47 · Governance: Tirole, The Theory of Corporate Finance (2006); Shleifer/Vishny (1997) · Angaben zum Kodex nach Quellenstand des Skripts</SourceNote>
+</section>
