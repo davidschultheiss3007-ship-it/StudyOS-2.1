@@ -1,0 +1,23 @@
+{
+  "quiz": {
+    "score": 12,
+    "total": 12,
+    "timestamp": 1794316301900
+  },
+  "exerciseOpens": true,
+  "printSolutions": true,
+  "enlargeLinkStatus": 200,
+  "regression": [
+    {
+      "route": "asset-management/grundlagen-der-portfoliotheorie",
+      "sections": 9,
+      "overflow": false
+    },
+    {
+      "route": "data-science/ds-eda-numerische-daten",
+      "sections": 8,
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

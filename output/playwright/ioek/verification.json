@@ -1,0 +1,439 @@
+{
+  "routes": [
+    {
+      "slug": "ioek-teil-1",
+      "width": 1440,
+      "theme": "light",
+      "title": "Teil 1 · Einführung, Propädeutik und vollkommene Konkurrenz",
+      "sections": [
+        {
+          "id": "ioek-1-einfuehrung",
+          "heading": "Einführung und Vorlesungsüberblick"
+        },
+        {
+          "id": "ioek-1-marktformen",
+          "heading": "Marktstruktur und Marktverhalten im Vergleich"
+        },
+        {
+          "id": "ioek-1-analysetools",
+          "heading": "Ableitungsregeln und Maximalbedingungen"
+        },
+        {
+          "id": "ioek-1-unternehmer",
+          "heading": "Unternehmerverhalten und Grenzbetrachtung"
+        },
+        {
+          "id": "ioek-1-produktion",
+          "heading": "Produktionsfunktion, Grenzprodukt und Skalenerträge"
+        },
+        {
+          "id": "ioek-1-kosten",
+          "heading": "Kosten und Gewinnmaximierung"
+        },
+        {
+          "id": "ioek-1-nachfrage",
+          "heading": "Nachfrage und Preis-Absatz-Funktion"
+        },
+        {
+          "id": "ioek-1-konkurrenz",
+          "heading": "Vollkommene Konkurrenz: Modell und Vertiefung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "slug": "ioek-teil-2",
+      "width": 1440,
+      "theme": "light",
+      "title": "Teil 2 · Konkurrenz, Wohlfahrt und Einstieg ins Monopol",
+      "sections": [
+        {
+          "id": "ioek-2-gewinn-und-verlust",
+          "heading": "Gewinnmaximum und Überleben im Markt"
+        },
+        {
+          "id": "ioek-2-angebot-und-kosten",
+          "heading": "Grenzkosten, Angebot und Gesamtmodell"
+        },
+        {
+          "id": "ioek-2-rechenbeispiel",
+          "heading": "Rechenbeispiel und Überschussgewinn"
+        },
+        {
+          "id": "ioek-2-konsumentenrente",
+          "heading": "Wohlfahrt und Konsumentenrente"
+        },
+        {
+          "id": "ioek-2-monopol",
+          "heading": "Monopol: Annahmen und Korrektureffekt"
+        },
+        {
+          "id": "ioek-2-vertiefung",
+          "heading": "Vertiefung und Wiederholung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "slug": "ioek-teil-3",
+      "width": 1440,
+      "theme": "light",
+      "title": "Teil 3 · Monopol, Wohlfahrt und Preisdiskriminierung",
+      "sections": [
+        {
+          "id": "ioek-3-grenzerloes",
+          "heading": "Grenzerlös und Preiseffekt"
+        },
+        {
+          "id": "ioek-3-monopoloptimum",
+          "heading": "Das Monopoloptimum herleiten"
+        },
+        {
+          "id": "ioek-3-rechenbeispiel",
+          "heading": "Rechenbeispiel und Marktgröße"
+        },
+        {
+          "id": "ioek-3-produzentenrente",
+          "heading": "Die Produzentenrente"
+        },
+        {
+          "id": "ioek-3-wohlfahrtsverlust",
+          "heading": "Wohlfahrt und Monopolverlust"
+        },
+        {
+          "id": "ioek-3-standardfall",
+          "heading": "Exkurs: steigende Grenzkosten"
+        },
+        {
+          "id": "ioek-3-preisdiskriminierung",
+          "heading": "Perfekte Preise und drei Grade"
+        },
+        {
+          "id": "ioek-3-gesamtvergleich",
+          "heading": "Diskriminierung und Gesamtbeurteilung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "route": "module",
+      "width": 1440,
+      "overflow": false,
+      "topicLinks": 4
+    },
+    {
+      "slug": "ioek-teil-1",
+      "width": 390,
+      "theme": "dark",
+      "title": "Teil 1 · Einführung, Propädeutik und vollkommene Konkurrenz",
+      "sections": [
+        {
+          "id": "ioek-1-einfuehrung",
+          "heading": "Einführung und Vorlesungsüberblick"
+        },
+        {
+          "id": "ioek-1-marktformen",
+          "heading": "Marktstruktur und Marktverhalten im Vergleich"
+        },
+        {
+          "id": "ioek-1-analysetools",
+          "heading": "Ableitungsregeln und Maximalbedingungen"
+        },
+        {
+          "id": "ioek-1-unternehmer",
+          "heading": "Unternehmerverhalten und Grenzbetrachtung"
+        },
+        {
+          "id": "ioek-1-produktion",
+          "heading": "Produktionsfunktion, Grenzprodukt und Skalenerträge"
+        },
+        {
+          "id": "ioek-1-kosten",
+          "heading": "Kosten und Gewinnmaximierung"
+        },
+        {
+          "id": "ioek-1-nachfrage",
+          "heading": "Nachfrage und Preis-Absatz-Funktion"
+        },
+        {
+          "id": "ioek-1-konkurrenz",
+          "heading": "Vollkommene Konkurrenz: Modell und Vertiefung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "slug": "ioek-teil-2",
+      "width": 390,
+      "theme": "dark",
+      "title": "Teil 2 · Konkurrenz, Wohlfahrt und Einstieg ins Monopol",
+      "sections": [
+        {
+          "id": "ioek-2-gewinn-und-verlust",
+          "heading": "Gewinnmaximum und Überleben im Markt"
+        },
+        {
+          "id": "ioek-2-angebot-und-kosten",
+          "heading": "Grenzkosten, Angebot und Gesamtmodell"
+        },
+        {
+          "id": "ioek-2-rechenbeispiel",
+          "heading": "Rechenbeispiel und Überschussgewinn"
+        },
+        {
+          "id": "ioek-2-konsumentenrente",
+          "heading": "Wohlfahrt und Konsumentenrente"
+        },
+        {
+          "id": "ioek-2-monopol",
+          "heading": "Monopol: Annahmen und Korrektureffekt"
+        },
+        {
+          "id": "ioek-2-vertiefung",
+          "heading": "Vertiefung und Wiederholung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "slug": "ioek-teil-3",
+      "width": 390,
+      "theme": "dark",
+      "title": "Teil 3 · Monopol, Wohlfahrt und Preisdiskriminierung",
+      "sections": [
+        {
+          "id": "ioek-3-grenzerloes",
+          "heading": "Grenzerlös und Preiseffekt"
+        },
+        {
+          "id": "ioek-3-monopoloptimum",
+          "heading": "Das Monopoloptimum herleiten"
+        },
+        {
+          "id": "ioek-3-rechenbeispiel",
+          "heading": "Rechenbeispiel und Marktgröße"
+        },
+        {
+          "id": "ioek-3-produzentenrente",
+          "heading": "Die Produzentenrente"
+        },
+        {
+          "id": "ioek-3-wohlfahrtsverlust",
+          "heading": "Wohlfahrt und Monopolverlust"
+        },
+        {
+          "id": "ioek-3-standardfall",
+          "heading": "Exkurs: steigende Grenzkosten"
+        },
+        {
+          "id": "ioek-3-preisdiskriminierung",
+          "heading": "Perfekte Preise und drei Grade"
+        },
+        {
+          "id": "ioek-3-gesamtvergleich",
+          "heading": "Diskriminierung und Gesamtbeurteilung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "route": "module",
+      "width": 390,
+      "overflow": false,
+      "topicLinks": 4
+    },
+    {
+      "slug": "ioek-teil-1",
+      "width": 360,
+      "theme": "dark",
+      "title": "Teil 1 · Einführung, Propädeutik und vollkommene Konkurrenz",
+      "sections": [
+        {
+          "id": "ioek-1-einfuehrung",
+          "heading": "Einführung und Vorlesungsüberblick"
+        },
+        {
+          "id": "ioek-1-marktformen",
+          "heading": "Marktstruktur und Marktverhalten im Vergleich"
+        },
+        {
+          "id": "ioek-1-analysetools",
+          "heading": "Ableitungsregeln und Maximalbedingungen"
+        },
+        {
+          "id": "ioek-1-unternehmer",
+          "heading": "Unternehmerverhalten und Grenzbetrachtung"
+        },
+        {
+          "id": "ioek-1-produktion",
+          "heading": "Produktionsfunktion, Grenzprodukt und Skalenerträge"
+        },
+        {
+          "id": "ioek-1-kosten",
+          "heading": "Kosten und Gewinnmaximierung"
+        },
+        {
+          "id": "ioek-1-nachfrage",
+          "heading": "Nachfrage und Preis-Absatz-Funktion"
+        },
+        {
+          "id": "ioek-1-konkurrenz",
+          "heading": "Vollkommene Konkurrenz: Modell und Vertiefung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "slug": "ioek-teil-2",
+      "width": 360,
+      "theme": "dark",
+      "title": "Teil 2 · Konkurrenz, Wohlfahrt und Einstieg ins Monopol",
+      "sections": [
+        {
+          "id": "ioek-2-gewinn-und-verlust",
+          "heading": "Gewinnmaximum und Überleben im Markt"
+        },
+        {
+          "id": "ioek-2-angebot-und-kosten",
+          "heading": "Grenzkosten, Angebot und Gesamtmodell"
+        },
+        {
+          "id": "ioek-2-rechenbeispiel",
+          "heading": "Rechenbeispiel und Überschussgewinn"
+        },
+        {
+          "id": "ioek-2-konsumentenrente",
+          "heading": "Wohlfahrt und Konsumentenrente"
+        },
+        {
+          "id": "ioek-2-monopol",
+          "heading": "Monopol: Annahmen und Korrektureffekt"
+        },
+        {
+          "id": "ioek-2-vertiefung",
+          "heading": "Vertiefung und Wiederholung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "slug": "ioek-teil-3",
+      "width": 360,
+      "theme": "dark",
+      "title": "Teil 3 · Monopol, Wohlfahrt und Preisdiskriminierung",
+      "sections": [
+        {
+          "id": "ioek-3-grenzerloes",
+          "heading": "Grenzerlös und Preiseffekt"
+        },
+        {
+          "id": "ioek-3-monopoloptimum",
+          "heading": "Das Monopoloptimum herleiten"
+        },
+        {
+          "id": "ioek-3-rechenbeispiel",
+          "heading": "Rechenbeispiel und Marktgröße"
+        },
+        {
+          "id": "ioek-3-produzentenrente",
+          "heading": "Die Produzentenrente"
+        },
+        {
+          "id": "ioek-3-wohlfahrtsverlust",
+          "heading": "Wohlfahrt und Monopolverlust"
+        },
+        {
+          "id": "ioek-3-standardfall",
+          "heading": "Exkurs: steigende Grenzkosten"
+        },
+        {
+          "id": "ioek-3-preisdiskriminierung",
+          "heading": "Perfekte Preise und drei Grade"
+        },
+        {
+          "id": "ioek-3-gesamtvergleich",
+          "heading": "Diskriminierung und Gesamtbeurteilung"
+        }
+      ],
+      "pageOverflow": false,
+      "brokenImages": [],
+      "mathErrors": [],
+      "mermaidErrors": false,
+      "overflowing": []
+    },
+    {
+      "route": "module",
+      "width": 360,
+      "overflow": false,
+      "topicLinks": 4
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "sources": [
+    {
+      "url": "http://127.0.0.1:4176/assets/Industrie%C3%B6konomik%20WS%2026-27%20Teil%201-Cf8XOYd_.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    },
+    {
+      "url": "http://127.0.0.1:4176/assets/Industrie%C3%B6konomik%20WS%2026-27%20Teil%202-BpX14MwV.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    },
+    {
+      "url": "http://127.0.0.1:4176/assets/Industrie%C3%B6konomik%20WS%2026-27%20Teil%203-BjzhjYGh.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    },
+    {
+      "url": "http://127.0.0.1:4176/assets/I%C3%96K%20Vertiefung%20und%20Wiederholung%20Teil%201-KVXX5itT.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    },
+    {
+      "url": "http://127.0.0.1:4176/assets/I%C3%96K%20Vertiefung%20und%20Wiederholung%20Teil%202-BisZK6XE.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    },
+    {
+      "url": "http://127.0.0.1:4176/assets/I%C3%96K%20Vertiefung%20und%20Wiederholung%20Teil%203-DPFKtuXS.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    }
+  ],
+  "toc": true,
+  "progressPersists": true
+}

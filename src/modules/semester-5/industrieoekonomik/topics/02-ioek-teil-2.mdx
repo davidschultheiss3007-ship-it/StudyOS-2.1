@@ -1,0 +1,298 @@
+import gewinn from '../assets/02-gewinn.png';
+import verlust from '../assets/02-verlust.png';
+import steigendeGK from '../assets/02-gesamtmodell-steigende-gk.png';
+import kapazitaet from '../assets/02-kapazitaetsgrenze.png';
+import konstanteGK from '../assets/02-konstante-gk.png';
+import gesamtmodellKonstant from '../assets/02-gesamtmodell-konstante-gk.png';
+import konsumentenrente from '../assets/02-konsumentenrente.png';
+
+<section id="ioek-2-gewinn-und-verlust">
+
+## Gewinnmaximum und Überleben im Markt
+
+<Callout type="examfocus" title="Genügt Preis = Grenzkosten?">
+Die Bedingung <Formula inline expr="p=GK" /> allein sagt noch nicht, ob die Firma **Gewinn oder Verlust** erzielt. Folie 48 vergleicht dafür den Preis mit den Durchschnittskosten **ATC**; die Grenzkosten heißen dort **MC**. Die Menge ist mit **y**, die optimale Menge mit **y*** bezeichnet.
+</Callout>
+
+<Columns count={2}>
+<Card title="Gewinn: Die Firma kann im Markt überleben" tone="positive">
+
+<a href={gewinn} target="_blank" rel="noreferrer" aria-label="Gewinndiagramm von Folie 48 vergrößern"><img src={gewinn} alt="Gewinnfall: MC steigt, ATC ist U-förmig. Bei y* gilt MC gleich Preis p. ATC liegt dort unter p; die grüne Fläche zeigt den Gewinn über den grauen Kosten." />Abbildung vergrößern</a>
+
+- Die Kosten (grau) sind geringer als der Umsatz.
+- Die Differenz ist der **Gewinn** (grün).
+- Die Firma kann im Markt überleben.
+
+</Card>
+<Card title="Verlust: Langfristiger Marktaustritt" tone="negative">
+
+<a href={verlust} target="_blank" rel="noreferrer" aria-label="Verlustdiagramm von Folie 48 vergrößern"><img src={verlust} alt="Verlustfall: MC schneidet die Preislinie p bei y*. Die ATC-Kurve liegt dort oberhalb des Preises. Blau markiert der Umsatz, rot den Verlust zwischen Preis und Durchschnittskosten." />Abbildung vergrößern</a>
+
+- Die Umsätze (blau) decken die Kosten nicht.
+- Die rote Fläche kennzeichnet den **Verlust**.
+- Die Firma wird den Markt langfristig verlassen.
+
+</Card>
+</Columns>
+
+<Formula title="Umsatz bei der optimalen Menge (Folie 48 schreibt y*·p)" expr="\text{Umsatz}=y^*\cdot p" />
+
+<SourceNote>Industrieökonomik · Teil 2 · Folie 48 · Originalausschnitte: Gewinn- und Verlustflächen</SourceNote>
+</section>
+
+<section id="ioek-2-angebot-und-kosten">
+
+## Grenzkosten, Angebot und Gesamtmodell
+
+<DefinitionBox term="Angebotsfunktion der einzelnen Firma">
+Im Angebotsoptimum bei vollkommenem Wettbewerb gilt **Preis = Grenzkosten**. Die Firma weitet ihre Produktion so lange aus, wie die Grenzkosten kleiner als der Preis (= Grenzerlös) sind: Eine zusätzliche Einheit liefert dann zusätzlichen Gewinn. Umgekehrt zeigt die Grenzkostenfunktion, **welche Menge die Firma zu jedem Preis anbieten möchte**. In dieser Darstellung ist sie die Angebotsfunktion.
+</DefinitionBox>
+
+<DataChart title="Angebotsfunktion der einzelnen Firma · Folie 50" source="Symbolische Geometrie aus den PDF-Vektorkoordinaten von Folie 50 rekonstruiert; keine numerischen Preis-/Mengenwerte. GK-Linie und vier p-/x-Projektionen wie in der Quelle." type="line" height={420} xType="number" showGrid={false} tooltip={false} xKey="x" xLabel="x" yLabel="p, GK" xDomain={[0,208]} yDomain={[0,180]} xTicks={[{value:33.774,label:'x₁'},{value:62.715,label:'x₂'},{value:99.575,label:'x₃'},{value:145.145,label:'x₄'}]} yTicks={[{value:45.488,label:'p₁'},{value:53.138,label:'p₂'},{value:63.258,label:'p₃'},{value:74.848,label:'p₄'}]} data={[{x:0,gk:36.255},{x:178.135,gk:83.538}]} series={[{key:'gk',name:'GK'}]} referenceLines={[
+  {segment:[{x:0,y:45.488},{x:33.774,y:45.488}],dashed:false,strokeWidth:1},
+  {segment:[{x:33.774,y:0},{x:33.774,y:45.488}],dashed:false,strokeWidth:1},
+  {segment:[{x:0,y:53.138},{x:62.715,y:53.448}],dashed:false,strokeWidth:1},
+  {segment:[{x:62.715,y:0},{x:62.715,y:53.448}],dashed:false,strokeWidth:1},
+  {segment:[{x:0,y:63.258},{x:99.575,y:63.258}],dashed:false,strokeWidth:1},
+  {segment:[{x:99.575,y:0},{x:99.575,y:63.258}],dashed:false,strokeWidth:1},
+  {segment:[{x:0,y:74.848},{x:145.145,y:74.848}],dashed:false,strokeWidth:1},
+  {segment:[{x:145.145,y:0},{x:145.145,y:74.848}],dashed:false,strokeWidth:1},
+  {segment:[{x:150,y:76.07},{x:178.135,y:83.538}],label:'GK',labelPosition:'top',dashed:false},
+]} />
+
+<Card title="Die Projektionen lesen" tone="accent">
+
+- Vom Preis **p₁** zur GK-Kurve gehen: Nach der Preis-Grenzkosten-Regel ergibt sich die optimale Menge **x₁**.
+- Analog führen **p₂, p₃ und p₄** zu **x₂, x₃ und x₄**.
+- Höhere Preise führen bei steigenden GK zu höheren angebotenen Mengen.
+
+</Card>
+
+### Das Gesamtmodell mit steigenden Grenzkosten
+
+<a href={steigendeGK} target="_blank" rel="noreferrer" aria-label="Gesamtmodell mit steigenden Grenzkosten von Folie 51 vergrößern"><img src={steigendeGK} alt="Originaldiagramm: fallende Nachfrage mit Achsenabschnitt a und Steigung minus b sowie steigende GK. Der Schnittpunkt bestimmt p* und x*. Pfeile markieren gewinnmaximale Menge und finale Marktgröße am horizontalen Nachfrageachsenabschnitt." />Abbildung vergrößern</a>
+
+<Callout type="warn" title="Beschriftung im Originaldiagramm">
+Auf Folie 51 steht die Beschriftung **p*** links auf Höhe des Achsenabschnitts der steigenden GK-Kurve, nicht auf Höhe ihres Schnittpunkts mit der Nachfrage. Der Originalausschnitt bewahrt diese grafische Auffälligkeit. Für die Bestimmung der optimalen Menge gilt die Preis-Grenzkosten-Regel am **Schnittpunkt**.
+</Callout>
+
+<Card title="Zusammenhänge laut Folie 51">
+
+- Höhere (niedrigere) Grenzkosten gehen mit einem höheren (niedrigeren) Preis einher.
+- Bei der gewinnmaximalen Menge ist der Preis umso höher (niedriger), je höher (niedriger) der **Reservationspreis a** liegt.
+- Je kleiner **b**, desto flacher die Nachfrage-/Preis-Absatz-Funktion: größerer Markt, höhere Menge und höherer Preis im dargestellten Modell mit steigenden GK.
+
+</Card>
+
+### Zwei Kostenverläufe
+
+<Columns count={2}>
+<Card title="Annäherung an die Kapazitätsgrenze" tone="warning">
+
+<a href={kapazitaet} target="_blank" rel="noreferrer" aria-label="Kostenverlauf bei Kapazitätsengpässen von Folie 52 vergrößern"><img src={kapazitaet} alt="Originaldiagramm oben auf Folie 52: Variable Kosten steigen zunehmend steil; auch die Grenzkosten steigen mit dem Output. Achsen: Kosten, Grenzkosten und Output." />Abbildung vergrößern</a>
+
+- Die Grenzkosten sind die variablen Kosten der nächsten produzierten Einheit.
+- Bei konstantem Maschinenpark wird höhere Auslastung, etwa über Sonn- und Feiertage, immer teurer.
+- GK sind näherungsweise die **Ableitung der variablen Kosten nach der Menge**.
+
+</Card>
+<Card title="Ohne Annäherung an die Kapazitätsgrenze" tone="teal">
+
+<a href={konstanteGK} target="_blank" rel="noreferrer" aria-label="Kostenverlauf ohne Kapazitätsengpässe von Folie 52 vergrößern"><img src={konstanteGK} alt="Originaldiagramm unten auf Folie 52: Variable Kosten sind eine steigende Gerade, Grenzkosten eine waagrechte Linie. Achsen: Kosten, Grenzkosten und Output." />Abbildung vergrößern</a>
+
+- Konstante GK bedeuten eine konstante Steigung der variablen Kosten.
+- Jede zusätzliche Einheit verursacht dieselben variablen Kosten.
+- In dieser Modellannahme entstehen keine zunehmenden Kapazitätsengpässe.
+
+</Card>
+</Columns>
+
+### Methodische Vereinfachung: waagrechte GK-Kurve
+
+<a href={gesamtmodellKonstant} target="_blank" rel="noreferrer" aria-label="Gesamtmodell mit konstanten Grenzkosten von Folie 53 vergrößern"><img src={gesamtmodellKonstant} alt="Originaldiagramm mit fallender Nachfrage, Achsenabschnitt a, Steigung minus b und horizontalen GK auf Höhe p*. Der Schnittpunkt bestimmt x*; Pfeile zeigen optimale Menge und finale Marktgröße." />Abbildung vergrößern</a>
+
+<Callout type="merksatz">
+Eine waagrechte GK-Kurve vereinfacht die Algebra. Sie kann dadurch begründet werden, dass das Unternehmen den Auslastungsbereich mit steigenden Zusatzkosten noch nicht erreicht hat. Ob steigende oder konstante GK verwendet werden, ist laut Skript eine Frage der **Zweckmäßigkeit**; die Vorlesung orientiert sich an den gängigen Lehrbuchdarstellungen.
+</Callout>
+
+<SourceNote>Industrieökonomik · Teil 2 · Folien 49–53 · Originalausschnitte der symbolischen Diagramme ohne numerische Skalen</SourceNote>
+</section>
+
+<section id="ioek-2-rechenbeispiel">
+
+## Rechenbeispiel und Überschussgewinn
+
+<KpiGrid columns={3} items={[{value:'100',label:'Reservationspreis a'},{value:'0,5',label:'Parameter b'},{value:'20',label:'Konstante Grenzkosten GK'}]} />
+
+Der Parameter **b** beschreibt im Skript die Reagibilität des Preises auf die Menge und ist ein Anhaltspunkt für die Marktgröße. Die Fixkosten werden mit **FK** bezeichnet.
+
+<Exercise title="Konkurrenzbeispiel · Folien 54–55" question="a. Errechnen Sie die Menge, bei der das Gewinnmaximum erzeugt wird. b. Errechnen Sie den Preis, bei dem das Gewinnmaximum erzeugt wird. c. Wie hoch ist der Gewinn im Gewinnmaximum? d. Wie verändert sich die gewinnmaximale Menge, wenn der Reservationspreis von 100 auf 80 fällt?">
+
+Die Musterlösung der Folie 55 ergibt **a) 160**, **b) 20**, **c) 0 ohne Fixkosten**, **d) 120**. Die vollständigen Rechenschritte stehen direkt im folgenden Abschnitt.
+
+</Exercise>
+
+### Rechenweg aus dem Skript
+
+<Formula title="(1.1) Preis-Absatz-Funktion" expr="p=a-bx=100-0{,}5x" />
+<Formula title="(1.2) Kosten" expr="K=GK\cdot x+FK=20x+FK" />
+<Formula title="(1.3) Gewinn" expr="\pi=p\cdot x-20x-FK" />
+
+<Card title="Schritt 1: Preisnehmerbedingung" exam>
+
+Der einzelne Anbieter behandelt **p als gegeben**. Folie 55 leitet die Gewinngleichung unter dieser Preisnehmerannahme nach der Menge ab:
+
+<Formula title="(1.4) Gewinnmaximierungsbedingung" expr="\begin{gathered}\frac{\partial\Pi}{\partial x}=0\\p-20=0\quad\Rightarrow\quad p^*=20\end{gathered}" />
+
+</Card>
+
+<Card title="Schritt 2: Preis und Marktmenge verbinden" tone="accent">
+
+Anschließend wird die Preis-Absatz-Funktion für die Ermittlung der Menge verwendet:
+
+<Formula title="(1.5) Gewinnmaximale Menge" expr="\begin{gathered}GK=a-bx\\x^*=\frac{a-GK}{b}\\x^*=\frac{100-20}{0{,}5}=160\end{gathered}" />
+
+<Formula title="(1.6) Gewinn ohne Fixkosten" expr="\begin{gathered}\pi^*=(p-GK)\cdot x\\=(20-20)\cdot160=0\end{gathered}" />
+
+<Formula title="(1.5′) Niedrigerer Reservationspreis a = 80" expr="\begin{gathered}20=80-0{,}5x\\x^*=\frac{80-20}{0{,}5}=120\end{gathered}" />
+
+</Card>
+
+<Callout type="warn" title="Die Quelle schließt Fixkosten beim Ergebnis 0 aus">
+Die Aufgabe nennt **FK**, und die Gewinngleichung zieht FK ab. Die Ergebniszeile auf Folie 55 heißt jedoch ausdrücklich **„Gewinn (ohne Fixkosten)“**. Folie 56 übernimmt den Wert 0 ohne diesen Zusatz. Der Wert 0 darf deshalb nicht als Aussage über den Gewinn nach beliebigen Fixkosten gelesen werden. Außerdem wird bei der Ableitung p als gegeben behandelt; erst danach verwendet das Skript die Markt-Preis-Absatz-Funktion.
+</Callout>
+
+<DataTable caption="Ergebnisse von Folie 56; die Spalten Oligopol und Monopol sind in dieser Folie noch unbefüllt. Gewinnwert ohne Fixkosten gemäß Folie 55." columns={[{key:'groesse',label:'Größe'},{key:'oligopol',label:'Oligopol'},{key:'monopol',label:'Monopol'},{key:'konkurrenz',label:'v. Wett\u200bbew.'}]} rows={[
+  {groesse:'Menge (gesamt)',oligopol:'',monopol:'',konkurrenz:'160'},
+  {groesse:'Preis',oligopol:'',monopol:'',konkurrenz:'20'},
+  {groesse:'Gewinn (gesamt)',oligopol:'',monopol:'',konkurrenz:'0'},
+]} />
+
+### Warum trotzdem Unternehmer tätig sind
+
+<Callout type="examfocus" title="Kein Überschussgewinn ist nicht kein Verdienst">
+Laut Folie 57 wird bei vollkommener Konkurrenz **kein Überschussgewinn** erzielt. Das bedeutet nicht, dass Unternehmer nichts verdienen: Der **Unternehmerlohn** ist bereits Bestandteil der normalen Kalkulation und damit ein normaler Kostenposten.
+</Callout>
+
+<Exercise title="Exkurs · Folie 58" question="Erstellen Sie eine Textaufgabe, in der Sie die nötigen Angaben in Aussagen umwandeln. Denken Sie sich eine Frage aus, die beantwortet werden muss. Dies kann, muss aber nicht, die gewinnmaximierende Menge sein.">
+
+Die Quelle enthält für diese offene Gestaltungsaufgabe **keine Musterlösung**.
+
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 2 · Folien 54–58</SourceNote>
+</section>
+
+<section id="ioek-2-konsumentenrente">
+
+## Wohlfahrt und Konsumentenrente
+
+<Card title="Ist vollkommene Konkurrenz gut oder schlecht?">
+
+Erst der Vergleich mit anderen Marktformen ermöglicht laut Folie 59 eine vollständige Antwort. Ein unmittelbar anwendbares Kriterium ist die **Konsumentenrente**. Ihr Gegenpart, die Produzentenrente, wird im Skript erst später eingeführt.
+
+</Card>
+
+<CompareCard items={[
+  {title:'Rente',subtitle:'Surplus',accent:'accent',points:['Überschuss; das Skript verwendet auch die Umschreibung Komfortniveau.','Keine Altersbezüge.']},
+  {title:'Wohlfahrt',subtitle:'Welfare',accent:'positive',points:['Wohlergehen.','Nicht mit dem Wohlfahrtsstaat gleichsetzen.']},
+]} />
+
+<DefinitionBox term="Konsumentenrente">
+Differenz zwischen dem Preis, den man **maximal zu zahlen bereit ist**, und dem Preis, den man **tatsächlich zahlen muss**. Gemessen wird, was die Konsumenten gemäß ihrer Nachfragefunktion nicht ausgeben müssen, weil der Marktpreis niedriger ist – obwohl sie diesen Betrag ausgeben würden.
+</DefinitionBox>
+
+<a href={konsumentenrente} target="_blank" rel="noreferrer" aria-label="Konsumentenrente von Folie 61 vergrößern"><img src={konsumentenrente} alt="Originaldiagramm zur Konsumentenrente: Zwischen fallender Nachfrage mit Reservationspreis a und waagrechtem Preis p* beziehungsweise GK liegt bis zur optimalen Menge eine grün schraffierte Dreiecksfläche. Die Achsen heißen p, GK und x; Pfeile markieren Konsumentenrente, optimale Menge und finale Marktgröße." />Abbildung vergrößern</a>
+
+<Callout type="merksatz">
+Die **schraffierte Fläche zwischen Nachfragekurve und Marktpreis** zeigt im Diagramm das Wohlergehen der Konsumenten aus Zahlungsbereitschaften oberhalb des tatsächlich gezahlten Preises.
+</Callout>
+
+<SourceNote>Industrieökonomik · Teil 2 · Folien 59–61 · Originalausschnitt der Wohlfahrtsgrafik von Folie 61</SourceNote>
+</section>
+
+<section id="ioek-2-monopol">
+
+## Monopol: Annahmen und Korrektureffekt
+
+<DefinitionBox term="Einzelanbieter / Monopolist">
+Das Skript verwendet **Einzelanbieter** und **Monopolist** synonym, um an die übliche Lehrbuchterminologie anzuschließen.
+</DefinitionBox>
+
+<Columns count={2}>
+<Card title="Annahmen · Folie 62" tone="accent">
+
+- **Ein Anbieter**, viele Nachfrager.
+- Kein freier Markteintritt, sondern **hohe Eintrittsbarrieren**.
+- Es wird nur **ein Produkt** gehandelt.
+- Der Unternehmer hat laut Aufzählung **Preissetzungsmöglichkeit**.
+
+</Card>
+<Card title="Beispiele · Folie 63">
+
+- Besitz von **Lizenzen** oder ein (halb-)staatliches Unternehmen.
+- **Skalenerträge**: Größenvorteile schaffen Kostenvorteile; natürliches Monopol, etwa Bahn oder früher Post.
+- **Nicht imitierbare Fähigkeiten**.
+- Besitz von **Patenten**.
+
+</Card>
+</Columns>
+
+<Callout type="info" title="Preissetzungsmöglichkeit ≠ beliebige Preissetzungsmacht">
+Folie 62 sagt zweierlei: Der Einzelanbieter **hat eine Preissetzungsmöglichkeit**, besitzt aber **nicht** die Macht, Preise beliebig festzulegen, „wie noch zu zeigen sein wird“. Das ist kein Widerspruch, sondern wird auf **Folie 66** (Beginn Teil 3) aufgelöst: Der Monopolist bestimmt den Preis zwar selbst, aber nur **entlang der Preis-Absatz-Funktion**. Jede Menge ist nur zu einem bestimmten Preis absetzbar; wer mehr verkaufen will, muss den Preis senken.
+</Callout>
+
+### Die gemeinsame Produktionslogik und der entscheidende Unterschied
+
+<Callout type="merksatz">
+Bei Monopol und vollkommener Konkurrenz wird die Produktion so lange ausgeweitet, wie eine zusätzliche Einheit einen positiven zusätzlichen Ertrag erwirtschaftet. Der Unterschied liegt darin, **wie sich der Grenzerlös zum Preis verhält**.
+</Callout>
+
+<CompareCard items={[
+  {title:'Vollkommene Konkurrenz',accent:'positive',points:['Der Anbieter ist Preisnehmer: Der Preis ist gesetzt.','Der Erlös einer zusätzlichen Einheit entspricht dem Marktpreis.','Ausdehnung bis Preis = Grenzkosten; darüber verursacht eine weitere Einheit Verlust.']},
+  {title:'Monopol',accent:'purple',points:['Der einzige Anbieter steht der gesamtwirtschaftlichen Nachfrage gegenüber.','Eine größere angebotene Menge senkt bei fallender Nachfrage den Preis.','Dieser niedrigere Preis gilt für alle angebotenen Einheiten: Korrektureffekt.','Deshalb liegt der Grenzerlös unter dem Preis.']},
+]} />
+
+<Card title="Der Korrektureffekt · Folie 65" exam>
+
+Der Erlösbeitrag einer zusätzlichen Einheit hat **zwei Komponenten**: die zusätzliche Menge und die Preiswirkung. Steigender Output senkt den Preis, sodass der Monopolist für **alle Einheiten** nur noch den niedrigeren Preis erzielen kann. Deshalb ist der Erlös der zusätzlichen Einheit geringer als ihr Marktpreis.
+
+</Card>
+
+<Callout type="pitfall" title="Keine zeitlich nachträgliche Preiskorrektur">
+Die Entscheidung wird im Modell **vor** dem Angebot der gesamten Menge getroffen. Der Anbieter produziert also nicht erst eine Menge und muss danach wegen einer späteren Mengenausweitung rückwirkend Preise für bereits angebotene Produkte senken. Eine solche zeitliche Abfolge benötigte mindestens zwei Entscheidungsrunden; diese Zeitkomponente lässt die Quelle hier ausdrücklich weg, um die Darstellung nicht ohne zusätzlichen Erkenntnisgewinn zu verkomplizieren.
+</Callout>
+
+<SourceNote>Industrieökonomik · Teil 2 · Folien 62–65</SourceNote>
+</section>
+
+<section id="ioek-2-vertiefung">
+
+## Vertiefung und Wiederholung
+
+<Callout type="info" title="Offene Aufgaben aus der Vertiefungsquelle">
+Die ergänzende PDF enthält die folgenden fünf Aufgaben, aber **keine Musterlösungen**. Die Lösungshinweise hinter den Übungen benennen deshalb nur diesen Quellenstand. Die einschlägigen Definitionen und Grafiken stehen oben im Kapitel.
+</Callout>
+
+<Exercise title="Aufgabe 1 · Angebotskurve" question="Warum kann man sagen, dass bei der vollkommenen Konkurrenz die Grenzkostenkurve der Angebotskurve entspricht? Stellen Sie den Zusammenhang unter Zuhilfenahme einer Grafik dar.">
+Keine Musterlösung in der Vertiefungsquelle. Zugehöriger Vorlesungsstoff: Folien 49–50.
+</Exercise>
+
+<Exercise title="Aufgabe 2 · Kapazitätsengpässe" question="Welchen Verlauf haben Grenzkosten und Variable Gesamtkosten, wenn ein Unternehmen bis zu einer bestimmten Menge ohne Kapazitätsprobleme operiert und ab dieser Menge zunehmende Kapazitätsengpässe vorliegen?">
+Keine Musterlösung in der Vertiefungsquelle. Zugehöriger Vorlesungsstoff: Folien 52–53.
+</Exercise>
+
+<Exercise title="Aufgabe 3 · Kein Gewinn?" question="Wenn Unternehmen bei vollkommener Konkurrenz ‚keinen Gewinn‘ machen, warum sind dann nicht alle bankrott?">
+Keine Musterlösung in der Vertiefungsquelle. Zugehöriger Vorlesungsstoff: Folie 57.
+</Exercise>
+
+<Exercise title="Aufgabe 4 · Konsumentenrente" question="Erklären Sie verbal das Konzept der Konsumentenrente.">
+Keine Musterlösung in der Vertiefungsquelle. Zugehöriger Vorlesungsstoff: Folien 59–60.
+</Exercise>
+
+<Exercise title="Aufgabe 5 · Grafische Darstellung der Konsumentenrente" question="a. Stellen Sie das Konzept der Konsumentenrente grafisch dar. b. Wie verändert sich die Konsumentenrente in Ihrer Grafik, wenn der Reservationspreis fällt?">
+Keine Musterlösung in der Vertiefungsquelle. Die Ausgangsgrafik steht auf Folie 61; die Vertiefungsquelle enthält keine zusätzliche Grafik zur Änderung des Reservationspreises.
+</Exercise>
+
+<SourceNote>Industrieökonomik · Vertiefung und Wiederholung Teil 2 · S. 1</SourceNote>
+</section>

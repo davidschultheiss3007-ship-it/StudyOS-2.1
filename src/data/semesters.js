@@ -20,7 +20,7 @@ export const semesters = [
     status: 'planned',
     label: 'Geplant',
     description: 'Fuenftes Semester',
-    moduleIds: ['data-science', 'corporate-financial-management'],
+    moduleIds: ['data-science', 'corporate-financial-management', 'industrieoekonomik'],
   },
 ];
 

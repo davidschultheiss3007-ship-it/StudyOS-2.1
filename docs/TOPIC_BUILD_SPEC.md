@@ -12,14 +12,20 @@ The goal: each topic reproduces the approved StudyOS look without needing the or
 
 1. **Only facts present in the source.** Never invent figures, formulas, definitions, dates, or names.
    If a source passage is unclear, mark it (`<Callout type="warn">`) — do not smooth it over.
-2. **No assessment inside topic content.** No quizzes, self-tests, exercises, or reveal/flip cards in
-   `.mdx`. All knowledge checks live in `questions.js` / `exams.js`. If a source slide is a quiz/exercise,
-   render its *teaching point* as a static visual and move the question to the exam files.
-3. **No click-walls.** All primary content is visible on first render. `<Explorable>` may wrap only
-   optional 3D enrichment — never essential, exam-relevant content.
-4. **Static by default.** At most one interactive control per section, and only when a variable quantity
+2. **No invented assessment inside topic content.** No self-authored quizzes, self-tests or flip cards in
+   `.mdx`; knowledge checks written by us live in `questions.js` / `exams.js`.
+   **Exception — source exercises:** an exercise that exists in the script ("Übung" + "Lösung Übung")
+   is reproduced faithfully with `<Exercise>` at its place in the chapter (same question, same options,
+   the script's solution as explanation). Its solution is always printed. Extra transfer exercises are
+   allowed only when clearly labelled as an addition to the source.
+3. **Figure fidelity.** Every informative figure of the source is reproduced as exactly as possible and
+   sensible — see §2.0. This rule ranks **above** "visualize before verbalize".
+4. **No click-walls.** All primary content is visible on first render. `<Explorable>` may wrap only
+   optional 3D enrichment — never essential, exam-relevant content. (`<Exercise>` hides only the
+   solution of a source exercise, never teaching content.)
+5. **Static by default.** At most one interactive control per section, and only when a variable quantity
    drives the learning (a parameter that recomputes a formula/chart). Never on definitional content.
-5. **Token discipline.** Components already carry the cobalt-on-cool-gray system. Authors never write
+6. **Token discipline.** Components already carry the cobalt-on-cool-gray system. Authors never write
    raw hex or new colors in `.mdx`; they pass semantic `accent`/`tone`/`type` props.
 
 ---
@@ -33,7 +39,8 @@ src/modules/semester-4/<moduleId>/topics/
 ```
 
 `NN` = zero-padded chapter number. `slug` = kebab-case, **no umlauts** (ä→ae etc.), URL-safe.
-Builders write **only these two files** — never `topics/index.js` or `module.js` (wired centrally).
+Builders write **only these two files** (plus cropped originals in `../assets/` for figure path C,
+§2.0) — never `topics/index.js` or `module.js` unless the task includes wiring.
 
 ### `NN-slug.js` shape
 
@@ -72,9 +79,58 @@ export const meta = {
 
 ---
 
+## 2.0 Figure fidelity (PRIMARY — applies before §2)
+
+The source's figures are the reference. A chapter is not finished until every informative figure is
+reproduced or deliberately handled. Reference implementation: `src/modules/semester-5/data-science/`.
+
+### Step 1 — Figure inventory (before writing MDX)
+Look at **every slide as an image** (render the PDF page; Markdown/OCR exports lose charts, formulas,
+tables and footers). List per figure: slide, figure type, what data/structure it carries, chosen
+reconstruction path (A–D below). Keep the inventory in the build notes / final report.
+
+### Step 2 — Reconstruction path (first that fits wins)
+
+| Path | When | How |
+| --- | --- | --- |
+| **A · Faithful rebuild** | Data charts (bar, histogram, dot plot, box plot, scatter, line, mosaic, density) and tables | Same chart type, same axes and scale, same categories and order, same axis titles, labels and legend, same reference lines / annotations. `DataChart`, `BoxPlot`, `DataTable`, `ProportionBar`. |
+| **B · Topology rebuild** | Schemas, process / structure diagrams, matrices, trees | Same nodes, edges, direction, grouping and wording. `Diagram`, `DecisionTree`, `QuadrantMatrix`, `Timeline`, `Columns` + `Card`. |
+| **C · Original crop** | Photos, app / software screenshots, maps, figures too complex to rebuild without losing information | Cropped original image in `../assets/NN-name.png`, imported in the MDX, descriptive `alt` text, enlarge link, short text explanation (pattern: `semester-5/corporate-financial-management`). |
+| **D · Omit** | Purely decorative images (stock photos, logos, clip art) | Leave out; note it in the inventory. |
+
+Hard rules:
+- **Never swap the figure type.** No mean-only bar chart for a dot plot, no flowchart for a histogram,
+  no generic diagram for an informative chart. If a component cannot show the figure, extend the central
+  component (backward compatible, tokens only) or use path C.
+- **Never estimate values by eye.** Get them from the source, in this order:
+  1. numbers printed on the slide (tables, R output, `favstats`, `tally`, labels);
+  2. vector coordinates of the PDF figure (PyMuPDF `page.get_drawings()`, axis calibrated from the tick
+     label positions);
+  3. pixel analysis of raster figures with axes calibrated from tick labels, cross-checked against a
+     number the slide states;
+  4. a public dataset only when the slide itself names it (e.g. R's `UCBAdmissions`, `anscombe`), and
+     only after checking it against the slide's printed figures.
+- **Label derived values.** Every value from 2–4 is marked in the visual's `source` / a `Callout type="info"`
+  ("aus Folie X abgelesen / rekonstruiert"). Never present a reconstruction as printed source data.
+- **Keep source quirks visible.** Errors or contradictions in the script (wrong quotes in code, mismatched
+  output, label vs formula) are reproduced and flagged with `Callout type="warn"`, not silently fixed.
+- **Colours** follow tokens (`--color-module-*`, semantic tones), mapped consistently to the source's
+  series; colour is never the sole carrier of meaning. Original crops (path C) keep their own colours.
+- When rebuilding is possible but not *sensible* (information would be lost, or the rebuild would be less
+  clear than the original), choose path C and say why in the inventory.
+
+### Step 3 — Visual check (mandatory)
+Render each section and compare it **side by side with the source slide**: chart type, axes, values,
+labels, order, annotations. Check desktop (light) and mobile (dark): no clipped labels, legend not
+overlapping axis titles, text ≥ 12px, no horizontal overflow. Preferred: `wmux browser`; if unavailable,
+headless Playwright screenshots of the dev server.
+
+---
+
 ## 2. The look: "Visualize before verbalize" + card-dense
 
-Visual quality is the top priority. Two rules, in order:
+Visual quality is the top priority — after figure fidelity (§2.0). Where the source has a figure, §2.0
+decides; the rules below apply to content the source presents as text. Two rules, in order:
 
 ### Rule 1 — Visualize before verbalize (PRIMARY)
 For **every** section, first ask: *can this be a real visualization?* If yes, use it instead of bullets.
@@ -122,6 +178,13 @@ lazy-loaded inside `DataChart` / `Diagram` / `Scene3D` / `Surface3D`.
 **Math & data**
 - `<Formula expr="E(r_P)=w_A E(r_A)+w_B E(r_B)" title? display?={true} inline?={false} legend?={[{sym,desc}]} />`
 - `<DataChart type="line|bar|area|scatter" data={[…]} series={[{key,name,color?,line?,data?}]} xKey yKey xLabel? yLabel? height?={320} markers?={[{x,y,label,color}]} xDomain? yDomain? />`
+  - fidelity options: `referenceLines={[{x|y|segment, label?, position?, labelPosition?, color?, dashed?, strokeWidth?}]}`
+    (means, medians, thresholds, regression lines), `xTicks` / `yTicks={[{value,label}]}` (exact source ticks),
+    `stacked` (stacked bars / mosaic shares), `barCategoryGap={0}` (histograms), `tooltip={false}`
+- `<BoxPlot groups={[{label,low,q1,median,q3,high,outliers?}]} domain={[min,max]} ticks={[…]} xLabel? title? source? decimal?="," />`
+  (horizontal; `low`/`high` = whisker ends)
+- `<Exercise title? question="…" options={[…]} answer={index|[indices]}>Lösung / Erklärung</Exercise>`
+  — only for exercises that exist in the source (§0.2); omit `answer` for open questions
 - `<DataTable columns={[{key,label,align?}]} rows={[{…}]} caption? highlight?={(row,i)=>bool} />`
 - `<KpiGrid items={[{value,label,accent?}]} columns? />`  accent: `default|positive|negative|warning|accent`
 - `<ProportionBar segments={[{label,value,color?,sub?}]} caption? source? showInline?={true} />`
@@ -165,11 +228,17 @@ lazy-loaded inside `DataChart` / `Diagram` / `Scene3D` / `Surface3D`.
   `CompareCard` `points`/`subtitle`.
 - **`<section id>` must equal a `meta.sections[].id`.** No umlauts in ids/slugs. No duplicate ids.
 - **Mermaid labels with special chars** go in quotes: `A["Text (mit Klammern)"]`.
+- **`$` in prose starts inline math** (remark-math). Write currency as `\$` in Markdown text; inside JS
+  string props a plain `$` is fine.
+- **No HTML entities in JSX attribute strings** (`&quot;` stays literal). Use a JS string instead:
+  `title={'Er sagte "Ja"'}`.
+- **`{` and `}` in prose start a JS expression.** Put code containing braces in backticks / code blocks.
 - **Section/heading/card styling is central** (`ContentSection.jsx`, `FullContentView.css`). Do not add
   per-topic CSS or wrapper styling that fights it.
 
 QA: run `npm run build` (or rely on the central build step). Verify ids match, no duplicate ids,
-keyTakeaways/examFocus/pitfalls populated, no assessment in content, no invented facts.
+keyTakeaways/examFocus/pitfalls populated, no self-authored assessment in content, no invented facts,
+figure inventory complete and every figure checked against its slide (§2.0).
 
 ---
 
@@ -185,11 +254,12 @@ For this module the PDFs are the primary source by explicit user instruction; Ma
 | 02 | `cfm-finanzberichte-und-kennzahlen` | `2-CorpFM - Vorlesung 2 Grundlagen.pdf` | 1–47 |
 | 03 | `cfm-shareholder-value-management` | `3.CorpFM - Vorlesung 2.2 Shareholder Value Management.pdf` | 1–34 (includes chapter 2.3) |
 
-Preserve source figure topology. Complex source figures can use local, cropped original images with descriptive alt text and a text explanation; do not replace an informative chart with an unrelated diagram. Source palette in original images is retained without creating a second UI palette. Quiz and training stay in their dedicated files.
+Figure handling follows §2.0 (applies to all modules).
 
-For the following Semester-4 modules, the primary source is the `*_MD+PDF.md` variant (OCR text + per-slide reconstruction briefings);
-fall back to the plain `.md`. PDFs only for targeted screenshots when a Markdown reference is locally
-unclear. **⚠ rows are ambiguous and MUST be confirmed by reading the source header/agenda first.**
+For the following Semester-4 modules, the primary source for **text** is the `*_MD+PDF.md` variant (OCR
+text + per-slide reconstruction briefings); fall back to the plain `.md`. For **figures, formulas, tables
+and exact numbers** the PDF is authoritative whenever it is available (§2.0). **⚠ rows are ambiguous and
+MUST be confirmed by reading the source header/agenda first.**
 
 ### Asset Management — `sources/semester-4/asset-management/MDs/MD+PDF/`  (accent: blue)
 Module.js declares Kap 2–9; **Kap 5 already built (gold standard) — skip**. Kap 1 is a new light intro.

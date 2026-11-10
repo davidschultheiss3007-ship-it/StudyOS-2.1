@@ -1,0 +1,663 @@
+import ertragsgesetz from '../assets/01-ertragsgesetz.png';
+import neoklassik from '../assets/01-neoklassik-auswahl.png';
+import weinlese from '../assets/01-weinlese.png';
+import grenzprodukt from '../assets/01-grenzprodukt.png';
+import kostenInversion from '../assets/01-kosten-inversion.png';
+import variableKosten from '../assets/01-variable-kosten.png';
+import grenzkosten from '../assets/01-grenzkosten.png';
+import gesamtkosten from '../assets/01-gesamtkosten.png';
+import durchschnittskosten from '../assets/01-durchschnittskosten.png';
+
+<section id="ioek-1-einfuehrung">
+
+## Einführung und Vorlesungsüberblick
+
+**Industrieökonomik · Prof. Dr. Oliver Schlick · Wintersemester 26/27**
+
+<DefinitionBox term="Industrieökonomie" source="Folie 6">
+Industrieökonomie beschäftigt sich mit dem **Zusammenspiel zwischen Marktstruktur, Marktverhalten und Marktergebnis**. Ihr Schwerpunkt liegt auf möglichen **Strategien der Anbieter** bei unvollständigem Wettbewerb.
+</DefinitionBox>
+
+<Diagram title="Structure-Conduct-Performance-Ansatz" chart={`graph LR
+  A["Marktstruktur"] --> B["Marktverhalten"]
+  B --> C["Marktergebnis"]
+`} source="Folie 6 · Knotenfolge und Pfeilrichtung der Quelle. Auf schmalen Bildschirmen ist das Schema seitlich scrollbar, damit die Beschriftungen lesbar bleiben." height={200} minWidth={520} />
+
+<Columns count={3}>
+<Card title="Marktstruktur" tone="accent">
+
+- Wie viele Unternehmen und Nachfrager gibt es?
+- Welche Möglichkeiten der Produktdifferenzierung und welche Kostenstruktur bestehen?
+- Gibt es Marktschranken?
+
+</Card>
+<Card title="Marktverhalten">
+
+- Anbieter wählen Strategien, mit denen sie ihre Ziele verfolgen.
+- Dazu gehören Mengen- und Preisentscheidungen sowie Produktdifferenzierung.
+
+</Card>
+<Card title="Marktergebnis" tone="teal">
+
+- Produktionsmenge
+- Produktvielfalt
+- Wohlfahrt
+
+</Card>
+</Columns>
+
+### Vollkommener Wettbewerb als Ausgangspunkt
+
+<Card title="Die Annahmen · Folie 8">
+
+- **Viele Anbieter und viele Nachfrager.**
+- **Freier Markteintritt und -austritt.**
+- **Vollständige, kostenfreie Information:** Anbieter und Nachfrager kennen jederzeit den aktuellen Preis.
+- **Homogenes Gut:** exakt identische nachfragerelevante Eigenschaften, keine Markenpräferenzen.
+- **Privates Gut:** rivalisierend und ausschließbar, ohne externe Effekte.
+- **Keine Transaktionskosten**, etwa Fahrtkosten zwischen unterschiedlichen Anbietern.
+
+</Card>
+
+<Card title="Die Folgen · Folie 9" tone="accent">
+
+- Nachfrager entscheiden **ausschließlich anhand des Preises**.
+- Wer einen höheren Preis als die anderen verlangt, verliert alle Kunden.
+- Wer einen niedrigeren Preis verlangt, zieht die gesamte Nachfrage auf sich, operiert laut Skript aber nicht im Gewinnmaximum.
+- Anbieter und Nachfrager sind **Preisnehmer**: Sie können den Preis nicht beeinflussen.
+
+</Card>
+
+### Warum unvollständiger Wettbewerb?
+
+In der klassischen Mikroökonomie bei vollkommenem Wettbewerb steht im Skript die **Gewinnmaximierung bei vielen Anbietern und Nachfragern** im Mittelpunkt. Die Industrieökonomik fragt nach dem strategischen Verhalten, wenn dieses Modell die Realität nicht ausreichend erfasst.
+
+<DataTable caption="Erweiterungen der Annahmen · Folie 11" columns={[{key:'annahme',label:'Vollkommener Wettbewerb'},{key:'erweiterung',label:'Unvollkommener Wettbewerb'}]} rows={[
+  {annahme:'Viele Anbieter, viele Nachfrager',erweiterung:'Wenige oder nur ein Anbieter: Oligopol/Monopol; nur ein Nachfrager: Monopson.'},
+  {annahme:'Freier Markteintritt und -austritt',erweiterung:'Eintritt wegen zu hoher Kosten nicht möglich: natürliches Monopol.'},
+  {annahme:'Homogenes Gut ohne Markenpräferenzen',erweiterung:'Differenzierte, nicht direkt vergleichbare Güter: horizontale oder vertikale Produktdifferenzierung.'},
+]} />
+
+<Callout type="merksatz">Bei unvollständigem Wettbewerb kann ein Unternehmen **nicht ohne Rücksicht auf Verhalten und Reaktionen seiner Mitbewerber** agieren. Produktdifferenzierung und der Wettbewerb über Mengen oder Preise sind deshalb zentral.</Callout>
+
+Die Nachfrage nimmt in den betrachteten Theorien überwiegend eine **reagierende Rolle** ein; exogene Nachfrageveränderungen spielen eine untergeordnete Rolle. Später folgen praktische Fragen und Wettbewerbspolitik.
+
+### Vollständige Kapitelübersicht des Skripts
+
+<Card title="I. Theorie der Industrieökonomik · Folien 2–4">
+
+1. **Einführung**
+2. **Propädeutik:** Ableitungsregeln; Maximalbedingungen; Grundlagen der Unternehmenstheorie; Preis-Absatz-Funktion.
+3. **Vollkommene Konkurrenz:** Annahmen im Vergleich; Beispiele; Funktionsweise; formale Darstellung; von Grenzkosten zur Angebotsfunktion; grafisches Gesamtmodell; Rechenbeispiel; Wohlfahrtsmessung und Konsumentenrente; Wohlfahrt bei vollkommener Konkurrenz.
+4. **Monopol:** Annahmen; Beispiele; Funktionsweise; formale Darstellung; Ergebnisvergleich mit vollkommener Konkurrenz; grafische Darstellung; Rechenbeispiel; Wohlfahrtsmessung und Produzentenrente; Wohlfahrtsvergleich und Beurteilung. **Exkurs 1:** Wohlfahrt und Rente im Standardfall und im Vergleich.
+5. **Preisdiskriminierung:** Vorbemerkungen; perfekte Preisdiskriminierung; Arten; allgemeine Funktionsweise; Wohlfahrtseffekte im Vergleich; Gesamtbeurteilung des Monopols.
+6. **Monopolistische Konkurrenz:** Annahmen; Beispiele; Funktionsweise; grafische Darstellung; Ergebnisvergleich mit vollkommener Konkurrenz und Monopol.
+7. **Einführung zur Marktform des Oligopols:** Annahmen; Beispiele; Funktionsweise.
+8. **Simultane Mengenentscheidungen nach Cournot:** Annahmen; Beispiele; Funktionsweise; formale Darstellung mit Reaktionsfunktion, grafischer Reaktionsfunktion sowie Mengen, Preisen und Gewinnen; Ergebnisvergleich mit Monopol und vollkommener Konkurrenz; Rechenbeispiel; erneuter Ergebnisvergleich; Wohlfahrtsvergleich.
+9. **Oligopole und spieltheoretische Behandlung:** Warum sprechen sich Oligopolisten nicht ab? Entscheidungsproblem als Spiel; Gefangenendilemma; bekannte Strategien; Erkenntnis von Nash und Cournot. **Exkurs 2:** Einordnung der Erkenntnisse von Cournot und Nash in die volkswirtschaftlichen Theorien.
+10. **Mengenentscheidung bei Produktdifferenzierung:** Annahmen; Beispiele; Funktionsweise; Erweiterung des Grundmodells; Rechenbeispiel; Vergleich mit Monopol, vollkommenem Wettbewerb und Oligopol.
+11. **Oligopol mit sequentieller Mengenentscheidung:** Annahmen; Beispiele; Funktionsweise; formale Darstellung; Ergebnisvergleich mit Monopol, vollkommenem Wettbewerb und klassischem Oligopol; Rechenbeispiel; erneuter Ergebnisvergleich; Wohlfahrtsvergleich.
+12. **Oligopol und Preiskampf:** Annahmen; Beispiele; Funktionsweise; formale Darstellung mit Reaktionsfunktion, grafischer Reaktionsfunktion und Bertrand-Paradoxon im Angebots-Nachfrage-Diagramm; Auswege über Bestpreisgarantie, Produktdifferenzierung (formale Darstellung, Reaktionsfunktion und deren Veränderung) sowie Quersubventionierung.
+
+</Card>
+
+<Columns count={2}>
+<Card title="II. Praktische Fragen · Folien 4–5">
+
+13. **Produktwettbewerb und Marktzutritt:** kosten-, nachfrage-, wettbewerbs- und kundenorientierte Preispolitik; Produktdifferenzierung; Marktzutritt.
+14. **Zweiseitige Märkte:** Vorbemerkungen; Kreditkartenmarkt; direkte/indirekte Netzwerkeffekte; zwei Effekte indirekter Netzwerkeffekte; Rolle des Intermediärs; Vorab-Zusammenfassung; Effekte zweiseitiger Märkte.
+15. **Forschung und Entwicklung:** Vorbemerkung; Prozessinnovation und Marktstruktur mit Wirkungen in beide Richtungen, Beispiel drastischer Innovation und grafischer Darstellung; Produktinnovation und Marktstruktur.
+
+</Card>
+<Card title="III. Wettbewerbsbeschränkungen und -politik · Folie 5">
+
+16. **Wettbewerbsbeschränkungen:** Vorbemerkungen; Kartelle und kollusive Absprachen; Anbieterkonzentration und Fusion; Marktzutrittsabschreckung und Verdrängungswettbewerb.
+17. **Wettbewerbspolitik:** Vorbemerkungen; gesetzliche Grundlagen; Kartellverbot; marktbeherrschende Stellung; Kartellamt; Monopolkommission.
+
+</Card>
+</Columns>
+
+<Callout type="info" title="Umfang dieses Topics">Teil 1 behandelt Einführung, Propädeutik und den Beginn der vollkommenen Konkurrenz. Die Gesamtgliederung kündigt weitere Kapitel an; sie werden hier nicht als bereits vorliegender Lehrstoff ausgegeben. Die Haupt-PDF umfasst 45 Seiten; gedruckte Folien 26 und 30 fehlen in der bereitgestellten Datei.</Callout>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 1–11, 14–15</SourceNote>
+</section>
+
+<section id="ioek-1-marktformen">
+
+## Marktstruktur und Marktverhalten im Vergleich
+
+Die beiden Tabellen bewahren die **vier Marktformen und die Vergleichsreihenfolge** der Folien.
+
+<DataTable caption="Anbieter, Produkte, Preissetzung und Regel · Folie 12" columns={[
+  {key:'merkmal',label:'Merkmal'},
+  {key:'vk',label:'Vollkommene Konkurrenz'},
+  {key:'mk',label:'Monopolistische Konkurrenz'},
+  {key:'ol',label:'Oligopol'},
+  {key:'mo',label:'Monopol'},
+]} rows={[
+  {merkmal:'Anbieter',vk:'Unendlich viele kleine',mk:'Viele kleine',ol:'Einige wenige',mo:'Einer'},
+  {merkmal:'Produkte',vk:'Vollkommen substituierbar',mk:'Unterscheiden sich in gewissen Merkmalen, aber begrenzt substituierbar: Produktdifferenzierung.',ol:'Vollkommen oder begrenzt substituierbar: homogenes oder inhomogenes Oligopol.',mo:'Nur ein Produkt'},
+  {merkmal:'Preissetzungsmöglichkeit',vk:'Keine',mk:'Monopolistischer Spielraum',ol:'Reaktionsverbundenheit / Strategieinterdependenz',mo:'Komplett; Preisdiskriminierung möglich'},
+  {merkmal:'Regel',vk:'(Grenzerlös =) Preis = Grenzkosten',mk:'Innerhalb des monopolistischen Spielraums GE = GK, außerhalb P = GK. Preisabsprachen nicht möglich: Produkte zu differenziert.',ol:'Nash-Gleichgewicht, Stackelberg. Achtung: Preisabsprachen möglich, Produkte sehr ähnlich.',mo:'Grenzerlös = Grenzkosten'},
+]} />
+
+<DataTable caption="Markteintritt und Gewinn · Folie 13" columns={[
+  {key:'merkmal',label:'Merkmal'},
+  {key:'vk',label:'Vollkommene Konkurrenz'},
+  {key:'mk',label:'Monopolistische Konkurrenz'},
+  {key:'ol',label:'Oligopol'},
+  {key:'mo',label:'Monopol'},
+]} rows={[
+  {merkmal:'Markteintrittsbarrieren',vk:'Keine',mk:'Geringe',ol:'Hohe',mo:'Hohe; unter anderem hohe Fixkosten'},
+  {merkmal:'Gewinnmechanismus',vk:'Unternehmerlohn als Kostenbestandteil, grob: Geschäftsführergehalt.',mk:'Gewinn wie ein Monopolist innerhalb des Spielraums, wenn sich das Produkt genügend abhebt.',ol:'Gewinn hängt von den Strategien ab, mit denen andere Oligopolmitglieder auf den einzelnen Unternehmer reagieren.',mo:'Unternehmerlohn und als einziger Anbieter zusätzlich Überschussgewinn möglich.'},
+  {merkmal:'Ergebnis',vk:'Kein Überschussgewinn',mk:'Überschussgewinn nur im monopolistischen Spielraum',ol:'Gewinn abhängig von der Reaktion der anderen',mo:'Überschussgewinn'},
+]} />
+
+<Callout type="pitfall" title="Unternehmerlohn gehört zu den Kosten">„Kein Überschussgewinn“ bedeutet in dieser Darstellung **nicht**, dass die unternehmerische Tätigkeit unentlohnt bleibt. Der Unternehmerlohn ist bereits Kostenbestandteil. Die Tabellen geben die zusammenfassende Modellcharakterisierung des Skripts wieder.</Callout>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 12–13</SourceNote>
+</section>
+
+<section id="ioek-1-analysetools">
+
+## Ableitungsregeln und Maximalbedingungen
+
+<Columns count={3}>
+<Card title="Differenzieren" tone="accent" compact>Funktionen ableiten und ihr Maximum berechnen; im Verlauf auch **partielle Differenzierungen**.</Card>
+<Card title="Unternehmenstheorie" compact>Die aus der Mikroökonomie bekannten **Kostenstrukturen** von Unternehmen verstehen.</Card>
+<Card title="Grafiken lesen" tone="teal" compact>Verschobene oder gedrehte Funktionen und ihre **Lageparameter** erkennen.</Card>
+</Columns>
+
+### Grundfunktionen und Ableitungen
+
+<DataTable caption="Grundfunktionen in der Reihenfolge von Folie 17" columns={[{key:'f',label:'Funktion f(x)'},{key:'df',label:'Ableitung f′(x)'},{key:'hinweis',label:'Bemerkung'}]} rows={[
+  {f:<Formula inline expr="x" />,df:<Formula inline expr="1" />,hinweis:''},
+  {f:<Formula inline expr="x^2" />,df:<Formula inline expr="2x" />,hinweis:''},
+  {f:<Formula inline expr="x^3" />,df:<Formula inline expr="3x^2" />,hinweis:''},
+  {f:<Formula inline expr="x^n" />,df:<Formula inline expr="n x^{n-1}" />,hinweis:'n ist reell'},
+  {f:<Formula inline expr="\frac{1}{x}" />,df:<Formula inline expr="-\frac{1}{x^2}" />,hinweis:''},
+  {f:<Formula inline expr="\sqrt{x}" />,df:<Formula inline expr="\frac{1}{2\sqrt{x}}" />,hinweis:''},
+  {f:<Formula inline expr="\sin x" />,df:<Formula inline expr="\cos x" />,hinweis:''},
+  {f:<Formula inline expr="\cos x" />,df:<Formula inline expr="-\sin x" />,hinweis:''},
+  {f:<Formula inline expr="\tan x" />,df:<Formula inline expr="1+\tan^2 x=\frac{1}{\cos^2 x}" />,hinweis:''},
+  {f:<Formula inline expr="e^x" />,df:<Formula inline expr="e^x" />,hinweis:'e ist die Eulersche Zahl'},
+  {f:<Formula inline expr="a^x" />,df:<Formula inline expr="\ln(a)\,a^x" />,hinweis:''},
+  {f:<Formula inline expr="\ln x" />,df:<Formula inline expr="\frac{1}{x}" />,hinweis:''},
+]} />
+
+<DataTable caption="Ableitungsregeln in der Reihenfolge von Folie 17" columns={[{key:'f',label:'Funktion'},{key:'df',label:'Ableitung'},{key:'regel',label:'Regel'}]} rows={[
+  {f:<Formula inline expr="c" />,df:<Formula inline expr="0" />,regel:'Konstantenregel'},
+  {f:<Formula inline expr="g(x)+h(x)" />,df:<Formula inline expr="g'(x)+h'(x)" />,regel:'Summenregel'},
+  {f:<Formula inline expr="k\,g(x)" />,df:<Formula inline expr="k\,g'(x)" />,regel:'Faktorregel'},
+  {f:<Formula inline expr="g(x)\,h(x)" />,df:<Formula inline expr="g'(x)\,h(x)+g(x)\,h'(x)" />,regel:'Produktregel'},
+  {f:<Formula inline expr="(g(x))^n" />,df:<Formula inline expr="n(g(x))^{n-1}\,g'(x)" />,regel:'Potenzregel'},
+  {f:<Formula inline expr="\frac{g(x)}{h(x)}" />,df:<Formula inline expr="\frac{h(x)\,g'(x)-g(x)\,h'(x)}{(h(x))^2}" />,regel:'Quotientenregel'},
+  {f:<Formula inline expr="h(g(x))" />,df:<Formula inline expr="h'(g(x))\,g'(x)" />,regel:'Kettenregel'},
+]} />
+
+### Maximum einer Funktion
+
+<Columns count={2}>
+<Card title="Bedingung erster Ordnung" tone="accent" exam>
+<Formula expr="f'(x)=0" />
+</Card>
+<Card title="Bedingung zweiter Ordnung" exam>
+<Formula expr="f''(x)<0" />
+</Card>
+</Columns>
+
+<Exercise title="Beispiel aus Folie 18" question="Gegeben ist die Funktion π = ax − bx². Bei welchem x erzielt das Unternehmen sein Maximum? Die Bedingung erster Ordnung genügt laut Aufgabenstellung.">
+
+<Formula expr="\begin{aligned}\frac{\partial\pi}{\partial x}&=a-2bx=0\\x&=\frac{a}{2b}\end{aligned}" />
+
+Dies ist die **auf der Folie angegebene Lösung**. Die allgemeine Maximalprüfung erfolgt zusätzlich über die zweite Ableitung; die Aufgabenstellung fordert hier ausdrücklich nur die erste Bedingung.
+
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 16–18</SourceNote>
+</section>
+
+<section id="ioek-1-unternehmer">
+
+## Unternehmerverhalten und Grenzbetrachtung
+
+<Card title="Grundannahmen der Unternehmenstheorie · Folie 19">
+
+- Der Unternehmer kennt seine **Kostenstruktur** und deren Veränderung bei Produktionsausweitung oder -reduktion.
+- Er produziert mit den gegebenen Einsatzfaktoren die maximal mögliche Menge: **Effizienz**.
+- Er kennt **Marktverhältnisse und Absatzchancen**.
+- Er handelt als **homo oeconomicus**.
+
+</Card>
+
+<Columns count={2}>
+<Card title="Homo oeconomicus · Idealtyp" tone="accent">
+
+- Ausschließlich ökonomische Motive.
+- Unveränderte Präferenzen.
+- Nutzen- und/oder Gewinnmaximierung: **ökonomisch rationales Handeln**.
+- Kennt sämtliche Handlungsmöglichkeiten, Funktionsweisen der Märkte und Eigenschaften der Güter.
+- **Vollkommene Information und vollständige Markttransparenz**.
+
+</Card>
+<Card title="Kritik und Einordnung · Folie 20" tone="warning">
+
+- Handeln bei unvollkommener Information wird nicht erfasst.
+- Daraus entstehen Weiterentwicklungen durch die **Informationstheorie**.
+- Kritik: Das Menschenbild ist realitätsfern.
+- Das Skript warnt, die **Zweckmäßigkeit** des Idealbilds mit notwendigen Ergänzungen zu verwechseln, etwa dem Umgang mit unvollkommener Information.
+
+</Card>
+</Columns>
+
+### Die zusätzliche Einheit entscheidet
+
+<DefinitionBox term="Gewinnmaximierendes Unternehmerverhalten" source="Folie 21">
+Die Produktion wird so lange ausgedehnt, wie der **zusätzliche Umsatz je Stück** höher ist als die **zusätzlichen Kosten je Stück**.
+</DefinitionBox>
+
+<CompareCard items={[
+  {title:'Grenzerlös',accent:'accent',points:['Zusätzlicher Umsatz einer weiteren verkauften Einheit.','Seine Höhe hängt von den Preissetzungsmöglichkeiten des Unternehmens ab.']},
+  {title:'Grenzkosten',accent:'warning',points:['Zusatzkosten einer weiteren produzierten Einheit.','Können gegenüber der vorherigen Einheit niedriger oder höher sein.']},
+]} />
+
+<DataTable caption="Preissetzung und Marktstruktur · Folie 22" columns={[{key:'markt',label:'Marktstruktur'},{key:'entscheidung',label:'Preissetzung'}]} rows={[
+  {markt:'Monopol',entscheidung:'Preise können laut Skript mehr oder weniger selbst festgelegt werden.'},
+  {markt:'Oligopol',entscheidung:'Preissetzung abhängig von der Reaktion der anderen Unternehmen.'},
+  {markt:'Viele ähnliche Unternehmen',entscheidung:'Im oder nahe beim Regime des vollkommenen Wettbewerbs.'},
+]} />
+
+<Columns count={2}>
+<Card title="Sinkende Zusatzkosten" tone="positive">
+
+- Mengenrabatte machen Vorprodukte günstiger.
+- Mehr Angestellte ermöglichen effizientere Arbeitsaufteilung.
+
+</Card>
+<Card title="Steigende Zusatzkosten" tone="warning">
+
+- Höhere Kapazitätsauslastung verlangt Überstundenzuschläge.
+- Maschinenwartung wird teurer.
+
+</Card>
+</Columns>
+
+Das Kostenverhalten hängt nach dem Skript von **Marktmacht** und technischen Möglichkeiten ab. Letztere werden durch die **Produktionsfunktion** beschrieben.
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 19–23</SourceNote>
+</section>
+
+<section id="ioek-1-produktion">
+
+## Produktionsfunktion, Grenzprodukt und Skalenerträge
+
+### Ertragsgesetzliche Produktionsfunktion
+
+<Card title="Landwirtschaftliches Ausgangsbeispiel · Folie 24">
+
+- Ein Acker verursacht **Fixkosten**; Saatgut wird schrittweise ausgebracht.
+- Anfangs nimmt die Ernte je Einheit Saatgut **überproportional** zu.
+- Mit Sättigung des Bodens steigt die Ernte nur noch proportional, dann unterproportional.
+- Schließlich kann weiteres Saatgut dem Boden schaden; der Ertrag sinkt.
+- Kehrt man den Zusammenhang um und betrachtet den Ernteertrag als unabhängige Variable, erhält man die Kostenperspektive: anfangs sinkende Kosten je Kilogramm, später mehr Saatgut je Kilogramm, am Ende überproportional steigende Kosten.
+
+</Card>
+
+<a href={ertragsgesetz} target="_blank" rel="noreferrer" aria-label="Ertragsgesetzliche Produktionsfunktion und zugehörige Kostenkurven vergrößern">
+<img src={ertragsgesetz} alt="Original der Folie 24: Ertragsfunktion mit Phasen I bis IV sowie darunter Gesamt-, Fix-, variable und durchschnittliche Kostenkurven mit den zugehörigen Phasengrenzen." />
+Abbildung vergrößern
+</a>
+
+Die historische Mehrfachgrafik bleibt als Original erhalten, damit **Phasen, Kurvenverläufe und zugeordnete Kostenbegriffe** zusammen lesbar bleiben.
+
+### Neoklassische Produktionsfunktion
+
+<a href={neoklassik} target="_blank" rel="noreferrer" aria-label="Auswahl des neoklassischen Produktionsbereichs vergrößern">
+<img src={neoklassik} alt="Originalmarkierung aus Folie 25: Ein Rahmen hebt den Teil der Ertragsfunktion mit abnehmenden Grenzerträgen hervor; ein Pfeil ordnet ihn der neoklassischen Produktionsfunktion zu." />
+Abbildung vergrößern
+</a>
+
+<Card title="Warum abnehmende Grenzerträge? · Folie 25" tone="accent">
+
+- Die moderne Ökonomie verwendet im Skript in der Regel eine **neoklassische Produktionsfunktion mit abnehmenden Grenzerträgen**.
+- Ein effizienter Unternehmer würde nicht langfristig in einem Bereich bleiben, in dem zusätzliche Inputs noch überproportionale Erträge und sinkende Grenzkosten ermöglichen.
+- Er hätte den Input bereits so ausgeweitet, dass weitere Faktoreinsätze keinen überproportionalen Ertrag mehr liefern.
+
+</Card>
+
+<a href={weinlese} target="_blank" rel="noreferrer" aria-label="Produktionskurve mit abnehmenden Grenzerträgen vergrößern">
+<img src={weinlese} alt="Folie 27: Output auf der vertikalen Achse und Anzahl Angestellte auf der horizontalen Achse. Eine steigende, konkave Kurve zeigt bei gleich großen Personalzuwächsen abnehmende Outputzuwächse; Pfeile markieren die Unterschiede." />
+Abbildung vergrößern
+</a>
+
+<Card title="Beispiel Weinlese · Folie 27">
+
+- Der erste Erntehelfer wählt die vollsten Rebstöcke und liefert volle Körbe.
+- Der zweite sucht länger nach den verbliebenen Trauben und liefert in gleicher Arbeitszeit weniger.
+- Er sorgt weiterhin für **zusätzlichen Ertrag**, aber der Zusatz ist **geringer**.
+- Der Output eines zusätzlichen Angestellten sinkt mit der bereits beschäftigten Zahl.
+
+</Card>
+
+### Mehrere Produktionsfaktoren
+
+<CompareCard items={[
+  {title:'Begrenzt substituierbare Faktoren',accent:'accent',points:['Arbeit: Angestellte; Kapital: Maschinen, Büros.','Ein Faktor lässt sich bis zu einem bestimmten Grad durch einen anderen ersetzen.','Klassische Produktionsfunktion mit abnehmenden Grenzerträgen.']},
+  {title:'Strenges Einsatzverhältnis',accent:'purple',points:['Faktoren stehen in einem festen Verhältnis.','Kein Ersetzen eines Faktors durch den anderen.','Linear-limitationale Produktionsfunktion.']},
+]} />
+
+<Formula title="Cobb-Douglas-Produktionsfunktion des Skripts · Folie 28" expr="\begin{gathered}f(x_1,x_2)=\beta x_1^{\alpha}x_2^{1-\alpha}\\0<\alpha<1\end{gathered}" />
+
+<Card title="Eigenschaften · Folie 28" tone="teal">
+
+- **Positive Grenzprodukte:** Mehr von einem Faktor erhöht den Output.
+- **Abnehmende Grenzprodukte:** Zusätzlicher Einsatz eines Faktors bei konstant gehaltenen übrigen Faktoren führt zu immer kleineren Outputzuwächsen.
+- Faktoren sind **begrenzt substituierbar**; beide werden benötigt.
+- Das **Grenzprodukt (marginal product)** ist die partielle Ableitung der Produktionsfunktion nach einem Faktor.
+
+</Card>
+
+<Formula title="Grenzprodukt von Faktor 1" expr="MP_1=\frac{\partial f(x_1,x_2)}{\partial x_1}" />
+
+<a href={grenzprodukt} target="_blank" rel="noreferrer" aria-label="Grenzprodukt bei abnehmenden Grenzerträgen vergrößern">
+<img src={grenzprodukt} alt="Folie 29: Die Produktionsfunktion f(x₁, x̄₂) steigt konkav. Hilfslinien markieren gleich große Änderungen von x₁ und kleiner werdende Outputzuwächse MP, während Faktor x₂ konstant bleibt." />
+Abbildung vergrößern
+</a>
+
+### Skalenerträge: alle Faktoren gleichzeitig ändern
+
+<DefinitionBox term="Skalenerträge" source="Folie 29">
+Die Frage ist, wie sich das Produktionsergebnis verändert, wenn **alle Produktionsfaktoren im gleichen Verhältnis** verändert werden. Beim Grenzprodukt verändert man dagegen nur **einen** Faktor und hält die übrigen konstant.
+</DefinitionBox>
+
+<CompareCard items={[
+  {title:'Steigende Skalenerträge',accent:'positive',points:['Output steigt überproportional zum gemeinsamen Faktoreinsatz.','Spezialisierung und Produktivitätseffekte bei Kapazitätserweiterung und zusätzlichen Angestellten.']},
+  {title:'Konstante Skalenerträge',accent:'accent',points:['Output steigt proportional zum gemeinsamen Faktoreinsatz.','Keine zusätzliche Produktivität mehr herauszuholen.']},
+  {title:'Fallende Skalenerträge',accent:'warning',points:['Output steigt unterproportional zum gemeinsamen Faktoreinsatz.','Bei großer Organisation wächst Overhead, ohne entsprechend zur Produktion beizutragen.']},
+]} />
+
+<Callout type="warn" title="Unpräzise Kostenformulierung der Quelle">Folie 29 spricht bei steigenden beziehungsweise fallenden Skalenerträgen auch von sinkenden beziehungsweise steigenden „Gesamtkosten“. Diese Formulierung ist ohne Bezugsgröße unpräzise. Die Folie selbst definiert den Zusammenhang eindeutig über die **Outputveränderung bei proportionaler Veränderung aller Produktionsfaktoren**; daran orientiert sich der Vergleich oben.</Callout>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 24–25, 27–29</SourceNote>
+</section>
+
+<section id="ioek-1-kosten">
+
+## Kosten und Gewinnmaximierung
+
+### Von der Produktions- zur Kostenfunktion
+
+<a href={kostenInversion} target="_blank" rel="noreferrer" aria-label="Umkehrung von Produktions- zu Kostenfunktion vergrößern">
+<img src={kostenInversion} alt="Folie 31: Drei verbundene Diagramme zeigen die konkave Produktionsfunktion über Angestelltenzahl, die Multiplikation mit dem Gehalt von einer Geldeinheit und die invertierte, konvexe Kostenfunktion über dem Output; große Pfeile markieren den Achsenwechsel." />
+Abbildung vergrößern
+</a>
+
+Die Grafik kehrt den Produktionszusammenhang um: **Angestelltenzahl × Gehalt von 1 Geldeinheit** wird zu den Kosten der Angestellten. Output wird zur horizontalen Bezugsgröße der Kostenfunktion.
+
+<a href={variableKosten} target="_blank" rel="noreferrer" aria-label="Variable Kosten bei steigendem Output vergrößern">
+<img src={variableKosten} alt="Folie 32: Eine konvexe rote Kostenkurve mit Output horizontal und Inputkosten vertikal. Blaue Hilfslinien verdeutlichen, dass zusätzliche Outputeinheiten immer größere Kostensteigerungen verlangen." />
+Abbildung vergrößern
+</a>
+
+<Card title="Kostenfunktion · Folie 32">
+
+- Inputkosten sind **variable Kosten**; sie können kurzfristig etwa über die Zahl der Angestellten verändert werden.
+- Bei sukzessiver Outputsteigerung steigen die Kosten im gezeigten Fall **überproportional**.
+- **Fixkosten** sind in dieser Grafik nicht enthalten; bei Durchschnittskosten spielen sie eine wichtige Rolle.
+
+</Card>
+
+### Grenzkosten
+
+<a href={grenzkosten} target="_blank" rel="noreferrer" aria-label="Kosten und Grenzkosten im Quellenbeispiel vergrößern">
+<img src={grenzkosten} alt="Folie 33: Links steigt die Kostenkurve zwischen Output 8 und 9 von Kosten 3 auf 5. Rechts liegt der markierte Grenzkostenwert bei Output 9 bei 2. Pfeile und Hilfslinien verbinden den Kostenzuwachs von 2 mit dem Grenzkostenwert." />
+Abbildung vergrößern
+</a>
+
+<Formula title="Gedrucktes Schrittbeispiel der Folie 33" expr="\begin{aligned}\Delta x&=9-8=1\\\Delta K&=5-3=2\\\frac{\Delta K}{\Delta x}&=2\end{aligned}" />
+
+<DefinitionBox term="Grenzkosten" source="Folie 33">
+Die Kosten der **nächsten produzierten Einheit**. Mathematisch beschreibt das Skript sie näherungsweise als Ableitung der Kosten nach der Menge.
+</DefinitionBox>
+
+<Formula expr="GK=K'(x)" />
+
+Mit konstantem Maschinenpark wird zunehmende Auslastung, etwa an Sonn- und Feiertagen, teurer. Der Anstieg hängt nach Folie 33 von der **Produktionselastizität des variierten Faktors** ab.
+
+### Kurzfristige Gesamt- und Durchschnittskosten
+
+<a href={gesamtkosten} target="_blank" rel="noreferrer" aria-label="Kurzfristige Gesamtkosten, variable Kosten und Fixkosten vergrößern">
+<img src={gesamtkosten} alt="Folie 34: Variable Kosten steigen konvex vom Ursprung; Gesamtkosten verlaufen um den konstanten Fixkostenbetrag darüber. Eine horizontale Linie zeigt fixe Kosten, ein markierter vertikaler Schritt die Grenzkosten einer zusätzlichen Outputeinheit." />
+Abbildung vergrößern
+</a>
+
+<Card title="Kurzfristig bedeutet: Es gibt einen fixen Faktor · Folie 34">
+
+- Eine Fabrikhalle oder Fertigungsmaschine lässt sich kurzfristig nicht beliebig aufstocken.
+- **Gesamtkosten = variable Kosten + fixe Kosten.**
+- Bei **Output null** sind die variablen Kosten null; die Gesamtkosten entsprechen den Fixkosten.
+- Grenzkosten betreffen die zusätzliche Einheit, nicht die ohnehin anfallenden Fixkosten.
+
+</Card>
+
+<a href={durchschnittskosten} target="_blank" rel="noreferrer" aria-label="MC, ATC, AVC und AFC mit Minimalkostenmenge vergrößern">
+<img src={durchschnittskosten} alt="Folie 35: Steigende Grenzkosten MC, fallende durchschnittliche Fixkosten AFC, steigende durchschnittliche variable Kosten AVC und U-förmige durchschnittliche Gesamtkosten ATC. Die Minimalkostenmenge ist am Tiefpunkt von ATC durch eine senkrechte Hilfslinie markiert." />
+Abbildung vergrößern
+</a>
+
+<DataTable caption="Kostenbegriffe und Kurvenverlauf · Folie 35" columns={[{key:'kuerzel',label:'Kürzel'},{key:'begriff',label:'Begriff'},{key:'verlauf',label:'Verlauf und Begründung'}]} rows={[
+  {kuerzel:'MC',begriff:'Grenzkosten · Marginal Costs',verlauf:'Steigen wegen fallender Grenzerträge und überproportional zunehmender Kosten zusätzlicher Outputeinheiten.'},
+  {kuerzel:'AFC',begriff:'Durchschnittliche Fixkosten · Average Fixed Costs',verlauf:'Fallen rasch, weil sich dieselben Fixkosten auf immer mehr Einheiten verteilen.'},
+  {kuerzel:'ATC',begriff:'Durchschnittliche Gesamtkosten · Average Total Costs',verlauf:'Fallen zunächst wegen Fixkostendegression. Später überwiegen steigende Grenzkosten, sodass ATC steigen.'},
+  {kuerzel:'AVC',begriff:'Durchschnittliche variable Kosten · Average Variable Costs',verlauf:'Steigen im dargestellten Modell wegen steigender Grenzkosten je Einheit.'},
+]} />
+
+<Callout type="merksatz">Die **Minimalkostenmenge** ist die Produktionsmenge, bei der die **durchschnittlichen Gesamtkosten ihr Minimum** erreichen. Sie ist vom Gewinnmaximum zu unterscheiden.</Callout>
+
+### Der letzte Schritt: Gewinnmaximum
+
+<Formula title="Gewinn = Erlös − Kosten · Folie 38" expr="\pi(x)=p\cdot x-K(x)" legend={[{sym:'\\pi',desc:'Gewinn'},{sym:'p',desc:'Preis'},{sym:'x',desc:'Stückzahl'},{sym:'K(x)',desc:'Kosten der Menge x'}]} />
+
+Der Erlös entspricht Preis mal Stückzahl; die Kosten können auch als **Stückkosten mal Stückzahl** beschrieben werden. In der Quelle wird alles Produzierte verkauft, weshalb produzierte und abgesetzte Stückzahl nicht getrennt werden.
+
+<Formula title="Erste Ableitung des Gewinns" expr="\pi'(x)=\text{Grenzerlös}-\text{Grenzkosten}" />
+<Formula title="Bedingung für die optimale Produktionsmenge" expr="\begin{gathered}\pi'(x)=0\\\Rightarrow\quad\text{Grenzerlös}=\text{Grenzkosten}\end{gathered}" />
+
+<Callout type="examfocus">Solange **Grenzerlös höher als Grenzkosten** ist, lohnt die zusätzliche Einheit. Die optimale Menge liegt bei **Grenzerlös gleich Grenzkosten**. Erst im nächsten Schritt, bei vollkommener Konkurrenz, darf der Grenzerlös durch den **gegebenen Preis** ersetzt werden.</Callout>
+
+### Vertiefung aus der bereitgestellten Übungsquelle
+
+<Exercise title="Vertiefung Teil 1 · Aufgabe 1" question="Gehen Sie davon aus, dass der Gewinn eines Unternehmens dargestellt werden kann als „Erlös minus Kosten“. a. Wenn Sie den Erlös mathematisch darstellen müssten: wie würden Sie das tun? b. Wenn Sie die Kosten mathematisch darstellen müssten: wie würden Sie das tun? c. Wie sähe dann die mathematische Formulierung des Gewinns aus?">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Eine Quellenlösung wird deshalb nicht ergänzt. Der zugehörige Lehrstoff steht auf Folie 38 und in den Formeln dieses Abschnitts.
+
+</Exercise>
+
+<Exercise title="Vertiefung Teil 1 · Aufgabe 2" question="Wenn Sie den Gewinn maximieren wollen – wie gehen Sie vor, wenn Sie die mathematische Formulierung des Gewinnes gegeben haben? Beschreiben Sie!">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Bezug im Vorlesungsskript: Folien 18 und 36–38.
+
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 31–38 · Vertiefung Teil 1, S. 1, Aufgaben 1–2</SourceNote>
+</section>
+
+<section id="ioek-1-nachfrage">
+
+## Nachfrage und Preis-Absatz-Funktion
+
+Um den Grenzerlös außerhalb des vollkommenen Wettbewerbs zu bestimmen, muss bekannt sein, **welcher Preis sich für eine bestimmte Absatzmenge erzielen lässt**. Der Umsatz hängt von der Nachfrage ab.
+
+<CompareCard items={[
+  {title:'Nachfragefunktion x(p)',accent:'accent',points:['Menge in Abhängigkeit vom Preis.','Je höher der Preis, desto geringer die nachgefragte Menge.']},
+  {title:'Preis-Absatz-Funktion p(x)',accent:'purple',points:['Preis in Abhängigkeit von der Absatzmenge.','Die inverse Blickrichtung: welcher Preis lässt sich für eine Menge erzielen?']},
+]} />
+
+<Formula title="Schreibweise der Nachfrage auf Folie 40" expr="x(p)=a-bp" />
+<Formula title="Schreibweise der Preis-Absatz-Funktion auf Folie 40" expr="p(x)=a-bx" />
+
+<Callout type="warn" title="Parameter und Umsatz: zwei Unschärfen auf Folie 40">Die Folie verwendet in beiden Funktionen dieselben Symbole **a und b**. Bei einer algebraischen Umkehrung unveränderter Parameter ergibt sich jedoch die folgende Formel; für die übliche PAF-Schreibweise werden die Parameter neu benannt. Außerdem spricht die Folie vom Preis „in Abhängigkeit vom Umsatz“: Gemeint ist die **Absatzmenge x**, nicht der Umsatz.</Callout>
+
+<Formula title="Algebraische Umkehrung bei unveränderten Parametern · erläuternde Ableitung aus Folie 40" expr="x=a-bp\quad\Rightarrow\quad p=\frac{a}{b}-\frac{x}{b}" />
+
+### Achsenabschnitt, Steigung und Marktgröße
+
+<Formula title="Preis = Höchstpreis − Steigung × Absatzmenge" expr="\begin{aligned}p(x)&=a-bx\\\text{Beispiel: }p(x)&=5-\frac{1}{2}x\end{aligned}" />
+
+<DataChart title="Lineare Preis-Absatz-Funktion · Folie 41" type="line" xType="number" xKey="x" xLabel="x · Absatzmenge" yLabel="p · Preis" height={320} xDomain={[0,10]} yDomain={[0,5]} xTicks={[{value:0,label:''},{value:10,label:''}]} yTicks={[{value:0,label:''},{value:5,label:'a'}]} showGrid={false} tooltip={false} referenceLines={[{segment:[{x:1.75733,y:4.08125},{x:1.75733,y:3.13487}],dashed:false,color:'var(--color-module-orange)',strokeWidth:1.5},{segment:[{x:1.75733,y:3.13487},{x:3.69651,y:3.11752}],dashed:false,color:'var(--color-module-orange)',strokeWidth:1.5}]} data={[{x:0,p:5},{x:10,p:0}]} series={[{key:'p',name:'PAF: p = 5 − x/2'}]} source="Rekonstruiert aus der gedruckten Gleichung p = 5 − x/2 auf Folie 41; die beiden Stützpunkte sind algebraisch abgeleitet, keine zusätzlich erhobenen Marktdaten. Das Steigungsdreieck wurde aus PDF-Vektorkoordinaten rekonstruiert, kalibriert an den Achsenschnittpunkten der gedruckten Funktion. Seine Lage ist keine zusätzliche Marktmessung. Die Quelle beschriftet die Ordinate mit a und zeigt keine numerische Tickskala." />
+
+<Formula title="Steigungsannotation aus Folie 41" expr="\Delta x=1\quad\Rightarrow\quad\Delta p=-\frac{1}{2}" />
+
+<Columns count={3}>
+<Card title="Negative Steigung" tone="accent">
+
+- Der Term **−b** steht für die negative Neigung.
+- Mehr Absatz ist nur bei einem geringeren Preis möglich.
+- Im Beispiel fällt der Preis je zusätzlicher Mengeneinheit um **eine halbe Einheit**.
+
+</Card>
+<Card title="Reservationspreis a">
+
+- Schnittpunkt mit der **Ordinate**.
+- Ab diesem Höchstpreis wird nichts nachgefragt.
+- Im Beispiel: **Preis 5 → Menge 0**.
+
+</Card>
+<Card title="Sättigungsmenge" tone="teal">
+
+- Schnittpunkt mit der **Abszisse**.
+- Das Skript bezeichnet ihn auch als **Marktgröße**.
+- Die ganze dargestellte Absatzmenge ist bei Preis null erreicht.
+
+</Card>
+</Columns>
+
+### Veränderungen der Preis-Absatz-Funktion
+
+<EconDiagram title="b sinkt: Drehung der PAF · Folie 42" alt="Ausgangs-PAF p = 5 − x/2 und eine gestrichelte, flachere PAF mit demselben Ordinatenabschnitt a, die die Mengenachse weiter rechts schneidet." xMax={13} yMax={6} xLabel="x" yLabel="p"
+  yTicks={[{at:5,label:'a'}]}
+  curves={[
+    {points:[[0,5],[10,0]],tone:'demand',label:'PAF',labelAt:[5.2,1.7]},
+    {points:[[0,5],[11.6,0]],tone:'positive',dashed:true,label:'b ↓',labelAt:[9.9,1.05]},
+  ]}
+  notes={[{at:[0.4,1.35],text:'p = a − bx'},{at:[0.4,0.5],text:'p = 5 − ½x'}]}
+  source="Folie 42 · nachgebaut. Ausgangskurve aus der gedruckten Gleichung p = 5 − x/2; für die gestrichelte Kurve nennt die Quelle nur b < 1/2, ihr Achsenschnitt ist aus der Folienzeichnung übernommen (≈ 11,6)." />
+
+<Card title="b sinkt: flachere Kurve, größerer Markt" tone="positive">
+
+- Wird **b kleiner als 1/2**, wird die Kurve flacher.
+- Der Abszissenschnittpunkt rückt weiter vom Ursprung weg.
+- **Je kleiner b, desto größer der Markt** bei unverändertem a.
+
+</Card>
+
+<EconDiagram title="a sinkt: Parallelverschiebung der PAF · Folie 43" alt="Ausgangs-PAF p = 5 − x/2 und eine parallel nach links unten verschobene, gestrichelte PAF mit kleinerem Ordinatenabschnitt; markiert ist a↓." xMax={13} yMax={6} xLabel="x" yLabel="p"
+  yTicks={[{at:5,label:'a'}]}
+  curves={[
+    {points:[[0,5],[10,0]],tone:'demand',label:'PAF',labelAt:[6.4,2.2]},
+    {points:[[0,3.6],[7.2,0]],tone:'purple',dashed:true,label:'a ↓',labelAt:[0.9,3.75]},
+  ]}
+  guides={[{points:[[3.66,3.17],[0.86,3.17]]}]}
+  notes={[{at:[0.4,1.35],text:'p = a − bx'},{at:[0.4,0.5],text:'p = 5 − ½x'}]}
+  source="Folie 43 · nachgebaut. Ausgangskurve aus p = 5 − x/2; die verschobene Kurve ist parallel (gleiches b), ihr Ordinatenabschnitt (≈ 3,6) ist aus der Folienzeichnung übernommen – die Quelle nennt keinen Zahlenwert." />
+
+<Card title="a sinkt: geringere Zahlungsbereitschaft" tone="warning">
+
+- Die Nachfrage verschiebt sich **nach links**.
+- Konsumenten sind nur noch bereit, weniger zu zahlen.
+- Bei gleichen Preisen ist die Nachfrage geringer; der Markt schrumpft.
+
+</Card>
+
+### Vertiefungsaufgaben zur Nachfrage
+
+<Exercise title="Vertiefung Teil 1 · Aufgabe 4" question="Stellen Sie die Nachfrage auf einem Markt in einem Preis-Menge-Diagramm dar.">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Bezug: die Diagramme der Folien 41–43.
+
+</Exercise>
+<Exercise title="Vertiefung Teil 1 · Aufgabe 5" question="Welche Größe ist hier die unabhängige, welches die abhängige Variable?">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Die beiden Funktionsrichtungen werden auf Folie 40 unterschieden.
+
+</Exercise>
+<Exercise title="Vertiefung Teil 1 · Aufgabe 6" question="Wie sähe die mathematische Formulierung der Nachfrage aus?">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Bezug: Folien 40–41; die dortige Parameterunschärfe ist oben gekennzeichnet.
+
+</Exercise>
+<Exercise title="Vertiefung Teil 1 · Aufgabe 7" question="Welche Größe(n) muss sich verändern (und wie), damit der Markt größer wird?">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Bezug: Veränderungen der PAF auf Folien 42–43.
+
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 39–43 · Vertiefung Teil 1, S. 1, Aufgaben 4–7</SourceNote>
+</section>
+
+<section id="ioek-1-konkurrenz">
+
+## Vollkommene Konkurrenz: Modell und Vertiefung
+
+<Card title="Annahmen des Modells · Folie 44" tone="accent">
+
+- Viele Anbieter und viele Nachfrager.
+- Freier Markteintritt und -austritt.
+- Vollständige, kostenfreie Information über den aktuellen Preis.
+- Homogenes Gut: gleiche nachfragerelevante Eigenschaften, keine Markenpräferenzen.
+- **Keine Preissetzungsmöglichkeit des Unternehmers.**
+- Anpassung an veränderte Bedingungen nur über die Menge: **Preisnehmer und Mengenanpasser**.
+
+</Card>
+
+### Näherungsbeispiele des Skripts
+
+<Card title="Gleichartige Produkte, nahezu vollständige Information · Folie 45">
+
+- Teilweise Restaurants.
+- AirBnB-Wohnungen.
+- Zeitungskioske.
+- Lieferdienste.
+- Das Internet kann die Information nahezu vollständig machen.
+
+</Card>
+
+<Callout type="info" title="Managementperspektive nach Münter, S. 276">Die Folie nennt als Indizien: Im Management stehen Preissenkungen der Wettbewerber und die eigenen folgenden Preissenkungen sowie regelmäßige Kostensenkungen im Fokus; Innovationen und neue Geschäftsmodelle werden weniger diskutiert. Das Unternehmen kann dann offenbar nicht frei über Preise entscheiden. Die Beispiele sind Annäherungen an das Modell, keine Prüfung aller Idealannahmen für jeden genannten Markt.</Callout>
+
+### Funktionsweise
+
+<DefinitionBox term="Gewinnmaximum bei vollkommener Konkurrenz" source="Folie 46">
+Der zusätzliche Umsatz je Stück entspricht dem **gegebenen Preis**. Das Unternehmen dehnt seine Produktion aus, solange dieser höher als die zusätzlichen Kosten ist. Die gewinnmaximierende Menge erfüllt **Preis gleich Grenzkosten**.
+</DefinitionBox>
+
+### Formale Darstellung der Folie 47
+
+<Formula title="(1.1) Preis-Absatz-Funktion" expr="p=a-bx" />
+<Formula title="(1.2) Kosten" expr="K=GK\cdot x+FK" />
+<Formula title="(1.3) Gewinngleichung" expr="\pi=p\cdot x-GK\cdot x-FK" legend={[{sym:'GK',desc:'Grenzkosten'},{sym:'FK',desc:'Fixkosten'}]} />
+<Formula title="(1.4) Gewinnmaximierungsbedingung" expr="\begin{aligned}\frac{\partial\pi}{\partial x}&=0\\\Rightarrow\quad p-GK&=0\\\Rightarrow\quad p^*&=GK\end{aligned}" />
+<Formula title="(1.5) Gewinnmaximale Menge: (1.1) in (1.4) einsetzen" expr="\begin{aligned}GK&=a-bx\\\Rightarrow\quad x^*&=\frac{a-GK}{b}\end{aligned}" />
+<Formula title="(1.6) Gewinn ohne Berücksichtigung der Fixkosten" expr="\pi^*=(p-GK)\cdot x=0" />
+
+<Callout type="pitfall" title="Die Vereinfachungen mitlesen">Die Gleichungsfolge arbeitet mit **konstanten Grenzkosten** in der Kostenfunktion. Das Unternehmen behandelt den Preis als gegeben; die PAF beschreibt den Marktzusammenhang. Gleichung (1.6) lässt die Fixkosten **ausdrücklich außer Betracht**. Die Nullgewinnaussage darf deshalb nicht unverändert auf einen Fall mit positiven Fixkosten übertragen werden.</Callout>
+
+### Vertiefung zur vollkommenen Konkurrenz
+
+<Exercise title="Vertiefung Teil 1 · Aufgabe 3" question="Über welche Größe kann ein Unternehmen entscheiden, wenn es sich in einer Branche befindet, die sich durch vollkommene Konkurrenz auszeichnet?">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Bezug: Folie 44, Preisnehmer und Mengenanpasser.
+
+</Exercise>
+<Exercise title="Vertiefung Teil 1 · Aufgabe 8" question="Nennen Sie Beispiele für Märkte, auf denen vollkommene Konkurrenz herrscht.">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Die vom Skript genannten Näherungsbeispiele stehen auf Folie 45.
+
+</Exercise>
+<Exercise title="Vertiefung Teil 1 · Aufgabe 9" question="Allgemein: welche Maßnahmen kann ein Unternehmen treffen, um bei vollkommener Konkurrenz den Gewinn zu erhöhen? Gehen Sie bei der Beantwortung der Frage auch von einer Gewinngleichung aus!">
+
+Die Übungs-PDF enthält **keine Musterlösung**. Bezug: Folien 44–47; eine darüber hinausgehende Quellenlösung wird nicht erfunden.
+
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 1 · Folien 44–47 · Vertiefung Teil 1, S. 1, Aufgaben 3, 8–9</SourceNote>
+</section>

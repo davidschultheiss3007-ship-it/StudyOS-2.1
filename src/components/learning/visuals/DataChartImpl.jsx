@@ -48,7 +48,7 @@ function renderReferenceLines(lines) {
         strokeWidth={l.strokeWidth ?? 2}
         strokeDasharray={l.dashed === false ? undefined : '6 4'}
         ifOverflow="extendDomain"
-        label={l.label ? { value: l.label, position: l.labelPosition ?? 'insideTopRight', fontSize: 11, fill: 'var(--color-text-primary)' } : undefined}
+        label={l.label ? { value: l.label, position: l.labelPosition ?? 'insideTopRight', fontSize: 12, fill: 'var(--color-text-primary)' } : undefined}
       />
     );
   });
@@ -58,18 +58,20 @@ export default function DataChartImpl({
   type = 'line', data = [], series = [], xKey = 'x', yKey = 'y',
   xLabel, yLabel, height = 320, markers = [], xDomain, yDomain,
   referenceLines = [], xTicks, yTicks, stacked = false, barCategoryGap, tooltip = true,
+  xType = 'category', showGrid = true,
 }) {
   // Recharts enter-animations are JS-driven, so the global CSS reduced-motion
   // rule does not reach them — gate them explicitly.
   const animate = !(typeof window !== 'undefined'
     && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
-  const common = <CartesianGrid stroke={GRID} strokeDasharray="3 3" />;
-  // Optional labelled ticks for a numeric x axis, e.g. groups of a strip plot at x = 1, 2.
+  const common = showGrid && <CartesianGrid stroke={GRID} strokeDasharray="3 3" />;
+  // Symbolic ticks also support numeric line axes, without exposing the internal
+  // coordinates reconstructed from a source figure. Existing charts stay categorical.
   const tickProps = xTicks
-    ? { ticks: xTicks.map(t => t.value), tickFormatter: v => xTicks.find(t => t.value === v)?.label ?? v, allowDecimals: true }
+    ? { ticks: xTicks.map(t => t.value), tickFormatter: v => xTicks.find(t => t.value === v)?.label ?? v, allowDecimals: true, interval: 0 }
     : {};
   const yTickProps = yTicks
-    ? { ticks: yTicks.map(t => t.value), tickFormatter: v => yTicks.find(t => t.value === v)?.label ?? v, allowDecimals: true }
+    ? { ticks: yTicks.map(t => t.value), tickFormatter: v => yTicks.find(t => t.value === v)?.label ?? v, allowDecimals: true, interval: 0 }
     : {};
 
   if (type === 'scatter') {
@@ -99,8 +101,8 @@ export default function DataChartImpl({
     <ResponsiveContainer width="100%" height={height}>
       <Chart data={data} margin={{ top: 16, right: 24, bottom: 24, left: 12 }} {...(barCategoryGap !== undefined ? { barCategoryGap } : {})}>
         {common}
-        <XAxis dataKey={xKey} domain={xDomain} {...axisProps(xLabel, 'x')} />
-        <YAxis domain={yDomain} {...axisProps(yLabel, 'y')} />
+        <XAxis type={xType} dataKey={xKey} domain={xDomain} {...tickProps} {...axisProps(xLabel, 'x')} />
+        <YAxis domain={yDomain} {...yTickProps} {...axisProps(yLabel, 'y')} />
         {tooltip && <Tooltip {...tooltipStyle} cursor={{ fill: 'var(--color-accent-subtle)' }} />}
         {series.length > 1 && <Legend {...legendProps(xLabel)} />}
         {series.map((s, i) => {

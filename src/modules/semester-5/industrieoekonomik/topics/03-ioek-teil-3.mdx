@@ -1,0 +1,454 @@
+import renteAllgemein from '../assets/03-produzentenrente-allgemein.png';
+import standardfall from '../assets/03-standardfall.png';
+import steigendeGK from '../assets/03-steigende-grenzkosten.png';
+import rentenStandardfall from '../assets/03-rentenvergleich-standardfall.png';
+import perfektePD from '../assets/03-perfekte-preisdiskriminierung.png';
+import pdMonopol from '../assets/03-diskriminierung-monopol.png';
+import pdGering from '../assets/03-diskriminierung-gering.png';
+import pdFastPerfekt from '../assets/03-diskriminierung-fast-perfekt.png';
+import vergleichKonkurrenz from '../assets/03-vergleich-konkurrenz.png';
+import vergleichPerfekt from '../assets/03-vergleich-perfekt.png';
+import vergleichGering from '../assets/03-vergleich-gering.png';
+import vergleichMonopol from '../assets/03-vergleich-monopol.png';
+import vertiefungMonopol from '../assets/03-vertiefung-monopol.png';
+
+export const mono = {
+  xMax: 300, yMax: 300, xLabel: 'x', yLabel: 'p, GK',
+  curves: [
+    {points:[[0,280],[235,66]],tone:'demand'},
+    {points:[[0,280],[150,6.8]],tone:'mr',label:'Grenzerlös',labelAt:[154,10]},
+    {points:[[0,117],[280,117]],tone:'cost',label:'Grenzkosten',labelAt:[280,126],anchor:'end'},
+  ],
+  notesBase: [{at:[150,40],text:'Nachfrage = Durchschnittserlös',tone:'demand'}],
+  guides: [{points:[[0,198.5],[89.5,198.5],[89.5,0]]},{points:[[179,117],[179,0]]}],
+  xTicks: [{at:89.5,label:'xₘ'},{at:179,label:'x*'}],
+};
+export const monoPoints = [
+  {at:[0,280],label:'A',dx:-24,dy:6,dot:false},
+  {at:[0,198.5],label:'B',dx:-24,dy:6,dot:false},
+  {at:[0,117],label:'H',dx:-24,dy:6,dot:false},
+  {at:[89.5,198.5],label:'E',dx:6,dy:-8},
+  {at:[89.5,117],label:'G',dx:-18,dy:18},
+  {at:[179,117],label:'D',dx:6,dy:-8},
+];
+export const monoSource = 'nachgebaut; Geometrie aus der Folienzeichnung übernommen (symbolische Achsen, keine Zahlenwerte). Wie in der Quelle: GE hat die doppelte Steigung der Nachfrage, xₘ liegt bei GE = GK, x* bei Nachfrage = GK.';
+
+<section id="ioek-3-grenzerloes">
+
+## Grenzerlös und Preiseffekt
+
+<Card title="Methodische Einordnung" tone="accent">
+
+- Der Monopolist kann Preise **nicht beliebig** bestimmen. Ein einziger Anbieter bedient einen Markt mit negativ geneigter Preis-Absatz-Funktion.
+- Größeres Angebot bedeutet einen niedrigeren Preis. Verglichen wird unter gleichen Voraussetzungen (**ceteris paribus**) ein Markt mit vielen Unternehmen und derselbe Markt mit nur einem Unternehmen.
+- Dieses Modell isoliert die Wirkung der Anbieterzahl; die Vorstellung eines frei und unabhängig gesetzten Monopolpreises wäre irreführend.
+
+</Card>
+
+### Vollkommene Konkurrenz: Grenzerlös gleich Preis
+
+<DataTable caption="Rechenbeispiel der Folie 67 · sämtliche Quellwerte" columns={[{key:'x',label:'Menge',align:'right'},{key:'p',label:'Preis',align:'right'},{key:'u',label:'Umsatz',align:'right'},{key:'ge',label:'Grenzerlös',align:'right'}]} rows={[
+  {x:0,p:20,u:0,ge:'—'}, {x:1,p:20,u:20,ge:20}, {x:2,p:20,u:40,ge:20}, {x:3,p:20,u:60,ge:20},
+  {x:4,p:20,u:80,ge:20}, {x:5,p:20,u:100,ge:20}, {x:6,p:20,u:120,ge:20}, {x:7,p:20,u:140,ge:20},
+]} />
+
+<Callout type="pitfall" title="Rechenbeispiel ist keine unbegrenzte Produktionsregel">
+Auch ein Unternehmen bei vollkommener Konkurrenz erhöht seinen Output nur, solange die Grenzkosten unter dem Preis liegen. Die Tabelle zeigt lediglich den Erlöszuwachs bei gegebenem Preis; die optimale Produktionsmenge wird hier noch nicht durch Kosten begrenzt.
+</Callout>
+
+### Monopol: der Preis sinkt für alle Einheiten
+
+<Formula title="Umsatz und Grenzerlös für eine zusätzliche Einheit · Folie 68" expr="\begin{aligned}U_1&=x_1p_1,\quad U_2=x_2p_2\\GE&=U_2-U_1\\x_2&=x_1+1,\quad p_2<p_1\end{aligned}" />
+
+<DataTable caption="Rechenbeispiel der Folie 69 · Produktionsmenge, Preis, Umsatz und Grenzerlös" columns={[{key:'x',label:'Menge',align:'right'},{key:'p',label:'Preis',align:'right'},{key:'u',label:'Umsatz',align:'right'},{key:'ge',label:'Grenzerlös',align:'right'}]} rows={[
+  {x:0,p:20,u:0,ge:'—'}, {x:1,p:18,u:18,ge:18}, {x:2,p:16,u:32,ge:14}, {x:3,p:14,u:42,ge:10},
+  {x:4,p:12,u:48,ge:6}, {x:5,p:10,u:50,ge:2}, {x:6,p:8,u:48,ge:-2}, {x:7,p:6,u:42,ge:-6},
+]} />
+
+<Callout type="merksatz">Der zusätzliche Absatz erzeugt Erlös, aber die Preissenkung mindert zugleich den Erlös der bisherigen Einheiten. Wegen dieses **Preiseffekts ist der Grenzerlös kleiner als der Preis**.</Callout>
+
+<Exercise title="Quellfrage · Folie 70" question="Erklären Sie in Ihren eigenen Worten, worin der Grenzerlös bei einem Unternehmen in der Marktform der vollkommenen Konkurrenz und in der Marktform des Monopols besteht.">
+Die Quelle enthält zu dieser offenen Frage keine getrennte Musterlösung. Die vorausgehenden Tabellen und die Erläuterungen auf Folien 67–69 bilden ihre Grundlage.
+</Exercise>
+
+### Vertiefung an dieser Stelle
+
+<Exercise title="Vertiefung Teil 3 · Aufgabe 1" question="Der Begriff des Monopolisten ist häufig konnotiert mit der Fähigkeit Preise so zu setzen, wie es ihm beliebt. Der Einzelunternehmer, so wie in der Vorlesung dargestellt, kann das nicht. Sind die Preise also in diesem Modell demzufolge starr?">
+Im bereitgestellten Vertiefungsblatt ist keine Musterlösung enthalten. Bezug: methodische Einordnung auf Folie 66 und Preis-Absatz-Zusammenhang auf Folie 68.
+</Exercise>
+
+<Exercise title="Vertiefung Teil 3 · Aufgabe 2" question="Wenn ein Einzelunternehmer die Preise erhöhen würde, um seinen Gewinn zu erhöhen, welche Effekte spielen hier mit hinein?">
+Im bereitgestellten Vertiefungsblatt ist keine Musterlösung enthalten. Bezug: Preis-/Mengen- und Grenzerlöszusammenhang auf Folien 68–69.
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 66–70 · Vertiefung Teil 3, S. 1, Aufgaben 1–2</SourceNote>
+</section>
+
+<section id="ioek-3-monopoloptimum">
+
+## Das Monopoloptimum herleiten
+
+### Von der Preis-Absatz-Funktion zur Gewinnfunktion
+
+<Formula title="(2.1) Preis-Absatz-Funktion" expr="p=a-bx" legend={[{sym:'a',desc:'Reservationspreis / Maximalpreis'},{sym:'b',desc:'Reagibilität des Preises auf die Menge / Steigung'},{sym:'x',desc:'Produktions- und Absatzmenge'}]} />
+<Formula title="(2.2) Kosten bei konstanten Grenzkosten" expr="K=GK\cdot x+FK" legend={[{sym:'GK',desc:'konstante Grenzkosten'},{sym:'FK',desc:'Fixkosten'}]} />
+<Formula title="(2.3) Gewinn und Einsetzen der PAF" expr="\begin{aligned}\pi&=p\cdot x-GK\cdot x-FK\\&=(a-bx)x-GK\cdot x-FK\\&=ax-bx^2-GK\cdot x-FK\end{aligned}" />
+
+<Callout type="examfocus">Beim Monopol ist der Preis **von der Menge abhängig**. Er ist in der Gewinnfunktion nicht wie beim einzelnen Konkurrenzunternehmen als unveränderlicher Marktpreis zu behandeln.</Callout>
+
+<Formula title="Grenzerlös und Gewinnmaximierungsbedingung (2.4)" expr="\begin{aligned}U&=ax-bx^2\\GE&=a-2bx\\\frac{\partial\pi}{\partial x}&=a-2bx-GK=0\\\Longleftrightarrow\quad GE&=GK\end{aligned}" />
+
+<Columns count={2}>
+<Card title="(2.5.a) Zuerst die Menge bestimmen" tone="accent" exam>
+<Formula expr="x_m=\frac{a-GK}{2b}" />
+</Card>
+<Card title="(2.5.b) Dann in die Nachfrage einsetzen" exam>
+<Formula expr="p_m=p(x_m)=\frac{a+GK}{2}" />
+</Card>
+</Columns>
+
+<Callout type="pitfall" title="Achtung Notation: x* und p* doppelt belegt">
+Folie 71 schreibt das Monopoloptimum als **x\*** und **p\***, in den Diagrammen ab Folie 74 stehen x\* und p\* aber für das **Konkurrenzgleichgewicht**. Hier wird für das Monopol deshalb durchgehend **xₘ** und **pₘ** verwendet (wie in den Grafiken der Quelle), für die vollkommene Konkurrenz **x\*** und **p\***.
+</Callout>
+
+<Formula title="(2.6) Gewinn im Optimum" expr="\begin{aligned}\pi_m&=(p_m-GK)x_m-FK\\&=\frac{(a-GK)^2}{4b}-FK\end{aligned}" />
+<Formula title="Ohne Fixkosten" expr="\begin{aligned}FK&=0\\\pi_m&=\frac{(a-GK)^2}{4b}\end{aligned}" />
+
+Das Skript lässt Fixkosten für den Vergleich mit seinem Konkurrenzmodell weg, das ebenfalls ohne Fixkosten arbeitet. Für den allgemeinen Gewinnfall bleiben sie in der Gleichung erhalten.
+
+### Vergleich mit der vollkommenen Konkurrenz
+
+<Columns count={2}>
+<Card title="Monopol" tone="accent">
+<Formula expr="\begin{aligned}x_m&=\frac{a-GK}{2b}\\p_m&=\frac{a+GK}{2}\end{aligned}" />
+<Formula expr="\pi_m=\frac{(a-GK)^2}{4b}-FK" />
+</Card>
+<Card title="Vollkommene Konkurrenz">
+<Formula expr="\begin{aligned}x^*&=\frac{a-GK}{b}\\p^*&=GK\end{aligned}" />
+<Formula expr="\begin{aligned}\pi^*&=(p-GK)x=0\\&\text{bei }FK=0\end{aligned}" />
+</Card>
+</Columns>
+
+<Callout type="merksatz">Im verglichenen Modell ist die Monopolmenge **halb so groß** wie die Konkurrenzmenge; Monopolpreis und Monopolgewinn liegen höher.</Callout>
+
+### Die beiden Diagramme lesen
+
+<DataChart type="line" xType="number" showGrid={false} title="Konkurrenzgleichgewicht · Rekonstruktion von Folie 73" source="Geometrie aus PDF-Vektorkoordinaten rekonstruiert; symbolische Achsen, keine zusätzlichen ökonomischen Zahlen." height={340} xKey="x" xLabel="x" yLabel="p, GK" xDomain={[0,194.786]} yDomain={[0,158.586]} xTicks={[{value:112.176,label:'x*'}]} yTicks={[{value:67.636,label:'p*'},{value:158.586,label:'a'}]} tooltip={false} data={[
+  {x:0,paf:158.586,gk:67.636},
+  {x:112.176,paf:158.586*(1-112.176/194.786),gk:67.636},
+  {x:176.546,paf:158.586*(1-176.546/194.786),gk:67.636},
+  {x:194.786,paf:0,gk:null},
+]} series={[{key:'paf',name:'Preis-Absatz-Funktion'},{key:'gk',name:'GK'}]} referenceLines={[{segment:[{x:112.176,y:0},{x:112.176,y:67.636}],dashed:true}]} />
+
+<Card title="Konkurrenz · Folie 73">
+Preis gegeben: Output ausweiten bis **Preis = Grenzkosten**. Die waagrechte GK-Kurve vereinfacht die Darstellung.
+</Card>
+
+<EconDiagram title="Der Monopolist – grafisch · Folie 74" alt="Monopoldiagramm: fallende Nachfrage p = a − bx, doppelt so steile Grenzerlöskurve a − 2bx und waagrechte Grenzkosten. Der Schnitt GE = GK bestimmt xₘ; senkrecht darüber auf der Nachfrage liegt pₘ. Die Konkurrenzmenge x* liegt weiter rechts." {...mono}
+  yTicks={[{at:198.5,label:'pₘ'}]}
+  notes={[...mono.notesBase,{at:[150,270],text:'p = a − bx',tone:'demand'},{at:[150,248],text:'Grenzerlös = a − 2bx',tone:'mr'}]}
+  source={`Folie 74 · ${monoSource}`} />
+
+<Card title="Monopol · Folie 74" tone="accent">
+
+1. Die Menge dort wählen, wo **Grenzerlös = Grenzkosten**.
+2. Diese Menge in die Nachfragekurve einsetzen: erst dort ergibt sich der Monopolpreis.
+3. GE hat die doppelte Steigung der PAF. Im Vergleich zur Konkurrenz ist die Menge kleiner und der Preis höher.
+
+</Card>
+
+### Vertiefung: allgemeine Herleitung
+
+<Exercise title="Vertiefung Teil 3 · Aufgabe 3" question="Gegeben ist die Gewinnfunktion eines Einzelunternehmers: π = (a − bx) · x − GK · x − FK. a. Ermitteln Sie den Grenzerlös. b. Wie verhält sich der Grenzerlös bei steigender angebotener Menge x? c. Wie würde sich der Grenzerlös bei vollkommener Konkurrenz bei steigender angebotener Menge x verhalten?">
+Das Vertiefungsblatt enthält keine Musterlösung. Die Herleitung auf Folie 71 und der Konkurrenzvergleich auf Folien 67 und 72 sind oberhalb vollständig wiedergegeben.
+</Exercise>
+
+<Exercise title="Vertiefung Teil 3 · Aufgabe 4" question="Gehen Sie von einer Gewinnfunktion des Einzelunternehmers aus. a. Berechnen Sie die theoretische Menge und den theoretischen Preis im Gewinnmaximum! b. Wie hoch ist der theoretische Gewinn?">
+Das Vertiefungsblatt enthält keine Musterlösung. Bezug: allgemeine Gleichungen (2.3) bis (2.6) auf Folie 71, einschließlich des Fixkostenfalls.
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 71–74 · Vertiefung Teil 3, S. 1, Aufgaben 3–4</SourceNote>
+</section>
+
+<section id="ioek-3-rechenbeispiel">
+
+## Rechenbeispiel und Marktgröße
+
+<KpiGrid columns={3} items={[{value:'100',label:'Reservationspreis a',accent:'accent'},{value:'0,5',label:'Steigungsparameter b'},{value:'20',label:'Konstante Grenzkosten GK'}]} />
+
+<Exercise title="Quellaufgabe · Folien 75–76" question="Gegeben: a = 100; b = 0,5; GK = 20; keine Fixkosten. a. Errechnen Sie die Menge, bei der das Gewinnmaximum erzeugt wird. b. Errechnen Sie den Preis, bei dem das Gewinnmaximum erzeugt wird. c. Wie hoch ist der Gewinn im Gewinnmaximum? d. Was passiert, wenn b = 0,1: i. Ist der Markt nun größer oder kleiner? ii. Wie verändern sich Menge, Preise und Gewinn des Monopolisten?">
+
+**Musterlösung aus Folie 76** (die Folie schreibt x\*, p\*, π\*; hier als Monopolwerte xₘ, pₘ, πₘ):
+
+<Formula title="Gewinnfunktion" expr="\pi=100x-0{,}5x^2-20x=80x-0{,}5x^2" />
+<Formula title="a. Gewinnmaximale Menge" expr="\begin{aligned}\frac{\partial\pi}{\partial x}&=80-x=0\\x_m&=80\end{aligned}" />
+<Formula title="b. Gewinnmaximaler Preis" expr="p_m=100-0{,}5\cdot80=60" />
+<Formula title="c. Gewinn, direkt und mit Formel" expr="\begin{aligned}\pi_m&=(60-20)\cdot80=3200\\&=\frac{(100-20)^2}{4\cdot0{,}5}\end{aligned}" />
+
+**d.i.** Kleineres b macht die PAF flacher und verschiebt ihren Schnitt mit der Mengenachse nach rechts: maximale Menge **200** bei b = 0,5 und **1000** bei b = 0,1. Der Markt ist größer.
+
+<Formula title="d.ii. Neuer Fall b = 0,1" expr="\begin{aligned}x_m&=\frac{100-20}{2\cdot0{,}1}=400\\p_m&=\frac{100+20}{2}=60\\\pi_m&=\frac{(100-20)^2}{4\cdot0{,}1}=16000\end{aligned}" />
+
+</Exercise>
+
+<Callout type="warn" title="Quellfehler auf Folie 76">
+Vor den Maximalmengen 200 und 1000 steht im Skript **„Für a=0“**. Der Reservationspreis a ist weiterhin 100; gemeint ist der Mengenachsenschnitt bei **p = 0**. Der Fehler wird hier ausdrücklich benannt.
+</Callout>
+
+### Ergebnisse dauerhaft im Blick
+
+<DataTable caption="Ergebnisse der Musterlösung · Folie 76" columns={[{key:'b',label:'b'},{key:'menge',label:'Monopolmenge',align:'right'},{key:'preis',label:'Monopolpreis',align:'right'},{key:'gewinn',label:'Gewinn',align:'right'},{key:'max',label:'Menge bei p = 0',align:'right'}]} rows={[
+  {b:'0,5',menge:80,preis:60,gewinn:'3.200',max:200},
+  {b:'0,1',menge:400,preis:60,gewinn:'16.000',max:1000},
+]} />
+
+<DataTable caption="Ergebnistabelle der Folie 77 · Ausgangsfall b = 0,5" columns={[{key:'groesse',label:'Größe'},{key:'monopol',label:'Monopol',align:'right'},{key:'konkurrenz',label:'Vollkommener Wettbewerb',align:'right'}]} rows={[
+  {groesse:'Menge gesamt',monopol:80,konkurrenz:160},
+  {groesse:'Preis',monopol:60,konkurrenz:20},
+  {groesse:'Gewinn gesamt',monopol:'3.200',konkurrenz:0},
+]} />
+
+<Callout type="examfocus">Bei kleinerem b steigen in diesem Beispiel optimale Menge und Gewinn; der optimale Preis **bleibt 60**.</Callout>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 75–77</SourceNote>
+</section>
+
+<section id="ioek-3-produzentenrente">
+
+## Die Produzentenrente
+
+Die Frage, ob ein Monopol „gut“ oder „schlecht“ ist, wird durch den Vergleich mit vollkommener Konkurrenz und durch die Betrachtung der Renten beantwortet.
+
+<DefinitionBox term="Produzentenrente" source="Folien 78–79">
+Differenz zwischen dem Preis, den der Produzent **tatsächlich bekommt**, und dem Preis, zu dem er sein Angebot **gerade noch aufrechterhalten** kann. Der letztgenannte Preis entspricht im dargestellten Modell den Grenzkosten. Das Skript nennt diese Rente anschaulich das **Komfortniveau des Produzenten**.
+</DefinitionBox>
+
+### Allgemeine Darstellung der Rente
+
+<a href={renteAllgemein} target="_blank" rel="noreferrer" aria-label="Produzentenrente der Folie 80 vergrößern">
+<img src={renteAllgemein} alt="Folie 80: Preis-Absatz-Funktion, tatsächlicher Preis p*, waagrechte GK und gelb schraffierte Produzentenrente zwischen Preis und GK bis zur angebotenen Menge x. Pfeile erklären PAF, Preis und Grenzkosten." />
+Abbildung vergrößern
+</a>
+
+<Callout type="warn" title="p* wird in der Quelle kontextabhängig verwendet">
+Folie 80 zeigt einen tatsächlichen Preis **p*** oberhalb GK und bezeichnet GK zugleich als Preis bei vollkommener Konkurrenz. Auf Folie 81 bezeichnet **p*** dagegen den Konkurrenzpreis direkt auf der GK-Linie. Die Abbildungen sind unverändert; entscheidend ist jeweils die eingezeichnete Preislinie und ihr Bezug zu GK.
+</Callout>
+
+### Rente des Monopolisten
+
+<EconDiagram title="Produzentenrente im Monopol · Folie 81" alt="Monopol-Produzentenrente als schraffiertes Rechteck zwischen Monopolpreis pₘ und konstanten GK beziehungsweise Konkurrenzpreis p*, von Menge null bis xₘ. Nachfrage, Grenzerlös und Konkurrenzmenge x* bleiben sichtbar." {...mono}
+  yTicks={[{at:198.5,label:'pₘ'},{at:117,label:'p*'}]}
+  areas={[{points:[[0,117],[0,198.5],[89.5,198.5],[89.5,117]],tone:'accent',pattern:'hatch',label:'Produzentenrente',labelAt:[5,150]}]}
+  notes={mono.notesBase}
+  source={`Folie 81 · ${monoSource}`} />
+
+<Callout type="merksatz">Die höhere Monopolpreislinie schafft einen Vorteil für den Anbieter. Ob die **gesamte Wohlfahrt** steigt oder sinkt, lässt sich erst durch die zusätzliche Betrachtung der Konsumentenrente und der nicht mehr gehandelten Einheiten beurteilen.</Callout>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 78–81</SourceNote>
+</section>
+
+<section id="ioek-3-wohlfahrtsverlust">
+
+## Wohlfahrt und Monopolverlust
+
+<EconDiagram title="Wohlfahrtsvergleich Monopol vs. vollkommene Konkurrenz · Folie 82" alt="A am Nachfrageachsenabschnitt, B am Monopolpreis, E auf der Nachfrage über xₘ, H am GK-Achsenabschnitt, G unter E auf GK und D im Konkurrenzgleichgewicht. ABE (grün) ist Konsumentenrente, HBEG (rot schraffiert) Produzentenrente und GED (rot gegittert) Wohlfahrtsverlust." {...mono}
+  areas={[
+    {points:[[0,280],[0,198.5],[89.5,198.5]],tone:'positive',pattern:'hatch',label:'KR (ABE)',labelAt:[5,212]},
+    {points:[[0,117],[0,198.5],[89.5,198.5],[89.5,117]],tone:'negative',pattern:'hatch',label:'PR (HBEG)',labelAt:[5,150]},
+    {points:[[89.5,198.5],[89.5,117],[179,117]],tone:'negative',pattern:'cross'},
+  ]}
+  markers={monoPoints}
+  notes={[...mono.notesBase,{at:[150,215],text:'Wohlfahrtsverlust (GED)',tone:'negative'}]}
+  source={`Folie 82 · ${monoSource} Punktbezeichnungen A–H wie im Original; D ist zugleich der Preis bei vollkommener Konkurrenz.`} />
+
+<DataTable caption="Flächenzuordnung der Folie 82 · konstante GK" columns={[{key:'groesse',label:'Größe'},{key:'konkurrenz',label:'Vollkommene Konkurrenz'},{key:'monopol',label:'Monopol'}]} rows={[
+  {groesse:'Konsumentenrente',konkurrenz:'ADH',monopol:'ABE'},
+  {groesse:'Produzentenrente',konkurrenz:'0',monopol:'HBEG'},
+  {groesse:'Gesamtwohlfahrt',konkurrenz:'ADH',monopol:'AEGH'},
+  {groesse:'Wohlfahrtsverlust gegenüber Konkurrenz',konkurrenz:'—',monopol:'GED'},
+]} />
+
+<EconDiagram title="Beurteilung: der Wohlfahrtsverlust GED · Folie 83" alt="Folie 83 hebt allein das rote Verlustdreieck GED zwischen Nachfrage und Grenzkosten im Mengenintervall xₘ bis x* hervor." {...mono}
+  areas={[{points:[[89.5,198.5],[89.5,117],[179,117]],tone:'negative',pattern:'cross'}]}
+  markers={monoPoints}
+  notes={[...mono.notesBase,{at:[150,215],text:'Wohlfahrtsverlust (GED)',tone:'negative'}]}
+  source={`Folie 83 · ${monoSource}`} />
+
+<Columns count={3}>
+<Card title="Konsumenten" tone="negative">Die Konsumentenrente sinkt gegenüber vollkommenem Wettbewerb.</Card>
+<Card title="Produzent" tone="positive">Die Produzentenrente steigt; der Monopolist erhält einen Teil der bisherigen Konsumentenrente.</Card>
+<Card title="Gesamtmarkt" tone="warning">Der Verlust **GED** geht an keine Partei. Die Summe der Renten fällt: Das Monopolergebnis ist **nicht pareto-optimal**.</Card>
+</Columns>
+
+### Vertiefung an der Originalgrafik
+
+<a href={vertiefungMonopol} target="_blank" rel="noreferrer" aria-label="Originalgrafik der Vertiefungsaufgabe 5 vergrößern">
+<img src={vertiefungMonopol} alt="Unmarkiertes Monopoldiagramm aus Vertiefung Teil 3, Aufgabe 5: pm und xm im Monopolfall, p* und x* im Fall vollkommener Konkurrenz, fallende Nachfrage und Grenzerlös sowie waagrechte GK." />
+Abbildung vergrößern
+</a>
+
+<Exercise title="Vertiefung Teil 3 · Aufgabe 5" question="Gegeben ist die vorstehende Grafik. Dabei bezeichnen p* und x* Preis und Menge im Falle der vollkommenen Konkurrenz und pm sowie xm Preis und Menge im Falle eines Monopols. a. Wo befindet sich die Produzentenrente im Falle der vollkommenen Konkurrenz? b. Wo befindet sich die Konsumentenrente im Falle der vollkommenen Konkurrenz? c. Worin besteht der Unterschied in der Gesamtwohlfahrt zwischen vollkommener Konkurrenz und dem Monopolfall?">
+Im bereitgestellten Vertiefungsblatt steht keine Musterlösung. Die Renten und der Verlust sind in den Vorlesungsfolien 82–83 oberhalb separat gekennzeichnet.
+</Exercise>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 82–83 · Vertiefung Teil 3, S. 1, Aufgabe 5</SourceNote>
+</section>
+
+<section id="ioek-3-standardfall">
+
+## Exkurs: steigende Grenzkosten
+
+<Callout type="pitfall" title="Standardfall ist nicht derselbe Modellfall">
+Der Exkurs verwendet eine **steigende Angebots- beziehungsweise Grenzkostenkurve** („normaler Wettbewerb – ohne Monopol“). Die Quelle merkt ausdrücklich an: *„Der Standardfall ist nicht zu verwechseln mit der vollkommenen Konkurrenz!“* Im Unterschied zum Monopol-/Konkurrenzvergleich der Folien 82–83 (waagrechte GK, Produzentenrente bei Konkurrenz = 0) gibt es hier auch im Gleichgewicht eine **positive Produzentenrente** (HDC).
+</Callout>
+
+<a href={standardfall} target="_blank" rel="noreferrer" aria-label="Standardfall von Angebot, Nachfrage und Renten auf Folie 84 vergrößern">
+<img src={standardfall} alt="Folie 84: steigendes Angebot und fallende Nachfrage schneiden sich bei p* und y*. Blau schraffierte Konsumentenrente liegt oberhalb des Preises und unter Nachfrage, rot schraffierte Produzentenrente unterhalb des Preises und oberhalb Angebot." />
+Abbildung vergrößern
+</a>
+
+<CompareCard items={[
+  {title:'Konsumentenrente',accent:'accent',points:['Differenz zwischen maximaler Zahlungsbereitschaft und tatsächlich gezahltem Preis.','In der Grafik über der Preislinie und unter der Nachfrage.']},
+  {title:'Produzentenrente',accent:'positive',points:['Differenz zwischen tatsächlichem Preis und dem Preis, bei dem das Angebot gerade aufrechterhalten wird.','In der Grafik unter der Preislinie und über dem steigenden Angebot.']},
+]} />
+
+<Card title="Marktgleichgewicht · Folie 84" tone="accent">
+Die Summe aus Konsumenten- und Produzentenrente ist im Marktgleichgewicht maximal. Es ist **pareto-effizient**: Keine Partei kann ihre Rente verbessern, ohne die andere schlechterzustellen.
+</Card>
+
+### Monopol bei steigenden Grenzkosten
+
+<a href={steigendeGK} target="_blank" rel="noreferrer" aria-label="Monopol bei steigenden Grenzkosten auf Folie 85 vergrößern">
+<img src={steigendeGK} alt="Folie 85: steigende GK, fallende Nachfrage und Grenzerlös, Monopolmenge ym und Konkurrenzmenge y*. A, B, C, D, E, F, G, H und I markieren die Grenzen der Rentenflächen." />
+Abbildung vergrößern
+</a>
+
+<DataTable caption="Flächen des Exkurses · Folie 85" columns={[{key:'groesse',label:'Größe'},{key:'standard',label:'Vorher: Standardfall'},{key:'monopol',label:'Monopol'}]} rows={[
+  {groesse:'Konsumentenrente',standard:'ACD',monopol:'ABE'},
+  {groesse:'Produzentenrente',standard:'HDC',monopol:'HBEG'},
+  {groesse:'Gesamtwohlfahrt',standard:'ADH',monopol:'AEGH'},
+  {groesse:'Wohlfahrtsverlust',standard:'—',monopol:'GED'},
+]} />
+
+<a href={rentenStandardfall} target="_blank" rel="noreferrer" aria-label="Farbig schraffierten Rentenvergleich und Flächenlegende auf Folie 86 vergrößern">
+<img src={rentenStandardfall} alt="Folie 86: Konsumentenrente im Standardfall und Monopol als grüne Dreiecke, Produzentenrenten als rot umrandete Flächen und zusätzlicher roter Wohlfahrtsverlust. Separate Flächenlegende rechts ordnet die schraffierten Formen zu." />
+Abbildung vergrößern
+</a>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 84–86</SourceNote>
+</section>
+
+<section id="ioek-3-preisdiskriminierung">
+
+## Perfekte Preise und drei Grade
+
+<Card title="Der Trick des Monopolisten" tone="accent">
+
+- Bei einem Einheitspreis senkt die Outputausweitung den Preis auch für alle bisherigen Einheiten.
+- Individuelle Preise **je Konsument und je Einheit** vermeiden diesen Effekt: Zusätzlich verkaufen, ohne den Preis insgesamt senken zu müssen.
+- Die Quelle verknüpft diese Idee mit **smartem Ticketing**.
+
+</Card>
+
+<DefinitionBox term="Perfekte Preisdiskriminierung">
+Der Anbieter erhöht die Menge, solange der erzielbare Preis über GK liegt. Die letzte Einheit wird zu GK verkauft. Der Output ist derselbe wie bei vollkommener Konkurrenz, aber der Monopolist schöpft die **gesamte Konsumentenrente** ab.
+</DefinitionBox>
+
+<a href={perfektePD} target="_blank" rel="noreferrer" aria-label="Treppen- und Lupendarstellung perfekter Preisdiskriminierung auf Folien 89–90 vergrößern">
+<img src={perfektePD} alt="Folie 89: links Nachfrage und Grenzerlös mit Preis 10 und Mengenmarken 350 und 700; rechts eine Lupe über der in infinitesimal kleine Stufen aufgelösten Nachfrage. Jede einzelne Einheit erhält einen eigenen Preis; die Balken schöpfen die Konsumentenrente ab. A, B und C sowie der Vergleich mit einheitlichen Preisen bleiben erhalten." />
+Abbildung vergrößern
+</a>
+
+<Card title="Die Grafik lesen · Folie 89" tone="accent" exam>
+
+- Die waagrechte Linie bei **10** übernimmt die Rolle der (konstanten) Grenzkosten; die Folie beschriftet sie nur mit dem Wert 10.
+- **Einheitspreis-Monopol:** Grenzerlös = Grenzkosten bei **x = 350**; der Preis wird darüber auf der Nachfrage abgelesen (Punkt **C**).
+- **Perfekte Preisdiskriminierung:** Der Anbieter verkauft weiter, solange der Preis über GK liegt, also bis **x = 700** (Punkt **A**, Nachfrage = GK) – das ist genau die **Konkurrenzmenge**, doppelt so viel wie im Einheitspreis-Monopol.
+- Die gesamte Fläche zwischen Nachfrage und GK geht dabei als Produzentenrente an den Anbieter; die Konsumentenrente ist **null**.
+
+</Card>
+
+<Callout type="merksatz" title="Aussage der Folie 90">
+Der entscheidende Unterschied: Bei einer Outputausweitung wird **nicht der Preis insgesamt gesenkt**. Für jedes Stück erhält der Anbieter einen individuellen Preis. Die infinitesimalen Stufen der vergrößerten Grafik illustrieren diesen Grenzfall.
+</Callout>
+
+### Drei Grade der Preisdiskriminierung
+
+<CompareCard items={[
+  {tag:'1. Grad',title:'Perfekte Diskriminierung',accent:'accent',points:['Der Verkäufer verlangt den höchsterzielbaren Preis für jede Einheit.','Die Konsumentenrente wird vollständig abgeschöpft.']},
+  {tag:'2. Grad',title:'Art der Nachfrage',accent:'warning',points:['Preis nicht individuell, sondern abhängig von der Art der Nachfrage.','Mengenrabatt.','Grundgebühr, um überhaupt kaufen zu können.','Eintrittspreise je nach Uhrzeit des Eintritts.']},
+  {tag:'3. Grad',title:'Gruppen von Konsumenten',accent:'positive',points:['Unterschiedliche Preise für unterschiedliche Gruppen.','Beispiele: Kinder, Studenten, Rentner, Familien und Bewohner.']},
+]} />
+
+<Callout type="info" title="Gemeinsamer Hinweis zu 2. und 3. Grad · Folie 91">
+Auch hier ist die Konsumentenrente kleiner als bei vollkommener Konkurrenz. Bei Einführung nur weniger Kategorien kann sie aber **größer als beim Monopol mit einheitlichem Preis** sein.
+</Callout>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 87–91 · Originalabbildung aus Folie 89; Folie 90 wiederholt dieselbe Grafik mit erläuterndem Text</SourceNote>
+</section>
+
+<section id="ioek-3-gesamtvergleich">
+
+## Diskriminierung und Gesamtbeurteilung
+
+### Von einem Einheitspreis zu individuellen Preisen
+
+<Card title="Einheitspreis-Monopol · Folie 92">
+<a href={pdMonopol} target="_blank" rel="noreferrer" aria-label="Einheitspreis-Monopol der Folie 92 vergrößern"><img src={pdMonopol} alt="Einheitspreis-Monopol: grün schraffierte Konsumentenrente oberhalb und rot schraffierte Produzentenrente unterhalb des Monopolpreises, begrenzte Monopolmenge." />Abbildung vergrößern</a>
+
+Ein einzelner Anbieter bedient den Markt. Die Grafik zeigt Konsumenten- und Produzentenrente bei einem einheitlichen Monopolpreis.
+</Card>
+
+<Card title="Geringe Preisdiskriminierung · Folie 92" tone="accent">
+<a href={pdGering} target="_blank" rel="noreferrer" aria-label="Geringe Preisdiskriminierung der Folie 92 vergrößern"><img src={pdGering} alt="Geringe Preisdiskriminierung: zwei Preisstufen mit roten Produzentenrenten und grünen Konsumentenrenten; rechts bleibt eine rote Wohlfahrtslücke vor der maximalen Menge." />Abbildung vergrößern</a>
+
+- Eine zusätzliche Kundengruppe wird erschlossen, ohne vom ursprünglichen GE-GK-Kalkül abzugehen.
+- Im gezeigten Fall steigen sowohl Konsumenten- als auch Produzentenrente gegenüber dem Einheitspreis-Monopol.
+- Die Wohlfahrt bleibt kleiner als bei vollkommener Konkurrenz. Weil der Anbieter im gezeigten Fall nicht zu GK anbietet, bleibt eine Lücke.
+
+</Card>
+
+<Card title="Fast perfekte Preisdiskriminierung · Folie 92">
+<a href={pdFastPerfekt} target="_blank" rel="noreferrer" aria-label="Fast perfekte Preisdiskriminierung der Folie 92 vergrößern"><img src={pdFastPerfekt} alt="Fast perfekte Preisdiskriminierung: zahlreiche fein gestufte Preise, große rot schraffierte Produzentenrente und nur kleine grüne Konsumentenrenten, kleine Restlücke ganz rechts." />Abbildung vergrößern</a>
+
+Jeder einzelne Konsument bildet eine eigene Kundengruppe. Von der Konsumentenrente bleibt nur wenig übrig.
+</Card>
+
+<Callout type="pitfall">Die Darstellung **fast perfekter** Diskriminierung auf Folie 92 lässt eine Restlücke. Im **perfekten Grenzfall** auf Folie 88 wird dagegen die Konkurrenzmenge erreicht und die Konsumentenrente vollständig abgeschöpft.</Callout>
+
+### Vier Fälle im direkten Vergleich · Folie 93
+
+<Columns count={2}>
+<Card title="Vollkommene Konkurrenz">
+<a href={vergleichKonkurrenz} target="_blank" rel="noreferrer" aria-label="Konkurrenzfall aus Folie 93 vergrößern"><img src={vergleichKonkurrenz} alt="Konkurrenzfall aus Folie 93 mit waagrechten GK, fallender Nachfrage, grün schraffierter Konsumentenrente, Reservationspreis a, Preis p* und Marktgröße." />Abbildung vergrößern</a>
+</Card>
+<Card title="Perfekte Preisdiskriminierung">
+<a href={vergleichPerfekt} target="_blank" rel="noreferrer" aria-label="Perfekte Diskriminierung aus Folie 93 vergrößern"><img src={vergleichPerfekt} alt="Perfekte Preisdiskriminierung aus Folie 93: fein gestufte Nachfrage und ausgefüllte Preisbalken; Hinweis KR wird komplett abgeschöpft, Preisreferenz 10." />Abbildung vergrößern</a>
+</Card>
+<Card title="Geringe Preisdiskriminierung">
+<a href={vergleichGering} target="_blank" rel="noreferrer" aria-label="Geringe Diskriminierung aus Folie 93 vergrößern"><img src={vergleichGering} alt="Geringe Preisdiskriminierung aus Folie 93: zwei rote Produzentenrenten-Rechtecke, grüne Konsumentenrenten-Dreiecke und verbleibendes rotes Verlustdreieck rechts." />Abbildung vergrößern</a>
+</Card>
+<Card title="Monopol">
+<a href={vergleichMonopol} target="_blank" rel="noreferrer" aria-label="Monopolfall aus Folie 93 vergrößern"><img src={vergleichMonopol} alt="Monopolfall aus Folie 93: Konsumentenrente ABE, Produzentenrente HBEG, Wohlfahrtsverlust GED, Konkurrenz- und Monopolmenge sowie Preislinien." />Abbildung vergrößern</a>
+</Card>
+</Columns>
+
+### Gesamtbeurteilung des Skripts
+
+<Columns count={2}>
+<Card title="Versorgung und Preis" tone="accent" exam>
+
+1. Die Versorgung der Bevölkerung ist bei vollkommenem Wettbewerb höher als beim Monopol beziehungsweise Einzelanbieter.
+2. Die Produkte sind im Wettbewerb billiger als beim Monopol.
+
+</Card>
+<Card title="Wohlfahrt und Verteilung" exam>
+
+3. Die Wohlfahrt ist bei vollkommener Konkurrenz höher als beim Monopol, **außer bei vollkommener Preisdiskriminierung**.
+4. Die Konsumentenrente ist bei vollkommener Konkurrenz höher als beim Monopol; die Produzentenrente beträgt im Konkurrenzmodell mit konstanten GK **null**.
+
+</Card>
+</Columns>
+
+<SourceNote>Industrieökonomik · Teil 3 · Folien 92–94</SourceNote>
+</section>

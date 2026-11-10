@@ -76,6 +76,8 @@ Routes defined in `src/app/config.js` (ROUTES constants) and registered in `src/
 
 ### MDX content conventions
 
+**Figure fidelity comes first** (`docs/TOPIC_BUILD_SPEC.md` §2.0): every informative source figure is reproduced as exactly as possible and sensible — same chart type, axes, scale, categories, labels and values (taken from the source, never estimated), or a cropped original when a rebuild is not sensible. Source exercises are rebuilt with `<Exercise>`; self-authored quizzes stay in `questions.js` / `exams.js`. Reference implementation: `src/modules/semester-5/data-science/`.
+
 The approved pilot topic (`05-grundlagen-der-portfoliotheorie.mdx`) is the style reference:
 - Card blocks per concept with strong block separation
 - `<Columns>` for 2–3 cards side-by-side

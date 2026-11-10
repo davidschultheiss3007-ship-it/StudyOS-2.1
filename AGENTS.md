@@ -39,9 +39,12 @@ topics/NN-slug.js + topics/NN-slug.mdx
 - Keine Topic-spezifische UI, kein Topic-CSS und keine hartcodierten Farben einführen.
 - Die zentrale Learning-Palette unter `src/components/learning/visuals/` verwenden.
 - Inhalte sind standardmäßig statisch und beim ersten Rendern vollständig sichtbar.
-- Keine Quiz-, Reveal- oder Selbsttest-Elemente in MDX.
-- Visualisierung nach Stofftyp wählen; benachbarte Sections dürfen nicht schematisch gleich aussehen.
-- Formeln über KaTeX/`Formula`, Daten über `DataChart`, Prozesse über `Diagram` und strukturierte Vergleiche über die vorhandenen Learning-Komponenten darstellen.
+- Keine selbst verfassten Quiz-, Reveal- oder Selbsttest-Elemente in MDX. Ausnahme: Übungen, die im Skript stehen, werden als `<Exercise>` mit Frage, Optionen und Musterlösung an ihrer Stelle im Kapitel nachgebaut.
+- **Abbildungstreue hat Vorrang** (`docs/TOPIC_BUILD_SPEC.md` §2.0): Jede Folie als Bild ansehen und vor dem Bauen ein Abbildungsinventar anlegen. Jede informative Abbildung so genau wie möglich und sinnvoll nachbauen – gleicher Diagrammtyp, gleiche Achsen, Skalen, Kategorien, Reihenfolge, Beschriftungen und Werte; Schemata mit gleicher Struktur. Fotos, Screenshots oder nicht sinnvoll nachbaubare Grafiken als zugeschnittenes Original mit Alt-Text; reine Deko weglassen.
+- Kein Wechsel des Diagrammtyps, keine geschätzten Werte: gedruckte Zahlen bzw. R-Ausgaben, dann PDF-Vektorkoordinaten, dann kalibrierte Pixelauswertung. Abgeleitete Werte kennzeichnen; Fehler der Quelle benennen statt still korrigieren.
+- Bei Markdown-Quellen ist die zugehörige PDF maßgeblich für Abbildungen, Formeln, Tabellen und exakte Zahlen.
+- Für reinen Text die Visualisierung nach Stofftyp wählen; benachbarte Sections dürfen nicht schematisch gleich aussehen.
+- Formeln über KaTeX/`Formula`, Daten über `DataChart`/`BoxPlot`, Prozesse über `Diagram` und strukturierte Vergleiche über die vorhandenen Learning-Komponenten darstellen. Kann eine zentrale Komponente eine Quellabbildung nicht abbilden, wird sie abwärtskompatibel erweitert (nur Tokens) statt eine andere Darstellungsform zu wählen.
 - `docs/TOPIC_BUILD_SPEC.md` vor jeder Topic-Arbeit vollständig lesen.
 
 ## Spezialisierte Codex-Agenten
@@ -64,7 +67,7 @@ Soweit relevant prüfen:
 2. `npm run build`
 3. korrekte IDs, Imports, Exports und relative Pfade
 4. keine Konsolenfehler, Overflows oder abgeschnittenen Inhalte
-5. Desktop und Mobile bei visuellen Änderungen
+5. Desktop und Mobile bei visuellen Änderungen; bei Topics jede Abbildung gerendert neben ihrer Folie vergleichen (Desktop hell, Mobil dunkel)
 6. Diff-Scope: keine unbeabsichtigten Änderungen an Topics, Components, Pages oder Styles
 
-Am Ende geänderte Dateien, Umsetzung, Prüfungen und offene Risiken kurz nennen.
+Am Ende geänderte Dateien, Umsetzung, Prüfungen und offene Risiken kurz nennen; bei Topics zusätzlich Abbildungsinventar, abgeleitete Werte und benannte Quellfehler.

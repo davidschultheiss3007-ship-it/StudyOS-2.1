@@ -72,7 +72,23 @@ STYLE CONTRACT — match the approved exemplars exactly. READ THESE FIRST:
   ${HR_DIR}/topics/01-einfuehrung.mdx (process/structure).
 - The component registry (what exists): src/components/learning/visuals/index.jsx.
 
-LOOK PRINCIPLE — "VISUALIZE BEFORE VERBALIZE":
+FIGURE FIDELITY — PRIMARY RULE (docs/TOPIC_BUILD_SPEC.md §2.0, ranks above everything below):
+- Look at EVERY source slide as an image (render the PDF page; the Markdown/OCR loses charts, formulas,
+  tables). Before writing MDX, make a figure inventory: slide, figure type, data it carries, path A–D.
+- A · data charts/tables → rebuild faithfully: SAME chart type, axes, scale, categories, order, axis titles,
+  labels, legend, reference lines (DataChart, BoxPlot, DataTable, ProportionBar).
+  B · schemas/diagrams → same nodes, edges, direction, grouping, wording (Diagram, DecisionTree, Columns+Card).
+  C · photos, software screenshots, figures too complex to rebuild → cropped original in ../assets/ with
+      descriptive alt text + enlarge link + short explanation.
+  D · purely decorative → omit and note it.
+- NEVER swap the figure type (no mean bar for a dot plot, no flowchart for a histogram).
+- NEVER estimate values by eye: use printed numbers / R output first, then PDF vector coordinates
+  (PyMuPDF page.get_drawings(), axes calibrated from tick labels), then calibrated pixel analysis,
+  then a public dataset ONLY if the slide names it. Mark every derived value as "abgelesen/rekonstruiert".
+- Reproduce and FLAG source errors/contradictions with <Callout type="warn">; never fix them silently.
+- Check each rendered figure side by side with its slide (desktop light + mobile dark).
+
+LOOK PRINCIPLE — "VISUALIZE BEFORE VERBALIZE" (for content the source presents as TEXT):
 - For EVERY section, first ask: can this be a real visualization? Prefer it over bullet text.
   numbers/series → <DataChart>; process/flow/taxonomy/tree → <Diagram> (mermaid);
   3D relation z=f(x,y) (utility/value/risk) → <Surface3D>; risk/return cloud → <Scene3D>;
@@ -85,7 +101,8 @@ LOOK PRINCIPLE — "VISUALIZE BEFORE VERBALIZE":
 - VARY the dominant visual across adjacent sections — never the same shape twice in a row.
 - These components are AUTO-INJECTED (no import in .mdx): Formula, DataChart, Diagram, Scene3D, Surface3D,
   CompareCard, Timeline, DefinitionBox, Callout, DataTable, KpiGrid, DecisionTree, SpectrumAxis,
-  QuadrantMatrix, ProportionBar, SourceNote, Explorable, Card, Columns, Exam.
+  QuadrantMatrix, ProportionBar, SourceNote, Explorable, Card, Columns, Exam, BoxPlot, Exercise.
+  DataChart fidelity props: referenceLines, xTicks/yTicks, stacked, barCategoryGap={0} (histograms), tooltip.
 
 MDX TRAPS THAT BREAK THE BUILD:
 - Bare < or > in prose parse as JSX. Write "größer"/"kleiner"/"unter pari" or use <Formula inline expr="x < y" />.
@@ -95,10 +112,13 @@ MDX TRAPS THAT BREAK THE BUILD:
 - Every <section id> MUST equal a meta.sections[].id. No umlauts in ids/slugs. No duplicate ids.
 - Mermaid node labels with special chars must be quoted: A["Text (x)"].
 - Do NOT add per-topic CSS/wrappers; section/heading/card styling is central.
+- A $ in prose opens inline math: write currency as \\$. No HTML entities (&quot;) in JSX attribute
+  strings — use {'...'}. { } in prose start a JS expression — keep code in backticks.
 
-CONTENT RULES: only facts present in the source — never invent figures/formulas/names. NO assessment in
-content (no quiz/self-test/reveal/flip — render source quizzes as STATIC teaching examples with the
-answer shown; real questions go to questions.js/exams.js). No click-walls. Static by default
+CONTENT RULES: only facts present in the source — never invent figures/formulas/names. No SELF-AUTHORED
+assessment in content (quiz/self-test/flip go to questions.js/exams.js). EXCEPTION: an exercise that
+exists in the source ("Übung" + "Lösung") is reproduced faithfully with <Exercise question options answer>
++ the source solution as children, at its place in the chapter. No click-walls. Static by default
 (<Explorable> only wraps optional 3D enrichment). Mark unclear source passages, don't smooth them over.
 `
 
@@ -120,6 +140,7 @@ const BUILD_SCHEMA = {
     metaFile: { type: 'string' },
     sectionIds: { type: 'array', items: { type: 'string' } },
     pdfFallbacks: { type: 'array', items: { type: 'string' } },
+    figureInventory: { type: 'array', items: { type: 'string' }, description: 'one line per source figure: "Folie X · type · path A|B|C|D · component · how values were obtained"' },
     notes: { type: 'string' },
     ok: { type: 'boolean', description: 'true if both files written and self-checked against the SPEC' },
   },
@@ -130,9 +151,11 @@ const built = await parallel(TOPICS.map((t) => () =>
     `You are a StudyOS Markdown-to-MDX topic builder. Build the learning topic "${t.slug}" (${t.mod} Kapitel ${t.nn}), one of the remaining topics in a 24-topic build. Visual quality is the top priority.
 
 PRIMARY SOURCE (read it FULLY — it is Markdown with per-slide visual-reconstruction briefings): ${t.src}
+FIGURES / NUMBERS: glob sources/ for the matching PDF of this chapter and view every slide as an image —
+the PDF is authoritative for figures, formulas, tables and exact numbers (FIGURE FIDELITY below).
 This module's accent color is ${t.accent.toUpperCase()} — prefer tone="${t.accent === 'blue' ? 'accent' : t.accent}"/"accent" on emphasis cards where natural.
 
-TARGET FILES — write EXACTLY these two, nothing else:
+TARGET FILES — write EXACTLY these two (plus cropped originals in ${t.dir}/assets/ for figure path C):
   ${t.dir}/topics/${t.nn}-${t.slug}.js   (meta export; meta.id MUST equal "${t.slug}")
   ${t.dir}/topics/${t.nn}-${t.slug}.mdx  (body, 4–8 sections, each <section id> matching a meta.sections[] id)
 
@@ -140,8 +163,9 @@ ${t.newEntry
   ? `This is a NEW topic not yet in module.js. Use title "${t.title}". Read a sibling entry in ${t.dir}/module.js to copy the "Modul · ..." source-label style and pick a sensible estimatedMinutes.`
   : `Copy title / source / estimatedMinutes VERBATIM from the matching topic entry in ${t.dir}/module.js (match by id "${t.slug}").`}
 
-Build the meta with strong keyTakeaways (5–8), examFocus (4–8), and pitfalls (present). Vary the dominant
-visual form across sections. Use the richest STATIC visualization the content supports.
+Build the meta with strong keyTakeaways (5–8), examFocus (4–8), and pitfalls (present). First reproduce
+every source figure per FIGURE FIDELITY and return the figureInventory. For text-only content, vary the
+dominant visual form across sections and use the richest STATIC visualization the content supports.
 
 Do NOT edit ${t.dir}/topics/index.js or ${t.dir}/module.js — registry wiring happens centrally next.
 Do NOT run a build (a central build runs after wiring).
@@ -240,7 +264,12 @@ const reviewed = await pipeline(
 against its source ${t.src}.
 Check for: invented claims/figures/formulas NOT in the source; materially wrong statements; missing
 exam-relevant content; shortened/incorrect definitions; wrong citations; <section id> not matching
-meta.sections[]. FIX issues in place in the .mdx/.js, preserving the approved style (docs/TOPIC_BUILD_SPEC.md).
+meta.sections[].
+FIGURE FIDELITY (SPEC §2.0): view every slide of the matching PDF as an image and check that each
+informative figure is present with the SAME type, axes, scale, categories/order, labels and values;
+values not printed on the slide must be marked "abgelesen/rekonstruiert"; source errors must be flagged,
+not silently fixed; source exercises must appear as <Exercise> with the source solution.
+FIX issues in place in the .mdx/.js, preserving the approved style (docs/TOPIC_BUILD_SPEC.md).
 NEVER invent content to fill a gap — if the source lacks it, flag it instead. Keep changes minimal and
 faithful. Return the structured result (findings + fixesApplied).`,
     { label: `audit:${t.mod}-${t.nn}`, phase: 'Audit', schema: AUDIT_SCHEMA, agentType: 'general-purpose' },
@@ -253,6 +282,8 @@ process→Diagram/Timeline, contrast→CompareCard, 2-axis split→QuadrantMatri
 3D relation→Surface3D) should be UPGRADED to that form. Add <Card>/<Columns> block separation, "### "
 sub-headings to group cards, <Exam> markers on testable phrases, convert leftover prose to bullets, and
 raise visual density. Ensure the dominant visual VARIES across adjacent sections.
+NEVER replace or restyle a faithful reconstruction of a source figure (SPEC §2.0) into a different form —
+figure fidelity beats variety and density. Never turn a source <Exercise> into static text or vice versa.
 Do NOT add subject-matter facts not already present. Keep meta keyTakeaways/examFocus/pitfalls strong.
 Follow docs/TOPIC_BUILD_SPEC.md and avoid the MDX traps (no bare < > in prose; no **bold** in string props).
 After editing, the topic must still build. Return a one-line summary of the changes you made.`,
